@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+:root {
+  --color-yellow: #FFF35C;
+  --color-blue: #0306AC;
+  --color-blue-dark: #020485;
+  --color-dark-blue: #03053D;
+  --color-dark: #080710;
+  --color-light: #F9FAFB;
+  --color-border: #E5E7EB;
+  --color-gray: #6B7280;
+  --color-blue-opaque-4: rgba(3, 6, 172, 0.04);
+  --color-blue-opaque-5: rgba(3, 6, 172, 0.05);
+  --color-blue-opaque-8: rgba(3, 6, 172, 0.08);
+  --color-blue-opaque-10: rgba(3, 6, 172, 0.1);
+  --color-dark-opaque-4: rgba(8, 7, 16, 0.04);
+}
+
+@theme {
+  --font-heading: var(--font-heading), serif;
+  --font-sans: var(--font-body), sans-serif;
+  
+  --color-brand-yellow: var(--color-yellow);
+  --color-brand-blue: var(--color-blue);
+  --color-brand-blue-dark: var(--color-blue-dark);
+  --color-brand-dark-blue: var(--color-dark-blue);
+  --color-brand-dark: var(--color-dark);
+  --color-brand-light: var(--color-light);
+  --color-brand-zinc-50: var(--color-light);
+  --color-brand-zinc-100: #F3F4F6;
+  --color-brand-zinc-200: var(--color-border);
+  --color-brand-zinc-300: #D1D5DB;
+  --color-brand-zinc-400: #9CA3AF;
+  --color-brand-zinc-500: var(--color-gray);
+  --color-brand-zinc-800: #1F2937;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-body), sans-serif;
+  overflow-x: hidden;
+}
+
+/* Premium utility classes */
+.font-heading {
+  font-family: var(--font-heading);
+}
+
+.text-stroke-blue {
+  -webkit-text-stroke: 1.5px var(--color-blue);
+  color: transparent;
+}
+
+.text-stroke-dark {
+  -webkit-text-stroke: 1.5px var(--color-dark);
+  color: transparent;
+}
+
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid var(--color-blue-opaque-10);
+}
+
+.marquee-container {
+  display: flex;
+  overflow: hidden;
+  user-select: none;
+  gap: 2rem;
+}
+
+.marquee-content {
+  display: flex;
+  flex-shrink: 0;
+  justify-content: space-around;
+  gap: 2rem;
+  min-width: 100%;
+}
+
+/* Hardcoded bg color/gradient classes to keep components color-free */
+.bg-grid-blue-5 {
+  background-image: radial-gradient(var(--color-blue-opaque-5) 1.5px, transparent 1.5px);
+}
+
+.bg-grid-blue-8 {
+  background-image: radial-gradient(var(--color-blue-opaque-8) 1px, transparent 1px);
+}
+
+.bg-grid-blue-4 {
+  background-image: radial-gradient(var(--color-blue-opaque-4) 1.5px, transparent 1.5px);
+}
+
+.bg-linear-grid-blue-4 {
+  background-image: 
+    linear-gradient(to right, var(--color-blue-opaque-4) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-blue-opaque-4) 1px, transparent 1px);
+}
+
+.bg-linear-grid-dark-4 {
+  background-image: 
+    linear-gradient(to right, var(--color-dark-opaque-4) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--color-dark-opaque-4) 1px, transparent 1px);
+}
+
+.bg-linear-grid-white-3 {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+}
+
+/* Color-code free SVG trend line styles */
+.stroke-trend-green {
+  stroke: #10b981;
+}
+.fill-trend-green {
+  fill: #10b981;
+}
+.stroke-trend-blue {
+  stroke: var(--color-blue);
+}
+.fill-trend-blue {
+  fill: var(--color-blue);
+}
+.stroke-trend-yellow {
+  stroke: var(--color-yellow);
+}
+.fill-trend-yellow {
+  fill: var(--color-yellow);
+}

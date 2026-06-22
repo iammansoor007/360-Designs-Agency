@@ -1,0 +1,262 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { ArrowRight, ArrowUpRight, Star } from "lucide-react";
+import Image from "next/image";
+
+const clipVariants = {
+  hidden: { width: "0%" },
+  visible: (custom: { delay: number; duration: number }) => ({
+    width: "100%",
+    transition: { 
+      duration: custom?.duration ?? 0.85, 
+      delay: custom?.delay ?? 0.5, 
+      ease: [0.16, 1, 0.3, 1] 
+    }
+  })
+};
+
+export default function Hero() {
+  const marqueeItems = ["Creative Design", "UI/UX", "Marketing", "Motion", "Animation", "Development"];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 25, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as any },
+    },
+  };
+
+  return (
+    <section className="relative overflow-hidden bg-white pt-16 md:pt-10 pb-0 flex flex-col justify-between min-h-[65vh] md:min-h-[90vh]">
+
+      {/* Background soft glow blobs */}
+      <div className="absolute top-1/4 left-10 z-[2] h-72 w-72 rounded-full bg-brand-yellow/25 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 z-[2] h-96 w-96 rounded-full bg-brand-blue/8 blur-3xl pointer-events-none" />
+      {/* Interactive Background Pixel Grid */}
+      <div className="absolute inset-0 z-[1] grid grid-cols-6 sm:grid-cols-10 md:grid-cols-12 lg:grid-cols-16 w-full h-full overflow-hidden pointer-events-none border-t border-l border-brand-blue/8">
+        {[...Array(192)].map((_, i) => (
+          <div
+            key={i}
+            className="aspect-square border-r border-b border-brand-blue/8 transition-colors duration-1000 hover:bg-brand-blue/20 hover:duration-75 pointer-events-auto md:pointer-events-auto pointer-events-none"
+          />
+        ))}
+      </div>
+
+
+      <div className="mx-auto max-w-7xl px-6 md:px-12 w-full z-20 relative pointer-events-none">
+        <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-stretch">
+
+          {/* Left Column: Headline, Description, Buttons, Social Proof */}
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.15 }}
+            className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start"
+          >
+            {/* Pill Badge */}
+            <motion.div variants={itemVariants} className="inline-flex pointer-events-auto">
+              <span className="inline-flex items-center gap-2 rounded-full bg-brand-yellow px-4 py-1.5 text-[10px] font-extrabold tracking-wider uppercase text-brand-dark select-none shadow-sm">
+                <Star className="h-3.5 w-3.5 fill-brand-dark text-brand-dark shrink-0" />
+                World-Class Creative Agency
+              </span>
+            </motion.div>
+
+            {/* Headline */}
+            <motion.h1
+              variants={itemVariants}
+              className="font-heading text-[10.5vw] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-brand-dark select-none"
+            >
+              We Build Brands <br />
+              That <motion.span
+                whileHover="hover"
+                className="text-brand-blue relative inline-block pointer-events-auto cursor-pointer"
+              >
+                Grow & Scale
+                {/* Custom animated hand-drawn SVG underline with gradient and hover interaction */}
+                <svg className="absolute -bottom-3.5 left-0 w-full h-5 pointer-events-none drop-shadow-[0_1.5px_2.5px_rgba(255,243,92,0.45)]" viewBox="0 0 100 14" preserveAspectRatio="none">
+                  <defs>
+                    <linearGradient id="brushGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stopColor="#FFF35C" />
+                      <stop offset="100%" stopColor="#FFA800" />
+                    </linearGradient>
+                    <clipPath id="underlineClip1">
+                      <motion.rect
+                        x="0"
+                        y="0"
+                        height="100%"
+                        variants={clipVariants}
+                        custom={{ delay: 0.5, duration: 0.85 }}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: false }}
+                      />
+                    </clipPath>
+                    <clipPath id="underlineClip2">
+                      <motion.rect
+                        x="0"
+                        y="0"
+                        height="100%"
+                        variants={clipVariants}
+                        custom={{ delay: 0.75, duration: 0.75 }}
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: false }}
+                      />
+                    </clipPath>
+                  </defs>
+                  {/* First natural tapered brush stroke (spring animates on hover) */}
+                  <motion.path
+                    d="M 2 7 Q 50 2, 98 5 C 99 5, 99 6, 98 6.5 Q 50 9, 2 8 C 1 8, 1 7, 2 7 Z"
+                    fill="url(#brushGradient)"
+                    clipPath="url(#underlineClip1)"
+                    variants={{
+                      hover: { y: 1.5, scaleX: 1.025, transition: { type: "spring", stiffness: 350, damping: 14 } }
+                    }}
+                  />
+                  {/* Second natural tapered brush stroke (spring animates on hover) */}
+                  <motion.path
+                    d="M 8 10 Q 50 7, 92 8.5 C 93 8.5, 93 9.5, 92 10 Q 50 12, 8 11 C 7 11, 7 10, 8 10 Z"
+                    fill="url(#brushGradient)"
+                    opacity="0.85"
+                    clipPath="url(#underlineClip2)"
+                    variants={{
+                      hover: { y: 3.2, x: 1.2, scaleX: 1.035, transition: { type: "spring", stiffness: 350, damping: 14 } }
+                    }}
+                  />
+                </svg>
+              </motion.span>
+            </motion.h1>
+
+            {/* Description */}
+            <motion.p
+              variants={itemVariants}
+              className="max-w-lg text-[15px] sm:text-sm md:text-base text-brand-zinc-800 leading-relaxed font-semibold font-sans select-none"
+            >
+              Innovative strategies. Creative design. Powerful results. We help businesses stand out, attract more customers, and drive real growth.
+            </motion.p>
+
+            {/* CTA Buttons */}
+            <motion.div
+              variants={itemVariants}
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-1 w-full sm:w-auto"
+            >
+              {/* Primary Cobalt Blue Button */}
+              <a
+                href="#contact"
+                className="group flex w-full max-w-[280px] sm:w-auto items-center justify-center gap-3 rounded-full bg-brand-blue px-7 py-4 text-xs font-black uppercase tracking-widest text-white hover:bg-brand-dark transition-all duration-300 shadow-lg pointer-events-auto hover:scale-[1.03] active:scale-[0.98]"
+              >
+                Get Started
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-brand-blue group-hover:bg-brand-yellow group-hover:text-brand-dark transition-colors duration-300">
+                  <ArrowRight className="h-4 w-4" />
+                </div>
+              </a>
+
+              {/* Secondary White/Border Button */}
+              <a
+                href="#services"
+                className="group flex w-full max-w-[280px] sm:w-auto items-center justify-center gap-3 rounded-full bg-white border border-brand-dark/10 px-7 py-4 text-xs font-black uppercase tracking-widest text-brand-dark hover:bg-brand-yellow hover:border-brand-yellow transition-all duration-300 shadow-sm pointer-events-auto hover:scale-[1.03] active:scale-[0.98]"
+              >
+                Our Services
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-dark text-white group-hover:bg-brand-dark group-hover:text-brand-yellow transition-colors duration-300">
+                  <ArrowUpRight className="h-4 w-4" />
+                </div>
+              </a>
+            </motion.div>
+
+
+          </motion.div>
+
+          {/* Right Column: Creative Graphic Showcase (No float/scale on hover, touches marquee) */}
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: false, amount: 0.15 }}
+            transition={{
+              duration: 0.6,
+              ease: "easeOut"
+            }}
+            className="lg:col-span-5 relative hidden lg:flex justify-center items-end mt-6 lg:mt-0 z-10 cursor-pointer pointer-events-auto w-full"
+          >
+            {/* Rotating Circle Badge */}
+            <motion.div
+              animate={{ rotate: 360 }}
+              transition={{ ease: "linear", duration: 20, repeat: Infinity }}
+              className="absolute -top-4 -right-4 h-24 w-24 z-20 hidden sm:block select-none pointer-events-none"
+            >
+              <svg viewBox="0 0 100 100" className="h-full w-full">
+                <defs>
+                  <path id="circlePath" d="M 50, 50 m -35, 0 a 35,35 0 1,1 70,0 a 35,35 0 1,1 -70,0" />
+                </defs>
+                <text className="text-[8.5px] font-black uppercase tracking-widest fill-brand-dark font-sans">
+                  <textPath href="#circlePath" startOffset="0%">
+                    • ELEVATE DIGITAL • CREATIVE POWER •
+                  </textPath>
+                </text>
+              </svg>
+              {/* Inner letter 'E' logo in the center of the rotating circle */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="h-7 w-7 rounded-full bg-brand-blue flex items-center justify-center shadow-md">
+                  <span className="text-[10px] font-black text-white font-sans uppercase">E</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Graphic Encased in borderless transparent container matching text height */}
+            <div className="relative w-full h-[320px] sm:h-[400px] lg:h-[460px] flex items-end justify-center">
+              <Image
+                src="/hero-image-1.webp"
+                alt="Elevate Digital Creative Graphic Showcase"
+                fill
+                priority
+                className="object-contain object-bottom"
+                sizes="(max-width: 768px) 100vw, 600px"
+              />
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
+
+      {/* HORIZONTAL MARQUEE: Solid Dark Tape in normal document flow at the bottom */}
+      <div className="relative w-full h-16 md:h-20 bg-brand-dark text-white flex items-center overflow-hidden z-30 border-t border-brand-zinc-800 mt-12 md:mt-16">
+        <div className="flex whitespace-nowrap gap-12 md:gap-16 select-none w-full">
+          <motion.div
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{
+              ease: "linear",
+              duration: 25,
+              repeat: Infinity,
+            }}
+            className="flex whitespace-nowrap gap-12 md:gap-16 items-center"
+          >
+            {[...Array(4)].map((_, loopIdx) => (
+              <div key={loopIdx} className="flex items-center gap-12 md:gap-16">
+                {marqueeItems.map((item, idx) => (
+                  <div key={idx} className="flex items-center gap-12 md:gap-16">
+                    <span className="font-sans font-black text-xs md:text-sm uppercase tracking-[0.25em] text-white select-none">{item}</span>
+                    <span className="h-2.5 w-2.5 rounded-full bg-brand-yellow shrink-0" />
+                  </div>
+                ))}
+              </div>
+            ))}
+          </motion.div>
+        </div>
+      </div>
+
+    </section>
+  );
+}
