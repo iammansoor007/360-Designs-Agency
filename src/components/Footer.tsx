@@ -27,7 +27,7 @@ export default function Footer() {
       {/* Decorative vector bg grid */}
       <div className="absolute inset-0 -z-10 bg-linear-grid-white-3 [background-size:40px_40px]" />
       
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-brand-zinc-800">
           
           {/* Logo & Description Column (lg:col-span-4) */}
@@ -189,11 +189,11 @@ export default function Footer() {
 
         {/* Bottom Bar */}
         <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest">
+          <p className="text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest text-center md:text-left">
             © {currentYear} Elevate Digital Marketing Agency. All Rights Reserved.
           </p>
           
-          <div className="flex gap-6 text-[10px] font-bold text-brand-zinc-500 uppercase tracking-wider">
+          <div className="flex gap-4 sm:gap-6 text-[10px] font-bold text-brand-zinc-500 uppercase tracking-wider">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <span>|</span>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>

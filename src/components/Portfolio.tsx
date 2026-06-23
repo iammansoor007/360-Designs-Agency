@@ -314,10 +314,16 @@ export default function Portfolio() {
 
   return (
     <section id="portfolio" className="relative overflow-hidden bg-transparent py-8 md:py-12 border-t border-b border-brand-zinc-200">
-      <div className="mx-auto max-w-7xl px-6 md:px-12 relative z-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
 
         {/* Section Header */}
-        <div className="flex flex-col gap-4 mb-6 md:mb-8 text-center items-center max-w-3xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col gap-4 mb-6 md:mb-8 text-center items-center max-w-3xl mx-auto"
+        >
           <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1 text-[8px] md:text-[9px] font-black tracking-widest uppercase text-brand-blue select-none self-center">
             04 // PORTFOLIO
           </span>
@@ -335,10 +341,16 @@ export default function Portfolio() {
           <p className="text-brand-zinc-500 font-medium leading-relaxed text-xs md:text-sm max-w-xl mx-auto">
             We partner with ambitious brands and turn challenges into growth opportunities. Explore how our strategies deliver measurable results.
           </p>
-        </div>
+        </motion.div>
 
         {/* Categories Navigation Filter Bar (Horizontally Scrollable on Mobile) */}
-        <div className="w-full max-w-4xl mx-auto mb-8">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-80px" }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="w-full max-w-4xl mx-auto mb-8"
+        >
           <div className="bg-white border border-brand-zinc-200/60 shadow-sm p-1.5 rounded-full flex overflow-x-auto lg:flex-wrap items-center justify-start lg:justify-center gap-1 sm:gap-2 scrollbar-none w-full whitespace-nowrap px-4 py-1">
             {categories.map((cat) => {
               const Icon = cat.icon;
@@ -366,7 +378,7 @@ export default function Portfolio() {
               );
             })}
           </div>
-        </div>
+        </motion.div>
 
         {/* Interactive Case Study Slider Container */}
         <div className="relative w-full max-w-6xl mx-auto">
@@ -386,6 +398,10 @@ export default function Portfolio() {
                 handlePrev();
               }
             }}
+            initial={{ opacity: 0, y: 35 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.1 }}
+            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             className="w-full rounded-[2.5rem] border border-brand-zinc-200/60 bg-white shadow-[0_4px_30px_rgba(3,6,172,0.01)] hover:shadow-[0_25px_60px_rgba(3,6,172,0.06)] transition-all duration-500 p-6 xs:p-8 md:p-12 relative overflow-hidden group cursor-grab active:cursor-grabbing select-none"
           >
             {/* Subtle grid pattern inside card for premium texture */}
@@ -469,7 +485,8 @@ export default function Portfolio() {
                   <motion.div
                     variants={detailsContainerVariants}
                     initial="hidden"
-                    animate="show"
+                    whileInView="show"
+                    viewport={{ once: false }}
                     className="lg:col-span-4 space-y-6"
                   >
                     <div>
@@ -541,7 +558,8 @@ export default function Portfolio() {
                   <motion.div
                     variants={statsContainerVariants}
                     initial="hidden"
-                    animate="show"
+                    whileInView="show"
+                    viewport={{ once: false }}
                     className="lg:col-span-3 bg-slate-50/40 backdrop-blur-xs border border-slate-100/80 shadow-[inset_0_2px_4px_rgba(255,255,255,0.75)] rounded-2xl p-4 md:p-6 grid grid-cols-3 lg:grid-cols-1 gap-3 xs:gap-4 lg:gap-6 lg:space-y-6"
                   >
                     {activeSlide.stats.map((stat, sIdx) => {

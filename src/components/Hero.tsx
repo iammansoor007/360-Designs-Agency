@@ -115,7 +115,7 @@ export default function Hero() {
 
 
 
-      <div className="mx-auto max-w-7xl px-6 md:px-12 w-full z-20 relative pointer-events-none lg:flex-1 lg:flex lg:flex-col lg:justify-end">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 w-full z-20 relative pointer-events-none lg:flex-1 lg:flex lg:flex-col lg:justify-end">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-stretch">
 
           {/* Left Column: Headline, Description, Buttons, Social Proof */}

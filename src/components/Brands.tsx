@@ -153,7 +153,7 @@ export default function Brands() {
       }} />
 
       {/* Brands Header */}
-      <div className="mx-auto max-w-7xl px-6 md:px-12 mb-14 text-center flex flex-col items-center relative z-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 mb-14 text-center flex flex-col items-center relative z-10">
         <span className="text-[9px] font-mono font-black tracking-[0.25em] text-[#0306AC]/70 uppercase mb-3">
           04 // PARTNERSHIPS
         </span>
@@ -182,7 +182,7 @@ export default function Brands() {
       <div className="flex flex-col gap-6 relative z-10">
         
         {/* Row 1: Leftwards Marquee */}
-        <div className="mx-auto w-[92%] max-w-5xl overflow-hidden rounded-3xl border border-brand-blue/10 bg-white/70 backdrop-blur-md shadow-[0_12px_32px_rgba(3,6,172,0.03)] py-6 px-6 relative flex">
+        <div className="mx-auto w-[92%] max-w-5xl overflow-hidden rounded-3xl border border-brand-blue/10 bg-white/70 backdrop-blur-md shadow-[0_12px_32px_rgba(3,6,172,0.03)] py-5 sm:py-6 px-4 sm:px-6 relative flex">
           {/* Edge fades for premium depth */}
           <div className="absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
@@ -205,7 +205,7 @@ export default function Brands() {
         </div>
 
         {/* Row 2: Rightwards Marquee */}
-        <div className="mx-auto w-[92%] max-w-5xl overflow-hidden rounded-3xl border border-brand-blue/10 bg-white/70 backdrop-blur-md shadow-[0_12px_32px_rgba(3,6,172,0.03)] py-6 px-6 relative flex">
+        <div className="mx-auto w-[92%] max-w-5xl overflow-hidden rounded-3xl border border-brand-blue/10 bg-white/70 backdrop-blur-md shadow-[0_12px_32px_rgba(3,6,172,0.03)] py-5 sm:py-6 px-4 sm:px-6 relative flex">
           {/* Edge fades for premium depth */}
           <div className="absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />

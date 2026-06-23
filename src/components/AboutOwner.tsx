@@ -70,7 +70,7 @@ export default function AboutOwner() {
 
 
 
-      <div className="mx-auto max-w-7xl px-6 md:px-12 relative">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
 
           {/* Left Column: Premium Framed Portrait */}
@@ -241,9 +241,9 @@ export default function AboutOwner() {
             </div>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 border-t border-brand-zinc-200 mt-8">
-              <div className="relative pl-3 sm:pl-6 border-l-2 border-brand-yellow">
-                <div className="text-4xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
+            <div className="grid grid-cols-3 gap-1.5 xs:gap-3 sm:gap-6 pt-8 border-t border-brand-zinc-200 mt-8 w-full">
+              <div className="relative pl-2 sm:pl-6 border-l-2 border-brand-yellow">
+                <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
                   <RollingNumber value={10} suffix="+" />
                 </div>
                 <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-none">
@@ -251,8 +251,8 @@ export default function AboutOwner() {
                 </div>
               </div>
 
-              <div className="relative pl-3 sm:pl-6 border-l-2 border-brand-yellow">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
+              <div className="relative pl-2 sm:pl-6 border-l-2 border-brand-yellow">
+                <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
                   <RollingNumber value={200} suffix="+" />
                 </div>
                 <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-none">
@@ -260,8 +260,8 @@ export default function AboutOwner() {
                 </div>
               </div>
 
-              <div className="relative pl-3 sm:pl-6 border-l-2 border-brand-yellow">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
+              <div className="relative pl-2 sm:pl-6 border-l-2 border-brand-yellow">
+                <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
                   <RollingNumber value={99} suffix="%" />
                 </div>
                 <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-none">

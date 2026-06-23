@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 
 const posts = [
@@ -10,6 +10,8 @@ const posts = [
     date: "May 12, 2026",
     readTime: "5 min read",
     title: "10 SEO Strategies to Boost Your Website Traffic",
+    excerpt: "Scale organic search traffic, outrank competitors, and secure high-intent leads that drive compounding growth using our vetted, data-backed optimization playbook.",
+    category: "SEO",
     link: "#"
   },
   {
@@ -17,6 +19,8 @@ const posts = [
     date: "May 8, 2026",
     readTime: "4 min read",
     title: "How Social Media Marketing Can Grow Your Business",
+    excerpt: "Tell compelling stories, publish platform-specific content, and grow organic followings across key networks to nurture conversion leads.",
+    category: "MARKETING",
     link: "#"
   },
   {
@@ -24,6 +28,8 @@ const posts = [
     date: "May 5, 2026",
     readTime: "6 min read",
     title: "PPC Advertising: Get More Leads for Less",
+    excerpt: "Maximize ROI and reduce target CPA using our conversion funnel overhauls and automated ad creative testing structures.",
+    category: "PAID MEDIA",
     link: "#"
   },
   {
@@ -31,70 +37,205 @@ const posts = [
     date: "May 1, 2026",
     readTime: "4 min read",
     title: "Why Your Business Needs a Modern Website",
+    excerpt: "Build lightning-fast, custom websites with stunning UX design, Next.js architecture, and clean code that compounds search traffic.",
+    category: "DEVELOPMENT",
     link: "#"
   }
 ];
 
 export default function Blog() {
   return (
-    <section id="blog" className="relative bg-white py-24 border-b border-brand-zinc-200">
-      <div className="absolute top-0 right-1/4 -z-10 h-72 w-72 rounded-full bg-brand-yellow/15 blur-3xl" />
+    <section
+      id="blog"
+      className="relative overflow-hidden bg-white py-24 md:py-32 border-b border-brand-zinc-200"
+    >
+      {/* Decorative Background Glows */}
+      <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-brand-yellow/10 blur-3xl pointer-events-none z-0" />
+      <div className="absolute bottom-1/3 -left-32 w-96 h-96 rounded-full bg-brand-blue/5 blur-3xl pointer-events-none z-0" />
 
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
+      {/* Crossing structural grid lines */}
+      <div className="absolute inset-x-0 top-12 h-[1px] bg-brand-blue/[0.03] pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-12 h-[1px] bg-brand-blue/[0.03] pointer-events-none" />
+      <div className="absolute left-1/4 top-0 bottom-0 w-[1px] bg-brand-blue/[0.03] pointer-events-none" />
+      <div className="absolute right-1/4 top-0 bottom-0 w-[1px] bg-brand-blue/[0.03] pointer-events-none" />
+
+      {/* Local keyframe animations for premium floating, pulsing, and glass sweep reflections */}
+      <style>{`
+        /* Premium hover card glass swipe effect */
+        .card-sweep-glare {
+          position: relative;
+        }
+        .card-sweep-glare::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -120%;
+          width: 60%;
+          height: 100%;
+          background: linear-gradient(
+            to right,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.28) 50%,
+            rgba(255, 255, 255, 0) 100%
+          );
+          transform: skewX(-25deg);
+          transition: left 0.85s cubic-bezier(0.16, 1, 0.3, 1);
+          pointer-events: none;
+          z-index: 20;
+        }
+        .group:hover.card-sweep-glare::before {
+          left: 160%;
+        }
+      `}</style>
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
         
-        {/* Title */}
-        <div className="text-center mb-16">
-          <h2 className="font-heading text-4xl md:text-5xl font-semibold text-brand-dark tracking-tight inline-flex items-center gap-3">
-            Latest Blogs
-            <span className="h-[3px] w-14 bg-brand-yellow rounded-full mt-2" />
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col gap-4 mb-16"
+        >
+          <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1 text-[8px] md:text-[9px] font-black tracking-widest uppercase text-brand-blue select-none self-start">
+            06 // JOURNAL
+          </span>
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.1] select-none">
+            Agency <span className="text-brand-blue relative inline-block">
+              Insights
+              <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <path
+                  d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
+                  fill="#FFF35C"
+                />
+              </svg>
+            </span>
           </h2>
-        </div>
+          <p className="text-brand-zinc-500 font-medium leading-relaxed text-xs md:text-sm max-w-xl">
+            Thought leadership, design patterns, and growth strategies curated by our senior creative directors and marketing experts.
+          </p>
+        </motion.div>
 
-        {/* 4-Card Grid Layout */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {posts.map((post, index) => (
-            <motion.article
-              key={index}
-              initial={{ opacity: 0, y: 25 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.08 }}
-              className="group cursor-pointer flex flex-col justify-between rounded-2xl border border-brand-zinc-200 bg-white overflow-hidden shadow-sm hover:shadow-xl hover:border-brand-blue transition-all duration-300"
-            >
-              <div>
+        {/* Asymmetrical Split Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+          
+          {/* Left Column: Featured Post (lg:col-span-7) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="lg:col-span-7"
+          >
+            {posts[0] && (
+              <a
+                href={posts[0].link}
+                className="group flex flex-col rounded-[2.5rem] border border-brand-zinc-200/80 bg-white p-6 md:p-8 shadow-[0_2px_12px_rgba(3,6,172,0.015)] hover:shadow-[0_20px_40px_rgba(3,6,172,0.08)] hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none block"
+              >
                 {/* Image Wrapper */}
-                <div className="relative aspect-[16/11] overflow-hidden bg-brand-light border-b border-brand-zinc-200">
+                <div className="relative aspect-[16/10] overflow-hidden bg-brand-light border border-brand-zinc-200/40 rounded-3xl mb-6">
                   <Image
-                    src={post.image}
-                    alt={post.title}
+                    src={posts[0].image}
+                    alt={posts[0].title}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 768px) 100vw, 250px"
+                    className="object-cover group-hover:scale-103 transition-transform duration-500"
+                    sizes="(max-width: 1024px) 100vw, 680px"
+                    priority
                   />
                 </div>
 
-                {/* Content */}
-                <div className="p-6 space-y-3">
-                  {/* Date & Read time */}
-                  <span className="block text-[11px] font-bold text-brand-zinc-400 uppercase tracking-wider">
-                    {post.date} &nbsp;•&nbsp; {post.readTime}
-                  </span>
+                {/* Card Body */}
+                <div className="space-y-4">
+                  {/* Category Pill and Read Time */}
+                  <div className="flex items-center justify-between">
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-brand-blue/5 border border-brand-blue/10 text-brand-blue">
+                      <span className="w-1.5 h-1.5 rounded-full bg-current" />
+                      <span className="font-mono text-[8px] font-black uppercase tracking-widest">{posts[0].category}</span>
+                    </div>
+                    <span className="block text-[10px] font-bold text-brand-zinc-400 uppercase tracking-wider">
+                      {posts[0].date} &nbsp;•&nbsp; {posts[0].readTime}
+                    </span>
+                  </div>
 
                   {/* Title */}
-                  <h3 className="font-sans font-extrabold text-sm text-brand-dark leading-snug group-hover:text-brand-blue transition-colors line-clamp-3">
-                    {post.title}
+                  <h3 className="font-heading text-lg sm:text-xl md:text-2xl font-black text-brand-dark leading-snug group-hover:text-brand-blue transition-colors duration-300">
+                    {posts[0].title}
                   </h3>
-                </div>
-              </div>
 
-              {/* Read More Link */}
-              <div className="px-6 pb-6 pt-0 flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-brand-blue group-hover:text-brand-blue-dark transition-colors mt-auto">
-                <span>Read More</span>
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
-              </div>
-            </motion.article>
-          ))}
+                  {/* Excerpt */}
+                  <p className="text-xs sm:text-[13px] text-brand-zinc-500 font-medium leading-relaxed">
+                    {posts[0].excerpt}
+                  </p>
+
+                  {/* Read More button */}
+                  <div className="flex items-center gap-2 pt-2">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-brand-blue">Featured Article</span>
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue/5 border border-brand-blue/10 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            )}
+          </motion.div>
+
+          {/* Right Column: Recent Posts List (lg:col-span-5) */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-50px" }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
+            className="lg:col-span-5 space-y-6"
+          >
+            {posts.slice(1).map((post, idx) => (
+              <a
+                key={idx}
+                href={post.link}
+                className="group block rounded-[2rem] border border-brand-zinc-200/80 bg-white p-4 sm:p-5 shadow-[0_2px_12px_rgba(3,6,172,0.01)] hover:shadow-[0_16px_36px_rgba(3,6,172,0.06)] hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none"
+              >
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full">
+                  {/* Small Thumbnail */}
+                  <div className="relative w-full sm:w-24 aspect-[16/10] sm:aspect-square overflow-hidden bg-brand-light border border-brand-zinc-200/40 rounded-2xl shrink-0">
+                    <Image
+                      src={post.image}
+                      alt={post.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                      sizes="(max-width: 640px) 100vw, 100px"
+                    />
+                  </div>
+
+                  {/* Text Details */}
+                  <div className="flex-1 min-w-0 space-y-1.5 w-full">
+                    {/* Meta category row */}
+                    <div className="flex items-center justify-between gap-2">
+                      <span className="font-mono text-[7px] font-black text-brand-blue uppercase tracking-widest bg-brand-blue/5 px-2 py-0.5 rounded-md">
+                        {post.category}
+                      </span>
+                      <span className="block text-[9px] font-bold text-brand-zinc-400 uppercase tracking-wider">
+                        {post.date}
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="font-heading text-xs sm:text-[13px] md:text-sm font-black text-brand-dark leading-snug group-hover:text-brand-blue transition-colors duration-300 line-clamp-2">
+                      {post.title}
+                    </h3>
+
+                    {/* Read info */}
+                    <div className="flex items-center gap-1 text-[9px] font-bold text-brand-zinc-400 group-hover:text-brand-blue transition-colors duration-300 pt-0.5">
+                      <span>{post.readTime}</span>
+                      <ArrowUpRight className="h-3 w-3 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+            ))}
+          </motion.div>
+
         </div>
+
       </div>
     </section>
   );

@@ -59,7 +59,7 @@ export default function Industries() {
     <section id="industries" className="relative bg-brand-light py-24 border-t border-b border-brand-zinc-200">
       <div className="absolute inset-0 -z-10 bg-linear-grid-blue-4 [background-size:32px_32px] opacity-75" />
 
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
         
         {/* Title */}
         <div className="text-center mb-16 flex flex-col items-center">
@@ -93,7 +93,7 @@ export default function Industries() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: false, margin: "-100px" }}
-          className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-6"
+          className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-6"
         >
           {industries.map((industry, index) => {
             const IconComponent = industry.icon;

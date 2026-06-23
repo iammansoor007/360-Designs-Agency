@@ -1,151 +1,414 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Plus, Minus } from "lucide-react";
+import { Plus, ArrowRight, Check } from "lucide-react";
 import { useState } from "react";
 
-const col1Faqs = [
+interface Milestone {
+  title: string;
+  desc: string;
+}
+
+interface PartnerProfile {
+  name: string;
+  desc: string;
+}
+
+interface Inclusion {
+  title: string;
+  desc: string;
+}
+
+interface Metric {
+  label: string;
+  score: number;
+}
+
+interface FAQItem {
+  question: string;
+  answer: string;
+  category: string;
+  tags?: string[];
+  steps?: string[];
+  milestones?: Milestone[];
+  profiles?: PartnerProfile[];
+  inclusions?: Inclusion[];
+  stack?: string[];
+  metrics?: Metric[];
+}
+
+const faqs: FAQItem[] = [
   {
     question: "What services do you offer?",
-    answer: "We offer Search Engine Optimization, Social Media Marketing, Paid Advertising (PPC), Web Design & Development, and Branding & Strategy."
+    answer: "We offer end-to-end growth and digital engineering services tailored for high-growth businesses. From search ranking to bespoke product design, we help you dominate your market.",
+    category: "Services",
+    tags: ["Technical SEO", "Google/Meta Ads", "Next.js Web Design", "Brand Strategy", "Local SEO Maps", "Conversion Optimization"]
   },
   {
     question: "How do you work with clients?",
-    answer: "We follow a collaborative, milestone-driven process starting with deep business research, followed by visual prototyping, code implementation, and weekly Loom video briefings."
+    answer: "Our engagement model is highly structured and transparent. We work in sprints with weekly video progress updates, shared dashboards, and dedicated Slack channels, eliminating guesswork.",
+    category: "Process",
+    steps: ["Audit & Intake", "Blueprinting", "Design & Code", "Launch & Scale"]
   },
   {
     question: "How long does it take to see results?",
-    answer: "For PPC and paid ads, you can expect leads within the first 48 hours of launch. Organic SEO and authority branding campaigns typically see substantial growth in 3 to 6 months."
-  }
-];
-
-const col2Faqs = [
+    answer: "We run on two speeds: immediate traction and compounding authority. PPC and paid social start converting in days, while SEO and authority branding compound over 3 to 6 months.",
+    category: "Timeline",
+    milestones: [
+      { title: "Day 1-3", desc: "Strategy alignment, setup, and pixel testing validation." },
+      { title: "Week 2", desc: "First conversion funnels and advertising campaigns live." },
+      { title: "Month 3+", desc: "Compounding organic traffic, keyword ranking, and SEO authority." }
+    ]
+  },
   {
     question: "Do you work with small businesses?",
-    answer: "Yes, we work with both local growing small businesses looking to establish authority and high-growth venture-backed enterprise companies scaling internationally."
+    answer: "We partner with ambitious teams of all sizes. Our setups scale from local service leaders aiming to dominate regional search, to venture-backed startups launching digital products.",
+    category: "Partners",
+    profiles: [
+      { name: "High-Growth Startups", desc: "Scale acquisition funnels & SaaS pages" },
+      { name: "E-Commerce Brands", desc: "Next.js custom checkout speedups" },
+      { name: "Local Service Leaders", desc: "Map packs and regional search domination" },
+      { name: "Enterprise SaaS", desc: "Security-first custom web architectures" }
+    ]
   },
   {
     question: "How much do your services cost?",
-    answer: "Every digital audit is bespoke. We provide clear, flat-rate project scopes and monthly advisory packages tailored specifically to your conversion targets and budget."
+    answer: "We believe in flat, predictable pricing. No hidden fees or hourly billing. We provide custom project quotes and rolling monthly growth retainers based on your objectives.",
+    category: "Pricing",
+    inclusions: [
+      { title: "100% Predictable Pricing", desc: "Flat-rate quotes, zero hourly surprises." },
+      { title: "Weekly Progress Videos", desc: "Async walkthroughs of live code & UI layout." },
+      { title: "Direct Slack Support", desc: "Connect directly with us without account managers." },
+      { title: "IP Rights Ownership", desc: "You own 100% of the codebase, designs, and assets." }
+    ]
   },
   {
     question: "Can you help redesign my website?",
-    answer: "Absolutely. We specialize in modernizing legacy sites, transitioning them to lightning-fast, conversion-optimized Next.js and React setups that outrank competitors."
+    answer: "Yes, we specialize in high-performance rebuilds. We translate slow templates into ultra-fast, custom Next.js architectures that score perfect marks on Google PageSpeed tests.",
+    category: "Redesign",
+    stack: ["Next.js & React", "Tailwind CSS", "Framer Motion", "Vercel Edge Cloud"],
+    metrics: [
+      { label: "Performance", score: 100 },
+      { label: "Accessibility", score: 100 },
+      { label: "Best Practices", score: 100 },
+      { label: "SEO", score: 100 }
+    ]
   }
 ];
 
 export default function FAQ() {
-  const [openIndex, setOpenIndex] = useState<string | null>(null);
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
-  const toggleFAQ = (id: string) => {
-    setOpenIndex(openIndex === id ? null : id);
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
   };
 
   return (
-    <section id="faq" className="relative bg-transparent py-24 border-b border-brand-zinc-200">
-
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
-        
-        {/* Title */}
-        <div className="text-center mb-16">
-          <h2 className="font-heading text-4xl md:text-5xl font-semibold text-brand-dark tracking-tight inline-flex items-center gap-3">
-            Frequently Asked Questions
-            <span className="h-[3px] w-14 bg-brand-yellow rounded-full mt-2" />
-          </h2>
-        </div>
-
-        {/* 2-Column Accordion Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 max-w-6xl mx-auto">
-          
-          {/* Column 1 */}
-          <div className="space-y-4">
-            {col1Faqs.map((faq, index) => {
-              const id = `col1-${index}`;
-              const isOpen = openIndex === id;
-
-              return (
-                <AccordionItem
-                  key={id}
-                  id={id}
-                  question={faq.question}
-                  answer={faq.answer}
-                  isOpen={isOpen}
-                  onToggle={toggleFAQ}
-                />
-              );
-            })}
-          </div>
-
-          {/* Column 2 */}
-          <div className="space-y-4">
-            {col2Faqs.map((faq, index) => {
-              const id = `col2-${index}`;
-              const isOpen = openIndex === id;
-
-              return (
-                <AccordionItem
-                  key={id}
-                  id={id}
-                  question={faq.question}
-                  answer={faq.answer}
-                  isOpen={isOpen}
-                  onToggle={toggleFAQ}
-                />
-              );
-            })}
-          </div>
-
-        </div>
-      </div>
-    </section>
-  );
-}
-
-function AccordionItem({ id, question, answer, isOpen, onToggle }: {
-  id: string;
-  question: string;
-  answer: string;
-  isOpen: boolean;
-  onToggle: (id: string) => void;
-}) {
-  return (
-    <div
-      className={`rounded-2xl border transition-all duration-300 ${
-        isOpen 
-          ? "border-brand-blue bg-white shadow-md" 
-          : "border-brand-zinc-200 bg-white hover:border-brand-blue/30"
-      }`}
+    <section
+      id="faq"
+      className="relative overflow-hidden bg-white py-24 md:py-32 border-b border-brand-zinc-200"
     >
-      <button
-        onClick={() => onToggle(id)}
-        className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
-        aria-expanded={isOpen}
-      >
-        <span className="font-sans font-bold text-sm md:text-base text-brand-dark transition-colors group-hover:text-brand-blue">
-          {question}
-        </span>
-        <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand-dark transition-colors">
-          {isOpen ? <Minus className="h-4 w-4" /> : <Plus className="h-4 w-4" />}
-        </div>
-      </button>
+      {/* Structural Grid Accent Lines */}
+      <div className="absolute inset-x-0 top-12 h-[1px] bg-brand-blue/[0.02] pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-12 h-[1px] bg-brand-blue/[0.02] pointer-events-none" />
+      <div className="absolute left-1/4 top-0 bottom-0 w-[1px] bg-brand-blue/[0.02] pointer-events-none" />
+      <div className="absolute right-1/4 top-0 bottom-0 w-[1px] bg-brand-blue/[0.02] pointer-events-none" />
 
-      <AnimatePresence initial={false}>
-        {isOpen && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="px-6 pb-6 border-t border-brand-zinc-100 pt-4">
-              <p className="text-xs md:text-sm text-brand-zinc-500 leading-relaxed font-semibold">
-                {answer}
+      {/* Decorative Blur Orbs */}
+      <div className="absolute -left-48 top-1/4 h-[600px] w-[600px] rounded-full bg-brand-blue/5 blur-[130px] pointer-events-none" />
+      <div className="absolute -right-48 bottom-1/4 h-[600px] w-[600px] rounded-full bg-brand-yellow/5 blur-[130px] pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+        
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          
+          {/* ── Left Column: Sticky Title & Info ── */}
+          <div className="lg:col-span-5 lg:sticky lg:top-28 space-y-10 flex flex-col justify-start">
+            
+            <div className="flex flex-col gap-5">
+              {/* Category Pill Tag */}
+              <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1.5 text-[9px] font-black tracking-widest uppercase text-brand-blue select-none self-start">
+                07 // FAQ
+              </span>
+              
+              {/* Main Heading */}
+              <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark tracking-tight leading-[0.98] select-none">
+                Common <br />
+                Questions <span className="text-brand-blue relative inline-block">
+                  Answered
+                  <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <path
+                      d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
+                      fill="#FFF35C"
+                    />
+                  </svg>
+                </span>
+              </h2>
+              
+              {/* Subdescription */}
+              <p className="text-brand-zinc-500 font-medium leading-relaxed text-sm md:text-base max-w-sm mt-1.5">
+                Explore our detailed guides on process, capabilities, pricing, and timelines. We run on transparency to deliver outstanding digital growth.
               </p>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </div>
+
+            {/* Premium Sticky Strategy Session Box */}
+            <div className="relative overflow-hidden rounded-[2.2rem] bg-gradient-to-br from-[#0306AC] via-[#020485] to-[#03053D] p-8 text-white shadow-[0_20px_50px_rgba(3,6,172,0.15)] group transition-transform duration-500 hover:scale-[1.01]">
+              <div className="absolute inset-0 bg-linear-grid-white-3 opacity-30 pointer-events-none z-10" />
+              <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-brand-yellow/15 blur-2xl pointer-events-none" />
+              
+              <div className="relative z-20 space-y-6">
+                <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1.5 text-[9px] font-black tracking-wider uppercase text-brand-yellow">
+                  // Strategy Session
+                </span>
+                <div className="space-y-2">
+                  <h3 className="font-heading text-2xl font-bold leading-tight">
+                    Need a bespoke audit?
+                  </h3>
+                  <p className="text-white/70 text-xs leading-relaxed">
+                    Get a free 30-minute growth audit and competitor speed analysis session with our founders.
+                  </p>
+                </div>
+                <a
+                  href="#contact"
+                  className="group/btn relative inline-flex w-full items-center justify-between overflow-hidden rounded-full bg-brand-yellow px-6 py-3.5 text-xs font-black uppercase tracking-wider text-brand-dark transition-all duration-300 active:scale-[0.98] shadow-md hover:shadow-lg"
+                >
+                  <span>Claim Free Audit</span>
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-dark text-brand-yellow">
+                    <ArrowRight className="h-3 w-3" />
+                  </div>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          {/* ── Right Column: Accordion Cards ── */}
+          <div className="lg:col-span-7 space-y-4 w-full">
+            
+            {faqs.map((faq, index) => {
+              const doubleDigit = String(index + 1).padStart(2, "0");
+              const isOpen = openIndex === index;
+
+              return (
+                <div
+                  key={faq.question}
+                  className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer select-none p-6 sm:p-7 ${
+                    isOpen
+                      ? "bg-white border-brand-blue/25 shadow-[0_20px_40px_rgba(3,6,172,0.03)]"
+                      : "bg-transparent border-brand-zinc-200/70 hover:bg-white hover:border-brand-blue/20 hover:shadow-[0_12px_30px_rgba(3,6,172,0.025)]"
+                  }`}
+                  onClick={() => toggleFAQ(index)}
+                >
+                  {/* Subtle hover background highlight */}
+                  <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/[0.01] to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none z-0" />
+
+                  {/* Header Area */}
+                  <div className="flex items-start justify-between gap-4 relative z-10">
+                    <div className="flex items-start gap-4">
+                      {/* Double Digit Number */}
+                      <span className="font-mono text-xs font-bold text-brand-blue/60 mt-1 select-none">
+                        {doubleDigit}
+                      </span>
+                      
+                      <div className="space-y-1">
+                        {/* Category Label */}
+                        <span className="font-mono text-[9px] font-black text-brand-blue/40 tracking-widest uppercase select-none block">
+                          // {faq.category}
+                        </span>
+                        
+                        {/* Question */}
+                        <h3 className={`font-heading font-semibold text-base sm:text-lg md:text-[1.15rem] leading-snug transition-colors duration-300 pr-2 ${
+                          isOpen ? "text-brand-blue" : "text-brand-dark group-hover:text-brand-blue"
+                        }`}>
+                          {faq.question}
+                        </h3>
+                      </div>
+                    </div>
+
+                    {/* Plus/Minus Indicator */}
+                    <div className="shrink-0 mt-0.5">
+                      <motion.div
+                        animate={{ rotate: isOpen ? 135 : 0 }}
+                        transition={{ type: "spring", stiffness: 220, damping: 18 }}
+                        className={`flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300 ${
+                          isOpen
+                            ? "bg-brand-blue border-brand-blue text-white shadow-[0_4px_12px_rgba(3,6,172,0.15)]"
+                            : "bg-brand-zinc-50 border-brand-zinc-200/80 text-brand-dark group-hover:border-brand-blue group-hover:bg-brand-blue group-hover:text-white"
+                        }`}
+                      >
+                        <Plus className="h-4.5 w-4.5 stroke-[1.5]" />
+                      </motion.div>
+                    </div>
+                  </div>
+
+                  {/* Answer Area */}
+                  <AnimatePresence initial={false}>
+                    {isOpen && (
+                      <motion.div
+                        initial={{ height: 0, opacity: 0 }}
+                        animate={{ height: "auto", opacity: 1 }}
+                        exit={{ height: 0, opacity: 0 }}
+                        transition={{ duration: 0.3, ease: "easeInOut" }}
+                        className="overflow-hidden relative z-10"
+                        onClick={(e) => e.stopPropagation()} // Prevent closing accordion when clicking inside content
+                      >
+                        <div className="pl-8 pt-5 mt-5 border-t border-brand-zinc-100/80 space-y-4">
+                          
+                          {/* Answer Text */}
+                          <p className="text-sm sm:text-[15px] text-brand-zinc-500 font-medium leading-relaxed">
+                            {faq.answer}
+                          </p>
+
+                          {/* Structured Category Details */}
+                          
+                          {/* SERVICES TAGS */}
+                          {faq.tags && (
+                            <div className="flex flex-wrap gap-1.5 pt-1">
+                              {faq.tags.map((tag, idx) => (
+                                <span
+                                  key={idx}
+                                  className="bg-brand-blue/5 border border-brand-blue/10 text-brand-blue font-mono text-[8px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* PROCESS STEPS */}
+                          {faq.steps && (
+                            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
+                              {faq.steps.map((step, idx) => (
+                                <div
+                                  key={idx}
+                                  className="relative bg-brand-zinc-50 border border-brand-zinc-100 rounded-xl p-2.5 flex flex-col gap-0.5"
+                                >
+                                  <span className="font-mono text-[8px] font-black text-brand-blue/60 uppercase">
+                                    Phase 0{idx + 1}
+                                  </span>
+                                  <span className="text-[10px] font-bold text-brand-dark leading-tight">
+                                    {step}
+                                  </span>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* TIMELINE MILESTONES */}
+                          {faq.milestones && (
+                            <div className="relative pl-3.5 space-y-3 pt-1 border-l border-brand-blue/15 ml-1">
+                              {faq.milestones.map((ms, idx) => (
+                                <div key={idx} className="relative">
+                                  {/* Node dot */}
+                                  <span className="absolute -left-[19.5px] top-1.5 flex h-2 w-2 items-center justify-center rounded-full bg-brand-blue ring-4 ring-white" />
+                                  
+                                  <div className="space-y-0.5">
+                                    <span className="font-mono text-[8px] font-black text-brand-blue tracking-widest uppercase">
+                                      {ms.title}
+                                    </span>
+                                    <p className="text-xs font-semibold text-brand-zinc-500 leading-normal">
+                                      {ms.desc}
+                                    </p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* PARTNERS PROFILES */}
+                          {faq.profiles && (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
+                              {faq.profiles.map((profile, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex flex-col gap-0.5 bg-brand-zinc-50/80 border border-brand-zinc-100 rounded-xl p-3"
+                                >
+                                  <span className="text-xs font-black text-brand-dark">
+                                    {profile.name}
+                                  </span>
+                                  <p className="text-[10px] text-brand-zinc-400 font-semibold leading-normal">
+                                    {profile.desc}
+                                  </p>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* PRICING INCLUSIONS */}
+                          {faq.inclusions && (
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
+                              {faq.inclusions.map((inc, idx) => (
+                                <div
+                                  key={idx}
+                                  className="flex items-start gap-2 bg-brand-zinc-50/50 border border-brand-zinc-100/60 rounded-xl p-3"
+                                >
+                                  <div className="w-4 h-4 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0 mt-0.5">
+                                    <Check className="w-2.5 h-2.5 text-brand-blue" strokeWidth={3.5} />
+                                  </div>
+                                  <div className="space-y-0.5">
+                                    <span className="text-xs font-black text-brand-dark block leading-none">
+                                      {inc.title}
+                                    </span>
+                                    <p className="text-[10px] text-brand-zinc-400 font-semibold leading-normal">
+                                      {inc.desc}
+                                    </p>
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+                          )}
+
+                          {/* REDESIGN TECH STACK & METRICS */}
+                          {faq.metrics && (
+                            <div className="space-y-3">
+                              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
+                                {faq.metrics.map((metric, idx) => (
+                                  <div key={idx} className="flex flex-col items-center gap-1.5 bg-emerald-50/40 border border-emerald-100/50 rounded-xl p-2.5">
+                                    <div className="relative w-9 h-9 flex items-center justify-center">
+                                      <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
+                                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#e2e8f0" strokeWidth="2.5" />
+                                        <circle cx="18" cy="18" r="15.915" fill="none" stroke="#10b981" strokeWidth="2.5" strokeDasharray="100 100" strokeLinecap="round" />
+                                      </svg>
+                                      <span className="absolute text-[8px] font-black text-emerald-700 leading-none">
+                                        {metric.score}
+                                      </span>
+                                    </div>
+                                    <span className="text-[8px] font-bold text-emerald-800 uppercase tracking-wider text-center">
+                                      {metric.label}
+                                    </span>
+                                  </div>
+                                ))}
+                              </div>
+
+                              {faq.stack && (
+                                <div className="flex flex-wrap gap-1.5">
+                                  {faq.stack.map((tech, idx) => (
+                                    <span
+                                      key={idx}
+                                      className="inline-flex items-center gap-1 bg-brand-dark/5 text-brand-dark font-sans text-[8px] font-black tracking-wider px-2.5 py-1 rounded-full"
+                                    >
+                                      <span className="w-1 h-1 rounded-full bg-brand-blue" />
+                                      {tech}
+                                    </span>
+                                  ))}
+                                </div>
+                              )}
+                            </div>
+                          )}
+
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              );
+            })}
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
   );
 }

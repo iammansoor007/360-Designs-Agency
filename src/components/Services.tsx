@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef, useState } from "react";
+import { motion } from "framer-motion";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 
 const services = [
@@ -658,10 +659,16 @@ export default function Services() {
       <div className="absolute left-1/4 top-0 bottom-0 w-[1px] bg-brand-blue/[0.04] pointer-events-none" />
       <div className="absolute right-1/4 top-0 bottom-0 w-[1px] bg-brand-blue/[0.04] pointer-events-none" />
 
-      <div className="mx-auto max-w-7xl px-6 md:px-12 relative z-10">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
 
         {/* Header Section: Title and Navigation aligned beautifully */}
-        <div className="flex flex-col gap-4 mb-8 md:mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.6 }}
+          className="flex flex-col gap-4 mb-8 md:mb-12"
+        >
           <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1 text-[8px] md:text-[9px] font-black tracking-widest uppercase text-brand-blue select-none self-start">
             03 // EXPERTISE
           </span>
@@ -699,15 +706,19 @@ export default function Services() {
           <p className="text-brand-zinc-500 font-medium leading-relaxed text-xs md:text-sm max-w-xl">
             Powerful, custom-tailored solutions designed to accelerate growth and outclass templates.
           </p>
-        </div>
+        </motion.div>
 
         {/* Swipeable & Drag-to-Scroll Snap Carousel */}
-        <div
+        <motion.div
           ref={carouselRef}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUpOrLeave}
           onMouseLeave={handleMouseUpOrLeave}
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-50px" }}
+          transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
           className="flex gap-6 overflow-x-auto snap-x snap-mandatory scroll-smooth scrollbar-none w-full -mx-2 px-2 md:mx-0 md:px-0 py-8 carousel-grab-container select-none"
         >
           {services.map((service, index) => {
@@ -801,7 +812,7 @@ export default function Services() {
               </div>
             );
           })}
-        </div>
+        </motion.div>
 
       </div>
     </section>

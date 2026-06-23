@@ -8,26 +8,26 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full px-6 py-4 md:px-12 pointer-events-none">
+    <header className="sticky top-0 z-50 w-full px-4 py-3 sm:px-6 sm:py-4 md:px-12 pointer-events-none">
       <motion.div 
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="mx-auto max-w-7xl rounded-full border border-brand-zinc-200/80 bg-white/80 px-6 py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-md flex items-center justify-between pointer-events-auto"
+        className="mx-auto max-w-7xl rounded-full border border-brand-zinc-200/80 bg-white/80 px-3 sm:px-6 py-2.5 sm:py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-md flex items-center justify-between pointer-events-auto"
       >
         {/* Brand Logo - Aligned with Hero badge and theme */}
-        <div className="flex items-center gap-3">
-          <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-brand-blue shadow-md border border-brand-blue/10">
-            <span className="font-sans font-black text-white text-base leading-none">E</span>
-            <div className="absolute -top-0.5 -right-0.5 h-3.5 w-3.5 rounded-full bg-brand-yellow flex items-center justify-center border border-white">
-              <Star className="h-2 w-2 fill-brand-dark text-brand-dark" />
+        <div className="flex items-center gap-2 sm:gap-3">
+          <div className="relative flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full bg-brand-blue shadow-md border border-brand-blue/10">
+            <span className="font-sans font-black text-white text-sm sm:text-base leading-none">E</span>
+            <div className="absolute -top-0.5 -right-0.5 h-3 w-3 sm:h-3.5 sm:w-3.5 rounded-full bg-brand-yellow flex items-center justify-center border border-white">
+              <Star className="h-1.5 w-1.5 sm:h-2 sm:w-2 fill-brand-dark text-brand-dark" />
             </div>
           </div>
           <div className="flex flex-col">
-            <span className="font-sans font-black text-base tracking-tight text-brand-dark leading-none">
+            <span className="font-sans font-black text-xs sm:text-base tracking-tight text-brand-dark leading-none">
               Elevate Digital
             </span>
-            <span className="font-sans font-bold text-[8.5px] tracking-[0.2em] text-brand-blue uppercase leading-none mt-1">
+            <span className="font-sans font-bold text-[7.5px] sm:text-[8.5px] tracking-[0.2em] text-brand-blue uppercase leading-none mt-1">
               Creative Agency
             </span>
           </div>
@@ -82,7 +82,7 @@ export default function Navbar() {
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="absolute left-6 right-6 mt-2 rounded-2xl border border-brand-zinc-200 bg-white p-6 shadow-xl md:hidden pointer-events-auto"
+          className="absolute left-4 right-4 mt-2 rounded-2xl border border-brand-zinc-200 bg-white p-5 sm:p-6 shadow-xl md:hidden pointer-events-auto"
         >
           <nav className="flex flex-col gap-4 text-sm font-bold uppercase tracking-wider">
             {[

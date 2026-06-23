@@ -1,6 +1,6 @@
 "use client";
 
-import { motion, useInView, useAnimation } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Sparkles, Terminal, TrendingUp, Zap, HeartHandshake } from "lucide-react";
 
@@ -21,16 +21,11 @@ function AnimatedStat({
 }) {
   const ref = useRef<HTMLDivElement>(null);
   const isInView = useInView(ref, { once: false, margin: "-80px" });
-  const controls = useAnimation();
   const [displayed, setDisplayed] = useState(value.replace(/[0-9.]/g, "0"));
   const [dotProgress, setDotProgress] = useState(0);
 
   useEffect(() => {
     if (isInView) {
-      controls.start({
-        strokeDashoffset: CIRCUMFERENCE * (1 - percentage),
-        transition: { duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.15 },
-      });
       const isFloat = value.includes(".");
       const isPercent = value.includes("%");
       const suffix = isPercent ? "%" : value.replace(/[0-9.]/g, "");
@@ -39,63 +34,81 @@ function AnimatedStat({
       const DELAY = 150;
       const startTime = performance.now() + DELAY;
       let rafId: number;
+      
       const tick = (now: number) => {
         const elapsed = Math.max(0, now - startTime);
         const raw = Math.min(elapsed / DURATION, 1);
-        const eased = 1 - Math.pow(1 - raw, 3);
+        const eased = 1 - Math.pow(1 - raw, 4); // easeOutQuart for premium smoothness
+        
         setDisplayed((isFloat ? (eased * numeric).toFixed(1) : Math.round(eased * numeric).toString()) + suffix);
         setDotProgress(eased * percentage);
-        if (raw < 1) { rafId = requestAnimationFrame(tick); }
-        else { setDotProgress(percentage); }
+        
+        if (raw < 1) {
+          rafId = requestAnimationFrame(tick);
+        } else {
+          setDotProgress(percentage);
+        }
       };
+      
       rafId = requestAnimationFrame(tick);
       return () => cancelAnimationFrame(rafId);
     } else {
-      controls.start({ strokeDashoffset: CIRCUMFERENCE, transition: { duration: 0 } });
       setDisplayed(value.replace(/[0-9.]/g, "0"));
       setDotProgress(0);
     }
-  }, [isInView, controls, percentage, value]);
+  }, [isInView, percentage, value]);
 
   // Dot travels along arc tip — uses live dotProgress (0 → percentage)
   // SVG is CSS-rotated -90°: angle 0 in SVG = 3 o'clock = visual 12 o'clock
   const dotAngle = 2 * Math.PI * dotProgress;
   const dotX = 41 + RADIUS * Math.cos(dotAngle);
   const dotY = 41 + RADIUS * Math.sin(dotAngle);
+  
+  // Create a unique gradient ID per stat to avoid collisions
+  const gradientId = `ringGradient-${label.replace(/[^a-zA-Z0-9]/g, "")}`;
 
   return (
     <div ref={ref} className="flex flex-col items-center gap-3">
       {/* Ring */}
-      <div className="relative w-[96px] h-[96px]">
+      <div className="relative w-[80px] h-[80px] sm:w-[96px] sm:h-[96px]">
         {/* Glow behind ring */}
         <div className="absolute inset-0 rounded-full bg-brand-blue/8 blur-md" />
         <svg viewBox="0 0 82 82" className="relative w-full h-full -rotate-90">
+          <defs>
+            <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" stopColor="#0306AC" />
+              <stop offset="100%" stopColor="#2563EB" />
+            </linearGradient>
+          </defs>
           {/* Track */}
           <circle
             cx="41" cy="41" r={RADIUS}
             fill="none"
-            stroke="#E5E7EB"
+            stroke="rgba(3, 6, 172, 0.08)"
             strokeWidth="5"
           />
           {/* Animated fill */}
-          <motion.circle
+          <circle
             cx="41" cy="41" r={RADIUS}
             fill="none"
-            stroke="#0306AC"
+            stroke={`url(#${gradientId})`}
             strokeWidth="5"
             strokeLinecap="round"
             strokeDasharray={CIRCUMFERENCE}
-            initial={{ strokeDashoffset: CIRCUMFERENCE }}
-            animate={controls}
+            strokeDashoffset={CIRCUMFERENCE * (1 - dotProgress)}
           />
-          {/* Yellow dot — always visible while in view, moves with arc every frame */}
-          {isInView && (
-            <circle cx={dotX} cy={dotY} r="4.5" fill="#FFF35C" stroke="white" strokeWidth="1.5" />
-          )}
+          {/* Yellow dot — always visible, moves with arc every frame */}
+          <circle
+            cx={dotX} cy={dotY} r="4.5"
+            fill="#FFF35C"
+            stroke="white"
+            strokeWidth="1.5"
+            style={{ filter: "drop-shadow(0px 1.5px 3px rgba(3, 6, 172, 0.45))" }}
+          />
         </svg>
         {/* Number */}
         <div className="absolute inset-0 flex items-center justify-center">
-          <span className="font-heading font-black text-[18px] text-brand-dark leading-none">
+          <span className="font-heading font-black text-[15px] sm:text-[18px] text-brand-dark leading-none">
             {displayed}
           </span>
         </div>
@@ -103,7 +116,7 @@ function AnimatedStat({
       {/* Labels */}
       <div className="text-center">
         <p className="text-[9px] font-black uppercase tracking-widest text-brand-dark">{label}</p>
-        <p className="text-[8.5px] text-brand-zinc-400 mt-0.5 leading-snug">{sublabel}</p>
+        <p className="text-[8.5px] text-brand-zinc-400 mt-0.5 leading-snug whitespace-pre-line">{sublabel}</p>
       </div>
     </div>
   );
@@ -212,32 +225,32 @@ const reasons = [
   {
     num: "01",
     icon: Sparkles,
-    title: "Bespoke Visual Polish",
-    desc: "We design strictly from scratch. Every typeface, spacing token, and vector is custom-built to match your brand's caliber — completely avoiding the overused template look.",
+    title: "Bespoke Design Mastery",
+    desc: "I design everything strictly from scratch. Every typeface choice, spacing token, and custom vector graphic is tailored to match your caliber, bypassing the generic template look.",
   },
   {
     num: "02",
     icon: Terminal,
     title: "Elite Next.js & React Engineering",
-    desc: "Modern React architecture. Millisecond load times, a perfect Lighthouse score, and layouts that render beautifully across every device.",
+    desc: "Clean, hand-written modern React code. I ensure your site achieves millisecond load times, perfect SEO optimization, and flawless performance across all device viewports.",
   },
   {
     num: "03",
     icon: TrendingUp,
-    title: "Conversion-Focused Architecture",
-    desc: "Design without conversion is just art. We mathematically structure CTAs, social proof, and page hierarchy to drive high-value actions.",
+    title: "Conversion-Led Architecture",
+    desc: "Design without conversions is just art. I mathematically structure call-to-actions, user pathways, and visual hierarchies to systematically drive high-value actions.",
   },
   {
     num: "04",
     icon: Zap,
-    title: "High-Velocity Communication",
-    desc: "Dedicated Slack channel, weekly Loom walkthroughs, and transparent milestones. No mystery delays, no chasing updates.",
+    title: "Direct & Rapid Communication",
+    desc: "No middlemen or account managers. We collaborate in a dedicated Slack channel with weekly video walkthroughs and complete transparency over milestones.",
   },
   {
     num: "05",
     icon: HeartHandshake,
-    title: "Direct Access & Elite Support",
-    desc: "You work with the founder and senior specialists — never outsourced juniors. Includes 30 days of post-launch support.",
+    title: "Founder-Level Accountability",
+    desc: "You partner with me directly — never passed off to outsourced juniors. Includes dedicated launch support and long-term scaling guidance.",
   },
 ];
 
@@ -253,7 +266,7 @@ export default function WhyChooseMe() {
   return (
     <section
       id="why-us"
-      className="relative bg-[#F8FAFC] border-t border-brand-zinc-200"
+      className="relative bg-[#F8FAFC] border-t border-brand-zinc-200 py-16 lg:py-24"
     >
       {/* Dot grid */}
       <div
@@ -264,11 +277,11 @@ export default function WhyChooseMe() {
         }}
       />
 
-      <div className="mx-auto max-w-7xl px-6 md:px-12 relative z-10">
-        <div className="flex flex-col lg:flex-row lg:items-start">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+        <div className="flex flex-col lg:flex-row lg:items-start gap-12 lg:gap-0">
 
           {/* ── LEFT STICKY ─────────────────────────────────── */}
-          <div className="lg:w-[42%] lg:shrink-0 lg:sticky lg:top-0 lg:h-screen flex flex-col justify-center py-20 lg:pr-16 lg:border-r border-brand-zinc-200">
+          <div className="lg:w-[42%] lg:shrink-0 lg:sticky lg:top-28 flex flex-col justify-start lg:pr-16 lg:border-r border-brand-zinc-200">
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -282,10 +295,10 @@ export default function WhyChooseMe() {
               </span>
 
               {/* Heading */}
-              <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-brand-dark leading-[1.1] tracking-tight">
-                Why Elite Ambitions<br />Require{" "}
+              <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-dark leading-[1.15] tracking-tight">
+                Why Business Owners Choose{" "}
                 <span className="text-brand-blue relative inline-block">
-                  Custom Execution
+                  Me Directly
                   <svg
                     className="absolute -bottom-1.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]"
                     viewBox="0 0 100 10"
@@ -304,33 +317,38 @@ export default function WhyChooseMe() {
               </h2>
 
               {/* Subtext */}
-              <p className="text-brand-zinc-500 text-sm leading-relaxed max-w-xs">
-                Cheap templates tell your clients you cut corners. We design
-                custom experiences that validate your pricing and build
-                immediate authority.
+              <p className="text-brand-zinc-500 text-sm leading-relaxed max-w-sm">
+                No agency overhead, no outsourced junior developers, and zero cookie-cutter templates. I design and engineer custom, high-converting digital products that build immediate brand authority.
               </p>
 
               {/* Circular stats */}
-              <div className="flex items-center gap-8 pt-2">
+              <div className="flex items-center justify-between gap-4 pt-6 w-full">
                 <AnimatedStat
                   value="98%"
                   label="Client Retention"
                   sublabel={"Long-term partnerships\nbuilt on results"}
                   percentage={0.98}
                 />
-                <div className="w-px h-28 bg-brand-zinc-200 self-center" />
+                <div className="w-px h-16 bg-brand-zinc-200 self-center hidden sm:block" />
                 <AnimatedStat
                   value="3.4x"
                   label="Avg. Conversion"
                   sublabel={"Higher conversion rate\nacross client projects"}
                   percentage={0.68}
                 />
+                <div className="w-px h-16 bg-brand-zinc-200 self-center hidden sm:block" />
+                <AnimatedStat
+                  value="99+"
+                  label="Speed & SEO"
+                  sublabel={"Average Lighthouse\nperformance score"}
+                  percentage={0.99}
+                />
               </div>
             </motion.div>
           </div>
 
           {/* ── RIGHT SCROLLING ──────────────────────────────── */}
-          <div className="lg:flex-1 py-16 lg:py-24 lg:pl-14 flex flex-col">
+          <div className="lg:flex-1 lg:pl-14 flex flex-col">
             {reasons.map((reason, index) => {
               const Icon = reason.icon;
               return (
