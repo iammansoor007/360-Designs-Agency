@@ -66,7 +66,7 @@ function RollingNumber({ value, suffix = "" }: { value: number; suffix?: string 
 
 export default function AboutOwner() {
   return (
-    <section id="about" className="relative overflow-hidden bg-transparent py-24 md:py-32 border-b border-brand-zinc-200">
+    <section id="about" className="relative overflow-hidden bg-transparent py-10 md:py-16 border-b border-brand-zinc-200">
 
 
 

@@ -30,8 +30,7 @@ export default function Home() {
         {/* 5. Selected Portfolio Projects */}
         <Portfolio />
 
-        {/* 6. Brands I'm Working With */}
-        <Brands />
+
 
         {/* 7. Why Choose Me */}
         <WhyChooseMe />

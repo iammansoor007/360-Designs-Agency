@@ -46,37 +46,36 @@ const caseStudies = [
       { value: "Top 3", label: "Ranking for Key Search Terms", icon: Award }
     ],
     screenshot: (
-      <div className="w-full h-full bg-[#080710] flex flex-col justify-between p-2.5 text-white font-sans overflow-hidden select-none relative">
+      <div className="w-full h-full bg-[#FCFCFD] flex flex-col justify-between p-2.5 text-brand-dark font-sans overflow-hidden select-none relative border border-slate-100/50">
         {/* Screen Glare reflection overlay */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/15 pointer-events-none z-30" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-white/70 pointer-events-none z-30" />
 
         {/* Website Mockup Header */}
-        <div className="flex items-center justify-between border-b border-white/5 pb-1 mb-1 shrink-0 z-10">
+        <div className="flex items-center justify-between border-b border-brand-zinc-200 pb-1 mb-1 shrink-0 z-10 bg-white/70">
           <div className="flex items-center gap-1">
             <div className="w-3.5 h-3.5 rounded-full bg-orange-500 flex items-center justify-center font-bold text-[6.5px] text-white">P</div>
-            <span className="text-[7px] font-black tracking-tight text-white">PALCO CLAIMS</span>
+            <span className="text-[7px] font-black tracking-tight text-brand-dark">PALCO CLAIMS</span>
           </div>
-          <div className="flex items-center gap-2 text-[5.5px] text-white/50">
+          <div className="flex items-center gap-2 text-[5.5px] text-brand-zinc-500 font-bold">
             <span>Home</span>
             <span>Services</span>
             <span>About</span>
-            <span className="bg-[#0306AC] text-white px-2 py-0.5 rounded-xs font-bold scale-90">Call</span>
+            <span className="bg-orange-500 text-white px-1.5 py-0.5 rounded-xs font-bold scale-90">Call</span>
           </div>
         </div>
 
         {/* Hero Block */}
-        <div className="flex-1 flex flex-col justify-center items-center text-center p-1 relative overflow-hidden z-10">
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-red-950/20 to-black z-0 opacity-80" />
+        <div className="flex-1 flex flex-col justify-center items-center text-center p-2.5 relative overflow-hidden z-10 bg-white border border-brand-zinc-200/50 rounded-lg shadow-[0_2px_8px_rgba(0,0,0,0.02)] my-1">
           <div className="relative z-10 space-y-1 w-full max-w-[180px]">
-            <span className="text-[4px] text-orange-400 font-extrabold uppercase tracking-widest block leading-none">Property Insurance Claims Adjusters</span>
-            <h4 className="text-[6.5px] font-black text-white leading-tight uppercase">Public Claims Adjuster & Loss Consultant in Texas, Oklahoma & Nevada</h4>
-            <span className="inline-block bg-orange-500 text-white font-black text-[4.5px] px-1.5 py-0.5 rounded-xs mt-0.5 scale-90 shadow-md">Call Us Now</span>
+            <span className="text-[4.5px] text-orange-600 font-extrabold uppercase tracking-wider block leading-none">Property Insurance Claims</span>
+            <h4 className="text-[7px] font-black text-brand-dark leading-snug uppercase">Public Claims Adjuster & Loss Consultant in Texas & Oklahoma</h4>
+            <span className="inline-block bg-brand-blue text-white font-black text-[4.5px] px-2 py-0.5 rounded-xs mt-1 scale-90 shadow-md">Get Free Consultation</span>
           </div>
         </div>
 
         {/* Sub-hero tagline */}
-        <div className="bg-white text-[#080710] py-0.5 text-center shrink-0 border-t border-slate-200 z-10">
-          <span className="text-[5px] font-black tracking-tight text-[#0306AC]">What is a Public Adjuster?</span>
+        <div className="bg-white text-brand-dark py-1 text-center shrink-0 border-t border-slate-100 rounded-b-xs z-10 shadow-[0_-1px_3px_rgba(0,0,0,0.02)]">
+          <span className="text-[5.5px] font-black tracking-tight text-brand-blue">What is a Public Adjuster?</span>
         </div>
       </div>
     )
@@ -96,45 +95,45 @@ const caseStudies = [
       { value: "-35%", label: "Reduction in CPA", icon: Zap }
     ],
     screenshot: (
-      <div className="w-full h-full bg-[#080710] flex flex-col justify-between p-2.5 text-white font-sans overflow-hidden select-none relative">
+      <div className="w-full h-full bg-[#FCFCFD] flex flex-col justify-between p-2.5 text-brand-dark font-sans overflow-hidden select-none relative border border-slate-100/50">
         {/* Screen Glare reflection overlay */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/15 pointer-events-none z-30" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-white/70 pointer-events-none z-30" />
 
         {/* Ad Header */}
-        <div className="flex items-center justify-between border-b border-white/5 pb-1 mb-1 shrink-0 z-10">
+        <div className="flex items-center justify-between border-b border-brand-zinc-200 pb-1 mb-1 shrink-0 z-10">
           <div className="flex items-center gap-1">
-            <div className="w-3.5 h-3.5 rounded-full bg-emerald-500 flex items-center justify-center font-bold text-[6px] text-[#080710]">G</div>
+            <div className="w-3.5 h-3.5 rounded-full bg-emerald-100 border border-emerald-500/20 flex items-center justify-center font-bold text-[6px] text-emerald-700">G</div>
             <div>
-              <span className="text-[6.5px] font-black block leading-none text-white">Greenleaf Wellness</span>
-              <span className="text-[4.5px] text-white/50 block leading-none mt-0.5">Sponsored</span>
+              <span className="text-[6.5px] font-black block leading-none text-brand-dark">Greenleaf Wellness</span>
+              <span className="text-[4.5px] text-brand-zinc-400 font-semibold block leading-none mt-0.5">Sponsored</span>
             </div>
           </div>
-          <span className="text-[5.5px] bg-[#FFF35C] text-[#080710] px-1.5 py-0.5 rounded-xs font-black">META ADS</span>
+          <span className="text-[5.5px] bg-brand-blue/10 text-brand-blue px-1.5 py-0.5 rounded-xs font-black">META ADS</span>
         </div>
 
         {/* Ad content */}
         <div className="flex-1 flex gap-2 items-center min-h-0 z-10">
           {/* Ad Image Mockup */}
-          <div className="flex-1 aspect-[4/3] rounded border border-white/10 bg-white/[0.04] p-1 flex flex-col justify-between relative overflow-hidden">
-            <span className="text-[5.5px] font-black text-[#FFF35C] uppercase leading-none block">Pure Wellness Oils</span>
-            <div className="w-8 h-8 rounded bg-gradient-to-br from-emerald-500/20 to-emerald-800/10 mx-auto my-0.5 flex items-center justify-center border border-emerald-500/10">
-              <div className="w-2 h-5 bg-emerald-400 rounded-sm shadow-md" />
+          <div className="flex-1 aspect-[4/3] rounded border border-brand-zinc-200 bg-white p-1 flex flex-col justify-between relative overflow-hidden shadow-xs">
+            <span className="text-[5.5px] font-black text-emerald-800 uppercase leading-none block">Pure Wellness Oils</span>
+            <div className="w-8 h-8 rounded bg-emerald-50 mx-auto my-0.5 flex items-center justify-center border border-emerald-100">
+              <div className="w-2.5 h-5 bg-emerald-500 rounded-sm shadow-sm" />
             </div>
             <div className="flex justify-between items-center leading-none">
-              <span className="text-[6.5px] font-black text-white/90">$49.00</span>
-              <span className="text-[4.5px] bg-[#FFF35C] text-[#080710] font-black px-1 py-0.5 rounded uppercase scale-90">SHOP NOW</span>
+              <span className="text-[6.5px] font-black text-brand-dark">$49.00</span>
+              <span className="text-[4.5px] bg-brand-yellow text-brand-dark font-black px-1.5 py-0.5 rounded-xs scale-90">SHOP NOW</span>
             </div>
           </div>
 
           {/* Campaign Stats Card */}
           <div className="w-16 shrink-0 flex flex-col gap-1">
-            <div className="bg-white/[0.04] border border-white/10 rounded p-1 text-center leading-none">
-              <span className="text-[4.5px] text-white/60 font-semibold block uppercase">ROAS</span>
-              <span className="text-[9px] font-black text-[#FFF35C] block mt-0.5">4.8x</span>
+            <div className="bg-white border border-brand-zinc-200/80 rounded p-1 text-center leading-none shadow-xs">
+              <span className="text-[4.5px] text-brand-zinc-400 font-bold block uppercase">ROAS</span>
+              <span className="text-[9px] font-black text-brand-blue block mt-0.5">4.8x</span>
             </div>
-            <div className="bg-white/[0.04] border border-white/10 rounded p-1 text-center leading-none">
-              <span className="text-[4.5px] text-white/60 font-semibold block uppercase">CPA</span>
-              <span className="text-[9px] font-black text-red-400 block mt-0.5">-35%</span>
+            <div className="bg-white border border-brand-zinc-200/80 rounded p-1 text-center leading-none shadow-xs">
+              <span className="text-[4.5px] text-brand-zinc-400 font-bold block uppercase">CPA</span>
+              <span className="text-[9px] font-black text-emerald-600 block mt-0.5">-35%</span>
             </div>
           </div>
         </div>
@@ -156,24 +155,24 @@ const caseStudies = [
       { value: "142K", label: "New Monthly Organic Visitors", icon: Users }
     ],
     screenshot: (
-      <div className="w-full h-full bg-[#0306AC]/10 flex flex-col justify-between p-2.5 text-slate-800 font-sans overflow-hidden select-none relative">
+      <div className="w-full h-full bg-[#F8FAFC] flex flex-col justify-between p-2.5 text-slate-800 font-sans overflow-hidden select-none relative">
         {/* Screen Glare reflection overlay */}
-        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/15 pointer-events-none z-30" />
+        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/50 to-white/75 pointer-events-none z-30" />
 
         {/* Dashboard Header */}
-        <div className="flex items-center justify-between border-b border-slate-200 pb-1 mb-1 shrink-0 z-10">
+        <div className="flex items-center justify-between border-b border-slate-200 pb-1 mb-1 shrink-0 z-10 bg-white/50">
           <div className="flex items-center gap-1">
-            <div className="w-3 h-3 rounded-full bg-[#0306AC] flex items-center justify-center font-bold text-[6px] text-white">T</div>
+            <div className="w-3 h-3 rounded-full bg-brand-blue flex items-center justify-center font-bold text-[6px] text-white">T</div>
             <span className="text-[6.5px] font-black text-brand-dark">TECHNOVA</span>
           </div>
-          <span className="text-[5.5px] bg-[#0306AC]/10 text-brand-blue px-1.5 py-0.5 rounded-xs font-black">ANALYTICS</span>
+          <span className="text-[5.5px] bg-brand-blue/10 text-brand-blue px-1.5 py-0.5 rounded-xs font-black">ANALYTICS</span>
         </div>
 
         {/* Dashboard Body */}
         <div className="flex-1 flex gap-1.5 items-stretch min-h-0 py-1 z-10">
           {/* Sidebar */}
-          <div className="w-4 bg-[#0306AC]/5 border-r border-[#0306AC]/10 pr-0.5 flex flex-col gap-1 pt-0.5 shrink-0">
-            <span className="h-0.5 w-full rounded bg-[#0306AC]/30" />
+          <div className="w-4 bg-slate-100 border-r border-slate-200 pr-0.5 flex flex-col gap-1 pt-0.5 shrink-0">
+            <span className="h-0.5 w-full rounded bg-brand-blue/40" />
             <span className="h-0.5 w-2/3 rounded bg-slate-300" />
             <span className="h-0.5 w-1/2 rounded bg-slate-300" />
           </div>
@@ -182,7 +181,7 @@ const caseStudies = [
             <div className="flex justify-between items-center leading-none">
               <div>
                 <span className="text-[4.5px] text-slate-400 font-bold uppercase block">Organic Demos</span>
-                <span className="text-[10px] font-black text-slate-800 tracking-tight">142,800 <span className="text-[5.5px] text-green-500 font-black">+380%</span></span>
+                <span className="text-[10px] font-black text-slate-800 tracking-tight">142,800 <span className="text-[5.5px] text-emerald-600 font-black">+380%</span></span>
               </div>
             </div>
             {/* Chart Line */}

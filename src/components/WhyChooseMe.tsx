@@ -1,153 +1,393 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { 
-  Sparkles, 
-  Terminal, 
-  TrendingUp, 
-  Zap, 
-  HeartHandshake 
-} from "lucide-react";
+import { motion, useInView, useAnimation } from "framer-motion";
+import { useRef, useEffect, useState } from "react";
+import { Sparkles, Terminal, TrendingUp, Zap, HeartHandshake } from "lucide-react";
 
-// Variants for repeating hand-drawn paths animations on scroll
-const drawVariants = {
-  hidden: { pathLength: 0 },
-  visible: (custom: { delay: number; duration: number }) => ({
-    pathLength: 1,
-    transition: { 
-      duration: custom?.duration ?? 0.6, 
-      delay: custom?.delay ?? 0.2, 
-      ease: "easeOut" as any 
+// ── Animated Circular Stat ────────────────────────────────────
+const RADIUS = 34;
+const CIRCUMFERENCE = 2 * Math.PI * RADIUS;
+
+function AnimatedStat({
+  value,
+  label,
+  sublabel,
+  percentage, // 0–1, how much of the ring to fill
+}: {
+  value: string;
+  label: string;
+  sublabel: string;
+  percentage: number;
+}) {
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: false, margin: "-80px" });
+  const controls = useAnimation();
+  const [displayed, setDisplayed] = useState(value.replace(/[0-9.]/g, "0"));
+  const [dotProgress, setDotProgress] = useState(0);
+
+  useEffect(() => {
+    if (isInView) {
+      controls.start({
+        strokeDashoffset: CIRCUMFERENCE * (1 - percentage),
+        transition: { duration: 1.4, ease: [0.16, 1, 0.3, 1], delay: 0.15 },
+      });
+      const isFloat = value.includes(".");
+      const isPercent = value.includes("%");
+      const suffix = isPercent ? "%" : value.replace(/[0-9.]/g, "");
+      const numeric = parseFloat(value.replace(/[^0-9.]/g, ""));
+      const DURATION = 1400;
+      const DELAY = 150;
+      const startTime = performance.now() + DELAY;
+      let rafId: number;
+      const tick = (now: number) => {
+        const elapsed = Math.max(0, now - startTime);
+        const raw = Math.min(elapsed / DURATION, 1);
+        const eased = 1 - Math.pow(1 - raw, 3);
+        setDisplayed((isFloat ? (eased * numeric).toFixed(1) : Math.round(eased * numeric).toString()) + suffix);
+        setDotProgress(eased * percentage);
+        if (raw < 1) { rafId = requestAnimationFrame(tick); }
+        else { setDotProgress(percentage); }
+      };
+      rafId = requestAnimationFrame(tick);
+      return () => cancelAnimationFrame(rafId);
+    } else {
+      controls.start({ strokeDashoffset: CIRCUMFERENCE, transition: { duration: 0 } });
+      setDisplayed(value.replace(/[0-9.]/g, "0"));
+      setDotProgress(0);
     }
-  })
-};
+  }, [isInView, controls, percentage, value]);
+
+  // Dot travels along arc tip — uses live dotProgress (0 → percentage)
+  // SVG is CSS-rotated -90°: angle 0 in SVG = 3 o'clock = visual 12 o'clock
+  const dotAngle = 2 * Math.PI * dotProgress;
+  const dotX = 41 + RADIUS * Math.cos(dotAngle);
+  const dotY = 41 + RADIUS * Math.sin(dotAngle);
+
+  return (
+    <div ref={ref} className="flex flex-col items-center gap-3">
+      {/* Ring */}
+      <div className="relative w-[96px] h-[96px]">
+        {/* Glow behind ring */}
+        <div className="absolute inset-0 rounded-full bg-brand-blue/8 blur-md" />
+        <svg viewBox="0 0 82 82" className="relative w-full h-full -rotate-90">
+          {/* Track */}
+          <circle
+            cx="41" cy="41" r={RADIUS}
+            fill="none"
+            stroke="#E5E7EB"
+            strokeWidth="5"
+          />
+          {/* Animated fill */}
+          <motion.circle
+            cx="41" cy="41" r={RADIUS}
+            fill="none"
+            stroke="#0306AC"
+            strokeWidth="5"
+            strokeLinecap="round"
+            strokeDasharray={CIRCUMFERENCE}
+            initial={{ strokeDashoffset: CIRCUMFERENCE }}
+            animate={controls}
+          />
+          {/* Yellow dot — always visible while in view, moves with arc every frame */}
+          {isInView && (
+            <circle cx={dotX} cy={dotY} r="4.5" fill="#FFF35C" stroke="white" strokeWidth="1.5" />
+          )}
+        </svg>
+        {/* Number */}
+        <div className="absolute inset-0 flex items-center justify-center">
+          <span className="font-heading font-black text-[18px] text-brand-dark leading-none">
+            {displayed}
+          </span>
+        </div>
+      </div>
+      {/* Labels */}
+      <div className="text-center">
+        <p className="text-[9px] font-black uppercase tracking-widest text-brand-dark">{label}</p>
+        <p className="text-[8.5px] text-brand-zinc-400 mt-0.5 leading-snug">{sublabel}</p>
+      </div>
+    </div>
+  );
+}
+
+// ── Illustrations ─────────────────────────────────────────────
+const illustrations = [
+  // 01 — Design grid
+  <svg key="1" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+    <rect x="8" y="10" width="62" height="80" rx="8" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.2" />
+    <rect x="16" y="20" width="46" height="7" rx="3.5" fill="#0306AC" fillOpacity="0.18" />
+    <rect x="16" y="33" width="30" height="5" rx="2.5" fill="#0306AC" fillOpacity="0.1" />
+    <rect x="16" y="43" width="40" height="5" rx="2.5" fill="#0306AC" fillOpacity="0.1" />
+    <rect x="16" y="53" width="26" height="5" rx="2.5" fill="#0306AC" fillOpacity="0.08" />
+    <circle cx="16" cy="73" r="6" fill="#0306AC" />
+    <circle cx="28" cy="73" r="6" fill="#FFF35C" />
+    <circle cx="40" cy="73" r="6" fill="#080710" />
+    <circle cx="52" cy="73" r="6" fill="#E5E7EB" />
+    <rect x="84" y="8" width="68" height="42" rx="8" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
+    <circle cx="102" cy="28" r="10" fill="#0306AC" fillOpacity="0.15" />
+    <circle cx="102" cy="28" r="6" fill="#0306AC" fillOpacity="0.35" />
+    <rect x="118" y="21" width="26" height="4" rx="2" fill="#0306AC" fillOpacity="0.2" />
+    <rect x="118" y="30" width="18" height="4" rx="2" fill="#0306AC" fillOpacity="0.1" />
+    <rect x="84" y="58" width="68" height="36" rx="8" fill="#FFF35C" fillOpacity="0.18" stroke="#FFF35C" strokeWidth="1" strokeOpacity="0.45" />
+    <rect x="94" y="68" width="48" height="4" rx="2" fill="#0306AC" fillOpacity="0.2" />
+    <rect x="94" y="77" width="34" height="4" rx="2" fill="#0306AC" fillOpacity="0.12" />
+    <circle cx="148" cy="10" r="7" fill="#FFF35C" />
+    <path d="M148 6 L149 8.5 L152 8.5 L149.8 10.1 L150.7 12.8 L148 11.2 L145.3 12.8 L146.2 10.1 L144 8.5 L147 8.5 Z" fill="#080710" />
+  </svg>,
+
+  // 02 — Terminal / code
+  <svg key="2" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+    <rect x="8" y="8" width="144" height="84" rx="9" fill="#0306AC" fillOpacity="0.06" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
+    <rect x="8" y="8" width="144" height="18" rx="9" fill="#0306AC" fillOpacity="0.08" />
+    <circle cx="22" cy="17" r="3.5" fill="#0306AC" fillOpacity="0.35" />
+    <circle cx="33" cy="17" r="3.5" fill="#0306AC" fillOpacity="0.2" />
+    <circle cx="44" cy="17" r="3.5" fill="#0306AC" fillOpacity="0.1" />
+    <rect x="18" y="34" width="20" height="4" rx="2" fill="#0306AC" fillOpacity="0.5" />
+    <rect x="44" y="34" width="48" height="4" rx="2" fill="#0306AC" fillOpacity="0.2" />
+    <rect x="98" y="34" width="24" height="4" rx="2" fill="#FFF35C" fillOpacity="0.7" />
+    <rect x="26" y="44" width="64" height="4" rx="2" fill="#0306AC" fillOpacity="0.14" />
+    <rect x="96" y="44" width="40" height="4" rx="2" fill="#0306AC" fillOpacity="0.09" />
+    <rect x="18" y="54" width="32" height="4" rx="2" fill="#FFF35C" fillOpacity="0.5" />
+    <rect x="56" y="54" width="72" height="4" rx="2" fill="#0306AC" fillOpacity="0.1" />
+    <rect x="26" y="64" width="48" height="4" rx="2" fill="#0306AC" fillOpacity="0.18" />
+    <rect x="80" y="64" width="32" height="4" rx="2" fill="#0306AC" fillOpacity="0.1" />
+    <rect x="18" y="74" width="4" height="7" rx="1" fill="#0306AC" fillOpacity="0.55" />
+    <circle cx="138" cy="72" r="14" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
+    <text x="138" y="77" textAnchor="middle" fontSize="10" fontWeight="900" fill="#0306AC" fillOpacity="0.55" fontFamily="sans-serif">100</text>
+  </svg>,
+
+  // 03 — Chart / conversion
+  <svg key="3" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+    <line x1="8" y1="92" x2="152" y2="92" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.12" />
+    <rect x="16" y="68" width="16" height="24" rx="3" fill="#0306AC" fillOpacity="0.12" />
+    <rect x="38" y="52" width="16" height="40" rx="3" fill="#0306AC" fillOpacity="0.2" />
+    <rect x="60" y="38" width="16" height="54" rx="3" fill="#0306AC" fillOpacity="0.32" />
+    <rect x="82" y="24" width="16" height="68" rx="3" fill="#0306AC" fillOpacity="0.45" />
+    <rect x="104" y="12" width="16" height="80" rx="3" fill="#0306AC" fillOpacity="0.62" />
+    <polyline points="24,66 46,50 68,36 90,22 112,10" stroke="#FFF35C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <circle cx="24" cy="66" r="3.5" fill="#FFF35C" />
+    <circle cx="46" cy="50" r="3.5" fill="#FFF35C" />
+    <circle cx="68" cy="36" r="3.5" fill="#FFF35C" />
+    <circle cx="90" cy="22" r="3.5" fill="#FFF35C" />
+    <circle cx="112" cy="10" r="5" fill="#0306AC" stroke="#FFF35C" strokeWidth="2" />
+    <rect x="130" y="30" width="26" height="12" rx="6" fill="#0306AC" fillOpacity="0.8" />
+    <rect x="130" y="50" width="26" height="12" rx="6" fill="#FFF35C" fillOpacity="0.65" />
+  </svg>,
+
+  // 04 — Chat bubbles
+  <svg key="4" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+    <rect x="8" y="8" width="88" height="34" rx="10" fill="#0306AC" fillOpacity="0.09" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
+    <path d="M18 42 L14 50 L24 42" fill="#0306AC" fillOpacity="0.09" />
+    <rect x="16" y="18" width="64" height="4" rx="2" fill="#0306AC" fillOpacity="0.3" />
+    <rect x="16" y="27" width="44" height="4" rx="2" fill="#0306AC" fillOpacity="0.14" />
+    <rect x="64" y="52" width="88" height="34" rx="10" fill="#FFF35C" fillOpacity="0.22" stroke="#FFF35C" strokeOpacity="0.55" strokeWidth="1" />
+    <path d="M134 52 L138 44 L126 52" fill="#FFF35C" fillOpacity="0.22" />
+    <rect x="72" y="62" width="64" height="4" rx="2" fill="#0306AC" fillOpacity="0.22" />
+    <rect x="72" y="71" width="48" height="4" rx="2" fill="#0306AC" fillOpacity="0.14" />
+    <circle cx="146" cy="28" r="13" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
+    <path d="M139 32 L145 22 L146 28 L153 24" stroke="#0306AC" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.45" fill="none" />
+    <circle cx="146" cy="28" r="2.5" fill="#FFF35C" />
+  </svg>,
+
+  // 05 — People / support
+  <svg key="5" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
+    <circle cx="42" cy="30" r="18" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
+    <circle cx="42" cy="24" r="8" fill="#0306AC" fillOpacity="0.28" />
+    <path d="M25 46 Q42 40 59 46" stroke="#0306AC" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.3" fill="none" />
+    <circle cx="118" cy="30" r="18" fill="#FFF35C" fillOpacity="0.18" stroke="#FFF35C" strokeOpacity="0.45" strokeWidth="1" />
+    <circle cx="118" cy="24" r="8" fill="#0306AC" fillOpacity="0.18" />
+    <path d="M101 46 Q118 40 135 46" stroke="#0306AC" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.22" fill="none" />
+    <line x1="61" y1="30" x2="99" y2="30" stroke="#0306AC" strokeWidth="1.2" strokeDasharray="3 3" strokeOpacity="0.25" />
+    <circle cx="80" cy="30" r="10" fill="#0306AC" fillOpacity="0.1" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
+    <path d="M75 30 Q78 26 80 28 Q82 26 85 30 Q82 34 80 32 Q78 34 75 30 Z" fill="#0306AC" fillOpacity="0.45" />
+    <circle cx="42" cy="74" r="4" fill="#FFF35C" />
+    <circle cx="55" cy="74" r="4" fill="#FFF35C" />
+    <circle cx="68" cy="74" r="4" fill="#FFF35C" />
+    <circle cx="81" cy="74" r="4" fill="#FFF35C" />
+    <circle cx="94" cy="74" r="4" fill="#FFF35C" fillOpacity="0.35" />
+    <text x="80" y="92" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="#0306AC" fillOpacity="0.4" fontFamily="sans-serif" letterSpacing="1">4.9 / 5  CLIENT RATING</text>
+  </svg>,
+];
 
 const reasons = [
   {
-    icon: <Sparkles className="h-5 w-5 text-brand-blue group-hover:text-brand-dark transition-colors duration-300" />,
+    num: "01",
+    icon: Sparkles,
     title: "Bespoke Visual Polish",
-    desc: "We design strictly from scratch. Every typeface selection, letter-spacing token, and background vector is custom-built to match your brand's unique caliber, completely avoiding the overused 'AI SaaS bootstrap template' look."
+    desc: "We design strictly from scratch. Every typeface, spacing token, and vector is custom-built to match your brand's caliber — completely avoiding the overused template look.",
   },
   {
-    icon: <Terminal className="h-5 w-5 text-brand-blue group-hover:text-brand-dark transition-colors duration-300" />,
+    num: "02",
+    icon: Terminal,
     title: "Elite Next.js & React Engineering",
-    desc: "We build on modern React architectures. Your landing page will load in milliseconds, score 100 on Google Lighthouse, and feature responsive layouts that render beautifully across all mobile viewports."
+    desc: "Modern React architecture. Millisecond load times, a perfect Lighthouse score, and layouts that render beautifully across every device.",
   },
   {
-    icon: <TrendingUp className="h-5 w-5 text-brand-blue group-hover:text-brand-dark transition-colors duration-300" />,
+    num: "03",
+    icon: TrendingUp,
     title: "Conversion-Focused Architecture",
-    desc: "Design without conversion is just art. We mathematically structure page hierarchies, button placement, and social proof components to guide visitors toward high-value conversions."
+    desc: "Design without conversion is just art. We mathematically structure CTAs, social proof, and page hierarchy to drive high-value actions.",
   },
   {
-    icon: <Zap className="h-5 w-5 text-brand-blue group-hover:text-brand-dark transition-colors duration-300" />,
+    num: "04",
+    icon: Zap,
     title: "High-Velocity Communication",
-    desc: "We run our agency like a top-tier tech startup. You get a dedicated Slack channel, weekly asynchronous video walkthroughs via Loom, and transparent milestones. No mystery delays."
+    desc: "Dedicated Slack channel, weekly Loom walkthroughs, and transparent milestones. No mystery delays, no chasing updates.",
   },
   {
-    icon: <HeartHandshake className="h-5 w-5 text-brand-blue group-hover:text-brand-dark transition-colors duration-300" />,
+    num: "05",
+    icon: HeartHandshake,
     title: "Direct Access & Elite Support",
-    desc: "We are an elite boutique agency. You work directly with the founder and senior specialists, never outsourced juniors. Includes 30 days of post-launch engineering support and training."
-  }
+    desc: "You work with the founder and senior specialists — never outsourced juniors. Includes 30 days of post-launch support.",
+  },
 ];
 
+const drawVariants = {
+  hidden: { pathLength: 0 },
+  visible: {
+    pathLength: 1,
+    transition: { duration: 0.7, delay: 0.3, ease: "easeOut" as const },
+  },
+};
+
 export default function WhyChooseMe() {
-  const containerVariants = {
-    hidden: {},
-    visible: {
-      transition: {
-        staggerChildren: 0.08
-      }
-    }
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.16, 1, 0.3, 1] as any }
-    }
-  };
-
   return (
-    <section id="why-us" className="relative bg-transparent py-24 border-b border-brand-zinc-200">
+    <section
+      id="why-us"
+      className="relative bg-[#F8FAFC] border-t border-brand-zinc-200"
+    >
+      {/* Dot grid */}
+      <div
+        className="absolute inset-0 opacity-[0.022] pointer-events-none"
+        style={{
+          backgroundImage: "radial-gradient(#0306AC 1px, transparent 1px)",
+          backgroundSize: "24px 24px",
+        }}
+      />
 
-      <div className="mx-auto max-w-7xl px-6 md:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">
-          
-          {/* Left Column: Sticky Summary & Value Prop */}
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-            className="lg:col-span-5 lg:sticky lg:top-28 h-fit space-y-6 flex flex-col items-center lg:items-start text-center lg:text-left"
-          >
-            <span className="text-[10px] font-sans font-black tracking-widest text-brand-zinc-400 uppercase">
-              05 // METHODOLOGY
-            </span>
-            <h2 className="font-heading font-extrabold text-4xl md:text-5xl text-brand-dark tracking-tight leading-[1.15]">
-              Why Elite Ambitions Require{" "}
-              <span className="relative inline-block text-brand-blue">
-                Custom Execution
-                <svg className="absolute -bottom-2 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
-                  <motion.path
-                    d="M 2 5 Q 50 3.5, 98 5"
-                    stroke="#FFF35C"
-                    strokeWidth="3.5"
-                    strokeLinecap="round"
-                    variants={drawVariants}
-                    custom={{ delay: 0.2, duration: 0.6 }}
-                  />
-                </svg>
+      <div className="mx-auto max-w-7xl px-6 md:px-12 relative z-10">
+        <div className="flex flex-col lg:flex-row lg:items-start">
+
+          {/* ── LEFT STICKY ─────────────────────────────────── */}
+          <div className="lg:w-[42%] lg:shrink-0 lg:sticky lg:top-0 lg:h-screen flex flex-col justify-center py-20 lg:pr-16 lg:border-r border-brand-zinc-200">
+            <motion.div
+              initial={{ opacity: 0, y: 28 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.3 }}
+              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+              className="space-y-7"
+            >
+              {/* Pill */}
+              <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1.5 text-[9px] font-black tracking-widest uppercase text-brand-blue">
+                05 // Methodology
               </span>
-            </h2>
-            <p className="text-brand-zinc-500 font-medium leading-relaxed max-w-md">
-              Cheap templates tell your clients you cut corners. We design custom experiences that validate your pricing model and build immediate authority.
-            </p>
 
-            {/* Quick Metrics */}
-            <div className="grid grid-cols-2 gap-4 pt-6 border-t border-brand-zinc-200 w-full max-w-md">
-              <div className="bg-brand-light p-5 rounded-2xl border border-brand-zinc-200/80 shadow-sm hover:border-brand-blue transition-colors duration-300">
-                <span className="block font-heading font-black text-3xl text-brand-blue leading-none">98%</span>
-                <span className="block text-[9px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-none">Client Retention</span>
-              </div>
-              <div className="bg-brand-light p-5 rounded-2xl border border-brand-zinc-200/80 shadow-sm hover:border-brand-blue transition-colors duration-300">
-                <span className="block font-heading font-black text-3xl text-brand-blue leading-none">3.4x</span>
-                <span className="block text-[9px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-none">Avg. Conversion</span>
-              </div>
-            </div>
-          </motion.div>
+              {/* Heading */}
+              <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-brand-dark leading-[1.1] tracking-tight">
+                Why Elite Ambitions<br />Require{" "}
+                <span className="text-brand-blue relative inline-block">
+                  Custom Execution
+                  <svg
+                    className="absolute -bottom-1.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]"
+                    viewBox="0 0 100 10"
+                    preserveAspectRatio="none"
+                  >
+                    <motion.path
+                      d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
+                      fill="#FFF35C"
+                      variants={drawVariants}
+                      initial="hidden"
+                      whileInView="visible"
+                      viewport={{ once: false }}
+                    />
+                  </svg>
+                </span>
+              </h2>
 
-          {/* Right Column: Detailed Reasons */}
-          <motion.div 
-            variants={containerVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, margin: "-100px" }}
-            className="lg:col-span-7 space-y-6"
-          >
-            {reasons.map((reason, index) => (
-              <motion.div
-                key={index}
-                variants={itemVariants}
-                className="group p-6 md:p-8 rounded-2xl border border-brand-zinc-200 bg-white shadow-sm hover:shadow-md hover:border-brand-blue hover:bg-brand-light/35 transition-all duration-300 flex flex-col md:flex-row gap-6 cursor-pointer"
-              >
-                {/* Icon wrapper */}
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-brand-yellow/30 text-brand-blue border border-brand-blue/5 group-hover:scale-110 group-hover:bg-brand-yellow group-hover:border-brand-yellow transition-all duration-500 shadow-sm">
-                  {reason.icon}
-                </div>
-                {/* Content */}
-                <div className="space-y-2">
-                  <h3 className="font-heading font-extrabold text-xl text-brand-dark group-hover:text-brand-blue transition-colors duration-300">
-                    {reason.title}
-                  </h3>
-                  <p className="text-sm md:text-base text-brand-zinc-500 leading-relaxed font-normal">
-                    {reason.desc}
-                  </p>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
+              {/* Subtext */}
+              <p className="text-brand-zinc-500 text-sm leading-relaxed max-w-xs">
+                Cheap templates tell your clients you cut corners. We design
+                custom experiences that validate your pricing and build
+                immediate authority.
+              </p>
+
+              {/* Circular stats */}
+              <div className="flex items-center gap-8 pt-2">
+                <AnimatedStat
+                  value="98%"
+                  label="Client Retention"
+                  sublabel={"Long-term partnerships\nbuilt on results"}
+                  percentage={0.98}
+                />
+                <div className="w-px h-28 bg-brand-zinc-200 self-center" />
+                <AnimatedStat
+                  value="3.4x"
+                  label="Avg. Conversion"
+                  sublabel={"Higher conversion rate\nacross client projects"}
+                  percentage={0.68}
+                />
+              </div>
+            </motion.div>
+          </div>
+
+          {/* ── RIGHT SCROLLING ──────────────────────────────── */}
+          <div className="lg:flex-1 py-16 lg:py-24 lg:pl-14 flex flex-col">
+            {reasons.map((reason, index) => {
+              const Icon = reason.icon;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: false, margin: "-50px" }}
+                  transition={{
+                    duration: 0.55,
+                    ease: [0.16, 1, 0.3, 1],
+                    delay: index * 0.04,
+                  }}
+                  className="group border-b border-brand-zinc-200 last:border-b-0 py-8"
+                >
+                  {/* Row: icon+text LEFT, illustration RIGHT */}
+                  <div className="flex items-center gap-6">
+
+                    {/* LEFT: Icon + text */}
+                    <div className="flex items-start gap-4 flex-1 min-w-0">
+                      {/* Icon */}
+                      <div className="shrink-0 flex h-11 w-11 items-center justify-center rounded-xl
+                        bg-brand-blue/8 border border-brand-blue/15 text-brand-blue
+                        group-hover:bg-brand-blue group-hover:text-white group-hover:border-brand-blue
+                        group-hover:shadow-[0_6px_20px_rgba(3,6,172,0.22)]
+                        transition-all duration-300 mt-0.5">
+                        <Icon className="h-[18px] w-[18px]" />
+                      </div>
+
+                      {/* Text */}
+                      <div className="flex-1 min-w-0 space-y-1.5">
+                        <span className="font-mono text-[10px] font-black text-brand-blue tracking-widest">
+                          {reason.num}
+                        </span>
+                        <h3 className="font-heading font-extrabold text-[1.1rem] text-brand-dark group-hover:text-brand-blue transition-colors duration-300 leading-snug">
+                          {reason.title}
+                        </h3>
+                        <p className="text-[13px] text-brand-zinc-500 leading-relaxed">
+                          {reason.desc}
+                        </p>
+                      </div>
+                    </div>
+
+                    {/* RIGHT: Illustration — fixed size, won't overlap */}
+                    <div className="hidden md:block shrink-0 w-[140px] h-[88px] rounded-2xl border border-brand-blue/10 bg-gradient-to-br from-brand-blue/4 to-transparent overflow-hidden
+                      group-hover:border-brand-blue/20 group-hover:from-brand-blue/7
+                      transition-all duration-400">
+                      <div className="w-full h-full p-2 group-hover:scale-[1.03] transition-transform duration-400 origin-center">
+                        {illustrations[index]}
+                      </div>
+                    </div>
+
+                  </div>
+                </motion.div>
+              );
+            })}
+          </div>
 
         </div>
       </div>
