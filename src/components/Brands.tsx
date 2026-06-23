@@ -12,7 +12,7 @@ const drawVariants = {
     transition: { 
       duration: custom?.duration ?? 0.6, 
       delay: custom?.delay ?? 0.2, 
-      ease: "easeOut" 
+      ease: "easeOut" as any 
     }
   })
 };
@@ -107,7 +107,7 @@ export default function Brands() {
   const [isPaused, setIsPaused] = useState(false);
 
   return (
-    <section id="brands" className="relative bg-white py-24 overflow-hidden border-b border-brand-zinc-200">
+    <section id="brands" className="relative bg-transparent py-24 overflow-hidden border-b border-brand-zinc-200">
       
       {/* Brands Header */}
       <div className="mx-auto max-w-7xl px-6 md:px-12 mb-12 text-center flex flex-col items-center">

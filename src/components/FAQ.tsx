@@ -42,9 +42,7 @@ export default function FAQ() {
   };
 
   return (
-    <section id="faq" className="relative bg-brand-light py-24 border-b border-brand-zinc-200">
-      {/* Grid pattern */}
-      <div className="absolute inset-0 -z-10 bg-grid-blue-4 [background-size:20px_20px]" />
+    <section id="faq" className="relative bg-transparent py-24 border-b border-brand-zinc-200">
 
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         

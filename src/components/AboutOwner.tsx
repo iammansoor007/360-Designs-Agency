@@ -10,10 +10,10 @@ const drawVariants = {
   hidden: { pathLength: 0 },
   visible: (custom: { delay: number; duration: number }) => ({
     pathLength: 1,
-    transition: { 
-      duration: custom?.duration ?? 0.4, 
-      delay: custom?.delay ?? 0.1, 
-      ease: "easeOut" 
+    transition: {
+      duration: custom?.duration ?? 0.4,
+      delay: custom?.delay ?? 0.1,
+      ease: "easeOut" as any
     }
   })
 };
@@ -22,7 +22,7 @@ const drawVariants = {
 function Digit({ char, isActive }: { char: string; isActive: boolean }) {
   const isNumber = !isNaN(parseInt(char));
   const targetDigit = isNumber ? parseInt(char) : 0;
-  
+
   if (!isNumber) {
     return <span className="inline-block">{char}</span>;
   }
@@ -66,21 +66,9 @@ function RollingNumber({ value, suffix = "" }: { value: number; suffix?: string 
 
 export default function AboutOwner() {
   return (
-    <section id="about" className="relative overflow-hidden bg-white py-24 md:py-32 border-b border-brand-zinc-200">
+    <section id="about" className="relative overflow-hidden bg-transparent py-24 md:py-32 border-b border-brand-zinc-200">
 
-      {/* Background Blue Pixel Grid */}
-      <div className="absolute inset-0 z-0 grid grid-cols-6 sm:grid-cols-10 md:grid-cols-12 lg:grid-cols-16 w-full h-full overflow-hidden pointer-events-none border-t border-l border-brand-blue/5">
-        {[...Array(192)].map((_, i) => (
-          <div
-            key={i}
-            className="aspect-square border-r border-b border-brand-blue/5"
-          />
-        ))}
-      </div>
 
-      {/* Background Soft Glow blobs */}
-      <div className="absolute top-1/3 right-10 -z-10 h-80 w-80 rounded-full bg-brand-yellow/15 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-10 -z-10 h-72 w-72 rounded-full bg-brand-blue/5 blur-3xl pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-6 md:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
@@ -92,7 +80,7 @@ export default function AboutOwner() {
             viewport={{ once: false, amount: 0.3 }}
             className="lg:col-span-5 relative w-full flex justify-center"
           >
-            
+
             {/* Background Pixel Grid decoration */}
             <div className="absolute -inset-4 z-0 grid grid-cols-6 w-[105%] h-[105%] overflow-hidden pointer-events-none opacity-30 border border-brand-blue/5">
               {[...Array(36)].map((_, i) => (
@@ -185,7 +173,7 @@ export default function AboutOwner() {
                 className="object-cover grayscale group-hover:grayscale-0 scale-[1.01] group-hover:scale-103 transition-all duration-700 ease-out"
                 sizes="(max-width: 768px) 100vw, 420px"
               />
-              
+
               {/* Overlay glow on hover */}
               <div className="absolute inset-0 bg-brand-blue/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
             </div>
@@ -255,7 +243,7 @@ export default function AboutOwner() {
             {/* Stats Row */}
             <div className="grid grid-cols-3 gap-3 sm:gap-6 pt-8 border-t border-brand-zinc-200 mt-8">
               <div className="relative pl-3 sm:pl-6 border-l-2 border-brand-yellow">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
+                <div className="text-4xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
                   <RollingNumber value={10} suffix="+" />
                 </div>
                 <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-none">

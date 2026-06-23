@@ -49,7 +49,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="relative bg-white py-20 px-6 md:px-12">
+    <section id="contact" className="relative bg-transparent py-20 px-6 md:px-12">
       <div className="mx-auto max-w-7xl">
         
         {/* Dark Navy Block container exactly like reference UI */}

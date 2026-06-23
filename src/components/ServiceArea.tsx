@@ -53,10 +53,7 @@ export default function ServiceArea() {
   const [activeHub, setActiveHub] = useState<string | null>(null);
 
   return (
-    <section id="service-area" className="relative bg-white py-24 border-t border-b border-brand-zinc-200">
-      
-      {/* Grid background */}
-      <div className="absolute inset-0 -z-10 bg-grid-blue-5 [background-size:24px_24px] opacity-75" />
+    <section id="service-area" className="relative bg-transparent py-24 border-t border-b border-brand-zinc-200">
 
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">

@@ -17,7 +17,7 @@ const drawVariants = {
     transition: { 
       duration: custom?.duration ?? 0.6, 
       delay: custom?.delay ?? 0.2, 
-      ease: "easeOut" 
+      ease: "easeOut" as any 
     }
   })
 };
@@ -70,8 +70,7 @@ export default function WhyChooseMe() {
   };
 
   return (
-    <section id="why-us" className="relative bg-white py-24 border-b border-brand-zinc-200">
-      <div className="absolute top-1/2 left-0 -translate-y-1/2 -z-10 h-96 w-96 rounded-full bg-brand-yellow/10 blur-3xl pointer-events-none" />
+    <section id="why-us" className="relative bg-transparent py-24 border-b border-brand-zinc-200">
 
       <div className="mx-auto max-w-7xl px-6 md:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16">

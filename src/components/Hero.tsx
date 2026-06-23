@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { useRef, useEffect } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Star } from "lucide-react";
 import Image from "next/image";
 
@@ -8,15 +9,85 @@ const clipVariants = {
   hidden: { width: "0%" },
   visible: (custom: { delay: number; duration: number }) => ({
     width: "100%",
-    transition: { 
-      duration: custom?.duration ?? 0.85, 
-      delay: custom?.delay ?? 0.5, 
-      ease: [0.16, 1, 0.3, 1] 
+    transition: {
+      duration: custom?.duration ?? 0.85,
+      delay: custom?.delay ?? 0.5,
+      ease: [0.16, 1, 0.3, 1] as any
     }
   })
 };
 
 export default function Hero() {
+  const { scrollY } = useScroll();
+  const yText = useTransform(scrollY, [0, 1000], [0, 95]);
+  const yGraphic = useTransform(scrollY, [0, 1000], [0, 150]);
+
+  const marqueeRef = useRef<HTMLDivElement>(null);
+  const isLoopRunning = useRef(false);
+
+  useEffect(() => {
+    if (isLoopRunning.current) return;
+    isLoopRunning.current = true;
+
+    let lastScrollY = window.scrollY;
+    let smoothScrollVelocity = 0;
+    let xPercent = 0;
+    let animationFrameId: number;
+    let lastTime = performance.now();
+    let currentDirection = -1; // -1 for left, 1 for right
+
+    const animate = (time: number) => {
+      let delta = time - lastTime;
+      if (delta > 100 || delta < 0) delta = 16.6; // Guard against tab switching or startup jumps
+      lastTime = time;
+
+      // Calculate scroll velocity
+      const currentScrollY = window.scrollY;
+      const scrollDiff = currentScrollY - lastScrollY;
+      lastScrollY = currentScrollY;
+
+      // Smooth the velocity using lerp
+      smoothScrollVelocity += (scrollDiff - smoothScrollVelocity) * 0.08;
+
+      // Base speed (e.g., 0.015% of marquee width per frame-unit)
+      const baseSpeed = 0.015;
+
+      // Determine direction based on scroll velocity
+      if (smoothScrollVelocity > 0.5) {
+        currentDirection = -1; // Scroll down -> marquee moves left
+      } else if (smoothScrollVelocity < -0.5) {
+        currentDirection = 1; // Scroll up -> marquee moves right
+      }
+
+      // Calculate speed: base speed + absolute velocity factor
+      const velocityImpact = Math.abs(smoothScrollVelocity) * 0.004;
+      const speed = baseSpeed + velocityImpact;
+
+      // Update position (delta normalized to typical 16.6ms frame time)
+      xPercent += currentDirection * speed * (delta / 16.6);
+
+      // Wrap xPercent between -25 and 0
+      const min = -25;
+      const max = 0;
+      const range = max - min;
+      xPercent = ((((xPercent - min) % range) + range) % range) + min;
+
+      // Apply style directly to DOM for hardware-accelerated rendering
+      if (marqueeRef.current) {
+        marqueeRef.current.style.transform = `translate3d(${xPercent}%, 0, 0)`;
+      }
+
+      animationFrameId = requestAnimationFrame(animate);
+    };
+
+    animationFrameId = requestAnimationFrame(animate);
+
+    return () => {
+      cancelAnimationFrame(animationFrameId);
+      isLoopRunning.current = false;
+    };
+  }, []);
+
   const marqueeItems = ["Creative Design", "UI/UX", "Marketing", "Motion", "Animation", "Development"];
 
   const containerVariants = {
@@ -40,23 +111,11 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative overflow-hidden bg-white pt-16 md:pt-10 pb-0 flex flex-col justify-between min-h-[65vh] md:min-h-[90vh]">
-
-      {/* Background soft glow blobs */}
-      <div className="absolute top-1/4 left-10 z-[2] h-72 w-72 rounded-full bg-brand-yellow/25 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 z-[2] h-96 w-96 rounded-full bg-brand-blue/8 blur-3xl pointer-events-none" />
-      {/* Interactive Background Pixel Grid */}
-      <div className="absolute inset-0 z-[1] grid grid-cols-6 sm:grid-cols-10 md:grid-cols-12 lg:grid-cols-16 w-full h-full overflow-hidden pointer-events-none border-t border-l border-brand-blue/8">
-        {[...Array(192)].map((_, i) => (
-          <div
-            key={i}
-            className="aspect-square border-r border-b border-brand-blue/8 transition-colors duration-1000 hover:bg-brand-blue/20 hover:duration-75 pointer-events-auto md:pointer-events-auto pointer-events-none"
-          />
-        ))}
-      </div>
+    <section className="relative overflow-hidden bg-transparent pt-16 md:pt-10 pb-0 flex flex-col justify-between min-h-[65vh] lg:min-h-[80vh]">
 
 
-      <div className="mx-auto max-w-7xl px-6 md:px-12 w-full z-20 relative pointer-events-none">
+
+      <div className="mx-auto max-w-7xl px-6 md:px-12 w-full z-20 relative pointer-events-none lg:flex-1 lg:flex lg:flex-col lg:justify-end">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-stretch">
 
           {/* Left Column: Headline, Description, Buttons, Social Proof */}
@@ -65,7 +124,8 @@ export default function Hero() {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: false, amount: 0.15 }}
-            className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start"
+            style={{ y: yText }}
+            className="lg:col-span-7 space-y-6 text-center lg:text-left flex flex-col items-center lg:items-start will-change-transform"
           >
             {/* Pill Badge */}
             <motion.div variants={itemVariants} className="inline-flex pointer-events-auto">
@@ -185,11 +245,12 @@ export default function Hero() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: false, amount: 0.15 }}
+            style={{ y: yGraphic }}
             transition={{
               duration: 0.6,
               ease: "easeOut"
             }}
-            className="lg:col-span-5 relative hidden lg:flex justify-center items-end mt-6 lg:mt-0 z-10 cursor-pointer pointer-events-auto w-full"
+            className="lg:col-span-5 relative hidden lg:flex justify-center items-end mt-6 lg:mt-0 z-10 cursor-pointer pointer-events-auto w-full will-change-transform"
           >
             {/* Rotating Circle Badge */}
             <motion.div
@@ -232,16 +293,11 @@ export default function Hero() {
       </div>
 
       {/* HORIZONTAL MARQUEE: Solid Dark Tape in normal document flow at the bottom */}
-      <div className="relative w-full h-16 md:h-20 bg-brand-dark text-white flex items-center overflow-hidden z-30 border-t border-brand-zinc-800 mt-12 md:mt-16">
+      <div className="relative w-full h-16 md:h-20 bg-brand-dark text-white flex items-center overflow-hidden z-30 border-t border-brand-zinc-800 mt-16 lg:mt-2">
         <div className="flex whitespace-nowrap gap-12 md:gap-16 select-none w-full">
-          <motion.div
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{
-              ease: "linear",
-              duration: 25,
-              repeat: Infinity,
-            }}
-            className="flex whitespace-nowrap gap-12 md:gap-16 items-center"
+          <div
+            ref={marqueeRef}
+            className="flex whitespace-nowrap gap-12 md:gap-16 items-center will-change-transform"
           >
             {[...Array(4)].map((_, loopIdx) => (
               <div key={loopIdx} className="flex items-center gap-12 md:gap-16">
@@ -253,7 +309,7 @@ export default function Hero() {
                 ))}
               </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
 

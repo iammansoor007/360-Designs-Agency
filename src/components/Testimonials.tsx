@@ -43,11 +43,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section id="testimonials" className="relative overflow-hidden bg-brand-light py-24 border-t border-b border-brand-zinc-200">
-      {/* Background radial dot grid */}
-      <div className="absolute inset-0 bg-grid-blue-5 [background-size:24px_24px] pointer-events-none" />
-      <div className="absolute top-10 left-10 z-[2] h-72 w-72 rounded-full bg-brand-blue/5 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 z-[2] h-72 w-72 rounded-full bg-brand-yellow/10 blur-3xl pointer-events-none" />
+    <section id="testimonials" className="relative overflow-hidden bg-transparent py-24 border-t border-b border-brand-zinc-200">
 
       {/* Title */}
       <div className="mx-auto max-w-7xl px-6 md:px-12 mb-20 text-center relative z-10">

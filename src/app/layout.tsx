@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lora, Poppins } from "next/font/google";
 import "./globals.css";
+import InteractiveBackground from "@/components/InteractiveBackground";
 
 const lora = Lora({
   variable: "--font-heading",
@@ -29,8 +30,11 @@ export default function RootLayout({
       lang="en"
       className={`${lora.variable} ${poppins.variable} h-full antialiased scroll-smooth`}
     >
-      <body className="min-h-full flex flex-col bg-white text-black font-sans overflow-x-hidden">
-        {children}
+      <body className="min-h-full flex flex-col bg-white text-black font-sans overflow-x-hidden relative">
+        <InteractiveBackground />
+        <div className="relative z-10 flex flex-col min-h-full">
+          {children}
+        </div>
       </body>
     </html>
   );

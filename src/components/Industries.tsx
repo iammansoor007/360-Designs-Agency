@@ -20,7 +20,7 @@ const drawVariants = {
     transition: { 
       duration: custom?.duration ?? 0.6, 
       delay: custom?.delay ?? 0.2, 
-      ease: "easeOut" 
+      ease: "easeOut" as any 
     }
   })
 };
