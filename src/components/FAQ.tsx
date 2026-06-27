@@ -3,101 +3,12 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { Plus, ArrowRight, Check } from "lucide-react";
 import { useState } from "react";
-
-interface Milestone {
-  title: string;
-  desc: string;
-}
-
-interface PartnerProfile {
-  name: string;
-  desc: string;
-}
-
-interface Inclusion {
-  title: string;
-  desc: string;
-}
-
-interface Metric {
-  label: string;
-  score: number;
-}
-
-interface FAQItem {
-  question: string;
-  answer: string;
-  category: string;
-  tags?: string[];
-  steps?: string[];
-  milestones?: Milestone[];
-  profiles?: PartnerProfile[];
-  inclusions?: Inclusion[];
-  stack?: string[];
-  metrics?: Metric[];
-}
-
-const faqs: FAQItem[] = [
-  {
-    question: "What services do you offer?",
-    answer: "We offer end-to-end growth and digital engineering services tailored for high-growth businesses. From search ranking to bespoke product design, we help you dominate your market.",
-    category: "Services",
-    tags: ["Technical SEO", "Google/Meta Ads", "Next.js Web Design", "Brand Strategy", "Local SEO Maps", "Conversion Optimization"]
-  },
-  {
-    question: "How do you work with clients?",
-    answer: "Our engagement model is highly structured and transparent. We work in sprints with weekly video progress updates, shared dashboards, and dedicated Slack channels, eliminating guesswork.",
-    category: "Process",
-    steps: ["Audit & Intake", "Blueprinting", "Design & Code", "Launch & Scale"]
-  },
-  {
-    question: "How long does it take to see results?",
-    answer: "We run on two speeds: immediate traction and compounding authority. PPC and paid social start converting in days, while SEO and authority branding compound over 3 to 6 months.",
-    category: "Timeline",
-    milestones: [
-      { title: "Day 1-3", desc: "Strategy alignment, setup, and pixel testing validation." },
-      { title: "Week 2", desc: "First conversion funnels and advertising campaigns live." },
-      { title: "Month 3+", desc: "Compounding organic traffic, keyword ranking, and SEO authority." }
-    ]
-  },
-  {
-    question: "Do you work with small businesses?",
-    answer: "We partner with ambitious teams of all sizes. Our setups scale from local service leaders aiming to dominate regional search, to venture-backed startups launching digital products.",
-    category: "Partners",
-    profiles: [
-      { name: "High-Growth Startups", desc: "Scale acquisition funnels & SaaS pages" },
-      { name: "E-Commerce Brands", desc: "Next.js custom checkout speedups" },
-      { name: "Local Service Leaders", desc: "Map packs and regional search domination" },
-      { name: "Enterprise SaaS", desc: "Security-first custom web architectures" }
-    ]
-  },
-  {
-    question: "How much do your services cost?",
-    answer: "We believe in flat, predictable pricing. No hidden fees or hourly billing. We provide custom project quotes and rolling monthly growth retainers based on your objectives.",
-    category: "Pricing",
-    inclusions: [
-      { title: "100% Predictable Pricing", desc: "Flat-rate quotes, zero hourly surprises." },
-      { title: "Weekly Progress Videos", desc: "Async walkthroughs of live code & UI layout." },
-      { title: "Direct Slack Support", desc: "Connect directly with us without account managers." },
-      { title: "IP Rights Ownership", desc: "You own 100% of the codebase, designs, and assets." }
-    ]
-  },
-  {
-    question: "Can you help redesign my website?",
-    answer: "Yes, we specialize in high-performance rebuilds. We translate slow templates into ultra-fast, custom Next.js architectures that score perfect marks on Google PageSpeed tests.",
-    category: "Redesign",
-    stack: ["Next.js & React", "Tailwind CSS", "Framer Motion", "Vercel Edge Cloud"],
-    metrics: [
-      { label: "Performance", score: 100 },
-      { label: "Accessibility", score: 100 },
-      { label: "Best Practices", score: 100 },
-      { label: "SEO", score: 100 }
-    ]
-  }
-];
+import content from "@/data/content.json";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const { faq } = content;
+  const faqs = faq.list;
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -128,14 +39,13 @@ export default function FAQ() {
             <div className="flex flex-col gap-5">
               {/* Category Pill Tag */}
               <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1.5 text-[9px] font-black tracking-widest uppercase text-brand-blue select-none self-start">
-                07 // FAQ
+                {faq.sectionNumber} // {faq.sectionTag}
               </span>
               
               {/* Main Heading */}
               <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark tracking-tight leading-[0.98] select-none">
-                Common <br />
-                Questions <span className="text-brand-blue relative inline-block">
-                  Answered
+                {faq.titleIntro} <span className="text-brand-blue relative inline-block">
+                  {faq.titleHighlight}
                   <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path
                       d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
@@ -147,7 +57,7 @@ export default function FAQ() {
               
               {/* Subdescription */}
               <p className="text-brand-zinc-500 font-medium leading-relaxed text-sm md:text-base max-w-sm mt-1.5">
-                Explore our detailed guides on process, capabilities, pricing, and timelines. We run on transparency to deliver outstanding digital growth.
+                {faq.description}
               </p>
             </div>
 
@@ -158,21 +68,21 @@ export default function FAQ() {
               
               <div className="relative z-20 space-y-6">
                 <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1.5 text-[9px] font-black tracking-wider uppercase text-brand-yellow">
-                  // Strategy Session
+                  // {faq.strategyAudit.badge}
                 </span>
                 <div className="space-y-2">
                   <h3 className="font-heading text-2xl font-bold leading-tight">
-                    Need a bespoke audit?
+                    {faq.strategyAudit.title}
                   </h3>
                   <p className="text-white/70 text-xs leading-relaxed">
-                    Get a free 30-minute growth audit and competitor speed analysis session with our founders.
+                    {faq.strategyAudit.desc}
                   </p>
                 </div>
                 <a
-                  href="#contact"
+                  href={faq.strategyAudit.href}
                   className="group/btn relative inline-flex w-full items-center justify-between overflow-hidden rounded-full bg-brand-yellow px-6 py-3.5 text-xs font-black uppercase tracking-wider text-brand-dark transition-all duration-300 active:scale-[0.98] shadow-md hover:shadow-lg"
                 >
-                  <span>Claim Free Audit</span>
+                  <span>{faq.strategyAudit.button}</span>
                   <div className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-dark text-brand-yellow">
                     <ArrowRight className="h-3 w-3" />
                   </div>
@@ -185,13 +95,13 @@ export default function FAQ() {
           {/* ── Right Column: Accordion Cards ── */}
           <div className="lg:col-span-7 space-y-4 w-full">
             
-            {faqs.map((faq, index) => {
+            {faqs.map((f, index) => {
               const doubleDigit = String(index + 1).padStart(2, "0");
               const isOpen = openIndex === index;
 
               return (
                 <div
-                  key={faq.question}
+                  key={f.question}
                   className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer select-none p-6 sm:p-7 ${
                     isOpen
                       ? "bg-white border-brand-blue/25 shadow-[0_20px_40px_rgba(3,6,172,0.03)]"
@@ -213,14 +123,14 @@ export default function FAQ() {
                       <div className="space-y-1">
                         {/* Category Label */}
                         <span className="font-mono text-[9px] font-black text-brand-blue/40 tracking-widest uppercase select-none block">
-                          // {faq.category}
+                          // {f.category}
                         </span>
                         
                         {/* Question */}
                         <h3 className={`font-heading font-semibold text-base sm:text-lg md:text-[1.15rem] leading-snug transition-colors duration-300 pr-2 ${
                           isOpen ? "text-brand-blue" : "text-brand-dark group-hover:text-brand-blue"
                         }`}>
-                          {faq.question}
+                          {f.question}
                         </h3>
                       </div>
                     </div>
@@ -256,15 +166,13 @@ export default function FAQ() {
                           
                           {/* Answer Text */}
                           <p className="text-sm sm:text-[15px] text-brand-zinc-500 font-medium leading-relaxed">
-                            {faq.answer}
+                            {f.answer}
                           </p>
 
-                          {/* Structured Category Details */}
-                          
                           {/* SERVICES TAGS */}
-                          {faq.tags && (
+                          {f.tags && (
                             <div className="flex flex-wrap gap-1.5 pt-1">
-                              {faq.tags.map((tag, idx) => (
+                              {f.tags.map((tag: string, idx: number) => (
                                 <span
                                   key={idx}
                                   className="bg-brand-blue/5 border border-brand-blue/10 text-brand-blue font-mono text-[8px] font-black uppercase tracking-wider px-2.5 py-1 rounded-full"
@@ -276,9 +184,9 @@ export default function FAQ() {
                           )}
 
                           {/* PROCESS STEPS */}
-                          {faq.steps && (
+                          {f.steps && (
                             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-1">
-                              {faq.steps.map((step, idx) => (
+                              {f.steps.map((step: string, idx: number) => (
                                 <div
                                   key={idx}
                                   className="relative bg-brand-zinc-50 border border-brand-zinc-100 rounded-xl p-2.5 flex flex-col gap-0.5"
@@ -295,9 +203,9 @@ export default function FAQ() {
                           )}
 
                           {/* TIMELINE MILESTONES */}
-                          {faq.milestones && (
+                          {f.milestones && (
                             <div className="relative pl-3.5 space-y-3 pt-1 border-l border-brand-blue/15 ml-1">
-                              {faq.milestones.map((ms, idx) => (
+                              {f.milestones.map((ms: any, idx: number) => (
                                 <div key={idx} className="relative">
                                   {/* Node dot */}
                                   <span className="absolute -left-[19.5px] top-1.5 flex h-2 w-2 items-center justify-center rounded-full bg-brand-blue ring-4 ring-white" />
@@ -316,9 +224,9 @@ export default function FAQ() {
                           )}
 
                           {/* PARTNERS PROFILES */}
-                          {faq.profiles && (
+                          {f.profiles && (
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 pt-1">
-                              {faq.profiles.map((profile, idx) => (
+                              {f.profiles.map((profile: any, idx: number) => (
                                 <div
                                   key={idx}
                                   className="flex flex-col gap-0.5 bg-brand-zinc-50/80 border border-brand-zinc-100 rounded-xl p-3"
@@ -335,9 +243,9 @@ export default function FAQ() {
                           )}
 
                           {/* PRICING INCLUSIONS */}
-                          {faq.inclusions && (
+                          {f.inclusions && (
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-1">
-                              {faq.inclusions.map((inc, idx) => (
+                              {f.inclusions.map((inc: any, idx: number) => (
                                 <div
                                   key={idx}
                                   className="flex items-start gap-2 bg-brand-zinc-50/50 border border-brand-zinc-100/60 rounded-xl p-3"
@@ -359,10 +267,10 @@ export default function FAQ() {
                           )}
 
                           {/* REDESIGN TECH STACK & METRICS */}
-                          {faq.metrics && (
+                          {f.metrics && (
                             <div className="space-y-3">
                               <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-1">
-                                {faq.metrics.map((metric, idx) => (
+                                {f.metrics.map((metric: any, idx: number) => (
                                   <div key={idx} className="flex flex-col items-center gap-1.5 bg-emerald-50/40 border border-emerald-100/50 rounded-xl p-2.5">
                                     <div className="relative w-9 h-9 flex items-center justify-center">
                                       <svg viewBox="0 0 36 36" className="w-full h-full -rotate-90">
@@ -380,9 +288,9 @@ export default function FAQ() {
                                 ))}
                               </div>
 
-                              {faq.stack && (
+                              {f.stack && (
                                 <div className="flex flex-wrap gap-1.5">
-                                  {faq.stack.map((tech, idx) => (
+                                  {f.stack.map((tech: string, idx: number) => (
                                     <span
                                       key={idx}
                                       className="inline-flex items-center gap-1 bg-brand-dark/5 text-brand-dark font-sans text-[8px] font-black tracking-wider px-2.5 py-1 rounded-full"

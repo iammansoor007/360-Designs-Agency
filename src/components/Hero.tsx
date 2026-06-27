@@ -5,6 +5,8 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight, ArrowUpRight, Star } from "lucide-react";
 import Image from "next/image";
 
+import content from "@/data/content.json";
+
 const clipVariants = {
   hidden: { width: "0%" },
   visible: (custom: { delay: number; duration: number }) => ({
@@ -18,6 +20,7 @@ const clipVariants = {
 };
 
 export default function Hero() {
+  const { hero } = content;
   const { scrollY } = useScroll();
   const yText = useTransform(scrollY, [0, 1000], [0, 95]);
   const yGraphic = useTransform(scrollY, [0, 1000], [0, 150]);
@@ -88,7 +91,7 @@ export default function Hero() {
     };
   }, []);
 
-  const marqueeItems = ["Creative Design", "UI/UX", "Marketing", "Motion", "Animation", "Development"];
+  const marqueeItems = hero.marqueeItems;
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -129,7 +132,7 @@ export default function Hero() {
             <motion.div variants={itemVariants} className="inline-flex pointer-events-auto">
               <span className="inline-flex items-center gap-2 rounded-full bg-brand-yellow px-4 py-1.5 text-[10px] font-extrabold tracking-wider uppercase text-brand-dark select-none shadow-sm">
                 <Star className="h-3.5 w-3.5 fill-brand-dark text-brand-dark shrink-0" />
-                World-Class Creative Agency
+                {hero.badgeText}
               </span>
             </motion.div>
 
@@ -138,12 +141,12 @@ export default function Hero() {
               variants={itemVariants}
               className="font-heading text-[10.5vw] sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-[1.1] tracking-tight text-brand-dark select-none"
             >
-              We Build Brands <br />
+              {hero.titleLine1}<br />
               That <motion.span
                 whileHover="hover"
                 className="text-brand-blue relative inline-block pointer-events-auto cursor-pointer"
               >
-                Grow & Scale
+                {hero.titleLine2}
                 {/* Custom animated hand-drawn SVG underline with gradient and hover interaction */}
                 <svg className="absolute -bottom-3.5 left-0 w-full h-5 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 14" preserveAspectRatio="none">
                   <defs>
@@ -204,7 +207,7 @@ export default function Hero() {
               variants={itemVariants}
               className="max-w-lg text-[15px] sm:text-sm md:text-base text-brand-zinc-800 leading-relaxed font-semibold font-sans select-none"
             >
-              Innovative strategies. Creative design. Powerful results. We help businesses stand out, attract more customers, and drive real growth.
+              {hero.description}
             </motion.p>
 
             {/* CTA Buttons */}
@@ -214,10 +217,10 @@ export default function Hero() {
             >
               {/* Primary Cobalt Blue Button */}
               <a
-                href="#contact"
+                href={hero.ctaPrimaryHref}
                 className="group flex w-full max-w-[280px] sm:w-auto items-center justify-center gap-3 rounded-full bg-brand-blue hover:bg-brand-dark px-7 py-4 text-xs font-black uppercase tracking-widest text-white transition-all duration-300 shadow-lg pointer-events-auto hover:scale-[1.03] active:scale-[0.98]"
               >
-                Get Started
+                {hero.ctaPrimaryText}
                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-brand-blue group-hover:bg-brand-yellow group-hover:text-brand-dark transition-colors duration-300">
                   <ArrowRight className="h-4 w-4" />
                 </div>
@@ -225,10 +228,10 @@ export default function Hero() {
 
               {/* Secondary White/Border Button */}
               <a
-                href="#services"
+                href={hero.ctaSecondaryHref}
                 className="group flex w-full max-w-[280px] sm:w-auto items-center justify-center gap-3 rounded-full bg-white border border-brand-dark/10 px-7 py-4 text-xs font-black uppercase tracking-widest text-brand-dark hover:bg-brand-yellow hover:border-brand-yellow transition-all duration-300 shadow-sm pointer-events-auto hover:scale-[1.03] active:scale-[0.98]"
               >
-                Our Services
+                {hero.ctaSecondaryText}
                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-dark text-white group-hover:bg-brand-dark group-hover:text-brand-yellow transition-colors duration-300">
                   <ArrowUpRight className="h-4 w-4" />
                 </div>
@@ -261,14 +264,14 @@ export default function Hero() {
                 </defs>
                 <text className="text-[8.5px] font-black uppercase tracking-widest fill-brand-dark font-sans">
                   <textPath href="#circlePath" startOffset="0%">
-                    • ELEVATE DIGITAL • CREATIVE POWER •
+                    {hero.circleText}
                   </textPath>
                 </text>
               </svg>
               {/* Inner letter 'E' logo in the center of the rotating circle */}
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="h-7 w-7 rounded-full bg-brand-blue flex items-center justify-center shadow-md">
-                  <span className="text-[10px] font-black text-white font-sans uppercase">E</span>
+                  <span className="text-[10px] font-black text-white font-sans uppercase">{hero.circleLetter}</span>
                 </div>
               </div>
             </motion.div>
@@ -276,8 +279,8 @@ export default function Hero() {
             {/* Graphic Encased in borderless transparent container matching text height */}
             <div className="relative w-full h-[320px] sm:h-[400px] lg:h-[460px] flex items-end justify-center">
               <Image
-                src="/hero-image-1.webp"
-                alt="Elevate Digital Creative Graphic Showcase"
+                src={hero.imageSrc}
+                alt={hero.imageAlt}
                 fill
                 priority
                 className="object-contain object-bottom"

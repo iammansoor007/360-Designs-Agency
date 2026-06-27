@@ -3,8 +3,11 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, Mail, MapPin, Phone, ArrowRight } from "lucide-react";
 import { useState, FormEvent, MouseEvent } from "react";
+import content from "@/data/content.json";
 
 export default function ContactForm() {
+  const { contact } = content;
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -27,14 +30,14 @@ export default function ContactForm() {
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
-    if (!formData.name.trim()) newErrors.name = "Full name is required";
+    if (!formData.name.trim()) newErrors.name = contact.errorName;
     if (!formData.email.trim()) {
-      newErrors.email = "Email address is required";
+      newErrors.email = contact.errorEmailRequired;
     } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
-      newErrors.email = "Email address is invalid";
+      newErrors.email = contact.errorEmailInvalid;
     }
-    if (!formData.phone.trim()) newErrors.phone = "Phone number is required";
-    if (!formData.message.trim()) newErrors.message = "Message details are required";
+    if (!formData.phone.trim()) newErrors.phone = contact.errorPhone;
+    if (!formData.message.trim()) newErrors.message = contact.errorMessage;
     return newErrors;
   };
 
@@ -54,7 +57,6 @@ export default function ContactForm() {
 
     setIsSubmitting(false);
     setIsSuccess(true);
-    setFormData({ name: "", email: "", phone: "", message: "" });
   };
 
   return (
@@ -115,11 +117,11 @@ export default function ContactForm() {
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
               <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1 text-[8px] md:text-[9px] font-black tracking-widest uppercase text-brand-blue select-none">
-                08 // CONTACT
+                {contact.sectionNumber} // {contact.sectionTag}
               </span>
               <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.1] select-none">
-                Talk to our <span className="text-brand-blue relative inline-block">
-                  strategy team
+                {contact.titleIntro} <span className="text-brand-blue relative inline-block">
+                  {contact.titleHighlight}
                   <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 14" preserveAspectRatio="none">
                     <path
                       d="M 2 7 Q 50 2, 98 5 C 99 5, 99 6, 98 6.5 Q 50 9, 2 8 C 1 8, 1 7, 2 7 Z"
@@ -129,7 +131,7 @@ export default function ContactForm() {
                 </span>
               </h2>
               <p className="text-sm text-brand-zinc-500 leading-relaxed font-semibold max-w-md">
-                Feel free to reach out for help with your product design, engineering, search strategy, or copy campaigns. Our team will review and reply within 24 hours.
+                {contact.description}
               </p>
             </div>
 
@@ -140,8 +142,8 @@ export default function ContactForm() {
                 <div className="w-8 h-8 rounded-lg bg-brand-blue/10 border border-brand-blue/20 flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm">
                   <Mail className="w-4 h-4" />
                 </div>
-                <a href="mailto:hello@elevatedigital.com" className="text-[10px] xs:text-xs font-bold text-brand-dark hover:text-brand-blue transition-colors font-mono break-all sm:break-normal">
-                  hello@elevatedigital.com
+                <a href={`mailto:${contact.email}`} className="text-[10px] xs:text-xs font-bold text-brand-dark hover:text-brand-blue transition-colors font-mono break-all sm:break-normal">
+                  {contact.email}
                 </a>
               </div>
 
@@ -151,7 +153,7 @@ export default function ContactForm() {
                   <MapPin className="w-4 h-4" />
                 </div>
                 <span className="text-[10px] xs:text-xs font-bold text-brand-dark font-mono break-all sm:break-normal">
-                  901 Broadway St, New York, USA
+                  {contact.location}
                 </span>
               </div>
 
@@ -160,8 +162,8 @@ export default function ContactForm() {
                 <div className="w-8 h-8 rounded-lg bg-brand-blue/10 border border-brand-blue/20 flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm">
                   <Phone className="w-4 h-4" />
                 </div>
-                <a href="tel:+11234567890" className="text-[10px] xs:text-xs font-bold text-brand-dark hover:text-brand-blue transition-colors font-mono break-all sm:break-normal">
-                  +1 (123) 456-7890
+                <a href={`tel:${contact.phone.replace(/[^0-9+]/g, "")}`} className="text-[10px] xs:text-xs font-bold text-brand-dark hover:text-brand-blue transition-colors font-mono break-all sm:break-normal">
+                  {contact.phone}
                 </a>
               </div>
             </div>
@@ -184,13 +186,13 @@ export default function ContactForm() {
                   {/* Full Name */}
                   <div className="space-y-2">
                     <label className="text-[10px] font-mono font-black text-brand-zinc-450 uppercase tracking-widest block">
-                      Full Name
+                      {contact.labelName}
                     </label>
                     <input
                       type="text"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      placeholder="Enter Your Full Name"
+                      placeholder={contact.placeholderName}
                       className={`w-full bg-white/55 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark placeholder-brand-zinc-350 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 outline-none transition-all ${
                         errors.name ? "border-red-400" : "border-brand-zinc-200/80"
                       }`}
@@ -201,13 +203,13 @@ export default function ContactForm() {
                   {/* Email Address */}
                   <div className="space-y-2">
                     <label className="text-[10px] font-mono font-black text-brand-zinc-450 uppercase tracking-widest block">
-                      Email Address
+                      {contact.labelEmail}
                     </label>
                     <input
                       type="email"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      placeholder="Enter Your Email Address"
+                      placeholder={contact.placeholderEmail}
                       className={`w-full bg-white/55 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark placeholder-brand-zinc-350 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 outline-none transition-all ${
                         errors.email ? "border-red-400" : "border-brand-zinc-200/80"
                       }`}
@@ -218,13 +220,13 @@ export default function ContactForm() {
                   {/* Phone Number */}
                   <div className="space-y-2">
                     <label className="text-[10px] font-mono font-black text-brand-zinc-450 uppercase tracking-widest block">
-                      Phone Number
+                      {contact.labelPhone}
                     </label>
                     <input
                       type="text"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      placeholder="Enter Your Phone Number"
+                      placeholder={contact.placeholderPhone}
                       className={`w-full bg-white/55 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark placeholder-brand-zinc-350 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 outline-none transition-all ${
                         errors.phone ? "border-red-400" : "border-brand-zinc-200/80"
                       }`}
@@ -235,13 +237,13 @@ export default function ContactForm() {
                   {/* Message */}
                   <div className="space-y-2">
                     <label className="text-[10px] font-mono font-black text-brand-zinc-450 uppercase tracking-widest block">
-                      Message
+                      {contact.labelMessage}
                     </label>
                     <textarea
                       rows={4}
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-                      placeholder="Write Your Message Here"
+                      placeholder={contact.placeholderMessage}
                       className={`w-full bg-white/55 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark placeholder-brand-zinc-350 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 outline-none transition-all resize-none ${
                         errors.message ? "border-red-400" : "border-brand-zinc-200/80"
                       }`}
@@ -260,7 +262,7 @@ export default function ContactForm() {
                         <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
                       ) : (
                         <>
-                          Send Message
+                          {contact.btnSubmit}
                           <ArrowRight className="h-3.5 w-3.5 text-white group-hover:translate-x-0.5 transition-transform duration-200" />
                         </>
                       )}
@@ -280,9 +282,13 @@ export default function ContactForm() {
                   </div>
                   
                   <div className="space-y-2">
-                    <h3 className="font-heading text-2xl font-bold text-brand-dark">Message Sent!</h3>
+                    <h3 className="font-heading text-2xl font-bold text-brand-dark">{contact.successTitle}</h3>
                     <p className="text-sm text-brand-zinc-500 font-semibold leading-relaxed max-w-md">
-                      Thank you, <span className="text-brand-blue font-bold uppercase">{formData.name}</span>. We have received your support message and will get back to you at <span className="text-brand-blue font-bold lowercase">{formData.email}</span> within 24 hours.
+                      {contact.successParagraph1}
+                      <span className="text-brand-blue font-bold uppercase">{formData.name}</span>
+                      {contact.successParagraph2}
+                      <span className="text-brand-blue font-bold lowercase">{formData.email}</span>
+                      {contact.successParagraph3}
                     </p>
                   </div>
                 </motion.div>

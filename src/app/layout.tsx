@@ -15,9 +15,11 @@ const poppins = Poppins({
   weight: ["300", "400", "500", "600", "700"],
 });
 
+import content from "@/data/content.json";
+
 export const metadata: Metadata = {
-  title: "AURA | Premium Creative Branding & Digital Strategy Agency",
-  description: "AURA is a world-class creative agency specializing in elite branding, high-end Web3 & SaaS engineering, and conversion-focused growth marketing.",
+  title: content.metadata.title,
+  description: content.metadata.description,
 };
 
 export default function RootLayout({

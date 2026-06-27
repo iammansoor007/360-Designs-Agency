@@ -18,6 +18,8 @@ const drawVariants = {
   })
 };
 
+import content from "@/data/content.json";
+
 // 3D rolling odometer-style digit component
 function Digit({ char, isActive }: { char: string; isActive: boolean }) {
   const isNumber = !isNaN(parseInt(char));
@@ -65,10 +67,10 @@ function RollingNumber({ value, suffix = "" }: { value: number; suffix?: string 
 }
 
 export default function AboutOwner() {
+  const { aboutOwner } = content;
+
   return (
     <section id="about" className="relative overflow-hidden bg-transparent py-10 md:py-16 border-b border-brand-zinc-200">
-
-
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
@@ -152,13 +154,13 @@ export default function AboutOwner() {
                 </defs>
                 <text className="text-[7.5px] font-black uppercase tracking-wider fill-brand-zinc-400 font-sans">
                   <textPath href="#aboutCirclePath" startOffset="0%">
-                    • ESTABLISHED 2016 • CREATIVE THINKING •
+                    {aboutOwner.circleText}
                   </textPath>
                 </text>
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
                 <div className="h-5 w-5 rounded-full bg-brand-yellow flex items-center justify-center shadow-md">
-                  <Star className="h-2.5 w-2.5 fill-brand-dark text-brand-dark" />
+                  <span className="text-[10px] font-black text-brand-dark">{aboutOwner.circleLetter}</span>
                 </div>
               </div>
             </motion.div>
@@ -166,8 +168,8 @@ export default function AboutOwner() {
             {/* Portrait Image Container */}
             <div className="relative aspect-[3/4] w-full max-w-[420px] overflow-hidden rounded-2xl border border-brand-zinc-200 shadow-md bg-brand-zinc-50 z-10 group cursor-pointer">
               <Image
-                src="/founder.png"
-                alt="James Parker - Founder"
+                src={aboutOwner.portraitSrc}
+                alt={aboutOwner.portraitAlt}
                 fill
                 priority
                 className="object-cover grayscale group-hover:grayscale-0 scale-[1.01] group-hover:scale-103 transition-all duration-700 ease-out"
@@ -191,14 +193,14 @@ export default function AboutOwner() {
             {/* Section Tag */}
             <div className="space-y-4">
               <span className="text-[10px] font-sans font-black tracking-widest text-brand-zinc-400 uppercase">
-                01 // THE FOUNDER
+                {aboutOwner.sectionNumber} // {aboutOwner.sectionTag}
               </span>
 
               {/* Header with hand-drawn style highlight line */}
               <h2 className="font-heading text-4xl sm:text-5xl font-extrabold leading-[1.15] text-brand-dark tracking-tight">
-                We fuse conversion design with elite engineering to build{" "}
+                {aboutOwner.titleIntro}
                 <span className="relative inline-block text-brand-blue">
-                  monopolies.
+                  {aboutOwner.titleHighlight}
                   <svg className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
                     {/* Primary marker highlight stroke */}
                     <motion.path
@@ -233,10 +235,10 @@ export default function AboutOwner() {
             {/* Narrative biography */}
             <div className="space-y-5 font-sans">
               <p className="text-lg md:text-xl text-brand-dark leading-relaxed font-semibold">
-                Hi, I'm <span className="text-brand-blue font-black">James Parker</span>. For over a decade, I've partnered with startups to architect digital experiences that command authority, engage audiences, and drive growth.
+                {aboutOwner.bioParagraph1}
               </p>
               <p className="text-sm md:text-base text-brand-zinc-600 leading-relaxed font-normal">
-                I believe digital success isn't built on slow, lazy templates—it's built on custom Next.js engineering, Conversion Design™, and direct strategic marketing that moves the bottom line. No fluff, no shortcuts, just elite execution.
+                {aboutOwner.bioParagraph2}
               </p>
             </div>
 
@@ -244,28 +246,28 @@ export default function AboutOwner() {
             <div className="grid grid-cols-3 gap-1.5 xs:gap-3 sm:gap-6 pt-8 border-t border-brand-zinc-200 mt-8 w-full">
               <div className="relative pl-2 sm:pl-6 border-l-2 border-brand-yellow">
                 <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
-                  <RollingNumber value={10} suffix="+" />
+                  <RollingNumber value={aboutOwner.yearsExpValue} suffix={aboutOwner.yearsExpSuffix} />
                 </div>
                 <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-none">
-                  Years Exp
+                  {aboutOwner.yearsExpLabel}
                 </div>
               </div>
 
               <div className="relative pl-2 sm:pl-6 border-l-2 border-brand-yellow">
                 <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
-                  <RollingNumber value={200} suffix="+" />
+                  <RollingNumber value={aboutOwner.brandsScaledValue} suffix={aboutOwner.brandsScaledSuffix} />
                 </div>
                 <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-none">
-                  Brands Scaled
+                  {aboutOwner.brandsScaledLabel}
                 </div>
               </div>
 
               <div className="relative pl-2 sm:pl-6 border-l-2 border-brand-yellow">
                 <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
-                  <RollingNumber value={99} suffix="%" />
+                  <RollingNumber value={aboutOwner.successRateValue} suffix={aboutOwner.successRateSuffix} />
                 </div>
                 <div className="text-[8px] sm:text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest mt-3 leading-none">
-                  Success Rate
+                  {aboutOwner.successRateLabel}
                 </div>
               </div>
             </div>
@@ -273,10 +275,10 @@ export default function AboutOwner() {
             {/* Premium CTA Button */}
             <div className="pt-4">
               <a
-                href="#contact"
+                href={aboutOwner.ctaHref}
                 className="group inline-flex items-center gap-3 rounded-full bg-brand-dark px-6 py-3.5 text-[10px] font-extrabold uppercase tracking-widest text-white hover:bg-brand-blue transition-all duration-300 shadow-md"
               >
-                Let's Work Together
+                {aboutOwner.ctaText}
                 <div className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-yellow text-brand-dark group-hover:bg-white group-hover:text-brand-blue transition-colors duration-300">
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </div>

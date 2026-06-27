@@ -4,95 +4,32 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, MapPin } from "lucide-react";
 import { useState } from "react";
 
-const hubs = [
-  {
-    id: "us",
-    name: "United States",
-    focus: "SaaS & Brand Strategy",
-    coords: { x: "27.27%", y: "29.72%" },
-    timezone: "EST / PST",
-  },
-  {
-    id: "ca",
-    name: "Canada",
-    focus: "E-Commerce & Tech Startups",
-    coords: { x: "24.63%", y: "33.63%" },
-    timezone: "EST / AST",
-  },
-  {
-    id: "br",
-    name: "Brazil",
-    focus: "Digital Products & Apps",
-    coords: { x: "26.67%", y: "77.03%" },
-    timezone: "BRT",
-  },
-  {
-    id: "uk",
-    name: "United Kingdom",
-    focus: "Creative Web Design",
-    coords: { x: "45.97%", y: "45.21%" },
-    timezone: "GMT",
-  },
-  {
-    id: "es",
-    name: "Spain",
-    focus: "SaaS Platforms & Branding",
-    coords: { x: "46.49%", y: "46.30%" },
-    timezone: "CET",
-  },
-  {
-    id: "be",
-    name: "Belgium",
-    focus: "Corporate Platforms",
-    coords: { x: "48.27%", y: "44.90%" },
-    timezone: "CET",
-  },
-  {
-    id: "fr",
-    name: "France",
-    focus: "Bespoke UI/UX Design",
-    coords: { x: "49.00%", y: "47.84%" },
-    timezone: "CET",
-  },
-  {
-    id: "de",
-    name: "Germany",
-    focus: "Next.js Engineering UIs",
-    coords: { x: "49.66%", y: "43.78%" },
-    timezone: "CET",
-  },
-  {
-    id: "at",
-    name: "Austria",
-    focus: "SEO & Growth Marketing",
-    coords: { x: "51.07%", y: "44.34%" },
-    timezone: "CET",
-  },
-  {
-    id: "it",
-    name: "Italy",
-    focus: "E-Commerce Architectures",
-    coords: { x: "50.53%", y: "50.18%" },
-    timezone: "CET",
-  },
-  {
-    id: "bh",
-    name: "Bahrain",
-    focus: "Web Apps & FinTech",
-    coords: { x: "61.08%", y: "58.22%" },
-    timezone: "AST",
-  },
-  {
-    id: "au",
-    name: "Australia",
-    focus: "Conversion Optimization",
-    coords: { x: "82.34%", y: "82.47%" },
-    timezone: "AEST / AWST",
-  },
-];
+import content from "@/data/content.json";
 
 export default function ServiceArea() {
   const [activeHub, setActiveHub] = useState<string | null>(null);
+  const { serviceArea } = content;
+  const hubs = serviceArea.hubs;
+
+  // Let's add coords mappings locally since they represent UI pixel coordinates
+  const coordsMap: Record<string, { x: string; y: string }> = {
+    us: { x: "27.27%", y: "29.72%" },
+    ca: { x: "24.63%", y: "33.63%" },
+    br: { x: "26.67%", y: "77.03%" },
+    uk: { x: "45.97%", y: "45.21%" },
+    es: { x: "46.49%", y: "46.30%" },
+    be: { x: "48.27%", y: "44.90%" },
+    fr: { x: "49.00%", y: "47.84%" },
+    de: { x: "49.66%", y: "43.78%" },
+    at: { x: "51.07%", y: "44.34%" },
+    it: { x: "50.53%", y: "50.18%" },
+    bh: { x: "61.08%", y: "58.22%" },
+    au: { x: "82.34%", y: "82.47%" }
+  };
+
+  const getHubCoords = (id: string) => {
+    return coordsMap[id] || { x: "0%", y: "0%" };
+  };
 
   return (
     <section
@@ -106,13 +43,13 @@ export default function ServiceArea() {
           <div className="w-full lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-left gap-6">
 
             <span className="text-[10px] font-sans font-black tracking-widest text-brand-zinc-400 uppercase">
-              06 // GLOBAL COVERAGE
+              {serviceArea.sectionNumber} // {serviceArea.sectionTag}
             </span>
 
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.15]">
-              Connecting Brands With{" "}
+              {serviceArea.titleIntro}
               <span className="relative inline-block text-brand-blue">
-                Global Markets
+                {serviceArea.titleHighlight}
                 <svg
                   className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]"
                   viewBox="0 0 100 10"
@@ -133,8 +70,7 @@ export default function ServiceArea() {
             </h2>
 
             <p className="text-sm sm:text-base md:text-lg text-brand-zinc-500 leading-relaxed font-normal max-w-md">
-              Proudly engineering digital experiences for clients worldwide,
-              enabling startups and local businesses to compete on a global scale.
+              {serviceArea.description}
             </p>
 
             {/* ── Country chip grid ── */}
@@ -200,7 +136,7 @@ export default function ServiceArea() {
             </div>
 
             <a
-              href="#contact"
+              href={serviceArea.ctaHref}
               className="group self-center lg:self-start relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-brand-yellow shadow-[0_4px_28px_rgba(255,243,92,0.4)] active:scale-[0.97] transition-transform duration-150"
             >
               {/* Dark curtain slides in from left on hover */}
@@ -211,7 +147,7 @@ export default function ServiceArea() {
 
               {/* Label */}
               <span className="relative z-10 pl-7 pr-5 py-[14px] text-[11px] font-black uppercase tracking-[0.15em] text-brand-dark group-hover:text-white transition-colors duration-300 delay-75 whitespace-nowrap">
-                Let's Work Together
+                {serviceArea.ctaText}
               </span>
 
               {/* Arrow circle — inverts on hover */}
@@ -228,8 +164,8 @@ export default function ServiceArea() {
 
             <div className="relative aspect-[1010/666] w-full select-none">
               <img
-                src="/world-map.svg"
-                alt="World Map showing service areas"
+                src={serviceArea.mapSrc}
+                alt={serviceArea.mapAlt}
                 className="w-full h-full object-contain pointer-events-none select-none"
               />
 
@@ -241,7 +177,7 @@ export default function ServiceArea() {
                   <div
                     key={hub.id}
                     className="absolute z-10 cursor-pointer"
-                    style={{ left: hub.coords.x, top: hub.coords.y }}
+                    style={{ left: getHubCoords(hub.id).x, top: getHubCoords(hub.id).y }}
                     onMouseEnter={() => setActiveHub(hub.id)}
                     onMouseLeave={() => setActiveHub(null)}
                     onFocus={() => setActiveHub(hub.id)}

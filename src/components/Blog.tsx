@@ -3,47 +3,12 @@
 import { motion } from "framer-motion";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
-
-const posts = [
-  {
-    image: "/blog4.png",
-    date: "May 12, 2026",
-    readTime: "5 min read",
-    title: "10 SEO Strategies to Boost Your Website Traffic",
-    excerpt: "Scale organic search traffic, outrank competitors, and secure high-intent leads that drive compounding growth using our vetted, data-backed optimization playbook.",
-    category: "SEO",
-    link: "#"
-  },
-  {
-    image: "/blog2.png",
-    date: "May 8, 2026",
-    readTime: "4 min read",
-    title: "How Social Media Marketing Can Grow Your Business",
-    excerpt: "Tell compelling stories, publish platform-specific content, and grow organic followings across key networks to nurture conversion leads.",
-    category: "MARKETING",
-    link: "#"
-  },
-  {
-    image: "/blog3.png",
-    date: "May 5, 2026",
-    readTime: "6 min read",
-    title: "PPC Advertising: Get More Leads for Less",
-    excerpt: "Maximize ROI and reduce target CPA using our conversion funnel overhauls and automated ad creative testing structures.",
-    category: "PAID MEDIA",
-    link: "#"
-  },
-  {
-    image: "/blog1.png",
-    date: "May 1, 2026",
-    readTime: "4 min read",
-    title: "Why Your Business Needs a Modern Website",
-    excerpt: "Build lightning-fast, custom websites with stunning UX design, Next.js architecture, and clean code that compounds search traffic.",
-    category: "DEVELOPMENT",
-    link: "#"
-  }
-];
+import content from "@/data/content.json";
 
 export default function Blog() {
+  const { blog } = content;
+  const posts = blog.posts;
+
   return (
     <section
       id="blog"
@@ -99,11 +64,11 @@ export default function Blog() {
           className="flex flex-col gap-4 mb-16"
         >
           <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1 text-[8px] md:text-[9px] font-black tracking-widest uppercase text-brand-blue select-none self-start">
-            06 // JOURNAL
+            {blog.sectionNumber} // {blog.sectionTag}
           </span>
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.1] select-none">
-            Agency <span className="text-brand-blue relative inline-block">
-              Insights
+            {blog.titleIntro} <span className="text-brand-blue relative inline-block">
+              {blog.titleHighlight}
               <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path
                   d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
@@ -113,7 +78,7 @@ export default function Blog() {
             </span>
           </h2>
           <p className="text-brand-zinc-500 font-medium leading-relaxed text-xs md:text-sm max-w-xl">
-            Thought leadership, design patterns, and growth strategies curated by our senior creative directors and marketing experts.
+            {blog.description}
           </p>
         </motion.div>
 
@@ -154,7 +119,7 @@ export default function Blog() {
                       <span className="font-mono text-[8px] font-black uppercase tracking-widest">{posts[0].category}</span>
                     </div>
                     <span className="block text-[10px] font-bold text-brand-zinc-400 uppercase tracking-wider">
-                      {posts[0].date} &nbsp;•&nbsp; {posts[0].readTime}
+                      {posts[0].date}{blog.dateSeparator}{posts[0].readTime}
                     </span>
                   </div>
 
@@ -170,7 +135,7 @@ export default function Blog() {
 
                   {/* Read More button */}
                   <div className="flex items-center gap-2 pt-2">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-brand-blue">Featured Article</span>
+                    <span className="text-[10px] font-black uppercase tracking-widest text-brand-blue">{blog.featuredLabel}</span>
                     <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue/5 border border-brand-blue/10 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                     </div>
@@ -188,7 +153,7 @@ export default function Blog() {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
             className="lg:col-span-5 space-y-6"
           >
-            {posts.slice(1).map((post, idx) => (
+            {posts.slice(1).map((post: any, idx: number) => (
               <a
                 key={idx}
                 href={post.link}

@@ -25,18 +25,22 @@ const drawVariants = {
   })
 };
 
-const industries = [
-  { name: "Real Estate", icon: Building2 },
-  { name: "Healthcare", icon: Heart },
-  { name: "E-commerce", icon: ShoppingCart },
-  { name: "Construction", icon: Hammer },
-  { name: "Education", icon: GraduationCap },
-  { name: "Finance", icon: Landmark },
-  { name: "Technology", icon: Network },
-  { name: "Local Business", icon: Store }
-];
+import content from "@/data/content.json";
+
+const iconMap: Record<string, any> = {
+  Building2,
+  Heart,
+  ShoppingCart,
+  Hammer,
+  GraduationCap,
+  Landmark,
+  Network,
+  Store
+};
 
 export default function Industries() {
+  const { industries } = content;
+
   const containerVariants = {
     hidden: {},
     visible: {
@@ -64,12 +68,12 @@ export default function Industries() {
         {/* Title */}
         <div className="text-center mb-16 flex flex-col items-center">
           <span className="text-[10px] font-sans font-black tracking-widest text-brand-zinc-400 uppercase mb-3">
-            03 // SPECIALIZATIONS
+            {industries.sectionNumber} // {industries.sectionTag}
           </span>
           <h2 className="font-heading text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.15]">
-            Industries We{" "}
+            {industries.titleIntro}{" "}
             <span className="relative inline-block text-brand-blue">
-              Empower
+              {industries.titleHighlight}
               <svg className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <motion.path
                   d="M 2 5 Q 50 3.5, 98 5"
@@ -95,8 +99,8 @@ export default function Industries() {
           viewport={{ once: false, margin: "-100px" }}
           className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-3 sm:gap-6"
         >
-          {industries.map((industry, index) => {
-            const IconComponent = industry.icon;
+          {industries.list.map((industry, index) => {
+            const IconComponent = iconMap[industry.iconName] || Store;
             return (
               <motion.div
                 key={index}

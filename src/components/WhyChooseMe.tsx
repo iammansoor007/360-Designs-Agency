@@ -3,6 +3,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef, useEffect, useState } from "react";
 import { Sparkles, Terminal, TrendingUp, Zap, HeartHandshake } from "lucide-react";
+import content from "@/data/content.json";
 
 // ── Animated Circular Stat ────────────────────────────────────
 const RADIUS = 34;
@@ -123,7 +124,7 @@ function AnimatedStat({
 }
 
 // ── Illustrations ─────────────────────────────────────────────
-const illustrations = [
+const getIllustrations = (ill: any) => [
   // 01 — Design grid
   <svg key="1" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
     <rect x="8" y="10" width="62" height="80" rx="8" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.2" />
@@ -165,7 +166,7 @@ const illustrations = [
     <rect x="80" y="64" width="32" height="4" rx="2" fill="#0306AC" fillOpacity="0.1" />
     <rect x="18" y="74" width="4" height="7" rx="1" fill="#0306AC" fillOpacity="0.55" />
     <circle cx="138" cy="72" r="14" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
-    <text x="138" y="77" textAnchor="middle" fontSize="10" fontWeight="900" fill="#0306AC" fillOpacity="0.55" fontFamily="sans-serif">100</text>
+    <text x="138" y="77" textAnchor="middle" fontSize="10" fontWeight="900" fill="#0306AC" fillOpacity="0.55" fontFamily="sans-serif">{ill.scoreLabel}</text>
   </svg>,
 
   // 03 — Chart / conversion
@@ -217,42 +218,17 @@ const illustrations = [
     <circle cx="68" cy="74" r="4" fill="#FFF35C" />
     <circle cx="81" cy="74" r="4" fill="#FFF35C" />
     <circle cx="94" cy="74" r="4" fill="#FFF35C" fillOpacity="0.35" />
-    <text x="80" y="92" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="#0306AC" fillOpacity="0.4" fontFamily="sans-serif" letterSpacing="1">4.9 / 5  CLIENT RATING</text>
+    <text x="80" y="92" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="#0306AC" fillOpacity="0.4" fontFamily="sans-serif" letterSpacing="1">{ill.ratingLabel}</text>
   </svg>,
 ];
 
-const reasons = [
-  {
-    num: "01",
-    icon: Sparkles,
-    title: "Bespoke Design Mastery",
-    desc: "I design everything strictly from scratch. Every typeface choice, spacing token, and custom vector graphic is tailored to match your caliber, bypassing the generic template look.",
-  },
-  {
-    num: "02",
-    icon: Terminal,
-    title: "Elite Next.js & React Engineering",
-    desc: "Clean, hand-written modern React code. I ensure your site achieves millisecond load times, perfect SEO optimization, and flawless performance across all device viewports.",
-  },
-  {
-    num: "03",
-    icon: TrendingUp,
-    title: "Conversion-Led Architecture",
-    desc: "Design without conversions is just art. I mathematically structure call-to-actions, user pathways, and visual hierarchies to systematically drive high-value actions.",
-  },
-  {
-    num: "04",
-    icon: Zap,
-    title: "Direct & Rapid Communication",
-    desc: "No middlemen or account managers. We collaborate in a dedicated Slack channel with weekly video walkthroughs and complete transparency over milestones.",
-  },
-  {
-    num: "05",
-    icon: HeartHandshake,
-    title: "Founder-Level Accountability",
-    desc: "You partner with me directly — never passed off to outsourced juniors. Includes dedicated launch support and long-term scaling guidance.",
-  },
-];
+const iconMap: Record<string, any> = {
+  Sparkles,
+  Terminal,
+  TrendingUp,
+  Zap,
+  HeartHandshake
+};
 
 const drawVariants = {
   hidden: { pathLength: 0 },
@@ -263,6 +239,15 @@ const drawVariants = {
 };
 
 export default function WhyChooseMe() {
+  const { whyChooseMe } = content;
+
+  const reasons = whyChooseMe.reasons.map((r: any) => ({
+    ...r,
+    icon: iconMap[r.iconName] || Sparkles
+  }));
+
+  const illustrations = getIllustrations(whyChooseMe.illustrations);
+
   return (
     <section
       id="why-us"
@@ -291,14 +276,14 @@ export default function WhyChooseMe() {
             >
               {/* Pill */}
               <span className="inline-flex items-center gap-2 rounded-full bg-brand-blue/10 px-3.5 py-1.5 text-[9px] font-black tracking-widest uppercase text-brand-blue">
-                05 // Methodology
+                {whyChooseMe.sectionNumber} // {whyChooseMe.sectionTag}
               </span>
 
               {/* Heading */}
               <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-extrabold text-brand-dark leading-[1.15] tracking-tight">
-                Why Business Owners Choose{" "}
+                {whyChooseMe.titleIntro}{" "}
                 <span className="text-brand-blue relative inline-block">
-                  Me Directly
+                  {whyChooseMe.titleHighlight}
                   <svg
                     className="absolute -bottom-1.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]"
                     viewBox="0 0 100 10"
@@ -318,30 +303,30 @@ export default function WhyChooseMe() {
 
               {/* Subtext */}
               <p className="text-brand-zinc-500 text-sm leading-relaxed max-w-sm">
-                No agency overhead, no outsourced junior developers, and zero cookie-cutter templates. I design and engineer custom, high-converting digital products that build immediate brand authority.
+                {whyChooseMe.subtext}
               </p>
 
               {/* Circular stats */}
               <div className="flex items-center justify-between gap-4 pt-6 w-full">
                 <AnimatedStat
-                  value="98%"
-                  label="Client Retention"
-                  sublabel={"Long-term partnerships\nbuilt on results"}
-                  percentage={0.98}
+                  value={whyChooseMe.stats[0].value}
+                  label={whyChooseMe.stats[0].label}
+                  sublabel={whyChooseMe.stats[0].sublabel}
+                  percentage={whyChooseMe.stats[0].percentage}
                 />
                 <div className="w-px h-16 bg-brand-zinc-200 self-center hidden sm:block" />
                 <AnimatedStat
-                  value="3.4x"
-                  label="Avg. Conversion"
-                  sublabel={"Higher conversion rate\nacross client projects"}
-                  percentage={0.68}
+                  value={whyChooseMe.stats[1].value}
+                  label={whyChooseMe.stats[1].label}
+                  sublabel={whyChooseMe.stats[1].sublabel}
+                  percentage={whyChooseMe.stats[1].percentage}
                 />
                 <div className="w-px h-16 bg-brand-zinc-200 self-center hidden sm:block" />
                 <AnimatedStat
-                  value="99+"
-                  label="Speed & SEO"
-                  sublabel={"Average Lighthouse\nperformance score"}
-                  percentage={0.99}
+                  value={whyChooseMe.stats[2].value}
+                  label={whyChooseMe.stats[2].label}
+                  sublabel={whyChooseMe.stats[2].sublabel}
+                  percentage={whyChooseMe.stats[2].percentage}
                 />
               </div>
             </motion.div>
