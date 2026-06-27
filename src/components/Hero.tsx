@@ -60,7 +60,7 @@ export default function Hero() {
       }
 
       // Calculate speed: base speed + absolute velocity factor
-      const velocityImpact = Math.abs(smoothScrollVelocity) * 0.004;
+      const velocityImpact = Math.abs(smoothScrollVelocity) * 0.001;
       const speed = baseSpeed + velocityImpact;
 
       // Update position (delta normalized to typical 16.6ms frame time)
@@ -113,8 +113,6 @@ export default function Hero() {
   return (
     <section className="relative overflow-hidden bg-transparent pt-16 md:pt-10 pb-0 flex flex-col justify-between min-h-[65vh] lg:min-h-[80vh]">
 
-
-
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 w-full z-20 relative pointer-events-none lg:flex-1 lg:flex lg:flex-col lg:justify-end">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:items-stretch">
 
@@ -147,7 +145,7 @@ export default function Hero() {
               >
                 Grow & Scale
                 {/* Custom animated hand-drawn SVG underline with gradient and hover interaction */}
-                <svg className="absolute -bottom-3.5 left-0 w-full h-5 pointer-events-none drop-shadow-[0_1.5px_2.5px_rgba(255,243,92,0.45)]" viewBox="0 0 100 14" preserveAspectRatio="none">
+                <svg className="absolute -bottom-3.5 left-0 w-full h-5 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 14" preserveAspectRatio="none">
                   <defs>
                     <linearGradient id="brushGradient" x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stopColor="#FFF35C" />
@@ -217,7 +215,7 @@ export default function Hero() {
               {/* Primary Cobalt Blue Button */}
               <a
                 href="#contact"
-                className="group flex w-full max-w-[280px] sm:w-auto items-center justify-center gap-3 rounded-full bg-brand-blue px-7 py-4 text-xs font-black uppercase tracking-widest text-white hover:bg-brand-dark transition-all duration-300 shadow-lg pointer-events-auto hover:scale-[1.03] active:scale-[0.98]"
+                className="group flex w-full max-w-[280px] sm:w-auto items-center justify-center gap-3 rounded-full bg-brand-blue hover:bg-brand-dark px-7 py-4 text-xs font-black uppercase tracking-widest text-white transition-all duration-300 shadow-lg pointer-events-auto hover:scale-[1.03] active:scale-[0.98]"
               >
                 Get Started
                 <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-brand-blue group-hover:bg-brand-yellow group-hover:text-brand-dark transition-colors duration-300">
@@ -237,10 +235,9 @@ export default function Hero() {
               </a>
             </motion.div>
 
-
           </motion.div>
 
-          {/* Right Column: Creative Graphic Showcase (No float/scale on hover, touches marquee) */}
+          {/* Right Column: Creative Graphic Showcase */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -292,8 +289,13 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* HORIZONTAL MARQUEE: Solid Dark Tape in normal document flow at the bottom */}
-      <div className="relative w-full h-16 md:h-20 bg-brand-dark text-white flex items-center overflow-hidden z-30 border-t border-brand-zinc-800 mt-16 lg:mt-2">
+      {/* HORIZONTAL MARQUEE: Solid Dark Tape in normal document flow at the bottom with Load Animation */}
+      <motion.div
+        initial={{ y: 40, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
+        className="relative w-full h-16 md:h-20 bg-brand-dark text-white flex items-center overflow-hidden z-30 border-t border-brand-zinc-800 mt-16 lg:mt-2"
+      >
         <div className="flex whitespace-nowrap gap-12 md:gap-16 select-none w-full">
           <div
             ref={marqueeRef}
@@ -311,7 +313,7 @@ export default function Hero() {
             ))}
           </div>
         </div>
-      </div>
+      </motion.div>
 
     </section>
   );

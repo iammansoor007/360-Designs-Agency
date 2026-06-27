@@ -21,17 +21,41 @@ export default function Footer() {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  const wordmarkText = "ELEVATE DIGITAL";
+  const wordmarkLetters = Array.from(wordmarkText);
+
+  // Framer Motion variants for letter-by-letter reveal animation
+  const containerVariants = {
+    hidden: {},
+    visible: {
+      transition: {
+        staggerChildren: 0.03
+      }
+    }
+  };
+
+  const letterVariants = {
+    hidden: { y: "100%", opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] }
+    }
+  };
+
   return (
-    <footer className="relative bg-brand-dark-blue text-white pt-20 pb-10 overflow-hidden border-t border-brand-zinc-800">
+    <footer className="relative bg-[#090A29] text-white pt-24 pb-12 overflow-hidden border-t border-white/5">
       
-      {/* Decorative vector bg grid */}
-      <div className="absolute inset-0 -z-10 bg-linear-grid-white-3 [background-size:40px_40px]" />
-      
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 pb-16 border-b border-brand-zinc-800">
+      {/* Decorative subtle gradient wash */}
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-brand-blue/5 blur-[150px] pointer-events-none" />
+
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+        
+        {/* Main Footer Columns Grid with Balanced Blueprint Dividers */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-0 pb-20 border-b border-white/10">
           
-          {/* Logo & Description Column (lg:col-span-4) */}
-          <div className="lg:col-span-4 space-y-6">
+          {/* Logo & Description Column (lg:col-span-3) */}
+          <div className="lg:col-span-3 space-y-6 lg:pr-6">
             <div className="flex items-center gap-2.5">
               <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 overflow-hidden border border-white/10">
                 <div className="absolute top-1 left-1 w-6 h-6 rounded-full bg-brand-yellow/80 mix-blend-screen" />
@@ -39,7 +63,7 @@ export default function Footer() {
                 <span className="relative font-heading font-extrabold text-white text-base z-10">E</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-sans font-black text-lg leading-none tracking-tight text-white">
+                <span className="font-sans font-black text-lg leading-none tracking-tight text-white uppercase">
                   Elevate Digital
                 </span>
                 <span className="font-sans font-bold text-[9px] tracking-widest text-brand-yellow uppercase leading-none mt-1">
@@ -50,7 +74,22 @@ export default function Footer() {
             <p className="text-xs md:text-sm text-brand-zinc-300 leading-relaxed max-w-xs font-semibold">
               Helping businesses grow with smart, motivating strategies that deliver real results.
             </p>
-            {/* Social Icons (styled round grey circles, turning yellow/blue on hover) */}
+            
+            {/* Pulsing Studio Status & Geographic Coordinates */}
+            <div className="flex flex-col gap-1.5 pt-1">
+              <div className="flex items-center gap-2 text-[9px] font-mono tracking-widest text-brand-zinc-400">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500"></span>
+                </span>
+                STUDIO STATUS: OPEN FOR PROJECTS
+              </div>
+              <span className="text-[9px] font-mono text-brand-zinc-500 tracking-wider">
+                NYC 40.7128° N, 74.0060° W // EST. 2024
+              </span>
+            </div>
+
+            {/* Social Icons (frosted glass circles) */}
             <div className="flex gap-3 pt-2">
               {[
                 { icon: <Twitter className="h-4 w-4" />, href: "#" },
@@ -70,9 +109,9 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Column (lg:col-span-2) */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="font-sans font-bold text-xs uppercase tracking-widest text-brand-yellow">
-              Quick Links
+          <div className="lg:col-span-2 space-y-4 lg:pl-6 lg:border-l lg:border-white/5">
+            <h4 className="font-mono font-bold text-[10px] uppercase tracking-widest text-brand-yellow">
+              // Quick Links
             </h4>
             <ul className="space-y-2.5 text-xs md:text-sm font-semibold text-brand-zinc-300">
               {[
@@ -85,7 +124,7 @@ export default function Footer() {
                 { name: "Contact", href: "#contact" }
               ].map((link, idx) => (
                 <li key={idx}>
-                  <a href={link.href} className="hover:text-brand-yellow transition-colors">
+                  <a href={link.href} className="inline-block hover:text-brand-yellow hover:translate-x-1 transition-all duration-200">
                     {link.name}
                   </a>
                 </li>
@@ -94,59 +133,61 @@ export default function Footer() {
           </div>
 
           {/* Services Column (lg:col-span-2) */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="font-sans font-bold text-xs uppercase tracking-widest text-brand-yellow">
-              Services
+          <div className="lg:col-span-2 space-y-4 lg:pl-6 lg:border-l lg:border-white/5">
+            <h4 className="font-mono font-bold text-[10px] uppercase tracking-widest text-brand-yellow">
+              // Services
             </h4>
             <ul className="space-y-2.5 text-xs md:text-sm font-semibold text-brand-zinc-300">
               {[
-                "SEO",
-                "Social Media Marketing",
+                "SEO Optimization",
+                "Social Campaigns",
                 "PPC Advertising",
-                "Web Design",
+                "Web UI/UX Design",
                 "Branding & Strategy"
               ].map((item, idx) => (
-                <li key={idx} className="cursor-pointer hover:text-brand-yellow transition-colors">
-                  {item}
+                <li key={idx}>
+                  <span className="inline-block hover:text-brand-yellow hover:translate-x-1 transition-all duration-200 cursor-pointer">
+                    {item}
+                  </span>
                 </li>
               ))}
             </ul>
           </div>
 
-          {/* Contact Info Column (lg:col-span-2) */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="font-sans font-bold text-xs uppercase tracking-widest text-brand-yellow">
-              Contact Info
+          {/* Contact Info Column (lg:col-span-3 - Expanded to fit email addresses safely) */}
+          <div className="lg:col-span-3 space-y-4 lg:pl-6 lg:border-l lg:border-white/5">
+            <h4 className="font-mono font-bold text-[10px] uppercase tracking-widest text-brand-yellow">
+              // Contact Info
             </h4>
             <ul className="space-y-4 text-xs md:text-sm font-semibold text-brand-zinc-300">
-              <li>
-                <span className="block text-[10px] font-bold text-brand-zinc-500 uppercase tracking-wide">Email</span>
-                <a href="mailto:hello@elevatedigital.com" className="text-white hover:text-brand-yellow transition-colors">
+              <li className="flex flex-col gap-1">
+                <span className="text-[8px] font-mono font-black text-brand-zinc-500 uppercase tracking-widest">// Email</span>
+                <a href="mailto:hello@elevatedigital.com" className="text-white hover:text-brand-yellow transition-colors font-mono break-all xs:break-normal">
                   hello@elevatedigital.com
                 </a>
               </li>
-              <li>
-                <span className="block text-[10px] font-bold text-brand-zinc-500 uppercase tracking-wide">Phone</span>
-                <a href="tel:+11234567890" className="text-white hover:text-brand-yellow transition-colors">
+              <li className="flex flex-col gap-1">
+                <span className="text-[8px] font-mono font-black text-brand-zinc-500 uppercase tracking-widest">// Phone</span>
+                <a href="tel:+11234567890" className="text-white hover:text-brand-yellow transition-colors font-mono break-all xs:break-normal">
                   +1 (123) 456-7890
                 </a>
               </li>
-              <li>
-                <span className="block text-[10px] font-bold text-brand-zinc-500 uppercase tracking-wide">Address</span>
+              <li className="flex flex-col gap-1">
+                <span className="text-[8px] font-mono font-black text-brand-zinc-500 uppercase tracking-widest">// Address</span>
                 <span className="text-white leading-relaxed">
-                  123 Business St, Suite 100, New York, NY 10001, U.S.A.
+                  901 Broadway St, New York, NY 10003
                 </span>
               </li>
             </ul>
           </div>
 
           {/* Newsletter Column (lg:col-span-2) */}
-          <div className="lg:col-span-2 space-y-4">
-            <h4 className="font-sans font-bold text-xs uppercase tracking-widest text-brand-yellow">
-              Newsletter
+          <div className="lg:col-span-2 space-y-4 lg:pl-6 lg:border-l lg:border-white/5">
+            <h4 className="font-mono font-bold text-[10px] uppercase tracking-widest text-brand-yellow">
+              // Newsletter
             </h4>
             <p className="text-xs text-brand-zinc-300 font-semibold leading-relaxed">
-              Subscribe to get tips, insights, and updates.
+              Subscribe to get tips, insights, and agency updates.
             </p>
             
             <AnimatePresence mode="wait">
@@ -161,12 +202,12 @@ export default function Footer() {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-transparent px-3 py-2 text-xs text-white focus:outline-none placeholder-brand-zinc-500 font-semibold"
-                    placeholder="Your email address"
+                    className="w-full bg-transparent px-3 py-2.5 text-xs text-white focus:outline-none placeholder-brand-zinc-550 font-semibold"
+                    placeholder="Email address"
                   />
                   <button
                     type="submit"
-                    className="bg-brand-yellow text-brand-dark px-3.5 flex items-center justify-center hover:bg-white hover:text-brand-blue transition-colors cursor-pointer"
+                    className="bg-brand-blue text-white px-3.5 flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-colors duration-300 cursor-pointer"
                     aria-label="Subscribe"
                   >
                     <ArrowRight className="h-4 w-4" />
@@ -187,13 +228,41 @@ export default function Footer() {
 
         </div>
 
-        {/* Bottom Bar */}
-        <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-[10px] font-bold text-brand-zinc-500 uppercase tracking-widest text-center md:text-left">
-            © {currentYear} Elevate Digital Marketing Agency. All Rights Reserved.
-          </p>
-          
-          <div className="flex gap-4 sm:gap-6 text-[10px] font-bold text-brand-zinc-500 uppercase tracking-wider">
+      </div>
+
+      {/* Full-Width Backdrop Wordmark with viewport-optimized staggered letter reveal */}
+      <div className="select-none text-center pointer-events-none mt-12 md:mt-20 mb-6 overflow-hidden w-full px-4 relative z-0">
+        <motion.span 
+          className="font-sans font-black text-[10vw] leading-none tracking-tighter uppercase flex flex-wrap justify-center w-full"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: false, amount: 0.01 }}
+        >
+          {wordmarkLetters.map((letter, idx) => (
+            <motion.span
+              key={idx}
+              variants={letterVariants}
+              className={`inline-block transition-all duration-300 cursor-default hover:scale-110 ${
+                idx >= 8 
+                  ? "text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.08)] hover:[-webkit-text-stroke:1px_#FFF35C] pointer-events-auto" 
+                  : "text-white/[0.05] hover:text-brand-yellow pointer-events-auto"
+              }`}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </motion.span>
+          ))}
+        </motion.span>
+      </div>
+
+      {/* Bottom Bar (Responsive stacking optimized) */}
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10 pt-10 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/5">
+        <p className="text-[10px] font-bold text-brand-zinc-550 uppercase tracking-widest text-center md:text-left">
+          © {currentYear} Elevate Digital Marketing Agency. All Rights Reserved.
+        </p>
+        
+        <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full md:w-auto justify-between md:justify-end">
+          <div className="flex gap-4 sm:gap-6 text-[10px] font-bold text-brand-zinc-550 uppercase tracking-wider">
             <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             <span>|</span>
             <a href="#" className="hover:text-white transition-colors">Terms of Service</a>
@@ -202,13 +271,12 @@ export default function Footer() {
           {/* Scroll to Top */}
           <button
             onClick={scrollToTop}
-            className="flex h-10 w-10 items-center justify-center rounded-full bg-white/5 border border-white/10 text-brand-zinc-300 hover:bg-brand-yellow hover:text-brand-dark hover:border-brand-yellow transition-all cursor-pointer"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 border border-white/10 text-brand-zinc-300 hover:bg-brand-yellow hover:text-brand-dark hover:border-brand-yellow transition-all duration-300 cursor-pointer shadow-sm hover:scale-105 active:scale-95"
             aria-label="Scroll to top"
           >
             <ArrowUp className="h-4 w-4" />
           </button>
         </div>
-
       </div>
     </footer>
   );

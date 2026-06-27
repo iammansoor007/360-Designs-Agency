@@ -1,0 +1,27 @@
+- [x] Modify Testimonials.tsx to hide rows based on responsive breakpoints (Row 2 hidden on mobile, Row 3 hidden on mobile/tablet)
+- [x] Modify Blog.tsx to make Recent Articles list cards stack vertically on mobile (flex-col sm:flex-row)
+- [x] Redesign FAQ.tsx into an Awwwards-level card-based accordion layout
+- [x] Stabilize layout height and completely remove dynamic category filtering pills to prevent content shifting
+- [x] Set FAQ section background to `bg-white` to create clean visual separation from the adjacent Blog section
+- [x] Configure FAQ cards to transition from transparent border shapes to white backgrounds on hover and open, preventing layout jiggle
+- [x] Integrate structured sub-components (tags, steps, milestones, profiles, inclusions, stack) inside expanded FAQ answers
+- [x] Add premium sticky sidebar with a premium dark-blue Strategy Audit box
+- [x] Upgrade expanded answers with clean milestones, chevrons, profiles, and PageSpeed score indicators
+- [x] Redesign ContactForm.tsx into an Awwwards-level interactive contact module
+- [x] Replicate the split layout shown in the user's second uploaded image, fully aligned with our color theme
+- [x] Set the section background to a clean light-gray canvas (`bg-[#F9FAFB]`)
+- [x] Integrate soft pastel mouse-following pointer glows (electric blue and brand yellow washes)
+- [x] Integrate subtle light tilted grid lines in the background (`rotate-[8deg]` at `rgba(3,6,172,0.035)`)
+- [x] Style the right-side card container as a translucent frosted acrylic glass sheet (`bg-white/45 backdrop-blur-xl border border-white/60`)
+- [x] Convert Full Name, Email, Phone, and Message input boxes to translucent glass blocks (`bg-white/55 backdrop-blur-md border border-brand-zinc-200/80`)
+- [x] Integrate left contact details badges as frosted glass cards with brand-blue icons
+- [x] Set submit button as a solid brand-blue pill (`bg-brand-blue shadow-[0_4px_16px_rgba(3,6,172,0.15)]`)
+- [x] Relocate the tag label (08 // CONTACT) and heading title directly inside the Left Column
+- [x] Remove the top-level Section Header, aligning both column heights and removing empty vertical gaps
+- [x] Align columns vertically using `items-center` for symmetrical midpoints
+- [x] Redesign Footer.tsx into an Awwwards-level premium typographic footer
+- [x] Set footer background to brand dark navy (`bg-[#090A29]`) with soft white border outlines
+- [x] Integrate a massive low-opacity wordmark backdrop (`ELEVATE` in `text-[12vw]`)
+- [x] Add hover translation offsets (`hover:translate-x-1`) to navigation and services lists
+- [x] Rebuild newsletter submit elements using clean frosted glass styling
+- [x] Optimize all sections for mobile viewports down to 300px by introducing defensive paddings (`px-4 sm:px-6 md:px-12`) and scaling down texts and grid layouts
