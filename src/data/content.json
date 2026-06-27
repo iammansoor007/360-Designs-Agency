@@ -1,22 +1,40 @@
 {
   "metadata": {
-    "title": "AURA | Premium Creative Branding & Digital Strategy Agency",
-    "description": "AURA is a world-class creative agency specializing in elite branding, high-end Web3 & SaaS engineering, and conversion-focused growth marketing."
+    "title": "Mohsin Designs | Best Digital Marketing Agency for Growing Businesses",
+    "description": "Mohsin Designs is the best digital marketing agency for growing businesses, helping you win real customers through SEO, branding, web design, and digital marketing services that actually move the needle."
   },
   "navbar": {
-    "logoLetter": "E",
-    "logoText": "Elevate Digital",
-    "logoSub": "Creative Agency",
+    "logoLetter": "M",
+    "logoText": "Mohsin Designs",
+    "logoSub": "Digital Marketing Agency",
     "ctaText": "Let's Talk",
     "ctaHref": "#contact",
     "ariaToggleMenu": "Toggle Menu",
     "links": [
-      { "label": "Services", "href": "#services" },
-      { "label": "About", "href": "#about" },
-      { "label": "Industries", "href": "#industries" },
-      { "label": "Why Us", "href": "#why-us" },
-      { "label": "Blog", "href": "#blog" },
-      { "label": "FAQ", "href": "#faq" }
+      {
+        "label": "Home",
+        "href": "#"
+      },
+      {
+        "label": "About Us",
+        "href": "#about"
+      },
+      {
+        "label": "Services",
+        "href": "#services"
+      },
+      {
+        "label": "Portfolio",
+        "href": "#portfolio"
+      },
+      {
+        "label": "Blog",
+        "href": "#blog"
+      },
+      {
+        "label": "Contact",
+        "href": "#contact"
+      }
     ]
   },
   "hero": {
@@ -28,34 +46,41 @@
     "ctaPrimaryHref": "#contact",
     "ctaSecondaryText": "Our Services",
     "ctaSecondaryHref": "#services",
-    "circleText": "• ELEVATE DIGITAL • CREATIVE POWER •",
-    "circleLetter": "E",
+    "circleText": "• MOHSIN DESIGNS • CREATIVE POWER •",
+    "circleLetter": "M",
     "imageSrc": "/hero-image-1.webp",
-    "imageAlt": "Elevate Digital Creative Graphic Showcase",
-    "marqueeItems": ["Creative Design", "UI/UX", "Marketing", "Motion", "Animation", "Development"]
+    "imageAlt": "Mohsin Designs Creative Graphic Showcase",
+    "marqueeItems": [
+      "Creative Design",
+      "UI/UX",
+      "Marketing",
+      "Motion",
+      "Animation",
+      "Development"
+    ]
   },
   "aboutOwner": {
     "sectionNumber": "01",
     "sectionTag": "THE FOUNDER",
-    "titleIntro": "We fuse conversion design with elite engineering to build ",
-    "titleHighlight": "monopolies.",
-    "bioParagraph1": "Hi, I'm James Parker. For over a decade, I've partnered with startups to architect digital experiences that command authority, engage audiences, and drive growth.",
-    "bioParagraph2": "I believe digital success isn't built on slow, lazy templates—it's built on custom Next.js engineering, Conversion Design™, and direct strategic marketing that moves the bottom line. No fluff, no shortcuts, just elite execution.",
-    "yearsExpValue": 10,
+    "titleIntro": "Get to Know the Person Behind ",
+    "titleHighlight": "Your Growth.",
+    "bioParagraph1": "Hi, I'm Muhammad Mohsin. Since 2019, I've spent the last half-decade-plus helping entrepreneurs and small businesses build brands that are memorable, with a hands-on approach to logo design, website building, and search engine optimization (SEO).",
+    "bioParagraph2": "Today, Mohsin Designs is a close-knit team of designers, developers, and SEO specialists who all share one goal: real, measurable growth. We get to know the people we work with instead of treating them like a task on a list. Every strategy is shaped by years of doing this and by actually understanding your industry.",
+    "yearsExpValue": 5,
     "yearsExpSuffix": "+",
     "yearsExpLabel": "Years Exp",
-    "brandsScaledValue": 200,
+    "brandsScaledValue": 3000,
     "brandsScaledSuffix": "+",
-    "brandsScaledLabel": "Brands Scaled",
-    "successRateValue": 99,
+    "brandsScaledLabel": "Clients Served",
+    "successRateValue": 95,
     "successRateSuffix": "%",
-    "successRateLabel": "Success Rate",
+    "successRateLabel": "Retention Rate",
     "ctaText": "Let's Work Together",
     "ctaHref": "#contact",
-    "portraitAlt": "James Parker - Founder",
-    "portraitSrc": "/founder.png",
-    "circleText": "• ESTABLISHED 2016 • CREATIVE THINKING •",
-    "circleLetter": "E"
+    "portraitAlt": "Muhammad Mohsin - Founder",
+    "portraitSrc": "/mohsinowner.png",
+    "circleText": "• ESTABLISHED 2019 • PERSONAL APPROACH •",
+    "circleLetter": "M"
   },
   "services": {
     "sectionNumber": "03",
@@ -76,18 +101,12 @@
       },
       {
         "num": "02",
-        "title": "Local SEO",
-        "category": "LOCAL",
-        "desc": "Dominate local map packs, optimize local directory citations, and drive immediate brick-and-mortar search visibility."
-      },
-      {
-        "num": "03",
         "title": "Content Marketing",
         "category": "CONTENT",
         "desc": "Publish authoritative, conversion-optimized articles and resources that build brand trust and compound search traffic."
       },
       {
-        "num": "04",
+        "num": "03",
         "title": "Google Ads (PPC)",
         "category": "PPC",
         "desc": "Launch high-performance search, display, and shopping campaigns that turn search intent into immediate sales.",
@@ -96,24 +115,14 @@
         "svgPercent": "+380%"
       },
       {
-        "num": "05",
-        "title": "Meta Ads",
-        "category": "ADS",
-        "desc": "Engage target audiences across Facebook & Instagram with scroll-stopping ad creatives and high-conversion funnels.",
-        "svgShopNow": "SHOP NOW",
-        "svgRoasGoal": "ROAS GOAL",
-        "svgRoas": "4.8x ROAS",
-        "svgFbLetter": "f"
-      },
-      {
-        "num": "06",
-        "title": "Social Media Management",
+        "num": "04",
+        "title": "Social Media Management (SMM)",
         "category": "SMM",
         "desc": "Tell compelling stories, publish platform-specific content, and grow organic followings across key networks.",
         "svgFollowers": "FOLLOWERS"
       },
       {
-        "num": "07",
+        "num": "05",
         "title": "GMB Optimization",
         "category": "GMB",
         "desc": "Claim, optimize, and actively manage your Google Business Profile to capture high-intent local phone calls and map visits.",
@@ -122,7 +131,13 @@
         "svgReviews": "4.9 (142 reviews)"
       },
       {
-        "num": "08",
+        "num": "06",
+        "title": "Graphic Designing",
+        "category": "DESIGN",
+        "desc": "Develop high-end marketing collaterals, social graphics, and custom illustration assets that capture immediate customer attention."
+      },
+      {
+        "num": "07",
         "title": "Website Development",
         "category": "DEVELOPMENT",
         "desc": "Build lightning-fast, custom websites with stunning UX design, Next.js architecture, and clean code.",
@@ -130,39 +145,21 @@
         "svgPerformance": "PERFORMANCE"
       },
       {
-        "num": "09",
+        "num": "08",
         "title": "UI/UX Design",
         "category": "DESIGN",
         "desc": "Map seamless user journeys, construct wireframes, and design interactive visual interfaces that maximize conversion rates.",
         "svgButton": "Button"
       },
       {
-        "num": "10",
-        "title": "Graphic Designing",
-        "category": "DESIGN",
-        "desc": "Develop high-end marketing collaterals, social graphics, and custom illustration assets that capture immediate customer attention."
-      },
-      {
-        "num": "11",
-        "title": "Branding & Identity",
-        "category": "BRANDING",
-        "desc": "Craft cohesive logo marks, visual style guides, typography treatments, and positioning grids that command authority.",
-        "svgAa": "Aa"
-      },
-      {
-        "num": "12",
-        "title": "Email Marketing",
-        "category": "MARKETING",
-        "desc": "Nurture subscriber lists with custom automated flows, newsletter designs, and targeted sales campaigns.",
-        "svgOpenRate": "OPEN RATE",
-        "svgRateValue": "64.2%"
-      },
-      {
-        "num": "13",
-        "title": "App Development",
-        "category": "DEVELOPMENT",
-        "desc": "Design and build premium, high-performance iOS and Android mobile apps with native React Native architectures.",
-        "svgDownload": "DOWNLOAD"
+        "num": "09",
+        "title": "Meta Ads",
+        "category": "ADS",
+        "desc": "Engage target audiences across Facebook & Instagram with scroll-stopping ad creatives and high-conversion funnels.",
+        "svgShopNow": "SHOP NOW",
+        "svgRoasGoal": "ROAS GOAL",
+        "svgRoas": "4.8x ROAS",
+        "svgFbLetter": "f"
       }
     ]
   },
@@ -172,133 +169,96 @@
     "titleIntro": "Trusted By ",
     "titleHighlight": "Leading Brands",
     "list": [
-      { "name": "Aether Tech", "text": "AETHER" },
-      { "name": "Apex Solutions", "text": "APEX" },
-      { "name": "NovaCloud", "text": "NOVACLOUD" },
-      { "name": "Verdant E-Com", "text": "VERDANT" },
-      { "name": "Solaria AI", "text": "SOLARIA" },
-      { "name": "Omnis Automations", "text": "OMNIS" },
-      { "name": "Luminary Creative", "text": "LUMINARY" }
+      {
+        "name": "American Stone Sealer",
+        "text": "AMERICAN STONE"
+      },
+      {
+        "name": "Redtail Roofing",
+        "text": "REDTAIL"
+      },
+      {
+        "name": "Raise Up Youth",
+        "text": "RAISE UP YOUTH"
+      },
+      {
+        "name": "Precision Gutters",
+        "text": "PRECISION"
+      },
+      {
+        "name": "Dessert Performance",
+        "text": "DESSERT PERF."
+      },
+      {
+        "name": "Corporate Hiring",
+        "text": "CORPORATE HIRING"
+      }
     ]
   },
   "portfolio": {
     "sectionNumber": "04",
     "sectionTag": "PORTFOLIO",
-    "titleIntro": "Real Results. ",
-    "titleHighlight": "Lasting Impact.",
-    "description": "We partner with ambitious brands and turn challenges into growth opportunities. Explore how our strategies deliver measurable results.",
+    "titleIntro": "Real Work and Real Results ",
+    "titleHighlight": "Across Every Industry.",
+    "description": "We’ve taken on tough problems, used strategies we know work, and delivered numbers that speak for themselves. Here’s a look at how we’ve changed the story for our clients.",
     "swipeHint": "Swipe / Drag to Navigate",
     "ariaPrev": "Previous Project",
     "ariaNext": "Next Project",
     "categories": [
-      { "id": "all", "label": "All Case Studies" },
-      { "id": "branding", "label": "Branding" },
-      { "id": "seo", "label": "SEO" },
-      { "id": "web-design", "label": "Web Design" },
-      { "id": "paid-media", "label": "Paid Media" },
-      { "id": "growth-strategy", "label": "Growth Strategy" }
+      {
+        "id": "all",
+        "label": "All Case Studies"
+      },
+      {
+        "id": "branding",
+        "label": "Branding"
+      },
+      {
+        "id": "seo",
+        "label": "SEO"
+      },
+      {
+        "id": "web-design",
+        "label": "Web Design"
+      }
     ],
     "labelCaseStudy": "Case Study",
     "labelChallenge": "The Challenge",
-    "labelWhatWeDid": "What We Accomplished",
-    "labelResult": "Result",
+    "labelWhatWeDid": "What We Did",
+    "labelResult": "The Result",
     "caseStudies": [
       {
         "num": "01",
-        "brand": "Palco Claims",
-        "subtitle": "Property Insurance Claims Company",
-        "categories": ["seo", "web-design"],
-        "challenge": "Palco Claims struggled to build online authority and clearly communicate their services to potential clients.",
-        "whatWeDid": "We refreshed their brand with a modern logo, improved their SEO performance, and built a clean, conversion-focused website.",
-        "result": "210% increase in visibility in just 6 months, resulting in more qualified leads and establishing their authority in the field.",
+        "brand": "Roof Improvement & Services",
+        "subtitle": "Roofing Contractor",
+        "categories": [
+          "seo",
+          "web-design",
+          "branding"
+        ],
+        "challenge": "Roof Improvement kept getting buried in a crowded roofing market. Their website barely brought in good leads, and almost nobody could find their brand online.",
+        "whatWeDid": "We rebuilt their brand identity, reworked their SEO, and launched a lead-capturing website that displays their skills clearly.",
+        "result": "More inbound calls and a noticeable increase in conversions due to a 320% increase in website traffic and a 35% increase in leads, all in 4 months.",
         "stats": [
-          { "value": "210%", "label": "Increase in Visibility in 6 Months" },
-          { "value": "150+", "label": "Qualified Leads Generated" },
-          { "value": "Top 3", "label": "Ranking for Key Search Terms" }
+          {
+            "value": "+320%",
+            "label": "Increase in Traffic"
+          },
+          {
+            "value": "+35%",
+            "label": "Increase in Leads"
+          },
+          {
+            "value": "4",
+            "label": "Months to Results"
+          }
         ],
         "screenshot": {
-          "logo": "P",
-          "brandName": "PALCO CLAIMS",
-          "navHome": "Home",
-          "navServices": "Services",
-          "navAbout": "About",
-          "navCall": "Call",
-          "tag": "Property Insurance Claims",
-          "title": "Public Claims Adjuster & Loss Consultant in Texas & Oklahoma",
-          "button": "Get Free Consultation",
-          "footerTag": "What is a Public Adjuster?"
-        }
-      },
-      {
-        "num": "02",
-        "brand": "Greenleaf DTC",
-        "subtitle": "Organic Superfood Retailer",
-        "categories": ["paid-media", "growth-strategy"],
-        "challenge": "Greenleaf DTC had high PPC client acquisition costs and low repeat purchase rates from their digital ad spend.",
-        "whatWeDid": "We overhauled Meta ads targeting, rebuilt high-converting ad creative funnels, and optimized checkout pages.",
-        "result": "4.8x average return on ad spend within 90 days, doubling their monthly subscription signups and reducing CPA by 35%.",
-        "stats": [
-          { "value": "4.8x", "label": "Average Campaign ROAS" },
-          { "value": "+140%", "label": "Increase in Subscriptions" },
-          { "value": "-35%", "label": "Reduction in CPA" }
-        ],
-        "screenshot": {
-          "logo": "G",
-          "brandName": "Greenleaf Wellness",
-          "subTitle": "Sponsored",
-          "tag": "META ADS",
-          "title": "Pure Wellness Oils",
-          "price": "$49.00",
-          "button": "SHOP NOW",
-          "labelRoas": "ROAS",
-          "valueRoas": "4.8x",
-          "labelCpa": "CPA",
-          "valueCpa": "-35%"
-        }
-      },
-      {
-        "num": "03",
-        "brand": "Technova SaaS",
-        "subtitle": "B2B Sales Intelligence Platform",
-        "categories": ["seo", "growth-strategy"],
-        "challenge": "Technova was overspending on paid search keywords while organic inbound pipelines remained flat.",
-        "whatWeDid": "We designed an authority-driven SEO content plan and implemented automated schema indexing across product pages.",
-        "result": "380% increase in organic search demos inside 6 months, establishing Top-1 positions for high-intent search terms.",
-        "stats": [
-          { "value": "+380%", "label": "Growth in Organic Search Traffic" },
-          { "value": "Rank #1", "label": "For High-Intent SaaS Keywords" },
-          { "value": "142K", "label": "New Monthly Organic Visitors" }
-        ],
-        "screenshot": {
-          "logo": "T",
-          "brandName": "TECHNOVA",
-          "tag": "ANALYTICS",
-          "labelDemos": "Organic Demos",
-          "valueDemos": "142,800",
-          "valuePercent": "+380%"
-        }
-      },
-      {
-        "num": "04",
-        "brand": "Luxe Staging",
-        "subtitle": "High-End Real Estate Staging",
-        "categories": ["branding", "web-design"],
-        "challenge": "Luxe Staging had a template website that failed to appeal to luxury real estate brokers and developers.",
-        "whatWeDid": "We engineered a high-end visual identity, custom typography palette, and premium animated portfolio website.",
-        "result": "Secured $14M in design contracts in the first 4 months post-relaunch, with a 3x increase in digital project inquiries.",
-        "stats": [
-          { "value": "$14M+", "label": "New Project Pipeline Secured" },
-          { "value": "3x", "label": "Increase in RFP Inquiries" },
-          { "value": "100%", "label": "Lighthouse Design Score" }
-        ],
-        "screenshot": {
-          "brandName": "L U X E",
-          "navWork": "Work",
-          "navPhilosophy": "Philosophy",
-          "navInquire": "Inquire",
-          "tag": "Interior Staging Studio",
-          "title": "Elevated Staging for Elite Residences",
-          "photoLabel": "LUXURY RESIDENCE"
+          "logo": "R",
+          "brandName": "ROOF IMPROVEMENT",
+          "tag": "Roofing Services",
+          "title": "Expert Roofing & Exterior Services",
+          "button": "Get a Free Quote"
         }
       }
     ]
@@ -306,59 +266,59 @@
   "whyChooseMe": {
     "sectionNumber": "05",
     "sectionTag": "Methodology",
-    "titleIntro": "Why Business Owners Choose ",
-    "titleHighlight": "Me Directly",
-    "subtext": "No agency overhead, no outsourced junior developers, and zero cookie-cutter templates. I design and engineer custom, high-converting digital products that build immediate brand authority.",
+    "titleIntro": "Why Smart Brands Choose Mohsin Designs ",
+    "titleHighlight": "for Growth",
+    "subtext": "The partner you pick can quietly decide where your business ends up. Here’s why so many clients stick with Mohsin Designs as their best digital marketing agency for growth.",
     "stats": [
       {
-        "value": "98%",
+        "value": "95%",
         "label": "Client Retention",
-        "sublabel": "Long-term partnerships\nbuilt on results",
+        "sublabel": "Long-term partnerships\nbuilt on real results",
+        "percentage": 0.95
+      },
+      {
+        "value": "0",
+        "label": "Outsourcing",
+        "sublabel": "Every project handled\n100% in-house",
+        "percentage": 1.0
+      },
+      {
+        "value": "3K+",
+        "label": "Clients Served",
+        "sublabel": "Across 50+ different\nindustries worldwide",
         "percentage": 0.98
-      },
-      {
-        "value": "3.4x",
-        "label": "Avg. Conversion",
-        "sublabel": "Higher conversion rate\nacross client projects",
-        "percentage": 0.68
-      },
-      {
-        "value": "99+",
-        "label": "Speed & SEO",
-        "sublabel": "Average Lighthouse\nperformance score",
-        "percentage": 0.99
       }
     ],
     "reasons": [
       {
         "num": "01",
-        "iconName": "Sparkles",
-        "title": "Bespoke Design Mastery",
-        "desc": "I design everything strictly from scratch. Every typeface choice, spacing token, and custom vector graphic is tailored to match your caliber, bypassing the generic template look."
+        "iconName": "HeartHandshake",
+        "title": "95%+ Client Retention Rate",
+        "desc": "Most of our clients come back, and that's the part we're proudest of. Over 90% return for more projects because the results are real and easy to measure."
       },
       {
         "num": "02",
-        "iconName": "Terminal",
-        "title": "Elite Next.js & React Engineering",
-        "desc": "Clean, hand-written modern React code. I ensure your site achieves millisecond load times, perfect SEO optimization, and flawless performance across all device viewports."
+        "iconName": "ShieldCheck",
+        "title": "No Outsourcing",
+        "desc": "We handle every project in-house, which keeps the quality and the details consistent from start to finish. No middlemen, no handoffs, no surprise delays."
       },
       {
         "num": "03",
-        "iconName": "TrendingUp",
-        "title": "Conversion-Led Architecture",
-        "desc": "Design without conversions is just art. I mathematically structure call-to-actions, user pathways, and visual hierarchies to systematically drive high-value actions."
+        "iconName": "MessageCircle",
+        "title": "Clear Communication",
+        "desc": "We're easy to reach on Facebook, WhatsApp, or email. You won't sit there guessing where things stand. Fast, honest communication matters to us."
       },
       {
         "num": "04",
-        "iconName": "Zap",
-        "title": "Direct & Rapid Communication",
-        "desc": "No middlemen or account managers. We collaborate in a dedicated Slack channel with weekly video walkthroughs and complete transparency over milestones."
+        "iconName": "TrendingUp",
+        "title": "Proven Results",
+        "desc": "We'd rather show you than tell you. Real case studies prove how our approach has helped clients grow, from bigger website traffic to higher conversion rates."
       },
       {
         "num": "05",
-        "iconName": "HeartHandshake",
-        "title": "Founder-Level Accountability",
-        "desc": "You partner with me directly — never passed off to outsourced juniors. Includes dedicated launch support and long-term scaling guidance."
+        "iconName": "PenTool",
+        "title": "Tailored Brand Strategy",
+        "desc": "No two brands are the same, so we never paste an old plan onto a new business. We build a solid base your brand can keep growing on for years to come."
       }
     ],
     "illustrations": {
@@ -369,127 +329,157 @@
   "serviceArea": {
     "sectionNumber": "06",
     "sectionTag": "GLOBAL COVERAGE",
-    "titleIntro": "Connecting Brands With ",
-    "titleHighlight": "Global Markets",
-    "description": "Proudly engineering digital experiences for clients worldwide, enabling startups and local businesses to compete on a global scale.",
+    "titleIntro": "Digital Marketing Strategies For ",
+    "titleHighlight": "Global Growth",
+    "description": "Want your brand to be seen beyond one location? We use SEO, branding, web design, and smart digital marketing to help you reach more people and win clients worldwide.",
     "ctaText": "Let's Work Together",
     "ctaHref": "#contact",
     "mapSrc": "/world-map.svg",
-    "mapAlt": "World map showing Elevate Digital service coverage areas",
+    "mapAlt": "World map showing Mohsin Designs service coverage areas",
     "hubs": [
-      { "id": "us", "name": "United States", "focus": "SaaS & Brand Strategy", "timezone": "EST / PST" },
-      { "id": "ca", "name": "Canada", "focus": "E-Commerce & Tech Startups", "timezone": "EST / AST" },
-      { "id": "br", "name": "Brazil", "focus": "Digital Products & Apps", "timezone": "BRT" },
-      { "id": "uk", "name": "United Kingdom", "focus": "Creative Web Design", "timezone": "GMT" },
-      { "id": "es", "name": "Spain", "focus": "SaaS Platforms & Branding", "timezone": "CET" },
-      { "id": "be", "name": "Belgium", "focus": "Corporate Platforms", "timezone": "CET" },
-      { "id": "fr", "name": "France", "focus": "Bespoke UI/UX Design", "timezone": "CET" },
-      { "id": "de", "name": "Germany", "focus": "Next.js Engineering UIs", "timezone": "CET" },
-      { "id": "at", "name": "Austria", "focus": "SEO & Growth Marketing", "timezone": "CET" },
-      { "id": "it", "name": "Italy", "focus": "E-Commerce Architectures", "timezone": "CET" },
-      { "id": "bh", "name": "Bahrain", "focus": "Web Apps & FinTech", "timezone": "AST" },
-      { "id": "au", "name": "Australia", "focus": "Conversion Optimization", "timezone": "AEST / AWST" }
+      {
+        "id": "us",
+        "name": "United States",
+        "focus": "SEO & Brand Strategy",
+        "timezone": "EST / PST"
+      },
+      {
+        "id": "ca",
+        "name": "Canada",
+        "focus": "Web Design",
+        "timezone": "EST / AST"
+      },
+      {
+        "id": "br",
+        "name": "Brazil",
+        "focus": "Digital Products",
+        "timezone": "BRT"
+      },
+      {
+        "id": "uk",
+        "name": "United Kingdom",
+        "focus": "Creative Design",
+        "timezone": "GMT"
+      },
+      {
+        "id": "es",
+        "name": "Spain",
+        "focus": "Branding",
+        "timezone": "CET"
+      },
+      {
+        "id": "be",
+        "name": "Belgium",
+        "focus": "Corporate Platforms",
+        "timezone": "CET"
+      },
+      {
+        "id": "fr",
+        "name": "France",
+        "focus": "UI/UX Design",
+        "timezone": "CET"
+      },
+      {
+        "id": "de",
+        "name": "Germany",
+        "focus": "Engineering UIs",
+        "timezone": "CET"
+      },
+      {
+        "id": "at",
+        "name": "Austria",
+        "focus": "Growth Marketing",
+        "timezone": "CET"
+      },
+      {
+        "id": "it",
+        "name": "Italy",
+        "focus": "E-Commerce",
+        "timezone": "CET"
+      },
+      {
+        "id": "bh",
+        "name": "Bahrain",
+        "focus": "Web Apps",
+        "timezone": "AST"
+      },
+      {
+        "id": "au",
+        "name": "Australia",
+        "focus": "Conversion Optimization",
+        "timezone": "AEST / AWST"
+      }
     ]
   },
   "testimonials": {
     "sectionNumber": "07",
     "sectionTag": "PROOF",
-    "titleIntro": "What Our ",
-    "titleHighlight": "Clients Say",
-    "description": "Real stories from growth-focused founders and tech companies who scaled with us.",
+    "titleIntro": "Real Success Stories From ",
+    "titleHighlight": "Clients Who Trusted Us",
+    "description": "Honest words from clients who handed us their brands, which tells you far more about our work than anything we could say about ourselves.",
     "scorecardRating": "5.0",
     "scorecardRatingLabel": "RATING",
     "scorecardTitle": "5-Star Verified Reviews",
-    "scorecardSub": "Across Google & Clutch",
+    "scorecardSub": "Based on 10+ Google Reviews",
     "list": [
       {
-        "quote": "Working with Elevate Digital was a game changer for our business. Their SEO strategies increased our organic leads by 150% in months!",
-        "name": "Sarah Johnson",
-        "role": "COO",
-        "company": "TechNova",
-        "rating": 5,
-        "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=150&h=150&q=80",
-        "avatarBg": "bg-gradient-to-br from-indigo-500 via-purple-500 to-purple-600",
-        "column": 1
-      },
-      {
-        "quote": "Our organic search traffic surged by 300% within months. Their team doesn't just execute campaigns; they deeply strategize for growth.",
-        "name": "David Miller",
-        "role": "CEO",
-        "company": "ApexRetail",
+        "quote": "360 designs has done an amazing job for us. We gave him our ideas for a logo, and he knocked it out of the park... Their SEO expertise has been a game-changer for my online presence.",
+        "name": "Daniel Gatlin",
+        "role": "Client",
+        "company": "Google Review",
         "rating": 5,
         "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&h=150&q=80",
         "avatarBg": "bg-gradient-to-br from-blue-500 via-cyan-500 to-cyan-600",
         "column": 1
       },
       {
-        "quote": "Their branding work gave us a cohesive, world-class identity that our customers constantly compliment. Extremely talented team.",
-        "name": "Olivia Carter",
-        "role": "Founder",
-        "company": "BloomCare",
-        "rating": 5,
-        "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&h=150&q=80",
-        "avatarBg": "bg-gradient-to-br from-pink-500 via-rose-500 to-rose-600",
-        "column": 1
-      },
-      {
-        "quote": "Professional, reliable, and results-driven. They treated our business like their own and delivered far beyond our expectations.",
-        "name": "Michael Thompson",
-        "role": "Founder",
-        "company": "BuildRight",
+        "quote": "Muhammad did an amazing job on our logo! He was very helpful and easy to work with! I couldn’t be happier with the results and would recommend him to anyone!",
+        "name": "Jackson Frydenlund",
+        "role": "Client",
+        "company": "Google Review",
         "rating": 5,
         "avatar": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&h=150&q=80",
         "avatarBg": "bg-gradient-to-br from-violet-500 via-indigo-500 to-indigo-600",
-        "column": 2
+        "column": 1
       },
       {
-        "quote": "The Next.js website they built is lightning fast, visually stunning, and highly optimized. Our bounce rate dropped down to 18%!",
-        "name": "Sophia Chen",
-        "role": "Product Lead",
-        "company": "FinFlow",
+        "quote": "These guys are top of the line!!!! The quality of work was exceptional and the attention to detail far exceeded anyone I have ever worked with and my expectations!!!",
+        "name": "Brandon Roberts",
+        "role": "Client",
+        "company": "Google Review",
         "rating": 5,
-        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80",
-        "avatarBg": "bg-gradient-to-br from-emerald-500 via-teal-500 to-teal-600",
-        "column": 2
-      },
-      {
-        "quote": "We now rank in the top positions for highly competitive keywords that previously felt unreachable. True professionals.",
-        "name": "Alex Rivera",
-        "role": "VP of Sales",
-        "company": "NexaPay",
-        "rating": 5,
-        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150&q=80",
+        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80",
         "avatarBg": "bg-gradient-to-br from-amber-500 via-orange-500 to-orange-600",
         "column": 2
       },
       {
-        "quote": "The best creative marketing agency we've worked with. Incredibly responsive, strategic, and creative.",
-        "name": "Emma Davis",
-        "role": "Marketing Director",
-        "company": "Greenleaf",
+        "quote": "I needed a team that could work with me to execute my vision... not only did I find this with Muhammad, but I feel the end results have exceeded my expectations.",
+        "name": "Daniel Eftimoff",
+        "role": "Client",
+        "company": "Google Review",
         "rating": 5,
-        "avatar": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&h=150&q=80",
-        "avatarBg": "bg-gradient-to-br from-teal-500 via-cyan-500 to-cyan-600",
+        "avatar": "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=150&h=150&q=80",
+        "avatarBg": "bg-gradient-to-br from-emerald-500 via-teal-500 to-teal-600",
+        "column": 2
+      },
+      {
+        "quote": "Amazing work and designs! They are extremely patient and helpful. And the price didn’t hurt either.",
+        "name": "Allan Platsko",
+        "role": "Client",
+        "company": "Google Review",
+        "rating": 5,
+        "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&h=150&q=80",
+        "avatarBg": "bg-gradient-to-br from-pink-500 via-rose-500 to-rose-600",
         "column": 3
       },
       {
-        "quote": "Their Meta ads campaigns delivered a stellar 4.5x ROAS in just 30 days. Their data-driven approach is unmatched.",
-        "name": "Marcus Vance",
-        "role": "Growth Director",
-        "company": "CloudCore",
+        "quote": "The service I received was phenomenal. Not only was the product great but so was the communication. Very happy with the service and product I received.",
+        "name": "Stephen Powell",
+        "role": "Client",
+        "company": "Google Review",
         "rating": 5,
-        "avatar": "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&h=150&q=80",
+        "avatar": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=150&h=150&q=80",
         "avatarBg": "bg-gradient-to-br from-fuchsia-500 via-pink-500 to-pink-600",
-        "column": 3
-      },
-      {
-        "quote": "They redesigned our landing pages and boosted sign-ups overnight. A absolute masterclass in conversion-focused UX design.",
-        "name": "Chloe Bennett",
-        "role": "Director",
-        "company": "VibeSaaS",
-        "rating": 5,
-        "avatar": "https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=150&h=150&q=80",
-        "avatarBg": "bg-gradient-to-br from-orange-500 via-red-500 to-red-600",
         "column": 3
       }
     ]
@@ -497,63 +487,110 @@
   "industries": {
     "sectionNumber": "03",
     "sectionTag": "SPECIALIZATIONS",
-    "titleIntro": "Industries We ",
-    "titleHighlight": "Empower",
+    "titleIntro": "Real Results Across ",
+    "titleHighlight": "Every Industry",
     "list": [
-      { "name": "Technology", "iconName": "Network", "specializations": ["SaaS Platforms", "Tech Startups"] },
-      { "name": "Healthcare", "iconName": "Heart", "specializations": ["MedTech", "Clinics & Practices"] },
-      { "name": "E-Commerce", "iconName": "ShoppingCart", "specializations": ["DTC Brands", "Shopify Builds"] },
-      { "name": "Construction", "iconName": "Hammer", "specializations": ["Contractors", "Real Estate"] },
-      { "name": "Education", "iconName": "GraduationCap", "specializations": ["EdTech", "eLearning Platforms"] },
-      { "name": "Finance", "iconName": "Landmark", "specializations": ["FinTech", "Banking & Lending"] },
-      { "name": "Real Estate", "iconName": "Building2", "specializations": ["Property Listings", "PropTech"] },
-      { "name": "Retail", "iconName": "Store", "specializations": ["Local Shops", "Multi-Location Brands"] }
+      {
+        "name": "Roofing & Construction",
+        "iconName": "Hammer",
+        "specializations": [
+          "Contractors",
+          "Lead Generation"
+        ]
+      },
+      {
+        "name": "Healthcare",
+        "iconName": "Heart",
+        "specializations": [
+          "MedTech",
+          "Clinics & Practices"
+        ]
+      },
+      {
+        "name": "E-Commerce",
+        "iconName": "ShoppingCart",
+        "specializations": [
+          "DTC Brands",
+          "Shopify Builds"
+        ]
+      },
+      {
+        "name": "Real Estate",
+        "iconName": "Building2",
+        "specializations": [
+          "Property Listings",
+          "PropTech"
+        ]
+      },
+      {
+        "name": "Education",
+        "iconName": "GraduationCap",
+        "specializations": [
+          "EdTech",
+          "eLearning Platforms"
+        ]
+      },
+      {
+        "name": "Finance",
+        "iconName": "Landmark",
+        "specializations": [
+          "FinTech",
+          "Banking & Lending"
+        ]
+      },
+      {
+        "name": "Retail",
+        "iconName": "Store",
+        "specializations": [
+          "Local Shops",
+          "Multi-Location Brands"
+        ]
+      },
+      {
+        "name": "Technology",
+        "iconName": "Network",
+        "specializations": [
+          "SaaS Platforms",
+          "Tech Startups"
+        ]
+      }
     ]
   },
   "blog": {
     "sectionNumber": "06",
     "sectionTag": "JOURNAL",
-    "titleIntro": "Agency ",
-    "titleHighlight": "Insights",
-    "description": "Thought leadership, design patterns, and growth strategies curated by our senior creative directors and marketing experts.",
+    "titleIntro": "Latest ",
+    "titleHighlight": "Blog",
+    "description": "Expert insights and strategies curated by our team to help your business grow online.",
     "labelReadTime": "min read",
     "featuredLabel": "Featured Article",
     "dateSeparator": " • ",
     "posts": [
       {
-        "image": "/blog4.png",
-        "date": "May 12, 2026",
+        "image": "/blog1.png",
+        "date": "May 2026",
         "readTime": "5 min read",
-        "title": "10 SEO Strategies to Boost Your Website Traffic",
-        "excerpt": "Scale organic search traffic, outrank competitors, and secure high-intent leads that drive compounding growth using our vetted, data-backed optimization playbook.",
+        "title": "Why Every Website Needs Professional SEO Services for Success",
+        "excerpt": "A deep dive into why SEO is the backbone of your online presence and how it drives long-term, sustainable growth for your business.",
         "category": "SEO",
         "link": "#"
       },
       {
         "image": "/blog2.png",
-        "date": "May 8, 2026",
+        "date": "May 2026",
         "readTime": "4 min read",
-        "title": "How Social Media Marketing Can Grow Your Business",
-        "excerpt": "Tell compelling stories, publish platform-specific content, and grow organic followings across key networks to nurture conversion leads.",
+        "title": "How to Boost Your Online Visibility with SEO Content Services",
+        "excerpt": "Learn how publishing the right content can answer your customers' questions and establish your brand as an industry authority.",
         "category": "MARKETING",
         "link": "#"
       },
       {
         "image": "/blog3.png",
-        "date": "May 5, 2026",
+        "date": "May 2026",
         "readTime": "6 min read",
-        "title": "PPC Advertising: Get More Leads for Less",
-        "excerpt": "Maximize ROI and reduce target CPA using our conversion funnel overhauls and automated ad creative testing structures.",
-        "category": "PAID MEDIA",
-        "link": "#"
-      },
-      {
-        "image": "/blog1.png",
-        "date": "May 1, 2026",
-        "readTime": "4 min read",
-        "title": "Why Your Business Needs a Modern Website",
-        "excerpt": "Build lightning-fast, custom websites with stunning UX design, Next.js architecture, and clean code that compounds search traffic.",
-        "category": "DEVELOPMENT",
+        "title": "Technical SEO Services That Fix Issues & Boost Long-Term Rankings",
+        "excerpt": "A guide to the technical optimizations in 2026 that ensure search engines can find you and direct qualified leads to your site.",
+        "category": "TECHNICAL SEO",
         "link": "#"
       }
     ]
@@ -561,71 +598,118 @@
   "faq": {
     "sectionNumber": "07",
     "sectionTag": "FAQ",
-    "titleIntro": "Common ",
-    "titleHighlight": "Questions Answered",
-    "description": "Explore our detailed guides on process, capabilities, pricing, and timelines. We run on transparency to deliver outstanding digital growth.",
+    "titleIntro": "Frequently Asked ",
+    "titleHighlight": "Questions",
+    "description": "Explore our detailed guides on process, capabilities, and timelines. We run on transparency to deliver outstanding digital growth.",
     "strategyAudit": {
       "badge": "Strategy Audit",
       "title": "Want a customized scaling plan for your business?",
-      "desc": "Book a free 20-minute audits call with Mohsin. We will analyze your search footprint, speed, and local map rankings.",
-      "button": "Book Free Audit",
+      "desc": "Book a free consultation call with Muhammad. We will analyze your current footprint and identify growth opportunities.",
+      "button": "Get a Free Quote",
       "href": "#contact"
     },
     "list": [
       {
-        "question": "What services do you offer?",
-        "answer": "We offer end-to-end growth and digital engineering services tailored for high-growth businesses. From search ranking to bespoke product design, we help you dominate your market.",
+        "question": "How do your digital marketing services help my business get more customers?",
+        "answer": "Our digital marketing services ensure your business meets your customers in the right place at the right time. We cover the necessary bases with SEO, advertising, and strategic development to attract, convert, and engage your customers, creating strong business leads and website traffic.",
         "category": "Services",
-        "tags": ["Technical SEO", "Google/Meta Ads", "Next.js Web Design", "Brand Strategy", "Local SEO Maps", "Conversion Optimization"]
-      },
-      {
-        "question": "How do you work with clients?",
-        "answer": "Our engagement model is highly structured and transparent. We work in sprints with weekly video progress updates, shared dashboards, and dedicated Slack channels, eliminating guesswork.",
-        "category": "Process",
-        "steps": ["Audit & Intake", "Blueprinting", "Design & Code", "Launch & Scale"]
-      },
-      {
-        "question": "How long does it take to see results?",
-        "answer": "We run on two speeds: immediate traction and compounding authority. PPC and paid social start converting in days, while SEO and authority branding compound over 3 to 6 months.",
-        "category": "Timeline",
-        "milestones": [
-          { "title": "Day 1-3", "desc": "Strategy alignment, setup, and pixel testing validation." },
-          { "title": "Week 2", "desc": "First conversion funnels and advertising campaigns live." },
-          { "title": "Month 3+", "desc": "Compounding organic traffic, keyword ranking, and SEO authority." }
+        "tags": [
+          "SEO",
+          "PPC Ads",
+          "Social Media Management",
+          "Brand Strategy",
+          "GMB Optimization",
+          "Conversion Optimization"
         ]
       },
       {
-        "question": "Do you work with small businesses?",
-        "answer": "We partner with ambitious teams of all sizes. Our setups scale from local service leaders aiming to dominate regional search, to venture-backed startups launching digital products.",
+        "question": "What kinds of businesses benefit from your services?",
+        "answer": "We partner with ambitious teams of all sizes. Our setups scale from local service leaders aiming to dominate regional search, to established firms launching digital products. We've served over 3,000 clients in more than 50 fields.",
         "category": "Partners",
         "profiles": [
-          { "name": "High-Growth Startups", "desc": "Scale acquisition funnels & SaaS pages" },
-          { "name": "E-Commerce Brands", "desc": "Next.js custom checkout speedups" },
-          { "name": "Local Service Leaders", "desc": "Map packs and regional search domination" },
-          { "name": "Enterprise SaaS", "desc": "Security-first custom web architectures" }
+          {
+            "name": "Local Service Leaders",
+            "desc": "Map packs and regional search domination"
+          },
+          {
+            "name": "E-Commerce Brands",
+            "desc": "Custom website builds and conversion optimization"
+          },
+          {
+            "name": "High-Growth Startups",
+            "desc": "Scale acquisition funnels and brand identity"
+          },
+          {
+            "name": "Enterprise Companies",
+            "desc": "Comprehensive digital marketing strategies"
+          }
         ]
       },
       {
-        "question": "How much do your services cost?",
-        "answer": "We believe in flat, predictable pricing. No hidden fees or hourly billing. We provide custom project quotes and rolling monthly growth retainers based on your objectives.",
-        "category": "Pricing",
-        "inclusions": [
-          { "title": "100% Predictable Pricing", "desc": "Flat-rate quotes, zero hourly surprises." },
-          { "title": "Weekly Progress Videos", "desc": "Async walkthroughs of live code & UI layout." },
-          { "title": "Direct Slack Support", "desc": "Connect directly with us without account managers." },
-          { "title": "IP Rights Ownership", "desc": "You own 100% of the codebase, designs, and assets." }
+        "question": "What can I expect from your Google Ads (PPC) management?",
+        "answer": "Google Ads allows you to capture customers searching for your products. We handle your click-based payment campaigns so your ads show up on pertinent searches while tracking your return on investment to ensure campaign efficiency and lead conversion.",
+        "category": "Timeline",
+        "milestones": [
+          {
+            "title": "Day 1-3",
+            "desc": "Strategy alignment, account setup, and pixel testing."
+          },
+          {
+            "title": "Week 2",
+            "desc": "First conversion funnels and advertising campaigns live."
+          },
+          {
+            "title": "Month 3+",
+            "desc": "Compounding organic traffic, keyword ranking, and SEO authority."
+          }
         ]
       },
       {
-        "question": "Can you help redesign my website?",
-        "answer": "Yes, we specialize in high-performance rebuilds. We translate slow templates into ultra-fast, custom Next.js architectures that score perfect marks on Google PageSpeed tests.",
+        "question": "How does your website development service help grow my business?",
+        "answer": "Your website should act like your best salesperson. We build aesthetically pleasing, highly functioning, mobile-friendly, and SEO-friendly websites that convert site visitors to customers, whether you desire a simple web presence or an intricate eCommerce solution.",
         "category": "Redesign",
-        "stack": ["Next.js & React", "Tailwind CSS", "Framer Motion", "Vercel Edge Cloud"],
+        "stack": [
+          "WordPress",
+          "Custom Code",
+          "SEO Optimization",
+          "Mobile Responsive"
+        ],
         "metrics": [
-          { "label": "Performance", "score": 100 },
-          { "label": "Accessibility", "score": 100 },
-          { "label": "Best Practices", "score": 100 },
-          { "label": "SEO", "score": 100 }
+          {
+            "label": "Performance",
+            "score": 100
+          },
+          {
+            "label": "Accessibility",
+            "score": 100
+          },
+          {
+            "label": "Best Practices",
+            "score": 100
+          },
+          {
+            "label": "SEO",
+            "score": 100
+          }
+        ]
+      },
+      {
+        "question": "What’s included in your graphic designing services?",
+        "answer": "When your design is good, people stop and take notice. We design your logos, social posts, online banners, and all your visual elements. We provide graphic designing services with careful consideration of your brand's identity in mind, ensuring a sharp and professional look.",
+        "category": "Services",
+        "inclusions": [
+          {
+            "title": "Logo Design",
+            "desc": "Custom logos that represent your brand story."
+          },
+          {
+            "title": "Social Graphics",
+            "desc": "Platform-specific visuals for engagement."
+          },
+          {
+            "title": "Business Cards & Print",
+            "desc": "Professional stationery and marketing materials."
+          }
         ]
       }
     ]
@@ -633,70 +717,91 @@
   "contact": {
     "sectionNumber": "08",
     "sectionTag": "CONTACT",
-    "titleIntro": "Talk to our ",
-    "titleHighlight": "strategy team",
-    "description": "Feel free to reach out for help with your product design, engineering, search strategy, or copy campaigns. Our team will review and reply within 24 hours.",
-    "email": "hello@elevatedigital.com",
-    "location": "901 Broadway St, New York, USA",
-    "phone": "+1 (123) 456-7890",
-    "labelName": "Full Name",
+    "titleIntro": "Let’s Build Something You’re ",
+    "titleHighlight": "Proud Of!",
+    "description": "No corporate jargon. No cookie-cutter templates. Just quality design and marketing, done with care, for people who care about their business. Reach out and our team will reply promptly.",
+    "email": "info@mohsindesigns.com",
+    "location": "312 W 2nd St Office #A9985, Casper, WY 82601, United States",
+    "phone": "+1 (307) 449-2070",
+    "labelName": "Name",
     "placeholderName": "Enter Your Full Name",
     "errorName": "Full name is required",
     "labelEmail": "Email Address",
     "placeholderEmail": "Enter Your Email Address",
     "errorEmailRequired": "Email address is required",
     "errorEmailInvalid": "Email address is invalid",
-    "labelPhone": "Phone Number",
+    "labelPhone": "Phone",
     "placeholderPhone": "Enter Your Phone Number",
     "errorPhone": "Phone number is required",
-    "labelMessage": "Message",
+    "labelMessage": "How Can I Help?",
     "placeholderMessage": "Write Your Message Here",
     "errorMessage": "Message details are required",
     "btnSubmit": "Send Message",
     "successTitle": "Message Sent!",
     "successParagraph1": "Thank you, ",
-    "successParagraph2": ". We have received your support message and will get back to you at ",
-    "successParagraph3": " within 24 hours."
+    "successParagraph2": ". We have received your message and will get back to you at ",
+    "successParagraph3": " as soon as possible."
   },
   "footer": {
-    "logoLetter": "E",
-    "logoText": "Elevate Digital",
-    "logoSub": "Marketing Agency",
-    "description": "Helping businesses grow with smart, motivating strategies that deliver real results.",
+    "logoLetter": "M",
+    "logoText": "Mohsin Designs",
+    "logoSub": "Digital Marketing Agency",
+    "description": "Let’s Build Something You’re Proud Of. Real marketing, done with care.",
     "studioStatus": "STUDIO STATUS: OPEN FOR PROJECTS",
-    "coordinates": "NYC 40.7128° N, 74.0060° W // EST. 2024",
+    "coordinates": "WY 82601 // EST. 2019",
     "labelQuickLinks": "// Quick Links",
     "quickLinks": [
-      { "name": "Home", "href": "#" },
-      { "name": "Services", "href": "#services" },
-      { "name": "About", "href": "#about" },
-      { "name": "Industries", "href": "#industries" },
-      { "name": "Blog", "href": "#blog" },
-      { "name": "FAQ", "href": "#faq" },
-      { "name": "Contact", "href": "#contact" }
+      {
+        "name": "Home",
+        "href": "#"
+      },
+      {
+        "name": "About Us",
+        "href": "#about"
+      },
+      {
+        "name": "Services",
+        "href": "#services"
+      },
+      {
+        "name": "Portfolio",
+        "href": "#portfolio"
+      },
+      {
+        "name": "Blog",
+        "href": "#blog"
+      },
+      {
+        "name": "FAQ",
+        "href": "#faq"
+      },
+      {
+        "name": "Contact",
+        "href": "#contact"
+      }
     ],
     "labelServices": "// Services",
     "servicesList": [
       "SEO Optimization",
-      "Social Campaigns",
+      "Social Media Management",
       "PPC Advertising",
       "Web UI/UX Design",
       "Branding & Strategy"
     ],
     "labelContactInfo": "// Contact Info",
     "labelEmail": "// Email",
-    "valueEmail": "hello@elevatedigital.com",
+    "valueEmail": "info@mohsindesigns.com",
     "labelPhone": "// Phone",
-    "valuePhone": "+1 (123) 456-7890",
+    "valuePhone": "+1 (307) 449-2070",
     "labelAddress": "// Address",
-    "valueAddress": "901 Broadway St, New York, NY 10003",
+    "valueAddress": "312 W 2nd St Office #A9985, Casper, WY 82601",
     "labelNewsletter": "// Newsletter",
     "newsletterDesc": "Subscribe to get tips, insights, and agency updates.",
     "newsletterPlaceholder": "Email address",
     "newsletterSuccess": "Thanks for subscribing! ✓",
-    "wordmarkText": "ELEVATE DIGITAL",
+    "wordmarkText": "MOHSIN DESIGNS",
     "copyrightPrefix": "\u00a9 ",
-    "copyrightSuffix": " Elevate Digital Marketing Agency. All Rights Reserved.",
+    "copyrightSuffix": " 2019–2025 Mohsin Designs. All rights reserved.",
     "privacyText": "Privacy Policy",
     "privacyHref": "#",
     "linkSeparator": "|",
@@ -705,10 +810,16 @@
     "ariaSubscribe": "Subscribe to newsletter",
     "ariaScrollTop": "Scroll to top",
     "socialLinks": [
-      { "name": "Twitter",   "href": "https://twitter.com",   "ariaLabel": "Follow us on Twitter" },
-      { "name": "Linkedin",  "href": "https://linkedin.com",  "ariaLabel": "Connect on LinkedIn" },
-      { "name": "Instagram", "href": "https://instagram.com", "ariaLabel": "Follow us on Instagram" },
-      { "name": "Github",    "href": "https://github.com",    "ariaLabel": "View us on GitHub" }
+      {
+        "name": "Facebook",
+        "href": "https://facebook.com",
+        "ariaLabel": "Connect on Facebook"
+      },
+      {
+        "name": "Whatsapp",
+        "href": "https://wa.me/13074492070",
+        "ariaLabel": "Chat on WhatsApp"
+      }
     ]
   }
 }

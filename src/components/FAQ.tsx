@@ -8,7 +8,7 @@ import content from "@/data/content.json";
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null);
   const { faq } = content;
-  const faqs = faq.list;
+  const faqs = faq.list as any[];
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);

@@ -5,6 +5,7 @@ import { motion, useInView } from "framer-motion";
 import { ArrowUpRight, Star } from "lucide-react";
 import Image from "next/image";
 
+
 // Variants for repeating hand-drawn paths animations on scroll
 const drawVariants = {
   hidden: { pathLength: 0 },
