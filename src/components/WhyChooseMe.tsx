@@ -24,6 +24,16 @@ function AnimatedStat({
   const isInView = useInView(ref, { once: false, margin: "-80px" });
   const [displayed, setDisplayed] = useState(value.replace(/[0-9.]/g, "0"));
   const [dotProgress, setDotProgress] = useState(0);
+  const [isDark, setIsDark] = useState(false);
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains("dark"));
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     if (isInView) {
@@ -73,19 +83,19 @@ function AnimatedStat({
       {/* Ring */}
       <div className="relative w-[80px] h-[80px] sm:w-[96px] sm:h-[96px]">
         {/* Glow behind ring */}
-        <div className="absolute inset-0 rounded-full bg-brand-blue/8 blur-md" />
+        <div className="absolute inset-0 rounded-full bg-brand-blue/8 dark:bg-brand-yellow/5 blur-md" />
         <svg viewBox="0 0 82 82" className="relative w-full h-full -rotate-90">
           <defs>
             <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#0306AC" />
-              <stop offset="100%" stopColor="#2563EB" />
+              <stop offset="0%" stopColor={isDark ? "#FFF35C" : "#0306AC"} />
+              <stop offset="100%" stopColor={isDark ? "#FFA800" : "#2563EB"} />
             </linearGradient>
           </defs>
           {/* Track */}
           <circle
             cx="41" cy="41" r={RADIUS}
             fill="none"
-            stroke="rgba(3, 6, 172, 0.08)"
+            stroke={isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(3, 6, 172, 0.08)"}
             strokeWidth="5"
           />
           {/* Animated fill */}
@@ -104,7 +114,7 @@ function AnimatedStat({
             fill="#FFF35C"
             stroke="white"
             strokeWidth="1.5"
-            style={{ filter: "drop-shadow(0px 1.5px 3px rgba(3, 6, 172, 0.45))" }}
+            style={{ filter: isDark ? "drop-shadow(0px 1.5px 3px rgba(255, 243, 92, 0.45))" : "drop-shadow(0px 1.5px 3px rgba(3, 6, 172, 0.45))" }}
           />
         </svg>
         {/* Number */}
@@ -127,98 +137,98 @@ function AnimatedStat({
 const getIllustrations = (ill: any) => [
   // 01 — Design grid
   <svg key="1" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-    <rect x="8" y="10" width="62" height="80" rx="8" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.2" />
-    <rect x="16" y="20" width="46" height="7" rx="3.5" fill="#0306AC" fillOpacity="0.18" />
-    <rect x="16" y="33" width="30" height="5" rx="2.5" fill="#0306AC" fillOpacity="0.1" />
-    <rect x="16" y="43" width="40" height="5" rx="2.5" fill="#0306AC" fillOpacity="0.1" />
-    <rect x="16" y="53" width="26" height="5" rx="2.5" fill="#0306AC" fillOpacity="0.08" />
-    <circle cx="16" cy="73" r="6" fill="#0306AC" />
-    <circle cx="28" cy="73" r="6" fill="#FFF35C" />
-    <circle cx="40" cy="73" r="6" fill="#080710" />
-    <circle cx="52" cy="73" r="6" fill="#E5E7EB" />
-    <rect x="84" y="8" width="68" height="42" rx="8" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
-    <circle cx="102" cy="28" r="10" fill="#0306AC" fillOpacity="0.15" />
-    <circle cx="102" cy="28" r="6" fill="#0306AC" fillOpacity="0.35" />
-    <rect x="118" y="21" width="26" height="4" rx="2" fill="#0306AC" fillOpacity="0.2" />
-    <rect x="118" y="30" width="18" height="4" rx="2" fill="#0306AC" fillOpacity="0.1" />
-    <rect x="84" y="58" width="68" height="36" rx="8" fill="#FFF35C" fillOpacity="0.18" stroke="#FFF35C" strokeWidth="1" strokeOpacity="0.45" />
-    <rect x="94" y="68" width="48" height="4" rx="2" fill="#0306AC" fillOpacity="0.2" />
-    <rect x="94" y="77" width="34" height="4" rx="2" fill="#0306AC" fillOpacity="0.12" />
-    <circle cx="148" cy="10" r="7" fill="#FFF35C" />
-    <path d="M148 6 L149 8.5 L152 8.5 L149.8 10.1 L150.7 12.8 L148 11.2 L145.3 12.8 L146.2 10.1 L144 8.5 L147 8.5 Z" fill="#080710" />
+    <rect x="8" y="10" width="62" height="80" rx="8" fill="var(--color-blue)" fillOpacity="0.07" stroke="var(--color-blue)" strokeWidth="1" strokeOpacity="0.2" />
+    <rect x="16" y="20" width="46" height="7" rx="3.5" fill="var(--color-blue)" fillOpacity="0.18" />
+    <rect x="16" y="33" width="30" height="5" rx="2.5" fill="var(--color-blue)" fillOpacity="0.1" />
+    <rect x="16" y="43" width="40" height="5" rx="2.5" fill="var(--color-blue)" fillOpacity="0.1" />
+    <rect x="16" y="53" width="26" height="5" rx="2.5" fill="var(--color-blue)" fillOpacity="0.08" />
+    <circle cx="16" cy="73" r="6" fill="var(--color-blue)" />
+    <circle cx="28" cy="73" r="6" fill="var(--color-yellow)" />
+    <circle cx="40" cy="73" r="6" fill="var(--color-dark)" />
+    <circle cx="52" cy="73" r="6" fill="var(--color-border)" />
+    <rect x="84" y="8" width="68" height="42" rx="8" fill="var(--color-blue)" fillOpacity="0.07" stroke="var(--color-blue)" strokeWidth="1" strokeOpacity="0.18" />
+    <circle cx="102" cy="28" r="10" fill="var(--color-blue)" fillOpacity="0.15" />
+    <circle cx="102" cy="28" r="6" fill="var(--color-blue)" fillOpacity="0.35" />
+    <rect x="118" y="21" width="26" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.2" />
+    <rect x="118" y="30" width="18" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.1" />
+    <rect x="84" y="58" width="68" height="36" rx="8" fill="var(--color-yellow)" fillOpacity="0.18" stroke="var(--color-yellow)" strokeWidth="1" strokeOpacity="0.45" />
+    <rect x="94" y="68" width="48" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.2" />
+    <rect x="94" y="77" width="34" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.12" />
+    <circle cx="148" cy="10" r="7" fill="var(--color-yellow)" />
+    <path d="M148 6 L149 8.5 L152 8.5 L149.8 10.1 L150.7 12.8 L148 11.2 L145.3 12.8 L146.2 10.1 L144 8.5 L147 8.5 Z" fill="var(--color-dark)" />
   </svg>,
 
   // 02 — Terminal / code
   <svg key="2" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-    <rect x="8" y="8" width="144" height="84" rx="9" fill="#0306AC" fillOpacity="0.06" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
-    <rect x="8" y="8" width="144" height="18" rx="9" fill="#0306AC" fillOpacity="0.08" />
-    <circle cx="22" cy="17" r="3.5" fill="#0306AC" fillOpacity="0.35" />
-    <circle cx="33" cy="17" r="3.5" fill="#0306AC" fillOpacity="0.2" />
-    <circle cx="44" cy="17" r="3.5" fill="#0306AC" fillOpacity="0.1" />
-    <rect x="18" y="34" width="20" height="4" rx="2" fill="#0306AC" fillOpacity="0.5" />
-    <rect x="44" y="34" width="48" height="4" rx="2" fill="#0306AC" fillOpacity="0.2" />
-    <rect x="98" y="34" width="24" height="4" rx="2" fill="#FFF35C" fillOpacity="0.7" />
-    <rect x="26" y="44" width="64" height="4" rx="2" fill="#0306AC" fillOpacity="0.14" />
-    <rect x="96" y="44" width="40" height="4" rx="2" fill="#0306AC" fillOpacity="0.09" />
-    <rect x="18" y="54" width="32" height="4" rx="2" fill="#FFF35C" fillOpacity="0.5" />
-    <rect x="56" y="54" width="72" height="4" rx="2" fill="#0306AC" fillOpacity="0.1" />
-    <rect x="26" y="64" width="48" height="4" rx="2" fill="#0306AC" fillOpacity="0.18" />
-    <rect x="80" y="64" width="32" height="4" rx="2" fill="#0306AC" fillOpacity="0.1" />
-    <rect x="18" y="74" width="4" height="7" rx="1" fill="#0306AC" fillOpacity="0.55" />
-    <circle cx="138" cy="72" r="14" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
-    <text x="138" y="77" textAnchor="middle" fontSize="10" fontWeight="900" fill="#0306AC" fillOpacity="0.55" fontFamily="sans-serif">{ill.scoreLabel}</text>
+    <rect x="8" y="8" width="144" height="84" rx="9" fill="var(--color-blue)" fillOpacity="0.06" stroke="var(--color-blue)" strokeWidth="1" strokeOpacity="0.18" />
+    <rect x="8" y="8" width="144" height="18" rx="9" fill="var(--color-blue)" fillOpacity="0.08" />
+    <circle cx="22" cy="17" r="3.5" fill="var(--color-blue)" fillOpacity="0.35" />
+    <circle cx="33" cy="17" r="3.5" fill="var(--color-blue)" fillOpacity="0.2" />
+    <circle cx="44" cy="17" r="3.5" fill="var(--color-blue)" fillOpacity="0.1" />
+    <rect x="18" y="34" width="20" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.5" />
+    <rect x="44" y="34" width="48" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.2" />
+    <rect x="98" y="34" width="24" height="4" rx="2" fill="var(--color-yellow)" fillOpacity="0.7" />
+    <rect x="26" y="44" width="64" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.14" />
+    <rect x="96" y="44" width="40" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.09" />
+    <rect x="18" y="54" width="32" height="4" rx="2" fill="var(--color-yellow)" fillOpacity="0.5" />
+    <rect x="56" y="54" width="72" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.1" />
+    <rect x="26" y="64" width="48" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.18" />
+    <rect x="80" y="64" width="32" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.1" />
+    <rect x="18" y="74" width="4" height="7" rx="1" fill="var(--color-blue)" fillOpacity="0.55" />
+    <circle cx="138" cy="72" r="14" fill="var(--color-blue)" fillOpacity="0.07" stroke="var(--color-blue)" strokeWidth="1" strokeOpacity="0.18" />
+    <text x="138" y="77" textAnchor="middle" fontSize="10" fontWeight="900" fill="var(--color-blue)" fillOpacity="0.55" fontFamily="sans-serif">{ill.scoreLabel}</text>
   </svg>,
 
   // 03 — Chart / conversion
   <svg key="3" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-    <line x1="8" y1="92" x2="152" y2="92" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.12" />
-    <rect x="16" y="68" width="16" height="24" rx="3" fill="#0306AC" fillOpacity="0.12" />
-    <rect x="38" y="52" width="16" height="40" rx="3" fill="#0306AC" fillOpacity="0.2" />
-    <rect x="60" y="38" width="16" height="54" rx="3" fill="#0306AC" fillOpacity="0.32" />
-    <rect x="82" y="24" width="16" height="68" rx="3" fill="#0306AC" fillOpacity="0.45" />
-    <rect x="104" y="12" width="16" height="80" rx="3" fill="#0306AC" fillOpacity="0.62" />
-    <polyline points="24,66 46,50 68,36 90,22 112,10" stroke="#FFF35C" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-    <circle cx="24" cy="66" r="3.5" fill="#FFF35C" />
-    <circle cx="46" cy="50" r="3.5" fill="#FFF35C" />
-    <circle cx="68" cy="36" r="3.5" fill="#FFF35C" />
-    <circle cx="90" cy="22" r="3.5" fill="#FFF35C" />
-    <circle cx="112" cy="10" r="5" fill="#0306AC" stroke="#FFF35C" strokeWidth="2" />
-    <rect x="130" y="30" width="26" height="12" rx="6" fill="#0306AC" fillOpacity="0.8" />
-    <rect x="130" y="50" width="26" height="12" rx="6" fill="#FFF35C" fillOpacity="0.65" />
+    <line x1="8" y1="92" x2="152" y2="92" stroke="var(--color-blue)" strokeWidth="1" strokeOpacity="0.12" />
+    <rect x="16" y="68" width="16" height="24" rx="3" fill="var(--color-blue)" fillOpacity="0.12" />
+    <rect x="38" y="52" width="16" height="40" rx="3" fill="var(--color-blue)" fillOpacity="0.2" />
+    <rect x="60" y="38" width="16" height="54" rx="3" fill="var(--color-blue)" fillOpacity="0.32" />
+    <rect x="82" y="24" width="16" height="68" rx="3" fill="var(--color-blue)" fillOpacity="0.45" />
+    <rect x="104" y="12" width="16" height="80" rx="3" fill="var(--color-blue)" fillOpacity="0.62" />
+    <polyline points="24,66 46,50 68,36 90,22 112,10" stroke="var(--color-yellow)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+    <circle cx="24" cy="66" r="3.5" fill="var(--color-yellow)" />
+    <circle cx="46" cy="50" r="3.5" fill="var(--color-yellow)" />
+    <circle cx="68" cy="36" r="3.5" fill="var(--color-yellow)" />
+    <circle cx="90" cy="22" r="3.5" fill="var(--color-yellow)" />
+    <circle cx="112" cy="10" r="5" fill="var(--color-blue)" stroke="var(--color-yellow)" strokeWidth="2" />
+    <rect x="130" y="30" width="26" height="12" rx="6" fill="var(--color-blue)" fillOpacity="0.8" />
+    <rect x="130" y="50" width="26" height="12" rx="6" fill="var(--color-yellow)" fillOpacity="0.65" />
   </svg>,
 
   // 04 — Chat bubbles
   <svg key="4" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-    <rect x="8" y="8" width="88" height="34" rx="10" fill="#0306AC" fillOpacity="0.09" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
-    <path d="M18 42 L14 50 L24 42" fill="#0306AC" fillOpacity="0.09" />
-    <rect x="16" y="18" width="64" height="4" rx="2" fill="#0306AC" fillOpacity="0.3" />
-    <rect x="16" y="27" width="44" height="4" rx="2" fill="#0306AC" fillOpacity="0.14" />
-    <rect x="64" y="52" width="88" height="34" rx="10" fill="#FFF35C" fillOpacity="0.22" stroke="#FFF35C" strokeOpacity="0.55" strokeWidth="1" />
-    <path d="M134 52 L138 44 L126 52" fill="#FFF35C" fillOpacity="0.22" />
-    <rect x="72" y="62" width="64" height="4" rx="2" fill="#0306AC" fillOpacity="0.22" />
-    <rect x="72" y="71" width="48" height="4" rx="2" fill="#0306AC" fillOpacity="0.14" />
-    <circle cx="146" cy="28" r="13" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
-    <path d="M139 32 L145 22 L146 28 L153 24" stroke="#0306AC" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.45" fill="none" />
-    <circle cx="146" cy="28" r="2.5" fill="#FFF35C" />
+    <rect x="8" y="8" width="88" height="34" rx="10" fill="var(--color-blue)" fillOpacity="0.09" stroke="var(--color-blue)" strokeWidth="1" strokeOpacity="0.18" />
+    <path d="M18 42 L14 50 L24 42" fill="var(--color-blue)" fillOpacity="0.09" />
+    <rect x="16" y="18" width="64" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.3" />
+    <rect x="16" y="27" width="44" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.14" />
+    <rect x="64" y="52" width="88" height="34" rx="10" fill="var(--color-yellow)" fillOpacity="0.22" stroke="var(--color-yellow)" strokeOpacity="0.55" strokeWidth="1" />
+    <path d="M134 52 L138 44 L126 52" fill="var(--color-yellow)" fillOpacity="0.22" />
+    <rect x="72" y="62" width="64" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.22" />
+    <rect x="72" y="71" width="48" height="4" rx="2" fill="var(--color-blue)" fillOpacity="0.14" />
+    <circle cx="146" cy="28" r="13" fill="var(--color-blue)" fillOpacity="0.07" stroke="var(--color-blue)" strokeWidth="1" strokeOpacity="0.18" />
+    <path d="M139 32 L145 22 L146 28 L153 24" stroke="var(--color-blue)" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" strokeOpacity="0.45" fill="none" />
+    <circle cx="146" cy="28" r="2.5" fill="var(--color-yellow)" />
   </svg>,
 
   // 05 — People / support
   <svg key="5" viewBox="0 0 160 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-    <circle cx="42" cy="30" r="18" fill="#0306AC" fillOpacity="0.07" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
-    <circle cx="42" cy="24" r="8" fill="#0306AC" fillOpacity="0.28" />
-    <path d="M25 46 Q42 40 59 46" stroke="#0306AC" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.3" fill="none" />
-    <circle cx="118" cy="30" r="18" fill="#FFF35C" fillOpacity="0.18" stroke="#FFF35C" strokeOpacity="0.45" strokeWidth="1" />
-    <circle cx="118" cy="24" r="8" fill="#0306AC" fillOpacity="0.18" />
-    <path d="M101 46 Q118 40 135 46" stroke="#0306AC" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.22" fill="none" />
-    <line x1="61" y1="30" x2="99" y2="30" stroke="#0306AC" strokeWidth="1.2" strokeDasharray="3 3" strokeOpacity="0.25" />
-    <circle cx="80" cy="30" r="10" fill="#0306AC" fillOpacity="0.1" stroke="#0306AC" strokeWidth="1" strokeOpacity="0.18" />
-    <path d="M75 30 Q78 26 80 28 Q82 26 85 30 Q82 34 80 32 Q78 34 75 30 Z" fill="#0306AC" fillOpacity="0.45" />
-    <circle cx="42" cy="74" r="4" fill="#FFF35C" />
-    <circle cx="55" cy="74" r="4" fill="#FFF35C" />
-    <circle cx="68" cy="74" r="4" fill="#FFF35C" />
-    <circle cx="81" cy="74" r="4" fill="#FFF35C" />
-    <circle cx="94" cy="74" r="4" fill="#FFF35C" fillOpacity="0.35" />
-    <text x="80" y="92" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="#0306AC" fillOpacity="0.4" fontFamily="sans-serif" letterSpacing="1">{ill.ratingLabel}</text>
+    <circle cx="42" cy="30" r="18" fill="var(--color-blue)" fillOpacity="0.07" stroke="var(--color-blue)" strokeWidth="1" strokeOpacity="0.18" />
+    <circle cx="42" cy="24" r="8" fill="var(--color-blue)" fillOpacity="0.28" />
+    <path d="M25 46 Q42 40 59 46" stroke="var(--color-blue)" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.3" fill="none" />
+    <circle cx="118" cy="30" r="18" fill="var(--color-yellow)" fillOpacity="0.18" stroke="var(--color-yellow)" strokeOpacity="0.45" strokeWidth="1" />
+    <circle cx="118" cy="24" r="8" fill="var(--color-blue)" fillOpacity="0.18" />
+    <path d="M101 46 Q118 40 135 46" stroke="var(--color-blue)" strokeWidth="1.8" strokeLinecap="round" strokeOpacity="0.22" fill="none" />
+    <line x1="61" y1="30" x2="99" y2="30" stroke="var(--color-blue)" strokeWidth="1.2" strokeDasharray="3 3" strokeOpacity="0.25" />
+    <circle cx="80" cy="30" r="10" fill="var(--color-blue)" fillOpacity="0.1" stroke="var(--color-blue)" strokeWidth="1" strokeOpacity="0.18" />
+    <path d="M75 30 Q78 26 80 28 Q82 26 85 30 Q82 34 80 32 Q78 34 75 30 Z" fill="var(--color-blue)" fillOpacity="0.45" />
+    <circle cx="42" cy="74" r="4" fill="var(--color-yellow)" />
+    <circle cx="55" cy="74" r="4" fill="var(--color-yellow)" />
+    <circle cx="68" cy="74" r="4" fill="var(--color-yellow)" />
+    <circle cx="81" cy="74" r="4" fill="var(--color-yellow)" />
+    <circle cx="94" cy="74" r="4" fill="var(--color-yellow)" fillOpacity="0.35" />
+    <text x="80" y="92" textAnchor="middle" fontSize="7.5" fontWeight="700" fill="var(--color-blue)" fillOpacity="0.4" fontFamily="sans-serif" letterSpacing="1">{ill.ratingLabel}</text>
   </svg>,
 ];
 
@@ -251,7 +261,7 @@ export default function WhyChooseMe() {
   return (
     <section
       id="why-us"
-      className="relative bg-[#F8FAFC] border-t border-brand-zinc-200 py-16 lg:py-24"
+      className="relative bg-[#F8FAFC] dark:bg-[#0a0a14] border-t border-brand-zinc-200 dark:border-white/10 py-16 lg:py-24"
     >
       {/* Dot grid */}
       <div
@@ -266,7 +276,7 @@ export default function WhyChooseMe() {
         <div className="flex flex-col lg:flex-row lg:items-start gap-12 lg:gap-0">
 
           {/* ── LEFT STICKY ─────────────────────────────────── */}
-          <div className="lg:w-[42%] lg:shrink-0 lg:sticky lg:top-28 flex flex-col justify-start lg:pr-16 lg:border-r border-brand-zinc-200">
+          <div className="lg:w-[42%] lg:shrink-0 lg:sticky lg:top-28 flex flex-col justify-start lg:pr-16 lg:border-r border-brand-zinc-200 dark:border-white/10">
             <motion.div
               initial={{ opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -285,7 +295,8 @@ export default function WhyChooseMe() {
                 <span className="text-brand-blue relative inline-block">
                   {whyChooseMe.titleHighlight}
                   <svg
-                    className="absolute -bottom-1.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]"
+                    className="absolute -bottom-1.5 left-0 w-full h-3 pointer-events-none text-brand-yellow"
+                    style={{ filter: "var(--underline-glow)" }}
                     viewBox="0 0 100 10"
                     preserveAspectRatio="none"
                   >
@@ -314,14 +325,14 @@ export default function WhyChooseMe() {
                   sublabel={whyChooseMe.stats[0].sublabel}
                   percentage={whyChooseMe.stats[0].percentage}
                 />
-                <div className="w-px h-16 bg-brand-zinc-200 self-center hidden sm:block" />
+                <div className="w-px h-16 bg-brand-zinc-200 dark:bg-white/10 self-center hidden sm:block" />
                 <AnimatedStat
                   value={whyChooseMe.stats[1].value}
                   label={whyChooseMe.stats[1].label}
                   sublabel={whyChooseMe.stats[1].sublabel}
                   percentage={whyChooseMe.stats[1].percentage}
                 />
-                <div className="w-px h-16 bg-brand-zinc-200 self-center hidden sm:block" />
+                <div className="w-px h-16 bg-brand-zinc-200 dark:bg-white/10 self-center hidden sm:block" />
                 <AnimatedStat
                   value={whyChooseMe.stats[2].value}
                   label={whyChooseMe.stats[2].label}
@@ -347,7 +358,7 @@ export default function WhyChooseMe() {
                     ease: [0.16, 1, 0.3, 1],
                     delay: index * 0.04,
                   }}
-                  className="group border-b border-brand-zinc-200 last:border-b-0 py-8"
+                  className="group border-b border-brand-zinc-200 dark:border-white/10 last:border-b-0 py-8"
                 >
                   {/* Row: icon+text LEFT, illustration RIGHT */}
                   <div className="flex items-center gap-6">
@@ -357,8 +368,8 @@ export default function WhyChooseMe() {
                       {/* Icon */}
                       <div className="shrink-0 flex h-11 w-11 items-center justify-center rounded-xl
                         bg-brand-blue/8 border border-brand-blue/15 text-brand-blue
-                        group-hover:bg-brand-blue group-hover:text-white group-hover:border-brand-blue
-                        group-hover:shadow-[0_6px_20px_rgba(3,6,172,0.22)]
+                        group-hover:bg-brand-blue group-hover:text-white dark:group-hover:text-[#080710] group-hover:border-brand-blue
+                        group-hover:shadow-[0_6px_20px_rgba(3,6,172,0.22)] dark:group-hover:shadow-[0_6px_20px_rgba(255,243,92,0.12)]
                         transition-all duration-300 mt-0.5">
                         <Icon className="h-[18px] w-[18px]" />
                       </div>

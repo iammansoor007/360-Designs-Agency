@@ -1,14 +1,32 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Menu, X, Star } from "lucide-react";
-import { useState } from "react";
+import { ArrowUpRight, Menu, X, Star, Sun, Moon } from "lucide-react";
+import { useState, useEffect } from "react";
 
 import content from "@/data/content.json";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDark, setIsDark] = useState(false);
   const { navbar } = content;
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains('dark'));
+  }, []);
+
+  const toggleTheme = () => {
+    const html = document.documentElement;
+    if (html.classList.contains('dark')) {
+      html.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+      setIsDark(false);
+    } else {
+      html.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+      setIsDark(true);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full px-4 py-3 sm:px-6 sm:py-4 md:px-12 pointer-events-none">
@@ -50,27 +68,53 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* CTA Button - Match Hero Button style */}
-        <div className="hidden md:flex items-center">
+        {/* Theme Toggle + CTA Button */}
+        <div className="hidden md:flex items-center gap-3">
+          {/* Theme Toggle */}
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-zinc-200 bg-brand-light hover:bg-brand-yellow/20 transition-all duration-300 text-brand-dark"
+          >
+            {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
           <a
             href={navbar.ctaHref}
-            className="group flex items-center gap-2 rounded-full bg-brand-yellow px-5 py-2.5 text-[10px] font-extrabold uppercase tracking-widest text-brand-dark hover:bg-brand-dark hover:text-white transition-all duration-300 shadow-sm border border-brand-yellow hover:border-brand-dark"
+            className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#FFF35C] dark:bg-[#0306AC] shadow-sm active:scale-[0.97] transition-all duration-300 border border-[#FFF35C] dark:border-[#0306AC]"
           >
-            {navbar.ctaText}
-            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-dark text-brand-yellow group-hover:bg-brand-yellow group-hover:text-brand-dark transition-colors duration-300">
+            {/* Curtain slides in from left on hover */}
+            <span
+              aria-hidden="true"
+              className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+            />
+            {/* Label */}
+            <span className="relative z-10 pl-5 pr-3 py-2 text-[9px] font-black uppercase tracking-widest text-[#080710] dark:text-white group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
+              {navbar.ctaText}
+            </span>
+            {/* Arrow circle — inverts on hover */}
+            <span className="relative z-10 mr-1.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#FFF35C] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
               <ArrowUpRight className="h-3 w-3" />
-            </div>
+            </span>
           </a>
         </div>
 
-        {/* Mobile menu button */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="rounded-full p-2 text-brand-dark hover:bg-brand-zinc-100 md:hidden transition-colors"
-          aria-label={navbar.ariaToggleMenu}
-        >
-          {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        {/* Mobile: Theme toggle + hamburger */}
+        <div className="flex items-center gap-2 md:hidden">
+          <button
+            onClick={toggleTheme}
+            aria-label="Toggle theme"
+            className="flex h-9 w-9 items-center justify-center rounded-full border border-brand-zinc-200 bg-brand-light hover:bg-brand-yellow/20 transition-all duration-300 text-brand-dark"
+          >
+            {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          </button>
+          <button
+            onClick={() => setIsOpen(!isOpen)}
+            className="rounded-full p-2 text-brand-dark hover:bg-brand-zinc-100 transition-colors"
+            aria-label={navbar.ariaToggleMenu}
+          >
+            {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </motion.div>
 
       {/* Mobile Nav Menu */}
@@ -95,10 +139,18 @@ export default function Navbar() {
             <a
               href={navbar.ctaHref}
               onClick={() => setIsOpen(false)}
-              className="flex items-center justify-center gap-2 rounded-full bg-brand-yellow py-3 text-center text-xs font-black uppercase tracking-widest text-brand-dark hover:bg-brand-blue hover:text-white transition-colors"
+              className="group relative flex items-center justify-between overflow-hidden rounded-full bg-[#FFF35C] dark:bg-[#0306AC] border border-[#FFF35C] dark:border-[#0306AC] transition-all duration-300"
             >
-              {navbar.ctaText}
-              <ArrowUpRight className="h-4 w-4" />
+              <span
+                aria-hidden="true"
+                className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+              />
+              <span className="relative z-10 pl-6 py-3 text-xs font-black uppercase tracking-widest text-[#080710] dark:text-white group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75">
+                {navbar.ctaText}
+              </span>
+              <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#FFF35C] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                <ArrowUpRight className="h-4 w-4" />
+              </span>
             </a>
           </nav>
         </motion.div>

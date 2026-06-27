@@ -205,7 +205,7 @@ export default function Hero() {
             {/* Description */}
             <motion.p
               variants={itemVariants}
-              className="max-w-lg text-[15px] sm:text-sm md:text-base text-brand-zinc-800 leading-relaxed font-semibold font-sans select-none"
+              className="max-w-lg text-[15px] sm:text-sm md:text-base text-brand-zinc-800 dark:text-gray-300 leading-relaxed font-semibold font-sans select-none"
             >
               {hero.description}
             </motion.p>
@@ -218,23 +218,41 @@ export default function Hero() {
               {/* Primary Cobalt Blue Button */}
               <a
                 href={hero.ctaPrimaryHref}
-                className="group flex w-full max-w-[280px] sm:w-auto items-center justify-center gap-3 rounded-full bg-brand-blue hover:bg-brand-dark px-7 py-4 text-xs font-black uppercase tracking-widest text-white transition-all duration-300 shadow-lg pointer-events-auto hover:scale-[1.03] active:scale-[0.98]"
+                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#FFF35C] shadow-[0_4px_28px_rgba(3,6,172,0.15)] dark:shadow-[0_4px_28px_rgba(255,243,92,0.15)] active:scale-[0.97] transition-all duration-350 border border-[#0306AC] dark:border-[#FFF35C] pointer-events-auto"
               >
-                {hero.ctaPrimaryText}
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-white text-brand-blue group-hover:bg-brand-yellow group-hover:text-brand-dark transition-colors duration-300">
+                {/* Curtain slides in from left on hover */}
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                />
+                {/* Label */}
+                <span className="relative z-10 pl-7 pr-5 py-[14px] text-xs font-black uppercase tracking-[0.15em] text-white dark:text-[#080710] group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
+                  {hero.ctaPrimaryText}
+                </span>
+                {/* Arrow circle — inverts on hover */}
+                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#FFF35C] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                   <ArrowRight className="h-4 w-4" />
-                </div>
+                </span>
               </a>
 
               {/* Secondary White/Border Button */}
               <a
                 href={hero.ctaSecondaryHref}
-                className="group flex w-full max-w-[280px] sm:w-auto items-center justify-center gap-3 rounded-full bg-white border border-brand-dark/10 px-7 py-4 text-xs font-black uppercase tracking-widest text-brand-dark hover:bg-brand-yellow hover:border-brand-yellow transition-all duration-300 shadow-sm pointer-events-auto hover:scale-[1.03] active:scale-[0.98]"
+                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-white dark:bg-[#1a1a2e] shadow-sm active:scale-[0.97] transition-all duration-350 border border-[#080710]/10 dark:border-white/15 pointer-events-auto"
               >
-                {hero.ctaSecondaryText}
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-brand-dark text-white group-hover:bg-brand-dark group-hover:text-brand-yellow transition-colors duration-300">
+                {/* Curtain slides in from left on hover */}
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[#FFF35C] dark:bg-[#0306AC] translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                />
+                {/* Label */}
+                <span className="relative z-10 pl-7 pr-5 py-[14px] text-xs font-black uppercase tracking-[0.15em] text-[#080710] dark:text-white group-hover:text-[#080710] dark:group-hover:text-white transition-colors duration-300 delay-75 whitespace-nowrap">
+                  {hero.ctaSecondaryText}
+                </span>
+                {/* Arrow circle — inverts on hover */}
+                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#080710] dark:group-hover:bg-[#0306AC] group-hover:text-[#FFF35C] dark:group-hover:text-white transition-all duration-300">
                   <ArrowUpRight className="h-4 w-4" />
-                </div>
+                </span>
               </a>
             </motion.div>
 
@@ -297,7 +315,7 @@ export default function Hero() {
         initial={{ y: 40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.9, delay: 0.45, ease: [0.16, 1, 0.3, 1] }}
-        className="relative w-full h-16 md:h-20 bg-brand-dark text-white flex items-center overflow-hidden z-30 border-t border-brand-zinc-800 mt-16 lg:mt-2"
+        className="relative w-full h-16 md:h-20 bg-[#080710] dark:bg-[#161622] text-white flex items-center overflow-hidden z-30 border-t border-brand-zinc-800 dark:border-white/10 mt-16 lg:mt-2"
       >
         <div className="flex whitespace-nowrap gap-12 md:gap-16 select-none w-full">
           <div

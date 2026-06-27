@@ -252,7 +252,7 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="relative overflow-hidden bg-transparent py-8 md:py-12 border-t border-b border-brand-zinc-200">
+    <section id="portfolio" className="relative overflow-hidden bg-transparent py-8 md:py-12 border-t border-b border-brand-zinc-200 dark:border-white/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
 
         {/* Section Header */}
@@ -290,7 +290,7 @@ export default function Portfolio() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="w-full max-w-4xl mx-auto mb-8"
         >
-          <div className="bg-white border border-brand-zinc-200/60 shadow-sm p-1.5 rounded-full flex overflow-x-auto lg:flex-wrap items-center justify-start lg:justify-center gap-1 sm:gap-2 scrollbar-none w-full whitespace-nowrap px-4 py-1">
+          <div className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/60 dark:border-white/10 shadow-sm p-1.5 rounded-full flex overflow-x-auto lg:flex-wrap items-center justify-start lg:justify-center gap-1 sm:gap-2 scrollbar-none w-full whitespace-nowrap px-4 py-1">
             {categories.map((cat) => {
               const Icon = cat.icon;
               const isActive = activeCategory === cat.id;
@@ -309,7 +309,7 @@ export default function Portfolio() {
                       transition={{ type: "spring", stiffness: 380, damping: 30 }}
                     />
                   )}
-                  <span className={`relative z-10 flex items-center gap-2 transition-colors duration-300 ${isActive ? "text-white" : ""}`}>
+                  <span className={`relative z-10 flex items-center gap-2 transition-colors duration-300 ${isActive ? "text-white dark:text-[#080710]" : "text-brand-zinc-500 dark:text-zinc-400 group-hover:text-brand-dark"}`}>
                     <Icon className="h-3.5 w-3.5" />
                     <span>{cat.label}</span>
                   </span>
@@ -339,13 +339,13 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="w-full rounded-[2.5rem] border border-brand-zinc-200/60 bg-white shadow-[0_4px_30px_rgba(3,6,172,0.01)] hover:shadow-[0_25px_60px_rgba(3,6,172,0.06)] transition-all duration-500 p-6 xs:p-8 md:p-12 relative overflow-hidden group cursor-grab active:cursor-grabbing select-none"
+            className="w-full rounded-[2.5rem] border border-brand-zinc-200/60 dark:border-white/10 bg-white dark:bg-[#12121e] shadow-[0_4px_30px_rgba(3,6,172,0.01)] hover:shadow-[0_25px_60px_rgba(3,6,172,0.06)] transition-all duration-500 p-6 xs:p-8 md:p-12 relative overflow-hidden group cursor-grab active:cursor-grabbing select-none"
           >
             {/* Subtle grid pattern inside card for premium texture */}
-            <div className="absolute inset-0 bg-[radial-gradient(#f1f5f9_1.2px,transparent_1.2px)] [background-size:24px_24px] opacity-40 pointer-events-none z-0" />
+            <div className="absolute inset-0 bg-[radial-gradient(var(--color-border)_1.2px,transparent_1.2px)] [background-size:24px_24px] opacity-40 dark:opacity-[0.08] pointer-events-none z-0" />
 
             {/* Drag/Swipe Indicator Badge */}
-            <div className="absolute top-4 right-4 md:top-6 md:right-8 z-20 flex items-center gap-1.5 px-3 py-1 bg-slate-50/90 border border-slate-200/40 rounded-full text-[9px] font-bold text-neutral-400 select-none pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div className="absolute top-4 right-4 md:top-6 md:right-8 z-20 flex items-center gap-1.5 px-3 py-1 bg-slate-50/90 dark:bg-white/10 border border-slate-200/40 dark:border-white/10 rounded-full text-[9px] font-bold text-neutral-400 dark:text-neutral-300 select-none pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <span className="w-1.5 h-1.5 rounded-full bg-brand-blue animate-pulse" />
               <span>{portfolio.swipeHint}</span>
             </div>
@@ -438,13 +438,13 @@ export default function Portfolio() {
                       </motion.p>
 
                       {/* Challenge / What we did grid */}
-                      <motion.div variants={detailsItemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-sans text-brand-zinc-500 leading-relaxed border-t border-b border-brand-zinc-100 py-5">
+                      <motion.div variants={detailsItemVariants} className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs font-sans text-brand-zinc-500 dark:text-zinc-400 leading-relaxed border-t border-b border-brand-zinc-100 dark:border-white/10 py-5">
                         <div>
-                          <strong className="block text-brand-dark font-extrabold uppercase tracking-wide text-[9px] mb-1">{portfolio.labelChallenge}</strong>
+                          <strong className="block text-brand-dark dark:text-white font-extrabold uppercase tracking-wide text-[9px] mb-1">{portfolio.labelChallenge}</strong>
                           {activeSlide.challenge}
                         </div>
-                        <div className="border-t sm:border-t-0 sm:border-l border-brand-zinc-100 pt-4 sm:pt-0 sm:pl-4">
-                          <strong className="block text-brand-dark font-extrabold uppercase tracking-wide text-[9px] mb-1">{portfolio.labelWhatWeDid}</strong>
+                        <div className="border-t sm:border-t-0 sm:border-l border-brand-zinc-100 dark:border-white/10 pt-4 sm:pt-0 sm:pl-4">
+                          <strong className="block text-brand-dark dark:text-white font-extrabold uppercase tracking-wide text-[9px] mb-1">{portfolio.labelWhatWeDid}</strong>
                           {activeSlide.whatWeDid}
                         </div>
                       </motion.div>
@@ -462,7 +462,7 @@ export default function Portfolio() {
                             <motion.div
                               key={index}
                               variants={statItemVariants}
-                              className="bg-brand-light border border-brand-zinc-200/50 rounded-2xl p-4 flex flex-col justify-between min-h-[96px] shadow-xs relative overflow-hidden"
+                              className="bg-brand-light dark:bg-[#161622] border border-brand-zinc-200/50 dark:border-white/10 rounded-2xl p-4 flex flex-col justify-between min-h-[96px] shadow-xs relative overflow-hidden"
                             >
                               <div className="flex justify-between items-start">
                                 <span className="font-heading font-black text-base sm:text-xl text-brand-blue leading-none tracking-tight">
@@ -479,18 +479,18 @@ export default function Portfolio() {
                       </motion.div>
 
                       {/* Slider Navigation Buttons inside details section */}
-                      <motion.div variants={detailsItemVariants} className="flex justify-between items-center pt-4 border-t border-brand-zinc-100">
+                      <motion.div variants={detailsItemVariants} className="flex justify-between items-center pt-4 border-t border-brand-zinc-100 dark:border-white/10">
                         <div className="flex gap-2">
                           <button
                             onClick={handlePrev}
-                            className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-zinc-200 text-brand-dark hover:border-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 shadow-xs cursor-pointer"
+                            className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-zinc-200 dark:border-white/15 text-brand-dark dark:text-white hover:border-brand-blue hover:bg-brand-blue hover:text-white dark:hover:text-[#080710] transition-all duration-300 shadow-xs cursor-pointer"
                             aria-label={portfolio.ariaPrev}
                           >
                             <ArrowLeft className="h-4.5 w-4.5" />
                           </button>
                           <button
                             onClick={handleNext}
-                            className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-zinc-200 text-brand-dark hover:border-brand-blue hover:bg-brand-blue hover:text-white transition-all duration-300 shadow-xs cursor-pointer"
+                            className="flex h-10 w-10 items-center justify-center rounded-full border border-brand-zinc-200 dark:border-white/15 text-brand-dark dark:text-white hover:border-brand-blue hover:bg-brand-blue hover:text-white dark:hover:text-[#080710] transition-all duration-300 shadow-xs cursor-pointer"
                             aria-label={portfolio.ariaNext}
                           >
                             <ArrowRight className="h-4.5 w-4.5" />

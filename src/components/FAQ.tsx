@@ -17,7 +17,7 @@ export default function FAQ() {
   return (
     <section
       id="faq"
-      className="relative overflow-hidden bg-white py-24 md:py-32 border-b border-brand-zinc-200"
+      className="relative overflow-hidden bg-white dark:bg-[#080710] py-24 md:py-32 border-b border-brand-zinc-200 dark:border-white/10"
     >
       {/* Structural Grid Accent Lines */}
       <div className="absolute inset-x-0 top-12 h-[1px] bg-brand-blue/[0.02] pointer-events-none" />
@@ -62,12 +62,12 @@ export default function FAQ() {
             </div>
 
             {/* Premium Sticky Strategy Session Box */}
-            <div className="relative overflow-hidden rounded-[2.2rem] bg-gradient-to-br from-[#0306AC] via-[#020485] to-[#03053D] p-8 text-white shadow-[0_20px_50px_rgba(3,6,172,0.15)] group transition-transform duration-500 hover:scale-[1.01]">
+            <div className="relative overflow-hidden rounded-[2.2rem] bg-gradient-to-br from-[#0306AC] via-[#020485] to-[#03053D] dark:from-[#12121e] dark:via-[#0f0f1a] dark:to-[#080710] border border-transparent dark:border-white/10 p-8 text-white shadow-[0_20px_50px_rgba(3,6,172,0.15)] group transition-transform duration-500 hover:scale-[1.01]">
               <div className="absolute inset-0 bg-linear-grid-white-3 opacity-30 pointer-events-none z-10" />
               <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-brand-yellow/15 blur-2xl pointer-events-none" />
               
               <div className="relative z-20 space-y-6">
-                <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1.5 text-[9px] font-black tracking-wider uppercase text-brand-yellow">
+                <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1.5 text-[9px] font-black tracking-wider uppercase text-[#FFF35C]">
                   // {faq.strategyAudit.badge}
                 </span>
                 <div className="space-y-2">
@@ -80,12 +80,21 @@ export default function FAQ() {
                 </div>
                 <a
                   href={faq.strategyAudit.href}
-                  className="group/btn relative inline-flex w-full items-center justify-between overflow-hidden rounded-full bg-brand-yellow px-6 py-3.5 text-xs font-black uppercase tracking-wider text-brand-dark transition-all duration-300 active:scale-[0.98] shadow-md hover:shadow-lg"
+                  className="group relative inline-flex w-full items-center gap-0 overflow-hidden rounded-full bg-[#FFF35C] dark:bg-[#0306AC] shadow-md active:scale-[0.97] transition-all duration-300 border border-[#FFF35C] dark:border-[#0306AC]"
                 >
-                  <span>{faq.strategyAudit.button}</span>
-                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-dark text-brand-yellow">
-                    <ArrowRight className="h-3 w-3" />
-                  </div>
+                  {/* Curtain slides in from left on hover */}
+                  <span
+                    aria-hidden="true"
+                    className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                  />
+                  {/* Label */}
+                  <span className="relative z-10 pl-7 pr-5 py-[14px] text-xs font-black uppercase tracking-[0.15em] text-[#080710] dark:text-white group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
+                    {faq.strategyAudit.button}
+                  </span>
+                  {/* Arrow circle — inverts on hover */}
+                  <span className="relative z-10 mr-2 ml-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#FFF35C] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                    <ArrowRight className="h-4 w-4" />
+                  </span>
                 </a>
               </div>
             </div>
@@ -104,8 +113,8 @@ export default function FAQ() {
                   key={f.question}
                   className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer select-none p-6 sm:p-7 ${
                     isOpen
-                      ? "bg-white border-brand-blue/25 shadow-[0_20px_40px_rgba(3,6,172,0.03)]"
-                      : "bg-transparent border-brand-zinc-200/70 hover:bg-white hover:border-brand-blue/20 hover:shadow-[0_12px_30px_rgba(3,6,172,0.025)]"
+                      ? "bg-white dark:bg-[#12121e] border-brand-blue/25 dark:border-brand-blue/25 shadow-[0_20px_40px_rgba(3,6,172,0.03)]"
+                      : "bg-transparent border-brand-zinc-200/70 dark:border-white/10 hover:bg-white dark:hover:bg-[#12121e] hover:border-brand-blue/20 dark:hover:border-brand-blue/20 hover:shadow-[0_12px_30px_rgba(3,6,172,0.025)]"
                   }`}
                   onClick={() => toggleFAQ(index)}
                 >
@@ -142,8 +151,8 @@ export default function FAQ() {
                         transition={{ type: "spring", stiffness: 220, damping: 18 }}
                         className={`flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300 ${
                           isOpen
-                            ? "bg-brand-blue border-brand-blue text-white shadow-[0_4px_12px_rgba(3,6,172,0.15)]"
-                            : "bg-brand-zinc-50 border-brand-zinc-200/80 text-brand-dark group-hover:border-brand-blue group-hover:bg-brand-blue group-hover:text-white"
+                            ? "bg-brand-blue border-brand-blue text-white dark:text-[#080710] shadow-[0_4px_12px_rgba(3,6,172,0.15)] dark:shadow-[0_4px_12px_rgba(255,243,92,0.15)]"
+                            : "bg-brand-zinc-50 dark:bg-white/5 border-brand-zinc-200/80 dark:border-white/10 text-brand-dark dark:text-white group-hover:border-brand-blue group-hover:text-brand-blue"
                         }`}
                       >
                         <Plus className="h-4.5 w-4.5 stroke-[1.5]" />
@@ -165,7 +174,7 @@ export default function FAQ() {
                         <div className="pl-8 pt-5 mt-5 border-t border-brand-zinc-100/80 space-y-4">
                           
                           {/* Answer Text */}
-                          <p className="text-sm sm:text-[15px] text-brand-zinc-500 font-medium leading-relaxed">
+                          <p className="text-sm sm:text-[15px] text-brand-zinc-500 dark:text-zinc-300 font-medium leading-relaxed">
                             {f.answer}
                           </p>
 
@@ -189,7 +198,7 @@ export default function FAQ() {
                               {f.steps.map((step: string, idx: number) => (
                                 <div
                                   key={idx}
-                                  className="relative bg-brand-zinc-50 border border-brand-zinc-100 rounded-xl p-2.5 flex flex-col gap-0.5"
+                                className="relative bg-brand-zinc-50 dark:bg-white/5 border border-brand-zinc-100 dark:border-white/5 rounded-xl p-2.5 flex flex-col gap-0.5"
                                 >
                                   <span className="font-mono text-[8px] font-black text-brand-blue/60 uppercase">
                                     Phase 0{idx + 1}
@@ -208,13 +217,13 @@ export default function FAQ() {
                               {f.milestones.map((ms: any, idx: number) => (
                                 <div key={idx} className="relative">
                                   {/* Node dot */}
-                                  <span className="absolute -left-[19.5px] top-1.5 flex h-2 w-2 items-center justify-center rounded-full bg-brand-blue ring-4 ring-white" />
+                                  <span className="absolute -left-[19.5px] top-1.5 flex h-2 w-2 items-center justify-center rounded-full bg-brand-blue ring-4 ring-white dark:ring-[#12121e]" />
                                   
                                   <div className="space-y-0.5">
                                     <span className="font-mono text-[8px] font-black text-brand-blue tracking-widest uppercase">
                                       {ms.title}
                                     </span>
-                                    <p className="text-xs font-semibold text-brand-zinc-500 leading-normal">
+                                    <p className="text-xs font-semibold text-brand-zinc-500 dark:text-zinc-400 leading-normal">
                                       {ms.desc}
                                     </p>
                                   </div>
@@ -229,7 +238,7 @@ export default function FAQ() {
                               {f.profiles.map((profile: any, idx: number) => (
                                 <div
                                   key={idx}
-                                  className="flex flex-col gap-0.5 bg-brand-zinc-50/80 border border-brand-zinc-100 rounded-xl p-3"
+                                  className="flex flex-col gap-0.5 bg-brand-zinc-50/80 dark:bg-white/5 border border-brand-zinc-100 dark:border-white/5 rounded-xl p-3"
                                 >
                                   <span className="text-xs font-black text-brand-dark">
                                     {profile.name}
@@ -248,7 +257,7 @@ export default function FAQ() {
                               {f.inclusions.map((inc: any, idx: number) => (
                                 <div
                                   key={idx}
-                                  className="flex items-start gap-2 bg-brand-zinc-50/50 border border-brand-zinc-100/60 rounded-xl p-3"
+                                  className="flex items-start gap-2 bg-brand-zinc-50/50 dark:bg-white/5 border border-brand-zinc-100/60 dark:border-white/5 rounded-xl p-3"
                                 >
                                   <div className="w-4 h-4 rounded-full bg-brand-blue/10 flex items-center justify-center shrink-0 mt-0.5">
                                     <Check className="w-2.5 h-2.5 text-brand-blue" strokeWidth={3.5} />
@@ -293,7 +302,7 @@ export default function FAQ() {
                                   {f.stack.map((tech: string, idx: number) => (
                                     <span
                                       key={idx}
-                                      className="inline-flex items-center gap-1 bg-brand-dark/5 text-brand-dark font-sans text-[8px] font-black tracking-wider px-2.5 py-1 rounded-full"
+                                      className="inline-flex items-center gap-1 bg-brand-dark/5 dark:bg-white/5 text-brand-dark dark:text-zinc-350 font-sans text-[8px] font-black tracking-wider px-2.5 py-1 rounded-full"
                                     >
                                       <span className="w-1 h-1 rounded-full bg-brand-blue" />
                                       {tech}

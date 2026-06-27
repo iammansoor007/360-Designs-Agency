@@ -60,7 +60,7 @@ export default function Industries() {
   };
 
   return (
-    <section id="industries" className="relative bg-brand-light py-24 border-t border-b border-brand-zinc-200">
+    <section id="industries" className="relative bg-brand-light dark:bg-[#0a0a14] py-24 border-t border-b border-brand-zinc-200 dark:border-white/10">
       <div className="absolute inset-0 -z-10 bg-linear-grid-blue-4 [background-size:32px_32px] opacity-75" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
@@ -106,16 +106,16 @@ export default function Industries() {
                 key={index}
                 variants={itemVariants}
                 whileHover={{ y: -6 }}
-                className="group cursor-pointer flex flex-col items-center justify-center p-6 rounded-2xl bg-white border border-brand-zinc-200/80 hover:border-brand-blue shadow-sm hover:shadow-md transition-all duration-300"
+                className="group cursor-pointer flex flex-col items-center justify-center p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 hover:border-brand-blue dark:hover:border-brand-yellow shadow-sm hover:shadow-md transition-all duration-300"
               >
                 {/* Icon Container with double ring on hover */}
-                <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-light border border-brand-zinc-100 group-hover:bg-brand-yellow group-hover:border-brand-yellow transition-all duration-500 ease-out shadow-sm group-hover:shadow-md">
+                <div className="relative flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-light dark:bg-[#1e1e2e] border border-brand-zinc-100 dark:border-white/10 group-hover:bg-brand-yellow group-hover:border-brand-yellow transition-all duration-500 ease-out shadow-sm group-hover:shadow-md">
                   <div className="absolute inset-0 rounded-2xl border border-dashed border-brand-blue/0 group-hover:border-brand-blue/30 group-hover:scale-110 transition-all duration-500" />
                   <IconComponent className="h-7 w-7 text-brand-blue group-hover:text-brand-dark transition-all duration-300 group-hover:scale-110" />
                 </div>
 
                 {/* Name */}
-                <h3 className="font-sans font-black text-[11px] uppercase tracking-widest text-brand-zinc-500 mt-5 text-center group-hover:text-brand-blue transition-colors duration-300">
+                <h3 className="font-sans font-black text-[11px] uppercase tracking-widest text-brand-zinc-500 dark:text-brand-zinc-400 mt-5 text-center group-hover:text-brand-blue dark:group-hover:text-brand-yellow transition-colors duration-300">
                   {industry.name}
                 </h3>
               </motion.div>

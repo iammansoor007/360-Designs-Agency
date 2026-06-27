@@ -1,16 +1,16 @@
 "use client";
-
+ 
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowUp, Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import { FormEvent, useState } from "react";
 import content from "@/data/content.json";
-
+ 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
   const [email, setEmail] = useState("");
   const [subscribed, setSubscribed] = useState(false);
   const { footer, contact } = content;
-
+ 
   const handleSubscribe = (e: FormEvent) => {
     e.preventDefault();
     if (email.trim()) {
@@ -18,14 +18,14 @@ export default function Footer() {
       setEmail("");
     }
   };
-
+ 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
-
+ 
   const wordmarkText = footer.wordmarkText;
   const wordmarkLetters = Array.from(wordmarkText);
-
+ 
   const containerVariants = {
     hidden: {},
     visible: {
@@ -34,7 +34,7 @@ export default function Footer() {
       }
     }
   };
-
+ 
   const letterVariants = {
     hidden: { y: "100%", opacity: 0 },
     visible: {
@@ -43,19 +43,19 @@ export default function Footer() {
       transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] as [number, number, number, number] }
     }
   };
-
+ 
   const socialIcons: Record<string, React.ReactNode> = {
     Twitter: <Twitter className="h-4 w-4" />,
     Linkedin: <Linkedin className="h-4 w-4" />,
     Instagram: <Instagram className="h-4 w-4" />,
     Github: <Github className="h-4 w-4" />
   };
-
+ 
   return (
-    <footer className="relative bg-[#090A29] text-white pt-24 pb-12 overflow-hidden border-t border-white/5">
+    <footer className="relative bg-[var(--color-footer-bg)] text-white pt-24 pb-12 overflow-hidden border-t border-white/5 dark:border-white/10">
       
-      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-brand-blue/5 blur-[150px] pointer-events-none" />
-
+      <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-brand-blue/5 dark:bg-brand-yellow/5 blur-[150px] pointer-events-none" />
+ 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-0 pb-20 border-b border-white/10">
@@ -93,7 +93,7 @@ export default function Footer() {
                 {footer.coordinates}
               </span>
             </div>
-
+ 
             {/* Social Icons */}
             <div className="flex gap-3 pt-2">
               {footer.socialLinks.map((link: any, idx: number) => (
@@ -101,14 +101,14 @@ export default function Footer() {
                   key={idx}
                   href={link.href}
                   aria-label={link.ariaLabel}
-                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 border border-white/10 text-brand-zinc-300 hover:bg-brand-yellow hover:text-brand-dark hover:border-brand-yellow transition-all duration-300 shadow-sm"
+                  className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 border border-white/10 text-brand-zinc-300 hover:bg-brand-blue hover:text-white dark:hover:text-[#080710] hover:border-brand-blue transition-all duration-300 shadow-sm"
                 >
                   {socialIcons[link.name] || <ArrowRight className="h-4 w-4" />}
                 </a>
               ))}
             </div>
           </div>
-
+ 
           {/* Quick Links Column */}
           <div className="lg:col-span-2 space-y-4 lg:pl-6 lg:border-l lg:border-white/5">
             <h4 className="font-mono font-bold text-[10px] uppercase tracking-widest text-brand-yellow">
@@ -117,14 +117,14 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs md:text-sm font-semibold text-brand-zinc-300">
               {footer.quickLinks.map((link, idx) => (
                 <li key={idx}>
-                  <a href={link.href} className="inline-block hover:text-brand-yellow hover:translate-x-1 transition-all duration-200">
+                  <a href={link.href} className="inline-block hover:text-brand-blue hover:translate-x-1 transition-all duration-200">
                     {link.name}
                   </a>
                 </li>
               ))}
             </ul>
           </div>
-
+ 
           {/* Services Column */}
           <div className="lg:col-span-2 space-y-4 lg:pl-6 lg:border-l lg:border-white/5">
             <h4 className="font-mono font-bold text-[10px] uppercase tracking-widest text-brand-yellow">
@@ -133,14 +133,14 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs md:text-sm font-semibold text-brand-zinc-300">
               {footer.servicesList.map((item, idx) => (
                 <li key={idx}>
-                  <span className="inline-block hover:text-brand-yellow hover:translate-x-1 transition-all duration-200 cursor-pointer">
+                  <span className="inline-block hover:text-brand-blue hover:translate-x-1 transition-all duration-200 cursor-pointer">
                     {item}
                   </span>
                 </li>
               ))}
             </ul>
           </div>
-
+ 
           {/* Contact Info Column */}
           <div className="lg:col-span-3 space-y-4 lg:pl-6 lg:border-l lg:border-white/5">
             <h4 className="font-mono font-bold text-[10px] uppercase tracking-widest text-brand-yellow">
@@ -149,13 +149,13 @@ export default function Footer() {
             <ul className="space-y-4 text-xs md:text-sm font-semibold text-brand-zinc-300">
               <li className="flex flex-col gap-1">
                 <span className="text-[8px] font-mono font-black text-brand-zinc-500 uppercase tracking-widest">{footer.labelEmail}</span>
-                <a href={`mailto:${contact.email}`} className="text-white hover:text-brand-yellow transition-colors font-mono break-all xs:break-normal">
+                <a href={`mailto:${contact.email}`} className="text-white hover:text-brand-blue transition-colors font-mono break-all xs:break-normal">
                   {contact.email}
                 </a>
               </li>
               <li className="flex flex-col gap-1">
                 <span className="text-[8px] font-mono font-black text-brand-zinc-500 uppercase tracking-widest">{footer.labelPhone}</span>
-                <a href={`tel:${contact.phone.replace(/[^0-9+]/g, "")}`} className="text-white hover:text-brand-yellow transition-colors font-mono break-all xs:break-normal">
+                <a href={`tel:${contact.phone.replace(/[^0-9+]/g, "")}`} className="text-white hover:text-brand-blue transition-colors font-mono break-all xs:break-normal">
                   {contact.phone}
                 </a>
               </li>
@@ -167,7 +167,7 @@ export default function Footer() {
               </li>
             </ul>
           </div>
-
+ 
           {/* Newsletter Column */}
           <div className="lg:col-span-2 space-y-4 lg:pl-6 lg:border-l lg:border-white/5">
             <h4 className="font-mono font-bold text-[10px] uppercase tracking-widest text-brand-yellow">
@@ -189,12 +189,12 @@ export default function Footer() {
                     required
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
-                    className="w-full bg-transparent px-3 py-2.5 text-xs text-white focus:outline-none placeholder-brand-zinc-550 font-semibold"
+                    className="w-full bg-transparent px-3 py-2.5 text-xs text-white focus:outline-none placeholder-brand-zinc-400 font-semibold"
                     placeholder={footer.newsletterPlaceholder}
                   />
                   <button
                     type="submit"
-                    className="bg-brand-blue text-white px-3.5 flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark transition-colors duration-300 cursor-pointer"
+                    className="bg-brand-blue text-white dark:text-brand-dark px-3.5 flex items-center justify-center hover:bg-brand-yellow hover:text-brand-dark dark:hover:text-white transition-colors duration-300 cursor-pointer"
                     aria-label={footer.ariaSubscribe}
                   >
                     <ArrowRight className="h-4 w-4" />
@@ -205,18 +205,18 @@ export default function Footer() {
                   key="success"
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
-                  className="block text-xs font-bold text-brand-yellow"
+                  className="block text-xs font-bold text-brand-yellow dark:text-brand-blue"
                 >
                   {footer.newsletterSuccess}
                 </motion.span>
               )}
             </AnimatePresence>
           </div>
-
+ 
         </div>
-
+ 
       </div>
-
+ 
       {/* Full-Width Backdrop Wordmark */}
       <div className="select-none text-center pointer-events-none mt-12 md:mt-20 mb-6 overflow-hidden w-full px-4 relative z-0">
         <motion.span 
@@ -231,9 +231,9 @@ export default function Footer() {
               key={idx}
               variants={letterVariants}
               className={`inline-block transition-all duration-300 cursor-default hover:scale-110 ${
-                idx >= 8 
-                  ? "text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.08)] hover:[-webkit-text-stroke:1px_#FFF35C] pointer-events-auto" 
-                  : "text-white/[0.05] hover:text-brand-yellow pointer-events-auto"
+                idx >= 7 
+                  ? "text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.15)] dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.1)] hover:[-webkit-text-stroke:1px_#FFF35C] pointer-events-auto" 
+                  : "text-white/10 dark:text-white/[0.05] hover:text-brand-yellow dark:hover:text-brand-blue pointer-events-auto"
               }`}
             >
               {letter === " " ? "\u00A0" : letter}
@@ -241,23 +241,23 @@ export default function Footer() {
           ))}
         </motion.span>
       </div>
-
+ 
       {/* Bottom Bar */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10 pt-10 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-white/5">
-        <p className="text-[10px] font-bold text-brand-zinc-550 uppercase tracking-widest text-center md:text-left">
+        <p className="text-[10px] font-bold text-brand-zinc-500 dark:text-brand-zinc-400 uppercase tracking-widest text-center md:text-left">
           {footer.copyrightPrefix}{currentYear}{footer.copyrightSuffix}
         </p>
         
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full md:w-auto justify-between md:justify-end">
-          <div className="flex gap-4 sm:gap-6 text-[10px] font-bold text-brand-zinc-550 uppercase tracking-wider">
-            <a href={footer.privacyHref} className="hover:text-white transition-colors">{footer.privacyText}</a>
+          <div className="flex gap-4 sm:gap-6 text-[10px] font-bold text-brand-zinc-500 dark:text-brand-zinc-400 uppercase tracking-wider">
+            <a href={footer.privacyHref} className="hover:text-brand-blue transition-colors">{footer.privacyText}</a>
             <span>{footer.linkSeparator}</span>
-            <a href={footer.termsHref} className="hover:text-white transition-colors">{footer.termsText}</a>
+            <a href={footer.termsHref} className="hover:text-brand-blue transition-colors">{footer.termsText}</a>
           </div>
-
+ 
           <button
             onClick={scrollToTop}
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 border border-white/10 text-brand-zinc-300 hover:bg-brand-yellow hover:text-brand-dark hover:border-brand-yellow transition-all duration-300 cursor-pointer shadow-sm hover:scale-105 active:scale-95"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 border border-white/10 text-brand-zinc-300 hover:bg-brand-blue hover:text-white dark:hover:text-[#080710] hover:border-brand-blue transition-all duration-300 cursor-pointer shadow-sm hover:scale-105 active:scale-95"
             aria-label={footer.ariaScrollTop}
           >
             <ArrowUp className="h-4 w-4" />

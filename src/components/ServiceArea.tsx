@@ -2,14 +2,24 @@
 
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, MapPin } from "lucide-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import content from "@/data/content.json";
 
 export default function ServiceArea() {
   const [activeHub, setActiveHub] = useState<string | null>(null);
+  const [isDark, setIsDark] = useState(false);
   const { serviceArea } = content;
   const hubs = serviceArea.hubs;
+
+  useEffect(() => {
+    setIsDark(document.documentElement.classList.contains("dark"));
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains("dark"));
+    });
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => observer.disconnect();
+  }, []);
 
   // Let's add coords mappings locally since they represent UI pixel coordinates
   const coordsMap: Record<string, { x: string; y: string }> = {
@@ -34,7 +44,7 @@ export default function ServiceArea() {
   return (
     <section
       id="service-area"
-      className="relative bg-transparent py-16 sm:py-20 lg:py-24 border-t border-b border-brand-zinc-200"
+      className="relative bg-transparent py-16 sm:py-20 lg:py-24 border-t border-b border-brand-zinc-200 dark:border-white/10"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-16 items-start lg:items-center">
@@ -51,7 +61,8 @@ export default function ServiceArea() {
               <span className="relative inline-block text-brand-blue">
                 {serviceArea.titleHighlight}
                 <svg
-                  className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]"
+                  className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none text-brand-yellow"
+                  style={{ filter: "var(--underline-glow)" }}
                   viewBox="0 0 100 10"
                   preserveAspectRatio="none"
                 >
@@ -77,6 +88,7 @@ export default function ServiceArea() {
             <div className="w-full flex flex-wrap justify-center lg:justify-start gap-2">
               {hubs.map((hub) => {
                 const isActive = activeHub === hub.id;
+
                 return (
                   <motion.button
                     key={hub.id}
@@ -85,17 +97,19 @@ export default function ServiceArea() {
                     onFocus={() => setActiveHub(hub.id)}
                     onBlur={() => setActiveHub(null)}
                     whileTap={{ scale: 0.96 }}
-                    className="inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-bold tracking-wide transition-all duration-200 cursor-pointer select-none focus:outline-none"
-                    style={{
-                      borderColor: isActive ? "#3B82F6" : "#e4e4e7",
-                      backgroundColor: isActive ? "#EFF6FF" : "transparent",
-                      color: isActive ? "#1D4ED8" : "#52525b",
-                    }}
+                    className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-bold tracking-wide transition-all duration-200 cursor-pointer select-none focus:outline-none ${
+                      isActive
+                        ? "border-[#0306AC] dark:border-[#FFF35C] bg-[#EFF6FF] dark:bg-[#FFF35C]/10 text-[#0306AC] dark:text-[#FFF35C]"
+                        : "border-zinc-200 dark:border-white/10 text-zinc-650 dark:text-zinc-400 hover:border-[#0306AC] dark:hover:border-[#FFF35C] hover:text-[#0306AC] dark:hover:text-[#FFF35C]"
+                    }`}
                     aria-pressed={isActive}
                   >
                     <MapPin
-                      className="shrink-0 transition-colors duration-200"
-                      style={{ color: isActive ? "#FFF35C" : "#a1a1aa", width: 10, height: 10 }}
+                      className={`shrink-0 transition-colors duration-250 h-2.5 w-2.5 ${
+                        isActive
+                          ? "text-[#0306AC] dark:text-[#FFF35C]"
+                          : "text-zinc-400 dark:text-zinc-550"
+                      }`}
                       strokeWidth={3}
                     />
                     {hub.name}
@@ -117,16 +131,16 @@ export default function ServiceArea() {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: -6 }}
                       transition={{ duration: 0.2, ease: "easeOut" }}
-                      className="absolute inset-0 flex items-center gap-3 rounded-xl border border-brand-zinc-200 bg-brand-dark/95 px-4 shadow-md"
+                      className="absolute inset-0 flex items-center gap-3 rounded-xl border border-brand-zinc-200 dark:border-brand-blue/30 bg-[#080710]/95 dark:bg-[#161622]/95 px-4 shadow-md"
                     >
-                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-brand-yellow">
-                        <MapPin className="h-3.5 w-3.5 text-brand-dark" strokeWidth={3} />
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#FFF35C] dark:bg-[#0306AC] transition-colors duration-300">
+                        <MapPin className="h-3.5 w-3.5 text-[#080710] dark:text-white transition-colors duration-300" strokeWidth={3} />
                       </div>
                       <div className="min-w-0">
                         <p className="truncate text-xs font-black text-white leading-tight">{hub.name}</p>
                         <p className="truncate text-[10px] font-semibold text-brand-zinc-400 leading-normal">{hub.focus}</p>
                       </div>
-                      <span className="ml-auto shrink-0 text-[9px] font-bold tracking-widest text-brand-yellow uppercase whitespace-nowrap">
+                      <span className="ml-auto shrink-0 text-[9px] font-mono font-bold tracking-widest text-[#0306AC] dark:text-[#FFF35C] uppercase whitespace-nowrap">
                         {hub.timezone}
                       </span>
                     </motion.div>
@@ -137,28 +151,28 @@ export default function ServiceArea() {
 
             <a
               href={serviceArea.ctaHref}
-              className="group self-center lg:self-start relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-brand-yellow shadow-[0_4px_28px_rgba(255,243,92,0.4)] active:scale-[0.97] transition-transform duration-150"
+              className="group self-center lg:self-start relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#FFF35C] dark:bg-[#0306AC] shadow-[0_4px_28px_rgba(255,243,92,0.15)] dark:shadow-[0_4px_28px_rgba(3,6,172,0.15)] active:scale-[0.97] transition-transform duration-150 border border-[#FFF35C] dark:border-[#0306AC]"
             >
-              {/* Dark curtain slides in from left on hover */}
+              {/* Curtain slides in from left on hover */}
               <span
                 aria-hidden="true"
-                className="absolute inset-0 bg-brand-dark translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
               />
 
               {/* Label */}
-              <span className="relative z-10 pl-7 pr-5 py-[14px] text-[11px] font-black uppercase tracking-[0.15em] text-brand-dark group-hover:text-white transition-colors duration-300 delay-75 whitespace-nowrap">
+              <span className="relative z-10 pl-7 pr-5 py-[14px] text-[11px] font-black uppercase tracking-[0.15em] text-[#080710] dark:text-white group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
                 {serviceArea.ctaText}
               </span>
 
               {/* Arrow circle — inverts on hover */}
-              <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-brand-dark text-brand-yellow group-hover:bg-brand-yellow group-hover:text-brand-dark transition-all duration-300">
-                <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" strokeWidth={2.5} />
+              <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#FFF35C] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </span>
             </a>
           </div>
 
           {/* ── Right Column: Map ── */}
-          <div className="w-full lg:col-span-7 bg-white border border-brand-zinc-200 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl overflow-hidden relative">
+          <div className="w-full lg:col-span-7 bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 shadow-xl overflow-hidden relative">
             <div className="absolute top-0 right-0 h-32 w-32 bg-brand-yellow/10 rounded-full blur-2xl -z-10" />
             <div className="absolute bottom-0 left-0 h-32 w-32 bg-brand-blue/5 rounded-full blur-2xl -z-10" />
 
@@ -166,7 +180,7 @@ export default function ServiceArea() {
               <img
                 src={serviceArea.mapSrc}
                 alt={serviceArea.mapAlt}
-                className="w-full h-full object-contain pointer-events-none select-none"
+                className="w-full h-full object-contain pointer-events-none select-none transition-all duration-300 dark:invert dark:brightness-135 dark:saturate-150"
               />
 
               {/* Pins — no labels on map */}
@@ -190,7 +204,7 @@ export default function ServiceArea() {
                     <motion.div
                       animate={{
                         opacity: isActive ? 1 : 0,
-                        scale: isActive ? 1 : 0.4,
+                        scale: isActive ? 1.6 : 0.4,
                       }}
                       transition={{ duration: 0.25 }}
                       className="absolute -translate-x-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-brand-yellow/30 pointer-events-none"
@@ -200,7 +214,7 @@ export default function ServiceArea() {
                     <div
                       className="absolute -translate-x-1/2 -translate-y-1/2 h-5 w-5 rounded-full pointer-events-none"
                       style={{
-                        background: "rgba(59,130,246,0.15)",
+                        background: isDark ? "rgba(255, 243, 92, 0.15)" : "rgba(3,130,246,0.15)",
                         animation: "ping 2s cubic-bezier(0,0,0.2,1) infinite",
                       }}
                     />
@@ -209,14 +223,22 @@ export default function ServiceArea() {
                     <motion.div
                       animate={{
                         scale: isActive ? 1.6 : 1,
-                        backgroundColor: isActive ? "#FFF35C" : "#3B82F6",
-                        borderColor: isActive ? "#3B82F6" : "#ffffff",
+                        backgroundColor: isActive
+                          ? (isDark ? "#0306AC" : "#FFF35C")
+                          : (isDark ? "#FFF35C" : "#0306AC"),
+                        borderColor: isActive
+                          ? (isDark ? "#FFF35C" : "#0306AC")
+                          : (isDark ? "#080710" : "#ffffff"),
                       }}
                       transition={{ duration: 0.2, type: "spring", stiffness: 300 }}
                       className="absolute -translate-x-1/2 -translate-y-1/2 flex h-3 w-3 sm:h-3.5 sm:w-3.5 items-center justify-center rounded-full border-2 shadow-md"
                     >
                       <motion.div
-                        animate={{ backgroundColor: isActive ? "#1D4ED8" : "#ffffff" }}
+                        animate={{
+                          backgroundColor: isActive
+                            ? (isDark ? "#FFF35C" : "#0306AC")
+                            : (isDark ? "#080710" : "#ffffff")
+                        }}
                         transition={{ duration: 0.2 }}
                         className="h-1 w-1 rounded-full"
                       />

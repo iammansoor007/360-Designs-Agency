@@ -71,7 +71,7 @@ export default function AboutOwner() {
   const { aboutOwner } = content;
 
   return (
-    <section id="about" className="relative overflow-hidden bg-transparent py-10 md:py-16 border-b border-brand-zinc-200">
+    <section id="about" className="relative overflow-hidden bg-transparent py-10 md:py-16 border-b border-brand-zinc-200 dark:border-white/10">
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
@@ -93,7 +93,7 @@ export default function AboutOwner() {
 
             {/* Hand-drawn marker/brush drawing frame */}
             <svg
-              className="absolute -inset-5 sm:-inset-6 w-[110%] sm:w-[112%] h-[110%] sm:h-[112%] pointer-events-none stroke-brand-yellow fill-none z-0 opacity-90"
+              className="absolute -inset-5 sm:-inset-6 w-[110%] sm:w-[112%] h-[110%] sm:h-[112%] pointer-events-none stroke-[#FFF35C] fill-none z-0 opacity-90"
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
             >
@@ -160,14 +160,14 @@ export default function AboutOwner() {
                 </text>
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="h-5 w-5 rounded-full bg-brand-yellow flex items-center justify-center shadow-md">
-                  <span className="text-[10px] font-black text-brand-dark">{aboutOwner.circleLetter}</span>
+                <div className="h-5 w-5 rounded-full bg-[#FFF35C] flex items-center justify-center shadow-md">
+                  <span className="text-[10px] font-black text-[#080710]">{aboutOwner.circleLetter}</span>
                 </div>
               </div>
             </motion.div>
 
             {/* Portrait Image Container */}
-            <div className="relative aspect-[3/4] w-full max-w-[420px] overflow-hidden rounded-2xl border border-brand-zinc-200 shadow-md bg-brand-zinc-50 z-10 group cursor-pointer">
+            <div className="relative aspect-[3/4] w-full max-w-[420px] overflow-hidden rounded-2xl border border-brand-zinc-200 dark:border-white/10 shadow-md bg-brand-zinc-50 dark:bg-zinc-900 z-10 group cursor-pointer">
               <Image
                 src={aboutOwner.portraitSrc}
                 alt={aboutOwner.portraitAlt}
@@ -238,13 +238,13 @@ export default function AboutOwner() {
               <p className="text-lg md:text-xl text-brand-dark leading-relaxed font-semibold">
                 {aboutOwner.bioParagraph1}
               </p>
-              <p className="text-sm md:text-base text-brand-zinc-600 leading-relaxed font-normal">
+              <p className="text-sm md:text-base text-brand-zinc-600 dark:text-zinc-400 leading-relaxed font-normal">
                 {aboutOwner.bioParagraph2}
               </p>
             </div>
 
             {/* Stats Row */}
-            <div className="grid grid-cols-3 gap-1.5 xs:gap-3 sm:gap-6 pt-8 border-t border-brand-zinc-200 mt-8 w-full">
+            <div className="grid grid-cols-3 gap-1.5 xs:gap-3 sm:gap-6 pt-8 border-t border-brand-zinc-200 dark:border-white/10 mt-8 w-full">
               <div className="relative pl-2 sm:pl-6 border-l-2 border-brand-yellow">
                 <div className="text-xl xs:text-2xl sm:text-4xl md:text-5xl font-heading font-black text-brand-blue leading-none">
                   <RollingNumber value={aboutOwner.yearsExpValue} suffix={aboutOwner.yearsExpSuffix} />
@@ -277,12 +277,21 @@ export default function AboutOwner() {
             <div className="pt-4">
               <a
                 href={aboutOwner.ctaHref}
-                className="group inline-flex items-center gap-3 rounded-full bg-brand-dark px-6 py-3.5 text-[10px] font-extrabold uppercase tracking-widest text-white hover:bg-brand-blue transition-all duration-300 shadow-md"
+                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#FFF35C] dark:bg-[#0306AC] shadow-md active:scale-[0.97] transition-all duration-300 border border-[#FFF35C] dark:border-[#0306AC]"
               >
-                {aboutOwner.ctaText}
-                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-yellow text-brand-dark group-hover:bg-white group-hover:text-brand-blue transition-colors duration-300">
+                {/* Curtain slides in from left on hover */}
+                <span
+                  aria-hidden="true"
+                  className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                />
+                {/* Label */}
+                <span className="relative z-10 pl-7 pr-5 py-[14px] text-[10px] font-black uppercase tracking-widest text-[#080710] dark:text-white group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
+                  {aboutOwner.ctaText}
+                </span>
+                {/* Arrow circle — inverts on hover */}
+                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#FFF35C] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                   <ArrowUpRight className="h-3.5 w-3.5" />
-                </div>
+                </span>
               </a>
             </div>
 

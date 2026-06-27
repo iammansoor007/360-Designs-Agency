@@ -520,7 +520,7 @@ export default function Services() {
       onMouseMove={handleMouseMoveSection}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative overflow-hidden bg-[#F8FAFC] py-8 md:py-12 border-t border-brand-zinc-200"
+      className="relative overflow-hidden bg-[#F8FAFC] dark:bg-[#0a0a14] py-8 md:py-12 border-t border-brand-zinc-200 dark:border-white/10"
     >
 
       {/* Local keyframe animations for premium floating, pulsing, and glass sweep reflections */}
@@ -671,27 +671,26 @@ export default function Services() {
                 className="w-[86%] sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] shrink-0 snap-start"
               >
                 <div
-                  className="group relative flex flex-col justify-between rounded-[2rem] border border-brand-blue/20 bg-white p-6 xs:p-7 md:p-8 transition-all duration-500 hover:-translate-y-3 h-full min-h-[490px] sm:min-h-[520px] md:min-h-[540px] overflow-hidden shadow-[0_2px_20px_rgba(3,6,172,0.04)] hover:shadow-[0_32px_64px_rgba(3,6,172,0.28)] hover:border-transparent cursor-pointer card-sweep"
-                  style={{ background: 'linear-gradient(145deg, #ffffff 0%, #f0f4ff 100%)' }}
+                  className="group relative flex flex-col justify-between rounded-[2rem] border border-brand-blue/20 dark:border-white/10 hover:border-transparent dark:hover:border-brand-blue service-card-bg p-6 xs:p-7 md:p-8 transition-all duration-500 hover:-translate-y-3 h-full min-h-[490px] sm:min-h-[520px] md:min-h-[540px] overflow-hidden shadow-[0_2px_20px_rgba(3,6,172,0.04)] hover:shadow-[0_32px_64px_rgba(3,6,172,0.28)] dark:hover:shadow-[0_32px_64px_rgba(255,243,92,0.08)] cursor-pointer card-sweep"
                 >
-                  {/* Hover overlay — brand blue full fill */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-brand-blue via-[#0306AC] to-[#020485] opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-0 rounded-[2rem]" />
+                  {/* Hover overlay — brand blue full fill (light theme only, remains hidden/inactive in dark theme) */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0306AC] via-[#0306AC] to-[#020485] opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-500 z-0 rounded-[2rem]" />
 
                   {/* Top accent bar */}
                   <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-[2rem] bg-gradient-to-r from-brand-blue/40 via-brand-blue to-brand-blue/40 transition-all duration-500 group-hover:from-brand-yellow/60 group-hover:via-brand-yellow group-hover:to-brand-yellow/60" />
 
                   {/* Subtle inner grid dots — normal state only */}
                   <div className="absolute inset-0 opacity-[0.035] group-hover:opacity-0 transition-opacity duration-500 pointer-events-none z-0"
-                    style={{ backgroundImage: 'radial-gradient(#0306AC 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
+                    style={{ backgroundImage: 'radial-gradient(var(--color-blue) 1px, transparent 1px)', backgroundSize: '20px 20px' }} />
 
                   {/* Glowing orb on hover */}
-                  <div className="absolute -top-10 -right-10 w-52 h-52 rounded-full bg-white/10 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
-                  <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-brand-yellow/5 blur-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-700 pointer-events-none z-0" />
+                  <div className="absolute -top-10 -right-10 w-52 h-52 rounded-full bg-white/10 dark:bg-brand-blue/5 blur-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none z-0" />
+                  <div className="absolute -bottom-8 -left-8 w-40 h-40 rounded-full bg-brand-yellow/5 dark:bg-brand-yellow/3 blur-2xl opacity-0 group-hover:opacity-60 transition-opacity duration-700 pointer-events-none z-0" />
 
                   {/* Giant background number */}
                   <span className="font-heading font-black text-[6rem] md:text-[7rem] absolute -right-2 -top-2 select-none pointer-events-none z-0
                     text-transparent bg-clip-text bg-gradient-to-b from-brand-blue/20 to-transparent
-                    group-hover:from-white/15 group-hover:to-transparent transition-all duration-500 leading-none">
+                    group-hover:from-white/15 dark:group-hover:from-brand-blue/20 group-hover:to-transparent transition-all duration-500 leading-none">
                     {service.num}
                   </span>
 
@@ -703,6 +702,7 @@ export default function Services() {
                       <div className="inline-flex items-center self-start gap-1.5 mb-5 px-3 py-1 rounded-full
                         bg-brand-blue/8 border border-brand-blue/15 text-brand-blue
                         group-hover:bg-white/15 group-hover:border-white/20 group-hover:text-brand-yellow
+                        dark:group-hover:bg-brand-blue/10 dark:group-hover:border-brand-blue/25 dark:group-hover:text-brand-blue
                         transition-all duration-300">
                         <span className="w-1.5 h-1.5 rounded-full bg-current" />
                         <span className="font-mono text-[8px] font-black uppercase tracking-widest">{service.category}</span>
@@ -711,11 +711,11 @@ export default function Services() {
                       {/* Illustration Box */}
                       <div className="relative w-full aspect-[16/9] flex items-center justify-center mb-5
                         rounded-2xl border border-brand-blue/10 bg-gradient-to-br from-brand-blue/3 to-transparent
-                        group-hover:border-white/15 group-hover:from-white/8 group-hover:to-white/3
+                        group-hover:border-white/15 dark:group-hover:border-brand-blue/15 group-hover:from-white/8 dark:group-hover:from-brand-blue/5 group-hover:to-white/3
                         transition-all duration-500 overflow-hidden">
                         {/* Glow blob inside illustration box */}
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                          <div className="w-24 h-24 rounded-full bg-brand-blue/10 blur-2xl group-hover:bg-white/15 group-hover:scale-150 transition-all duration-500" />
+                          <div className="w-24 h-24 rounded-full bg-brand-blue/10 blur-2xl group-hover:bg-white/15 dark:group-hover:bg-brand-blue/10 group-hover:scale-150 transition-all duration-500" />
                         </div>
                         <div className="relative z-10 w-full h-full max-h-[130px] flex items-center justify-center group-hover:scale-[1.05] transition-transform duration-500">
                           {getServiceIllustration(service.num, service)}
@@ -724,27 +724,28 @@ export default function Services() {
 
                       {/* Title */}
                       <h3 className="font-heading text-lg md:text-xl font-black mb-2 leading-tight
-                        text-brand-dark group-hover:text-white transition-colors duration-300">
+                        text-brand-dark group-hover:text-white dark:group-hover:text-white transition-colors duration-300">
                         {service.title}
                       </h3>
 
                       {/* Description */}
                       <p className="text-xs md:text-[13px] font-medium leading-relaxed
-                        text-brand-zinc-500 group-hover:text-blue-100 transition-colors duration-300">
+                        text-brand-zinc-500 group-hover:text-blue-100 dark:group-hover:text-brand-zinc-400 transition-colors duration-300">
                         {service.desc}
                       </p>
                     </div>
 
                     {/* Footer row */}
                     <div className="flex items-center justify-between mt-6 pt-5
-                      border-t border-brand-blue/10 group-hover:border-white/15 transition-colors duration-300">
+                      border-t border-brand-blue/10 group-hover:border-white/15 dark:group-hover:border-white/5 transition-colors duration-300">
                       <div className="flex items-center gap-2">
-                        <span className="text-[9px] font-mono font-black text-brand-blue/40 group-hover:text-white/40 transition-colors duration-300 uppercase tracking-widest">{services.serviceLabel}</span>
-                        <span className="text-[11px] font-mono font-black text-brand-blue group-hover:text-brand-yellow transition-colors duration-300">{service.num}</span>
+                        <span className="text-[9px] font-mono font-black text-brand-blue/40 group-hover:text-white/40 dark:group-hover:text-brand-blue/40 transition-colors duration-300 uppercase tracking-widest">{services.serviceLabel}</span>
+                        <span className="text-[11px] font-mono font-black text-brand-blue group-hover:text-brand-yellow dark:group-hover:text-brand-blue transition-colors duration-300">{service.num}</span>
                       </div>
                       <div className="flex h-10 w-10 items-center justify-center rounded-full
                         bg-brand-blue/8 border border-brand-blue/20 text-brand-blue
                         group-hover:bg-brand-yellow group-hover:border-brand-yellow group-hover:text-brand-dark
+                        dark:group-hover:bg-brand-blue dark:group-hover:border-brand-blue dark:group-hover:text-[#080710]
                         group-hover:rotate-45 transition-all duration-500 shadow-sm">
                         <ArrowUpRight className="h-4.5 w-4.5" strokeWidth={2.5} />
                       </div>

@@ -11,10 +11,10 @@ const drawVariants = {
   hidden: { pathLength: 0 },
   visible: (custom: { delay: number; duration: number }) => ({
     pathLength: 1,
-    transition: { 
-      duration: custom?.duration ?? 0.6, 
-      delay: custom?.delay ?? 0.2, 
-      ease: "easeOut" as any 
+    transition: {
+      duration: custom?.duration ?? 0.6,
+      delay: custom?.delay ?? 0.2,
+      ease: "easeOut" as any
     }
   })
 };
@@ -99,11 +99,11 @@ export default function Brands() {
   const { brands } = content;
 
   return (
-    <section id="brands" className="relative bg-gradient-to-b from-[#f8fafc] via-[#f1f5f9] to-[#f8fafc] py-20 md:py-28 overflow-hidden border-t border-b border-brand-zinc-200/80">
-      
+    <section id="brands" className="relative bg-gradient-to-b from-[#f8fafc] via-[#f1f5f9] to-[#f8fafc] dark:from-[#0a0a14] dark:via-[#12121e] dark:to-[#0a0a14] py-20 md:py-28 overflow-hidden border-t border-b border-brand-zinc-200/80 dark:border-white/10">
+
       {/* Background dot grid overlay */}
-      <div className="absolute inset-0 opacity-[0.025] pointer-events-none z-0"
-        style={{ backgroundImage: 'radial-gradient(#0306AC 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
+      <div className="absolute inset-0 opacity-[0.025] dark:opacity-[0.06] pointer-events-none z-0"
+        style={{ backgroundImage: 'radial-gradient(var(--color-blue) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
 
       {/* Decorative gradient glow behind the marquees */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#0306AC]/6 blur-[130px] pointer-events-none z-0" />
@@ -137,14 +137,14 @@ export default function Brands() {
 
       {/* Brands Header */}
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 mb-14 text-center flex flex-col items-center relative z-10">
-        <span className="text-[9px] font-mono font-black tracking-[0.25em] text-[#0306AC]/70 uppercase mb-3">
+        <span className="text-[9px] font-mono font-black tracking-[0.25em] text-brand-blue/70 uppercase mb-3">
           {brands.sectionNumber} // {brands.sectionTag}
         </span>
         <h2 className="font-heading text-4xl md:text-5xl font-black text-brand-dark tracking-tight leading-[1.15]">
           {brands.titleIntro}{" "}
           <span className="relative inline-block text-brand-blue">
             {brands.titleHighlight}
-            <svg className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(3,6,172,0.15)]" viewBox="0 0 100 10" preserveAspectRatio="none">
+            <svg className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
               <motion.path
                 d="M 2 5 Q 50 3.5, 98 5"
                 stroke="#FFF35C"
@@ -163,13 +163,13 @@ export default function Brands() {
 
       {/* Two Opposing Marquees as Rounded Floating Capsules */}
       <div className="flex flex-col gap-6 relative z-10">
-        
+
         {/* Row 1: Leftwards Marquee */}
-        <div className="mx-auto w-[92%] max-w-5xl overflow-hidden rounded-3xl border border-brand-blue/10 bg-white/70 backdrop-blur-md shadow-[0_12px_32px_rgba(3,6,172,0.03)] py-5 sm:py-6 px-4 sm:px-6 relative flex">
+        <div className="mx-auto w-[92%] max-w-5xl overflow-hidden rounded-3xl border border-brand-blue/10 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md shadow-[0_12px_32px_rgba(3,6,172,0.03)] py-5 sm:py-6 px-4 sm:px-6 relative flex">
           {/* Edge fades for premium depth */}
-          <div className="absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
-          
+          <div className="absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-white dark:from-[#12121e] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-white dark:from-[#12121e] to-transparent z-10 pointer-events-none" />
+
           <div
             className={`animate-marquee-left-brands gap-20 md:gap-28 ${isPaused1 ? "marquee-paused-css" : ""}`}
             onMouseEnter={() => setIsPaused1(true)}
@@ -188,10 +188,10 @@ export default function Brands() {
         </div>
 
         {/* Row 2: Rightwards Marquee */}
-        <div className="mx-auto w-[92%] max-w-5xl overflow-hidden rounded-3xl border border-brand-blue/10 bg-white/70 backdrop-blur-md shadow-[0_12px_32px_rgba(3,6,172,0.03)] py-5 sm:py-6 px-4 sm:px-6 relative flex">
+        <div className="mx-auto w-[92%] max-w-5xl overflow-hidden rounded-3xl border border-brand-blue/10 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md shadow-[0_12px_32px_rgba(3,6,172,0.03)] py-5 sm:py-6 px-4 sm:px-6 relative flex">
           {/* Edge fades for premium depth */}
-          <div className="absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none" />
-          <div className="absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-white dark:from-[#12121e] to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-white dark:from-[#12121e] to-transparent z-10 pointer-events-none" />
 
           <div
             className={`animate-marquee-right-brands gap-20 md:gap-28 ${isPaused2 ? "marquee-paused-css" : ""}`}

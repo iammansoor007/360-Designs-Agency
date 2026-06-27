@@ -14,7 +14,7 @@ export default function ContactForm() {
     phone: "",
     message: ""
   });
-  
+
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -60,15 +60,15 @@ export default function ContactForm() {
   };
 
   return (
-    <section 
-      id="contact" 
+    <section
+      id="contact"
       onMouseMove={handleMouseMove}
-      className="relative overflow-hidden bg-[#F9FAFB] py-24 md:py-32 border-b border-brand-zinc-200"
+      className="relative overflow-hidden bg-[#F9FAFB] dark:bg-[#080710] py-24 md:py-32 border-b border-brand-zinc-200 dark:border-white/10"
     >
-      
+
       {/* Subtle Light Tilted Grid Lines */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none opacity-30 z-0">
-        <div 
+        <div
           className="absolute -inset-[50%] w-[200%] h-[200%] rotate-[8deg]"
           style={{
             backgroundImage: `
@@ -109,10 +109,10 @@ export default function ContactForm() {
       <div className="absolute bottom-1/4 right-1/4 w-[200px] h-[200px] rounded-full bg-brand-yellow/[0.06] blur-[60px] pointer-events-none md:hidden" />
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
-        
+
         {/* Columns Grid with items-center alignment */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
+
           {/* Left Column: Integrated Header & Contact Badges */}
           <div className="lg:col-span-5 space-y-8">
             <div className="space-y-4">
@@ -138,7 +138,7 @@ export default function ContactForm() {
             {/* Direct Contact Badges (Responsive Optimized) */}
             <div className="space-y-3.5 max-w-sm">
               {/* Email Badge */}
-              <div className="flex items-center gap-3 bg-white/45 backdrop-blur-md border border-white/60 rounded-2xl p-3 transition-all duration-350 hover:border-brand-blue/30 hover:bg-white/60 shadow-[0_2px_8px_rgba(0,0,0,0.01)]">
+              <div className="flex items-center gap-3 bg-white/45 dark:bg-white/5 backdrop-blur-md border border-white/60 dark:border-white/10 rounded-2xl p-3 transition-all duration-355 hover:border-brand-blue/30 dark:hover:border-brand-blue/30 hover:bg-white/60 dark:hover:bg-white/10 shadow-[0_2px_8px_rgba(0,0,0,0.01)]">
                 <div className="w-8 h-8 rounded-lg bg-brand-blue/10 border border-brand-blue/20 flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm">
                   <Mail className="w-4 h-4" />
                 </div>
@@ -148,7 +148,7 @@ export default function ContactForm() {
               </div>
 
               {/* Location Badge */}
-              <div className="flex items-center gap-3 bg-white/45 backdrop-blur-md border border-white/60 rounded-2xl p-3 transition-all duration-355 hover:border-brand-blue/30 hover:bg-white/60 shadow-[0_2px_8px_rgba(0,0,0,0.01)]">
+              <div className="flex items-center gap-3 bg-white/45 dark:bg-white/5 backdrop-blur-md border border-white/60 dark:border-white/10 rounded-2xl p-3 transition-all duration-355 hover:border-brand-blue/30 dark:hover:border-brand-blue/30 hover:bg-white/60 dark:hover:bg-white/10 shadow-[0_2px_8px_rgba(0,0,0,0.01)]">
                 <div className="w-8 h-8 rounded-lg bg-brand-blue/10 border border-brand-blue/20 flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm">
                   <MapPin className="w-4 h-4" />
                 </div>
@@ -158,7 +158,7 @@ export default function ContactForm() {
               </div>
 
               {/* Phone Badge */}
-              <div className="flex items-center gap-3 bg-white/45 backdrop-blur-md border border-white/60 rounded-2xl p-3 transition-all duration-360 hover:border-brand-blue/30 hover:bg-white/60 shadow-[0_2px_8px_rgba(0,0,0,0.01)]">
+              <div className="flex items-center gap-3 bg-white/45 dark:bg-white/5 backdrop-blur-md border border-white/60 dark:border-white/10 rounded-2xl p-3 transition-all duration-360 hover:border-brand-blue/30 dark:hover:border-brand-blue/30 hover:bg-white/60 dark:hover:bg-white/10 shadow-[0_2px_8px_rgba(0,0,0,0.01)]">
                 <div className="w-8 h-8 rounded-lg bg-brand-blue/10 border border-brand-blue/20 flex-shrink-0 flex items-center justify-center text-brand-blue shadow-sm">
                   <Phone className="w-4 h-4" />
                 </div>
@@ -171,7 +171,7 @@ export default function ContactForm() {
           </div>
 
           {/* Right Column: Premium Support Card (Restored to Light Glassmorphism) */}
-          <div className="lg:col-span-7 w-full bg-white/45 backdrop-blur-xl border border-white/60 p-4 sm:p-8 md:p-10 rounded-[2.5rem] shadow-[0_24px_80px_rgba(3,6,172,0.02)]">
+          <div className="lg:col-span-7 w-full bg-white/45 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10 p-4 sm:p-8 md:p-10 rounded-[2.5rem] shadow-[0_24px_80px_rgba(3,6,172,0.02)]">
             <AnimatePresence mode="wait">
               {!isSuccess ? (
                 <motion.form
@@ -182,10 +182,10 @@ export default function ContactForm() {
                   className="space-y-5"
                   noValidate
                 >
-                  
+
                   {/* Full Name */}
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono font-black text-brand-zinc-450 uppercase tracking-widest block">
+                    <label className="text-[10px] font-mono font-black text-brand-zinc-500 dark:text-zinc-400 uppercase tracking-widest block">
                       {contact.labelName}
                     </label>
                     <input
@@ -193,16 +193,15 @@ export default function ContactForm() {
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       placeholder={contact.placeholderName}
-                      className={`w-full bg-white/55 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark placeholder-brand-zinc-350 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 outline-none transition-all ${
-                        errors.name ? "border-red-400" : "border-brand-zinc-200/80"
-                      }`}
+                      className={`w-full bg-white/55 dark:bg-white/5 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark text-[#080710] dark:text-white placeholder-brand-zinc-400 dark:placeholder-zinc-500 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 dark:focus:bg-[#12121e] outline-none transition-all ${errors.name ? "border-red-400" : "border-brand-zinc-200/80 dark:border-white/10"
+                        }`}
                     />
                     {errors.name && <span className="text-[10px] font-bold text-red-500 block">{errors.name}</span>}
                   </div>
 
                   {/* Email Address */}
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono font-black text-brand-zinc-450 uppercase tracking-widest block">
+                    <label className="text-[10px] font-mono font-black text-brand-zinc-500 dark:text-zinc-400 uppercase tracking-widest block">
                       {contact.labelEmail}
                     </label>
                     <input
@@ -210,16 +209,15 @@ export default function ContactForm() {
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       placeholder={contact.placeholderEmail}
-                      className={`w-full bg-white/55 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark placeholder-brand-zinc-350 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 outline-none transition-all ${
-                        errors.email ? "border-red-400" : "border-brand-zinc-200/80"
-                      }`}
+                      className={`w-full bg-white/55 dark:bg-white/5 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark text-[#080710] dark:text-white placeholder-brand-zinc-400 dark:placeholder-zinc-500 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 dark:focus:bg-[#12121e] outline-none transition-all ${errors.email ? "border-red-400" : "border-brand-zinc-200/80 dark:border-white/10"
+                        }`}
                     />
                     {errors.email && <span className="text-[10px] font-bold text-red-500 block">{errors.email}</span>}
                   </div>
 
                   {/* Phone Number */}
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono font-black text-brand-zinc-450 uppercase tracking-widest block">
+                    <label className="text-[10px] font-mono font-black text-brand-zinc-500 dark:text-zinc-400 uppercase tracking-widest block">
                       {contact.labelPhone}
                     </label>
                     <input
@@ -227,16 +225,15 @@ export default function ContactForm() {
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       placeholder={contact.placeholderPhone}
-                      className={`w-full bg-white/55 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark placeholder-brand-zinc-350 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 outline-none transition-all ${
-                        errors.phone ? "border-red-400" : "border-brand-zinc-200/80"
-                      }`}
+                      className={`w-full bg-white/55 dark:bg-white/5 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark text-[#080710] dark:text-white placeholder-brand-zinc-400 dark:placeholder-zinc-500 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 dark:focus:bg-[#12121e] outline-none transition-all ${errors.phone ? "border-red-400" : "border-brand-zinc-200/80 dark:border-white/10"
+                        }`}
                     />
                     {errors.phone && <span className="text-[10px] font-bold text-red-500 block">{errors.phone}</span>}
                   </div>
 
                   {/* Message */}
                   <div className="space-y-2">
-                    <label className="text-[10px] font-mono font-black text-brand-zinc-450 uppercase tracking-widest block">
+                    <label className="text-[10px] font-mono font-black text-brand-zinc-500 dark:text-zinc-400 uppercase tracking-widest block">
                       {contact.labelMessage}
                     </label>
                     <textarea
@@ -244,9 +241,8 @@ export default function ContactForm() {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder={contact.placeholderMessage}
-                      className={`w-full bg-white/55 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark placeholder-brand-zinc-350 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 outline-none transition-all resize-none ${
-                        errors.message ? "border-red-400" : "border-brand-zinc-200/80"
-                      }`}
+                      className={`w-full bg-white/55 dark:bg-white/5 backdrop-blur-md border rounded-xl px-4 py-3.5 text-xs font-semibold text-brand-dark text-[#080710] dark:text-white placeholder-brand-zinc-400 dark:placeholder-zinc-500 focus:ring-4 focus:ring-brand-blue/5 focus:border-brand-blue focus:bg-white/80 dark:focus:bg-[#12121e] outline-none transition-all resize-none ${errors.message ? "border-red-400" : "border-brand-zinc-200/80 dark:border-white/10"
+                        }`}
                     />
                     {errors.message && <span className="text-[10px] font-bold text-red-500 block">{errors.message}</span>}
                   </div>
@@ -256,16 +252,25 @@ export default function ContactForm() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group flex items-center gap-3 rounded-full bg-brand-blue hover:bg-brand-dark px-7 py-3.5 text-xs font-black uppercase tracking-widest text-white transition-all duration-300 shadow-[0_4px_16px_rgba(3,6,172,0.15)] hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                      className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#FFF35C] shadow-[0_4px_28px_rgba(3,6,172,0.15)] dark:shadow-[0_4px_28px_rgba(255,243,92,0.15)] active:scale-[0.97] transition-all duration-300 border border-[#0306AC] dark:border-[#FFF35C] cursor-pointer w-full sm:w-auto"
                     >
-                      {isSubmitting ? (
-                        <div className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
-                      ) : (
-                        <>
-                          {contact.btnSubmit}
-                          <ArrowRight className="h-3.5 w-3.5 text-white group-hover:translate-x-0.5 transition-transform duration-200" />
-                        </>
-                      )}
+                      {/* Curtain slides in from left on hover */}
+                      <span
+                        aria-hidden="true"
+                        className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                      />
+                      {/* Label */}
+                      <span className="relative z-10 pl-7 pr-5 py-[14px] text-xs font-black uppercase tracking-[0.15em] text-white dark:text-[#080710] group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap flex-1 text-center sm:text-left">
+                        {isSubmitting ? "Sending..." : contact.btnSubmit}
+                      </span>
+                      {/* Arrow circle — inverts on hover */}
+                      <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#FFF35C] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                        {isSubmitting ? (
+                          <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
+                        ) : (
+                          <ArrowRight className="h-4 w-4" />
+                        )}
+                      </span>
                     </button>
                   </div>
 
@@ -280,7 +285,7 @@ export default function ContactForm() {
                   <div className="flex h-14 w-14 items-center justify-center rounded-full bg-brand-blue text-white shadow-md shadow-brand-blue/15 animate-bounce">
                     <CheckCircle className="h-9 w-9 text-white" />
                   </div>
-                  
+
                   <div className="space-y-2">
                     <h3 className="font-heading text-2xl font-bold text-brand-dark">{contact.successTitle}</h3>
                     <p className="text-sm text-brand-zinc-500 font-semibold leading-relaxed max-w-md">

@@ -44,7 +44,7 @@ export default function Testimonials() {
     <section
       id="testimonials"
       ref={containerRef}
-      className="relative overflow-hidden bg-[#F8FAFC] py-24 md:py-32 border-t border-b border-brand-zinc-200"
+      className="relative overflow-hidden bg-[#F8FAFC] dark:bg-[#0a0a14] py-24 md:py-32 border-t border-b border-brand-zinc-200 dark:border-white/10"
     >
       {/* Styles for horizontal marquee animations & hover pause */}
       <style>{`
@@ -101,6 +101,9 @@ export default function Testimonials() {
         .group:hover.card-sweep-glare::before {
           left: 160%;
         }
+        .dark .card-sweep-glare::before {
+          display: none;
+        }
       `}</style>
 
       {/* Decorative Background Glows */}
@@ -114,7 +117,7 @@ export default function Testimonials() {
       <div className="absolute right-1/4 top-0 bottom-0 w-[1px] bg-brand-blue/[0.03] pointer-events-none" />
 
       <div className="w-full relative z-10">
-        
+
         {/* Header Section & Scorecard (Side by Side) */}
         <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div className="flex flex-col gap-4 max-w-2xl">
@@ -138,17 +141,17 @@ export default function Testimonials() {
           </div>
 
           {/* Premium Scorecard Widget */}
-          <div className="bg-white border border-brand-zinc-200/80 rounded-2xl p-4 sm:p-5 shadow-[0_8px_24px_rgba(3,6,172,0.02)] relative overflow-hidden group/scorecard shrink-0 min-w-[260px] md:max-w-sm">
+          <div className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 rounded-2xl p-4 sm:p-5 shadow-[0_8px_24px_rgba(3,6,172,0.02)] relative overflow-hidden group/scorecard shrink-0 min-w-[260px] md:max-w-sm">
             <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-brand-blue to-brand-blue/40" />
             <div className="flex items-center gap-4 relative z-10">
-              <div className="flex flex-col items-center justify-center h-14 w-14 rounded-xl bg-brand-blue text-white shadow-sm border border-brand-blue/10">
+              <div className="flex flex-col items-center justify-center h-14 w-14 rounded-xl bg-brand-blue text-white dark:text-[#080710] shadow-sm border border-brand-blue/10">
                 <span className="font-heading font-black text-lg leading-none">{testimonialsData.scorecardRating}</span>
-                <span className="font-mono text-[6px] font-bold uppercase tracking-widest opacity-80 mt-1">{testimonialsData.scorecardRatingLabel}</span>
+                <span className="font-mono text-[6px] font-bold uppercase tracking-widest text-white dark:text-[#080710] opacity-80 mt-1">{testimonialsData.scorecardRatingLabel}</span>
               </div>
               <div className="space-y-1">
-                <div className="flex gap-0.5 text-brand-yellow">
+                <div className="flex gap-0.5 text-[#FFF35C]">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-brand-yellow text-brand-yellow" />
+                    <Star key={i} className="h-3.5 w-3.5 fill-[#FFF35C] text-[#FFF35C]" />
                   ))}
                 </div>
                 <span className="block text-[10px] font-black text-brand-dark uppercase tracking-wider leading-none">
@@ -165,9 +168,9 @@ export default function Testimonials() {
 
         {/* 3-Row Horizontal Scrolling Marquee Area */}
         <div className="relative w-full space-y-6 overflow-hidden py-4">
-          {/* Top/Bottom edge gradients to block text at viewport boundaries */}
-          <div className="absolute top-0 inset-x-0 h-4 bg-gradient-to-b from-[#F8FAFC] to-transparent z-20 pointer-events-none" />
-          <div className="absolute bottom-0 inset-x-0 h-4 bg-gradient-to-t from-[#F8FAFC] to-transparent z-20 pointer-events-none" />
+          {/* Left/Right edge gradients to fade text at viewport boundaries */}
+          <div className="absolute left-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-r from-[#F8FAFC] dark:from-[#0a0a14] to-transparent z-20 pointer-events-none" />
+          <div className="absolute right-0 top-0 bottom-0 w-16 sm:w-28 bg-gradient-to-l from-[#F8FAFC] dark:from-[#0a0a14] to-transparent z-20 pointer-events-none" />
 
           {/* Row 1: Leftward moving cards */}
           <div className="marquee-container flex overflow-x-auto scrollbar-none py-1">
@@ -178,12 +181,12 @@ export default function Testimonials() {
               {tripleArray(row1).map((item, idx) => (
                 <div
                   key={idx}
-                  className="group w-[320px] sm:w-[350px] shrink-0 bg-white border border-brand-zinc-200/80 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-brand-blue/20 transition-all duration-300 flex flex-col justify-between h-[180px] sm:h-[190px] card-sweep-glare"
+                  className="group w-[320px] sm:w-[350px] shrink-0 bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-brand-blue/20 dark:hover:border-brand-blue/30 transition-all duration-300 flex flex-col justify-between h-[180px] sm:h-[190px] card-sweep-glare"
                 >
                   <div className="space-y-3">
-                    <div className="flex gap-0.5 text-brand-yellow">
+                    <div className="flex gap-0.5 text-[#FFF35C]">
                       {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="h-3 w-3 fill-brand-yellow text-brand-yellow" />
+                        <Star key={i} className="h-3 w-3 fill-[#FFF35C] text-[#FFF35C]" />
                       ))}
                     </div>
                     <p className="text-xs font-semibold text-brand-dark leading-relaxed line-clamp-3">
@@ -191,7 +194,7 @@ export default function Testimonials() {
                     </p>
                   </div>
                   <div className="flex items-center gap-3 border-t border-brand-zinc-100 pt-4 mt-3">
-                    <div className={`relative h-9 w-9 rounded-full ${item.avatarBg} flex items-center justify-center text-white font-heading font-black text-xs border border-white shadow-sm`}>
+                    <div className={`relative h-9 w-9 rounded-full ${item.avatarBg} flex items-center justify-center text-white font-heading font-black text-xs border border-white/20 shadow-sm`}>
                       {item.name.charAt(0)}
                     </div>
                     <div className="min-w-0">
@@ -216,12 +219,12 @@ export default function Testimonials() {
               {tripleArray(row2).map((item, idx) => (
                 <div
                   key={idx}
-                  className="group w-[320px] sm:w-[350px] shrink-0 bg-white border border-brand-zinc-200/80 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-brand-blue/20 transition-all duration-300 flex flex-col justify-between h-[180px] sm:h-[190px] card-sweep-glare"
+                  className="group w-[320px] sm:w-[350px] shrink-0 bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-brand-blue/20 dark:hover:border-brand-blue/30 transition-all duration-300 flex flex-col justify-between h-[180px] sm:h-[190px] card-sweep-glare"
                 >
                   <div className="space-y-3">
-                    <div className="flex gap-0.5 text-brand-yellow">
+                    <div className="flex gap-0.5 text-[#FFF35C]">
                       {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="h-3 w-3 fill-brand-yellow text-brand-yellow" />
+                        <Star key={i} className="h-3 w-3 fill-[#FFF35C] text-[#FFF35C]" />
                       ))}
                     </div>
                     <p className="text-xs font-semibold text-brand-dark leading-relaxed line-clamp-3">
@@ -229,7 +232,7 @@ export default function Testimonials() {
                     </p>
                   </div>
                   <div className="flex items-center gap-3 border-t border-brand-zinc-100 pt-4 mt-3">
-                    <div className={`relative h-9 w-9 rounded-full ${item.avatarBg} flex items-center justify-center text-white font-heading font-black text-xs border border-white shadow-sm`}>
+                    <div className={`relative h-9 w-9 rounded-full ${item.avatarBg} flex items-center justify-center text-white font-heading font-black text-xs border border-white/20 shadow-sm`}>
                       {item.name.charAt(0)}
                     </div>
                     <div className="min-w-0">
@@ -254,12 +257,12 @@ export default function Testimonials() {
               {tripleArray(row3).map((item, idx) => (
                 <div
                   key={idx}
-                  className="group w-[320px] sm:w-[350px] shrink-0 bg-white border border-brand-zinc-200/80 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-brand-blue/20 transition-all duration-300 flex flex-col justify-between h-[180px] sm:h-[190px] card-sweep-glare"
+                  className="group w-[320px] sm:w-[350px] shrink-0 bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-brand-blue/20 dark:hover:border-brand-blue/30 transition-all duration-300 flex flex-col justify-between h-[180px] sm:h-[190px] card-sweep-glare"
                 >
                   <div className="space-y-3">
-                    <div className="flex gap-0.5 text-brand-yellow">
+                    <div className="flex gap-0.5 text-[#FFF35C]">
                       {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="h-3 w-3 fill-brand-yellow text-brand-yellow" />
+                        <Star key={i} className="h-3 w-3 fill-[#FFF35C] text-[#FFF35C]" />
                       ))}
                     </div>
                     <p className="text-xs font-semibold text-brand-dark leading-relaxed line-clamp-3">
@@ -267,7 +270,7 @@ export default function Testimonials() {
                     </p>
                   </div>
                   <div className="flex items-center gap-3 border-t border-brand-zinc-100 pt-4 mt-3">
-                    <div className={`relative h-9 w-9 rounded-full ${item.avatarBg} flex items-center justify-center text-white font-heading font-black text-xs border border-white shadow-sm`}>
+                    <div className={`relative h-9 w-9 rounded-full ${item.avatarBg} flex items-center justify-center text-white font-heading font-black text-xs border border-white/20 shadow-sm`}>
                       {item.name.charAt(0)}
                     </div>
                     <div className="min-w-0">

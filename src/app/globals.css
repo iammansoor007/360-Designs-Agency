@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --color-yellow: #FFF35C;
   --color-blue: #0306AC;
@@ -14,12 +16,37 @@
   --color-blue-opaque-8: rgba(3, 6, 172, 0.08);
   --color-blue-opaque-10: rgba(3, 6, 172, 0.1);
   --color-dark-opaque-4: rgba(8, 7, 16, 0.04);
+  --color-footer-bg: #090A29;
+  --underline-glow: drop-shadow(0px 1.5px 2px rgba(255, 243, 92, 0.45));
+  --color-gradient-stop-1: #FFF35C;
+  --color-gradient-stop-2: #FFA800;
 }
+
+.dark {
+  --color-yellow: #0306AC;
+  --color-blue: #FFF35C;
+  --color-blue-dark: #e5da50;
+  --color-dark-blue: #16161f;
+  --color-dark: #ffffff;
+  --color-light: #16161f;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-gray: #9CA3AF;
+  --color-blue-opaque-4: rgba(255, 243, 92, 0.08);
+  --color-blue-opaque-5: rgba(255, 243, 92, 0.1);
+  --color-blue-opaque-8: rgba(255, 243, 92, 0.14);
+  --color-blue-opaque-10: rgba(255, 243, 92, 0.18);
+  --color-dark-opaque-4: rgba(255, 255, 255, 0.04);
+  --color-footer-bg: #080710;
+  --underline-glow: drop-shadow(0px 1.5px 2px rgba(3, 6, 172, 0.45));
+  --color-gradient-stop-1: #0306AC;
+  --color-gradient-stop-2: #020485;
+}
+
 
 @theme {
   --font-heading: var(--font-heading), serif;
   --font-sans: var(--font-body), sans-serif;
-  
+
   --color-brand-yellow: var(--color-yellow);
   --color-brand-blue: var(--color-blue);
   --color-brand-blue-dark: var(--color-blue-dark);
@@ -92,19 +119,19 @@ body {
 }
 
 .bg-linear-grid-blue-4 {
-  background-image: 
+  background-image:
     linear-gradient(to right, var(--color-blue-opaque-4) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-blue-opaque-4) 1px, transparent 1px);
 }
 
 .bg-linear-grid-dark-4 {
-  background-image: 
+  background-image:
     linear-gradient(to right, var(--color-dark-opaque-4) 1px, transparent 1px),
     linear-gradient(to bottom, var(--color-dark-opaque-4) 1px, transparent 1px);
 }
 
 .bg-linear-grid-white-3 {
-  background-image: 
+  background-image:
     linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
     linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
@@ -113,18 +140,171 @@ body {
 .stroke-trend-green {
   stroke: #10b981;
 }
+
 .fill-trend-green {
   fill: #10b981;
 }
+
 .stroke-trend-blue {
   stroke: var(--color-blue);
 }
+
 .fill-trend-blue {
   fill: var(--color-blue);
 }
+
 .stroke-trend-yellow {
   stroke: var(--color-yellow);
 }
+
 .fill-trend-yellow {
   fill: var(--color-yellow);
+}
+
+/* Dark theme default utilities - styled without !important to respect component-specific hover/text classes */
+.dark .border-brand-zinc-200 {
+  border-color: #272735;
+}
+
+.dark .border-brand-zinc-200\/80 {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.dark .border-brand-zinc-100 {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark .border-brand-zinc-100\/80 {
+  border-color: rgba(255, 255, 255, 0.06);
+}
+
+.dark .text-brand-dark {
+  color: #ffffff;
+}
+
+.dark .text-brand-zinc-500 {
+  color: #9CA3AF;
+}
+
+.dark .text-brand-zinc-400 {
+  color: #6B7280;
+}
+
+.dark .bg-slate-50\/90 {
+  background-color: rgba(20, 20, 28, 0.9);
+}
+
+.dark .border-slate-200\/40 {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .bg-brand-light {
+  background-color: #121218;
+}
+
+.dark input,
+.dark textarea {
+  background-color: rgba(30, 30, 38, 0.55);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.dark input:focus,
+.dark textarea:focus {
+  background-color: rgba(30, 30, 38, 0.85);
+}
+
+.dark input::placeholder,
+.dark textarea::placeholder {
+  color: #6B7280;
+}
+
+.dark .glass-panel {
+  background: rgba(18, 18, 22, 0.7);
+  border: 1px solid rgba(255, 243, 92, 0.15);
+}
+
+/* =============================================
+   DARK MODE: Background & Card Overrides
+   ============================================= */
+
+/* Navbar backdrop */
+.dark .bg-white\/80 {
+  background-color: rgba(8, 7, 16, 0.88);
+}
+
+/* Alternate section backgrounds (light gray sections) */
+.dark .bg-\[\#F8FAFC\] {
+  background-color: #0a0a14;
+}
+
+/* Hero secondary button */
+.dark .border-brand-dark\/10 {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Portfolio filter bar */
+.dark .border-brand-zinc-200\/60 {
+  border-color: rgba(255, 255, 255, 0.07) !important;
+}
+
+/* Industries / card hover border */
+.dark .hover\:border-brand-blue:hover {
+  border-color: var(--color-blue) !important;
+}
+
+/* Testimonial & blog card borders */
+.dark .border-brand-blue\/20 {
+  border-color: rgba(255, 243, 92, 0.15) !important;
+}
+
+/* Scrollbar-none utility (already present, ensure no highlight) */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Service Card custom gradient backgrounds */
+.service-card-bg {
+  background: linear-gradient(145deg, #ffffff 0%, #f0f4ff 100%) !important;
+}
+
+.dark .service-card-bg {
+  background: linear-gradient(145deg, #12121e 0%, #0d0d18 100%) !important;
+}
+
+/* Brands logo hover drop-shadow & color override in dark mode */
+.dark #brands .group:hover svg {
+  color: var(--color-blue) !important;
+  filter: drop-shadow(0 0 6px rgba(255, 243, 92, 0.35)) !important;
+}
+
+/* Services SVG illustrations dark mode background fixes */
+.dark #services svg [fill="white"] {
+  fill: #161622 !important;
+}
+
+.dark #services .group:hover svg [fill="white"] {
+  fill: #1e1e2f !important;
+}
+
+/* Smooth color transitions for all elements on theme switch */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color;
+  transition-duration: 200ms;
+  transition-timing-function: ease;
+}
+
+/* Exclude transform-based transitions from the global override */
+.animate-blob-float-global,
+.animate-blob-float-global-delayed,
+[class*="animate-"],
+[class*="transition-"] {
+  transition-property: unset;
 }

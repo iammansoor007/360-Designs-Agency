@@ -12,7 +12,7 @@ export default function Blog() {
   return (
     <section
       id="blog"
-      className="relative overflow-hidden bg-white py-24 md:py-32 border-b border-brand-zinc-200"
+      className="relative overflow-hidden bg-white dark:bg-[#080710] py-24 md:py-32 border-b border-brand-zinc-200 dark:border-white/10"
     >
       {/* Decorative Background Glows */}
       <div className="absolute top-1/3 -right-32 w-96 h-96 rounded-full bg-brand-yellow/10 blur-3xl pointer-events-none z-0" />
@@ -51,10 +51,13 @@ export default function Blog() {
         .group:hover.card-sweep-glare::before {
           left: 160%;
         }
+        .dark .card-sweep-glare::before {
+          display: none;
+        }
       `}</style>
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
-        
+
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -84,7 +87,7 @@ export default function Blog() {
 
         {/* Asymmetrical Split Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
-          
+
           {/* Left Column: Featured Post (lg:col-span-7) */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -96,7 +99,7 @@ export default function Blog() {
             {posts[0] && (
               <a
                 href={posts[0].link}
-                className="group flex flex-col rounded-[2.5rem] border border-brand-zinc-200/80 bg-white p-6 md:p-8 shadow-[0_2px_12px_rgba(3,6,172,0.015)] hover:shadow-[0_20px_40px_rgba(3,6,172,0.08)] hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none block"
+                className="group flex flex-col rounded-[2.5rem] border border-brand-zinc-200/80 dark:border-white/10 bg-white dark:bg-[#12121e] p-6 md:p-8 shadow-[0_2px_12px_rgba(3,6,172,0.015)] hover:shadow-[0_20px_40px_rgba(3,6,172,0.08)] hover:border-brand-blue/30 dark:hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none block"
               >
                 {/* Image Wrapper */}
                 <div className="relative aspect-[16/10] overflow-hidden bg-brand-light border border-brand-zinc-200/40 rounded-3xl mb-6">
@@ -136,7 +139,7 @@ export default function Blog() {
                   {/* Read More button */}
                   <div className="flex items-center gap-2 pt-2">
                     <span className="text-[10px] font-black uppercase tracking-widest text-brand-blue">{blog.featuredLabel}</span>
-                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue/5 border border-brand-blue/10 text-brand-blue group-hover:bg-brand-blue group-hover:text-white transition-all duration-300">
+                    <div className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue/5 border border-brand-blue/10 text-brand-blue group-hover:bg-brand-blue group-hover:text-white dark:group-hover:text-[#080710] transition-all duration-300">
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
                     </div>
                   </div>
@@ -157,7 +160,7 @@ export default function Blog() {
               <a
                 key={idx}
                 href={post.link}
-                className="group block rounded-[2rem] border border-brand-zinc-200/80 bg-white p-4 sm:p-5 shadow-[0_2px_12px_rgba(3,6,172,0.01)] hover:shadow-[0_16px_36px_rgba(3,6,172,0.06)] hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none"
+                className="group block rounded-[2rem] border border-brand-zinc-200/80 dark:border-white/10 bg-white dark:bg-[#12121e] p-4 sm:p-5 shadow-[0_2px_12px_rgba(3,6,172,0.01)] hover:shadow-[0_16px_36px_rgba(3,6,172,0.06)] hover:border-brand-blue/30 dark:hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none"
               >
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full">
                   {/* Small Thumbnail */}
