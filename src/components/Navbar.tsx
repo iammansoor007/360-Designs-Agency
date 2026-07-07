@@ -80,7 +80,7 @@ export default function Navbar() {
           </button>
           <a
             href={navbar.ctaHref}
-            className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#FFF35C] dark:bg-[#0306AC] shadow-sm active:scale-[0.97] transition-all duration-300 border border-[#FFF35C] dark:border-[#0306AC]"
+            className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#FFF35C] shadow-sm active:scale-[0.97] transition-all duration-300 border border-[#0306AC] dark:border-[#FFF35C]"
           >
             {/* Curtain slides in from left on hover */}
             <span
@@ -88,7 +88,7 @@ export default function Navbar() {
               className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
             />
             {/* Label */}
-            <span className="relative z-10 pl-5 pr-3 py-2 text-[9px] font-black uppercase tracking-widest text-[#080710] dark:text-white group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
+            <span className="relative z-10 pl-5 pr-3 py-2 text-[9px] font-black uppercase tracking-widest text-white dark:text-[#080710] group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
               {navbar.ctaText}
             </span>
             {/* Arrow circle — inverts on hover */}

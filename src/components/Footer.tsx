@@ -52,7 +52,7 @@ export default function Footer() {
   };
  
   return (
-    <footer className="relative bg-[var(--color-footer-bg)] text-white pt-24 pb-12 overflow-hidden border-t border-white/5 dark:border-white/10">
+    <footer className="relative bg-[#090A29] dark:bg-[#080710] text-white pt-24 pb-12 overflow-hidden border-t border-white/5 dark:border-white/10">
       
       <div className="absolute bottom-0 left-1/4 w-[500px] h-[500px] rounded-full bg-brand-blue/5 dark:bg-brand-yellow/5 blur-[150px] pointer-events-none" />
  
@@ -117,7 +117,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs md:text-sm font-semibold text-brand-zinc-300">
               {footer.quickLinks.map((link, idx) => (
                 <li key={idx}>
-                  <a href={link.href} className="inline-block hover:text-brand-blue hover:translate-x-1 transition-all duration-200">
+                  <a href={link.href} className="inline-block hover:text-brand-yellow dark:hover:text-brand-blue hover:translate-x-1 transition-all duration-200">
                     {link.name}
                   </a>
                 </li>
@@ -133,7 +133,7 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs md:text-sm font-semibold text-brand-zinc-300">
               {footer.servicesList.map((item, idx) => (
                 <li key={idx}>
-                  <span className="inline-block hover:text-brand-blue hover:translate-x-1 transition-all duration-200 cursor-pointer">
+                  <span className="inline-block hover:text-brand-yellow dark:hover:text-brand-blue hover:translate-x-1 transition-all duration-200 cursor-pointer">
                     {item}
                   </span>
                 </li>
@@ -149,13 +149,13 @@ export default function Footer() {
             <ul className="space-y-4 text-xs md:text-sm font-semibold text-brand-zinc-300">
               <li className="flex flex-col gap-1">
                 <span className="text-[8px] font-mono font-black text-brand-zinc-500 uppercase tracking-widest">{footer.labelEmail}</span>
-                <a href={`mailto:${contact.email}`} className="text-white hover:text-brand-blue transition-colors font-mono break-all xs:break-normal">
+                <a href={`mailto:${contact.email}`} className="text-white hover:text-brand-yellow dark:hover:text-brand-blue transition-colors font-mono break-all xs:break-normal">
                   {contact.email}
                 </a>
               </li>
               <li className="flex flex-col gap-1">
                 <span className="text-[8px] font-mono font-black text-brand-zinc-500 uppercase tracking-widest">{footer.labelPhone}</span>
-                <a href={`tel:${contact.phone.replace(/[^0-9+]/g, "")}`} className="text-white hover:text-brand-blue transition-colors font-mono break-all xs:break-normal">
+                <a href={`tel:${contact.phone.replace(/[^0-9+]/g, "")}`} className="text-white hover:text-brand-yellow dark:hover:text-brand-blue transition-colors font-mono break-all xs:break-normal">
                   {contact.phone}
                 </a>
               </li>
@@ -232,8 +232,8 @@ export default function Footer() {
               variants={letterVariants}
               className={`inline-block transition-all duration-300 cursor-default hover:scale-110 ${
                 idx >= 7 
-                  ? "text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.15)] dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.1)] hover:[-webkit-text-stroke:1px_#FFF35C] pointer-events-auto" 
-                  : "text-white/10 dark:text-white/[0.05] hover:text-brand-yellow dark:hover:text-brand-blue pointer-events-auto"
+                  ? "text-transparent [-webkit-text-stroke:1px_rgba(255,255,255,0.28)] dark:[-webkit-text-stroke:1px_rgba(255,255,255,0.12)] hover:[-webkit-text-stroke:1px_#FFF35C] pointer-events-auto" 
+                  : "text-white/20 dark:text-white/[0.06] hover:text-brand-yellow dark:hover:text-brand-blue pointer-events-auto"
               }`}
             >
               {letter === " " ? "\u00A0" : letter}
@@ -250,14 +250,14 @@ export default function Footer() {
         
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full md:w-auto justify-between md:justify-end">
           <div className="flex gap-4 sm:gap-6 text-[10px] font-bold text-brand-zinc-500 dark:text-brand-zinc-400 uppercase tracking-wider">
-            <a href={footer.privacyHref} className="hover:text-brand-blue transition-colors">{footer.privacyText}</a>
+            <a href={footer.privacyHref} className="hover:text-brand-yellow dark:hover:text-brand-blue transition-colors">{footer.privacyText}</a>
             <span>{footer.linkSeparator}</span>
-            <a href={footer.termsHref} className="hover:text-brand-blue transition-colors">{footer.termsText}</a>
+            <a href={footer.termsHref} className="hover:text-brand-yellow dark:hover:text-brand-blue transition-colors">{footer.termsText}</a>
           </div>
  
           <button
             onClick={scrollToTop}
-            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 border border-white/10 text-brand-zinc-300 hover:bg-brand-blue hover:text-white dark:hover:text-[#080710] hover:border-brand-blue transition-all duration-300 cursor-pointer shadow-sm hover:scale-105 active:scale-95"
+            className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 border border-white/10 text-brand-zinc-300 hover:bg-brand-yellow dark:hover:bg-brand-blue hover:text-[#080710] dark:hover:text-[#080710] hover:border-brand-yellow dark:hover:border-brand-blue transition-all duration-300 cursor-pointer shadow-sm hover:scale-105 active:scale-95"
             aria-label={footer.ariaScrollTop}
           >
             <ArrowUp className="h-4 w-4" />

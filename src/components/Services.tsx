@@ -520,7 +520,7 @@ export default function Services() {
       onMouseMove={handleMouseMoveSection}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      className="relative overflow-hidden bg-[#F8FAFC] dark:bg-[#0a0a14] py-8 md:py-12 border-t border-brand-zinc-200 dark:border-white/10"
+      className="relative overflow-hidden bg-[#F8FAFC] dark:bg-[#0a0a14] py-24 md:py-32 border-t border-brand-zinc-200 dark:border-white/10"
     >
 
       {/* Local keyframe animations for premium floating, pulsing, and glass sweep reflections */}

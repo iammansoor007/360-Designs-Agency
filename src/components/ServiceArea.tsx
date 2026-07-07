@@ -44,7 +44,7 @@ export default function ServiceArea() {
   return (
     <section
       id="service-area"
-      className="relative bg-transparent py-16 sm:py-20 lg:py-24 border-t border-b border-brand-zinc-200 dark:border-white/10"
+      className="relative overflow-hidden bg-transparent py-24 md:py-32 border-t border-b border-brand-zinc-200 dark:border-white/10"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12">
         <div className="flex flex-col lg:grid lg:grid-cols-12 gap-10 lg:gap-16 items-start lg:items-center">

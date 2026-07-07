@@ -99,7 +99,7 @@ export default function Brands() {
   const { brands } = content;
 
   return (
-    <section id="brands" className="relative bg-gradient-to-b from-[#f8fafc] via-[#f1f5f9] to-[#f8fafc] dark:from-[#0a0a14] dark:via-[#12121e] dark:to-[#0a0a14] py-20 md:py-28 overflow-hidden border-t border-b border-brand-zinc-200/80 dark:border-white/10">
+    <section id="brands" className="relative bg-gradient-to-b from-[#f8fafc] via-[#f1f5f9] to-[#f8fafc] dark:from-[#0a0a14] dark:via-[#12121e] dark:to-[#0a0a14] py-24 md:py-32 overflow-hidden border-t border-b border-brand-zinc-200/80 dark:border-white/10">
 
       {/* Background dot grid overlay */}
       <div className="absolute inset-0 opacity-[0.025] dark:opacity-[0.06] pointer-events-none z-0"

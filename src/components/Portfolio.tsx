@@ -252,7 +252,7 @@ export default function Portfolio() {
   };
 
   return (
-    <section id="portfolio" className="relative overflow-hidden bg-transparent py-8 md:py-12 border-t border-b border-brand-zinc-200 dark:border-white/10">
+    <section id="portfolio" className="relative overflow-hidden bg-transparent py-24 md:py-32 border-t border-b border-brand-zinc-200 dark:border-white/10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
 
         {/* Section Header */}

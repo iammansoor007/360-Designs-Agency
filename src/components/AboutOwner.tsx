@@ -71,7 +71,7 @@ export default function AboutOwner() {
   const { aboutOwner } = content;
 
   return (
-    <section id="about" className="relative overflow-hidden bg-transparent py-10 md:py-16 border-b border-brand-zinc-200 dark:border-white/10">
+    <section id="about" className="relative overflow-hidden bg-transparent py-24 md:py-32 border-b border-brand-zinc-200 dark:border-white/10">
 
       <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
@@ -277,7 +277,7 @@ export default function AboutOwner() {
             <div className="pt-4">
               <a
                 href={aboutOwner.ctaHref}
-                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#FFF35C] dark:bg-[#0306AC] shadow-md active:scale-[0.97] transition-all duration-300 border border-[#FFF35C] dark:border-[#0306AC]"
+                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#FFF35C] shadow-[0_4px_28px_rgba(3,6,172,0.15)] dark:shadow-[0_4px_28px_rgba(255,243,92,0.15)] active:scale-[0.97] transition-all duration-300 border border-[#0306AC] dark:border-[#FFF35C]"
               >
                 {/* Curtain slides in from left on hover */}
                 <span
@@ -285,7 +285,7 @@ export default function AboutOwner() {
                   className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
                 />
                 {/* Label */}
-                <span className="relative z-10 pl-7 pr-5 py-[14px] text-[10px] font-black uppercase tracking-widest text-[#080710] dark:text-white group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
+                <span className="relative z-10 pl-7 pr-5 py-[14px] text-[10px] font-black uppercase tracking-widest text-white dark:text-[#080710] group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
                   {aboutOwner.ctaText}
                 </span>
                 {/* Arrow circle — inverts on hover */}
