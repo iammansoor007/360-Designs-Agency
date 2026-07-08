@@ -261,7 +261,7 @@ export default function WhyChooseMe() {
   return (
     <section
       id="why-us"
-      className="relative overflow-hidden bg-[#F8FAFC] dark:bg-[#0a0a14] border-t border-brand-zinc-200 dark:border-white/10 py-24 md:py-32"
+      className="relative bg-[#F8FAFC] dark:bg-[#0a0a14] border-t border-brand-zinc-200 dark:border-white/10 py-24 md:py-32"
     >
       {/* Dot grid */}
       <div

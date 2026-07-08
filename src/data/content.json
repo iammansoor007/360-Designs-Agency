@@ -13,27 +13,27 @@
     "links": [
       {
         "label": "Home",
-        "href": "#"
+        "href": "/"
       },
       {
         "label": "About Us",
-        "href": "#about"
+        "href": "/about"
       },
       {
         "label": "Services",
-        "href": "#services"
+        "href": "/#services"
       },
       {
         "label": "Portfolio",
-        "href": "#portfolio"
+        "href": "/#portfolio"
       },
       {
         "label": "Blog",
-        "href": "#blog"
+        "href": "/#blog"
       },
       {
         "label": "Contact",
-        "href": "#contact"
+        "href": "/#contact"
       }
     ]
   },
@@ -753,31 +753,31 @@
     "quickLinks": [
       {
         "name": "Home",
-        "href": "#"
+        "href": "/"
       },
       {
         "name": "About Us",
-        "href": "#about"
+        "href": "/about"
       },
       {
         "name": "Services",
-        "href": "#services"
+        "href": "/#services"
       },
       {
         "name": "Portfolio",
-        "href": "#portfolio"
+        "href": "/#portfolio"
       },
       {
         "name": "Blog",
-        "href": "#blog"
+        "href": "/#blog"
       },
       {
         "name": "FAQ",
-        "href": "#faq"
+        "href": "/#faq"
       },
       {
         "name": "Contact",
-        "href": "#contact"
+        "href": "/#contact"
       }
     ],
     "labelServices": "// Services",
