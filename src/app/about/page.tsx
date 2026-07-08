@@ -38,7 +38,14 @@ import {
   Trophy,
   Image as ImageIcon,
   Pencil,
-  Coins
+  Coins,
+  Lightbulb,
+  Briefcase,
+  Handshake,
+  Headphones,
+  Award,
+  ChevronLeft,
+  ChevronRight
 } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -59,16 +66,6 @@ const drawVariants = {
 
 export default function AboutPage() {
   const { aboutOwner } = content;
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains("dark"));
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains("dark"));
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
 
   return (
     <>
@@ -987,128 +984,174 @@ export default function AboutPage() {
         </section>
 
         {/* ── 8. WHY BUSINESSES CHOOSE US SECTION ─────────────────────── */}
-        <section className="relative overflow-hidden py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/50 dark:bg-white/[0.01]">
+        <section className="relative overflow-hidden py-16 md:py-24 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/50 dark:bg-white/[0.01]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
- 
-            <div className="text-left mb-12 flex flex-col items-start">
-              <span className="text-[10px] font-sans font-black tracking-widest text-[#0306AC] dark:text-[#FFF35C] uppercase mb-2">
-                // WHY BUSINESSES CHOOSE US
+  
+            <div className="text-center mb-16 flex flex-col items-center">
+              <span className="text-[9px] font-sans font-black tracking-widest text-[#0306AC] dark:text-[#FFF35C] uppercase mb-2">
+                WHY BUSINESSES CHOOSE US
               </span>
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-dark tracking-tight">
+              <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark tracking-tight leading-none">
                 Results. Reliability. <span className="text-[#0306AC] dark:text-[#FFF35C]">Relationship.</span>
               </h2>
+              <p className="text-xs sm:text-sm text-brand-zinc-550 dark:text-zinc-400 font-sans max-w-2xl mt-4 leading-relaxed">
+                We go beyond just delivering services — we build long-term partnerships that drive real growth and lasting impact for your business.
+              </p>
             </div>
- 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
- 
-              {/* Left Column: Team Picture */}
-              <div className="lg:col-span-5 relative w-full flex justify-center">
-                <div className="relative w-full max-w-[400px] aspect-[1.25] rounded-[24px] overflow-hidden border border-brand-zinc-200 dark:border-white/10 shadow-lg">
-                  <Image
-                    src="/blog4.png"
-                    alt="Results Reliability Relationship"
-                    fill
-                    sizes="(max-width: 768px) 100vw, 400px"
-                    className="object-cover"
-                  />
+  
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+  
+              {/* Left Column: Team Picture Card */}
+              <div className="lg:col-span-4 relative flex justify-center">
+                <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:h-full min-h-[300px] rounded-[32px] overflow-hidden bg-[#0306AC] border border-brand-zinc-200 dark:border-white/10 shadow-lg p-6 flex flex-col justify-between">
+                  {/* Decorative yellow arc line at top-right */}
+                  <div className="absolute -top-3 -right-3 w-16 h-16 border-t-2 border-r-2 border-brand-yellow rounded-tr-[32px] pointer-events-none" />
+                  <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-brand-yellow" />
+                  
+                  <div className="max-w-[200px] z-10">
+                    <p className="text-white text-xs sm:text-sm font-semibold leading-relaxed">
+                      We focus on what matters most —
+                    </p>
+                    <p className="text-[#FFF35C] text-base sm:text-lg font-black mt-1 leading-none">
+                      your growth.
+                    </p>
+                  </div>
+                  
+                  {/* Team picture placeholder gray box */}
+                  <div className="absolute right-0 bottom-0 w-[60%] h-[75%] bg-zinc-200 dark:bg-zinc-800 rounded-tl-3xl shadow-inner flex items-center justify-center text-[10px] font-mono text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider">
+                    [ Image ]
+                  </div>
                 </div>
               </div>
- 
-              {/* Right Column: 6 features in a 2x3 grid (Bento premium blocks) */}
-              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-5">
- 
-                {/* Feature 1 */}
-                <div className="p-5 rounded-2xl glass-card-premium flex gap-3.5 hover:border-brand-blue/30">
-                  <div className="h-8 w-8 rounded-lg bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
-                    <TrendingUp className="h-4 w-4" />
+  
+              {/* Right Column: 6 features in a 3-column grid */}
+              <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
+  
+                {/* Feature 1: Proven Results */}
+                <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
+                  <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
+                    <Target className="h-5 w-5" />
                   </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-xs text-brand-dark dark:text-white">Proven Results</h3>
-                    <p className="text-[10px] font-normal text-brand-zinc-500 mt-1 leading-relaxed">We focus on measurable outcomes that grow your business.</p>
-                  </div>
+                  <h3 className="font-heading font-extrabold text-xs text-brand-dark dark:text-white">Proven Results</h3>
+                  <div className="h-[2px] w-6 bg-[#FFF35C] mt-2 mb-2" />
+                  <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">We deliver measurable outcomes that drive real growth for your business.</p>
                 </div>
- 
-                {/* Feature 2 */}
-                <div className="p-5 rounded-2xl glass-card-premium flex gap-3.5 hover:border-brand-blue/30">
-                  <div className="h-8 w-8 rounded-lg bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
-                    <Palette className="h-4 w-4" />
+  
+                {/* Feature 2: Creative Excellence */}
+                <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
+                  <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
+                    <Lightbulb className="h-5 w-5" />
                   </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-xs text-brand-dark dark:text-white">Creative Excellence</h3>
-                    <p className="text-[10px] font-normal text-brand-zinc-500 mt-1 leading-relaxed">Unique designs and strategies that make your brand stand out.</p>
-                  </div>
+                  <h3 className="font-heading font-extrabold text-xs text-brand-dark dark:text-white">Creative Excellence</h3>
+                  <div className="h-[2px] w-6 bg-brand-blue mt-2 mb-2" />
+                  <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">Unique designs & strategies that make your brand stand out in the market.</p>
                 </div>
- 
-                {/* Feature 3 */}
-                <div className="p-5 rounded-2xl glass-card-premium flex gap-3.5 hover:border-brand-blue/30">
-                  <div className="h-8 w-8 rounded-lg bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
-                    <Eye className="h-4 w-4" />
+  
+                {/* Feature 3: Transparent Process */}
+                <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
+                  <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
+                    <MessageSquare className="h-5 w-5" />
                   </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-xs text-brand-dark dark:text-white">Transparent Process</h3>
-                    <p className="text-[10px] font-normal text-brand-zinc-500 mt-1 leading-relaxed">Clear communication and full visibility at every step.</p>
-                  </div>
+                  <h3 className="font-heading font-extrabold text-xs text-brand-dark dark:text-white">Transparent Process</h3>
+                  <div className="h-[2px] w-6 bg-[#FFF35C] mt-2 mb-2" />
+                  <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">Clear communication and full visibility at every stage of the project.</p>
                 </div>
- 
-                {/* Feature 4 */}
-                <div className="p-5 rounded-2xl glass-card-premium flex gap-3.5 hover:border-brand-blue/30">
-                  <div className="h-8 w-8 rounded-lg bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
-                    <Clock className="h-4 w-4" />
+  
+                {/* Feature 4: On-Time Delivery */}
+                <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
+                  <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
+                    <Clock className="h-5 w-5" />
                   </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-xs text-brand-dark dark:text-white">On-Time Delivery</h3>
-                    <p className="text-[10px] font-normal text-brand-zinc-500 mt-1 leading-relaxed">We respect deadlines and deliver on time, every time.</p>
-                  </div>
+                  <h3 className="font-heading font-extrabold text-xs text-brand-dark dark:text-white">On-Time Delivery</h3>
+                  <div className="h-[2px] w-6 bg-brand-blue mt-2 mb-2" />
+                  <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">We respect deadlines and deliver on time, every time.</p>
                 </div>
- 
-                {/* Feature 5 */}
-                <div className="p-5 rounded-2xl glass-card-premium flex gap-3.5 hover:border-brand-blue/30">
-                  <div className="h-8 w-8 rounded-lg bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
-                    <Users className="h-4 w-4" />
+  
+                {/* Feature 5: Dedicated Support */}
+                <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
+                  <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
+                    <Headphones className="h-5 w-5" />
                   </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-xs text-brand-dark dark:text-white">Dedicated Support</h3>
-                    <p className="text-[10px] font-normal text-brand-zinc-500 mt-1 leading-relaxed">Our team is always here to support your growth.</p>
-                  </div>
+                  <h3 className="font-heading font-extrabold text-xs text-brand-dark dark:text-white">Dedicated Support</h3>
+                  <div className="h-[2px] w-6 bg-[#FFF35C] mt-2 mb-2" />
+                  <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">Our team is always here to support you, whenever you need us.</p>
                 </div>
- 
-                {/* Feature 6 */}
-                <div className="p-5 rounded-2xl glass-card-premium flex gap-3.5 hover:border-brand-blue/30">
-                  <div className="h-8 w-8 rounded-lg bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
-                    <Users className="h-4 w-4" />
+  
+                {/* Feature 6: Long-Term Partnership */}
+                <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
+                  <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
+                    <Handshake className="h-5 w-5" />
                   </div>
-                  <div>
-                    <h3 className="font-heading font-bold text-xs text-brand-dark dark:text-white">Long-Term Partnership</h3>
-                    <p className="text-[10px] font-normal text-brand-zinc-500 mt-1 leading-relaxed">We build lasting relationships, not just projects.</p>
-                  </div>
+                  <h3 className="font-heading font-extrabold text-xs text-brand-dark dark:text-white">Long-Term Partnership</h3>
+                  <div className="h-[2px] w-6 bg-brand-blue mt-2 mb-2" />
+                  <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">We believe in building relationships not just projects for sustainable success.</p>
                 </div>
- 
+  
               </div>
- 
+  
             </div>
           </div>
         </section>
- 
+  
         {/* ── 9. ABOUT FOUNDER SECTION ─────────────────────────────────── */}
-        <section className="relative overflow-hidden py-16 md:py-20 border-b border-[#E5E7EB] dark:border-white/10 bg-white dark:bg-[#080710]">
+        <section className="relative overflow-hidden py-16 md:py-24 border-b border-[#E5E7EB] dark:border-white/10 bg-white dark:bg-[#080710]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
- 
-              {/* Left Column: Bio & Signature */}
-              <div className="lg:col-span-7 space-y-5 text-left">
-                <span className="text-[10px] font-sans font-black tracking-widest text-[#0306AC] dark:text-[#FFF35C] uppercase block">// ABOUT THE FOUNDER</span>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+  
+              {/* Left Column: Portrait image placeholder (graybox) */}
+              <div className="lg:col-span-3 flex justify-center">
+                <div className="relative aspect-[3/4] w-full max-w-[280px] rounded-[32px] overflow-hidden bg-zinc-200 dark:bg-zinc-800 border border-brand-zinc-200 dark:border-white/10 shadow-lg">
+                  {/* Graybox label */}
+                  <div className="absolute inset-0 flex items-center justify-center text-[11px] font-mono text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider">
+                    [ Portrait ]
+                  </div>
+                  
+                  {/* Bottom-left overlay card: 300+ Clients Worldwide */}
+                  <div className="absolute left-4 bottom-4 bg-white/95 dark:bg-[#12121e]/95 backdrop-blur-sm rounded-xl p-3 shadow-md border border-brand-zinc-100 dark:border-white/5 flex flex-col gap-1.5 max-w-[130px] z-10">
+                    <div className="flex items-center gap-1">
+                      <Users className="h-3 w-3 text-[#0306AC] dark:text-[#FFF35C]" />
+                      <span className="font-heading font-black text-xs text-brand-dark dark:text-white leading-none">300+</span>
+                    </div>
+                    <span className="text-[7.5px] font-bold text-brand-zinc-400 uppercase tracking-wider leading-none">Clients Worldwide</span>
+                    
+                    {/* Tiny avatar group */}
+                    <div className="flex -space-x-1 overflow-hidden mt-0.5">
+                      <div className="inline-block h-3.5 w-3.5 rounded-full ring-1 ring-white bg-zinc-300 dark:bg-zinc-700" />
+                      <div className="inline-block h-3.5 w-3.5 rounded-full ring-1 ring-white bg-zinc-400 dark:bg-zinc-600" />
+                      <div className="inline-block h-3.5 w-3.5 rounded-full ring-1 ring-white bg-zinc-500 dark:bg-zinc-500" />
+                      <div className="inline-block h-3.5 w-3.5 rounded-full ring-1 ring-white bg-zinc-600 dark:bg-zinc-400" />
+                      <div className="inline-block h-3.5 w-3.5 rounded-full ring-1 ring-white bg-zinc-700 dark:bg-zinc-300" />
+                    </div>
+                  </div>
+  
+                  {/* Bottom-right overlay cursive signature: Mohsin / Ahsan */}
+                  <div className="absolute right-4 bottom-5 text-[#0306AC] dark:text-[#FFF35C] font-heading font-black italic text-sm tracking-wide z-10 opacity-80 select-none">
+                    Ahsan
+                  </div>
+                </div>
+              </div>
+  
+              {/* Middle Column: Bio & Signature */}
+              <div className="lg:col-span-5 space-y-5 text-left">
+                <div className="space-y-1">
+                  <span className="text-[9px] font-sans font-black tracking-widest text-[#0306AC] dark:text-[#FFF35C] uppercase block">// ABOUT THE FOUNDER</span>
+                  <div className="h-0.5 w-6 bg-[#FFF35C]" />
+                </div>
                 <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight leading-tight">
                   Hi, I'm <span className="text-[#0306AC] dark:text-[#FFF35C]">Ahsan</span>
                 </h2>
- 
-                <div className="space-y-3.5 text-xs sm:text-sm font-normal font-sans leading-relaxed text-brand-zinc-500">
-                  <p>{aboutOwner.bioParagraph1}</p>
-                  <p>{aboutOwner.bioParagraph2}</p>
+                <p className="text-xs sm:text-sm font-bold text-[#0306AC] dark:text-[#FFF35C] tracking-wide uppercase leading-none mt-0.5">
+                  Founder & Digital Strategist
+                </p>
+  
+                <div className="space-y-3.5 text-xs sm:text-sm font-normal font-sans leading-relaxed text-brand-zinc-500 dark:text-zinc-400">
+                  <p>I'm a digital strategist and entrepreneur with a passion for helping brands grow through innovative design, smart marketing, and powerful strategies.</p>
+                  <p>With over 7+ years of experience, I've had the privilege of working with 300+ clients worldwide, delivering results that make a real difference.</p>
                 </div>
- 
-                {/* Handwritten brush signature: viewport scroll-triggered SVG stroke draw */}
-                <div className="pt-4 select-none">
-                  <svg className="w-40 h-16 text-[#0306AC] dark:text-[#FFF35C]" viewBox="0 0 150 50" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+  
+                {/* Handwritten signature and down arrow CTA */}
+                <div className="pt-4 flex items-center gap-6 select-none">
+                  <svg className="w-32 h-12 text-[#0306AC] dark:text-[#FFF35C]" viewBox="0 0 150 50" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                     <motion.path
                       d="M 15 35 C 25 15, 35 15, 42 38 C 50 18, 58 18, 65 35 C 72 20, 80 20, 85 35 C 92 15, 100 25, 105 15 C 112 30, 118 35, 130 25 M 10 42 Q 75 35, 140 38"
                       initial={{ pathLength: 0 }}
@@ -1117,165 +1160,184 @@ export default function AboutPage() {
                       transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
                     />
                   </svg>
+                  
+                  <a
+                    href="#contact"
+                    className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-brand-dark hover:scale-105 active:scale-95 transition-all duration-300 shadow-md"
+                    aria-label="Know More About Me"
+                  >
+                    <ArrowRight className="h-4.5 w-4.5 rotate-90" />
+                  </a>
+                  <span className="text-[10px] font-sans font-black tracking-widest uppercase text-brand-dark dark:text-white">Know More About Me</span>
                 </div>
               </div>
- 
+  
               {/* Right Column: 4 grid stat cards (2x2) */}
-              <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
- 
+              <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
+  
                 {/* Card 1 */}
-                <div className="p-5 rounded-2xl glass-card-premium flex flex-col justify-between h-[110px] hover:border-brand-blue/30">
+                <div className="p-5 rounded-2xl bg-zinc-50/50 dark:bg-white/[0.02] border border-brand-zinc-200/80 dark:border-white/10 flex flex-col justify-between h-[120px] hover:border-brand-blue/30 transition-all duration-300">
                   <div className="flex justify-between items-start">
-                    <Star className="h-5 w-5 text-[#FFF35C]" fill="#FFF35C" />
+                    <div className="h-8 w-8 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue">
+                      <Award className="h-4.5 w-4.5" />
+                    </div>
                     <span className="font-heading font-black text-lg text-[#0306AC] dark:text-[#FFF35C] leading-none">7+</span>
                   </div>
-                  <span className="text-[9.5px] font-black text-brand-dark dark:text-white uppercase tracking-wider block">7+ Years Experience</span>
+                  <div>
+                    <h3 className="text-[9.5px] font-black text-brand-dark dark:text-white uppercase tracking-wider block">Years Experience</h3>
+                    <p className="text-[8px] text-brand-zinc-400 mt-1 leading-normal font-sans">Years of expertise in delivering innovative digital solutions that drive results.</p>
+                  </div>
                 </div>
- 
+  
                 {/* Card 2 */}
-                <div className="p-5 rounded-2xl glass-card-premium flex flex-col justify-between h-[110px] hover:border-brand-blue/30">
+                <div className="p-5 rounded-2xl bg-zinc-50/50 dark:bg-white/[0.02] border border-brand-zinc-200/80 dark:border-white/10 flex flex-col justify-between h-[120px] hover:border-brand-blue/30 transition-all duration-300">
                   <div className="flex justify-between items-start">
-                    <FolderClosed className="h-5 w-5 text-brand-blue" />
+                    <div className="h-8 w-8 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue">
+                      <Briefcase className="h-4.5 w-4.5" />
+                    </div>
                     <span className="font-heading font-black text-lg text-[#0306AC] dark:text-[#FFF35C] leading-none">300+</span>
                   </div>
-                  <span className="text-[9.5px] font-black text-brand-dark dark:text-white uppercase tracking-wider block">300+ Projects Completed</span>
+                  <div>
+                    <h3 className="text-[9.5px] font-black text-brand-dark dark:text-white uppercase tracking-wider block">Projects Completed</h3>
+                    <p className="text-[8px] text-brand-zinc-400 mt-1 leading-normal font-sans">Successfully completed projects across 20+ industries worldwide.</p>
+                  </div>
                 </div>
- 
+  
                 {/* Card 3 */}
-                <div className="p-5 rounded-2xl glass-card-premium flex flex-col justify-between h-[110px] hover:border-brand-blue/30">
+                <div className="p-5 rounded-2xl bg-zinc-50/50 dark:bg-white/[0.02] border border-brand-zinc-200/80 dark:border-white/10 flex flex-col justify-between h-[120px] hover:border-brand-blue/30 transition-all duration-300">
                   <div className="flex justify-between items-start">
-                    <Globe className="h-5 w-5 text-brand-blue" />
+                    <div className="h-8 w-8 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue">
+                      <Globe className="h-4.5 w-4.5" />
+                    </div>
                     <span className="font-heading font-black text-lg text-[#0306AC] dark:text-[#FFF35C] leading-none">Global</span>
                   </div>
-                  <span className="text-[9.5px] font-black text-brand-dark dark:text-white uppercase tracking-wider block">Global Client Base</span>
+                  <div>
+                    <h3 className="text-[9.5px] font-black text-brand-dark dark:text-white uppercase tracking-wider block">Client Base</h3>
+                    <p className="text-[8px] text-brand-zinc-400 mt-1 leading-normal font-sans">Proud to work with clients from USA, UK, Canada, Australia, and more.</p>
+                  </div>
                 </div>
- 
+  
                 {/* Card 4 */}
-                <div className="p-5 rounded-2xl glass-card-premium flex flex-col justify-between h-[110px] hover:border-brand-blue/30">
+                <div className="p-5 rounded-2xl bg-zinc-50/50 dark:bg-white/[0.02] border border-brand-zinc-200/80 dark:border-white/10 flex flex-col justify-between h-[120px] hover:border-brand-blue/30 transition-all duration-300">
                   <div className="flex justify-between items-start">
-                    <FileText className="h-5 w-5 text-brand-blue" />
+                    <div className="h-8 w-8 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue">
+                      <Code className="h-4.5 w-4.5" />
+                    </div>
                     <span className="font-heading font-black text-lg text-[#0306AC] dark:text-[#FFF35C] leading-none">Strategy</span>
                   </div>
-                  <span className="text-[9.5px] font-black text-brand-dark dark:text-white uppercase tracking-wider block">Strategy-First Approach</span>
+                  <div>
+                    <h3 className="text-[9.5px] font-black text-brand-dark dark:text-white uppercase tracking-wider block">Strategy-First Approach</h3>
+                    <p className="text-[8px] text-brand-zinc-400 mt-1 leading-normal font-sans">We follow a clear strategy-first approach to create impactful and scalable solutions.</p>
+                  </div>
                 </div>
- 
+  
               </div>
-
+  
             </div>
           </div>
         </section>
 
-        {/* ── 10. CLIENT REVIEWS SECTION ──────────────────────────────── */}
-        <section className="relative overflow-hidden py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/50 dark:bg-white/[0.01]">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+        {/* ── 10. CLIENT REVIEWS CAROUSEL SECTION ───────────────────────── */}
+        <ReviewsCarousel />
 
-            <div className="text-center mb-12 flex flex-col items-center">
-              <span className="text-[10px] font-sans font-black tracking-widest text-[#0306AC] dark:text-[#FFF35C] uppercase mb-2">
-                // CLIENT REVIEWS
-              </span>
-              <h2 className="font-heading text-2xl sm:text-3xl md:text-4xl font-extrabold text-brand-dark tracking-tight">
-                What Our <span className="text-[#0306AC] dark:text-[#FFF35C]">Clients Say</span>
-              </h2>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
-
-              {/* Review 1 */}
-              <div className="p-5.5 rounded-2xl glass-card-premium flex flex-col justify-between h-[230px] hover:border-[#0306AC] transition-all">
-                <div>
-                  <div className="flex gap-1 mb-3 text-amber-500">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-current" />)}
-                  </div>
-                  <p className="text-[11.5px] font-semibold text-brand-zinc-500 leading-relaxed italic">
-                    "360 Designs Agency transformed our ideas into a stunning website. Their creativity and support throughout the project were excellent."
-                  </p>
-                </div>
-                <div className="flex items-center gap-3 pt-3 border-t border-brand-zinc-100 dark:border-white/5">
-                  <div className="h-7 w-7 rounded-full bg-brand-blue text-white dark:text-[#080710] font-heading font-black text-xs flex items-center justify-center border border-white/10 shadow-sm">
-                    J
-                  </div>
-                  <div>
-                    <span className="block text-[10px] font-black text-brand-dark uppercase tracking-wider leading-none">John Carter</span>
-                    <span className="block text-[7px] font-bold text-brand-zinc-400 mt-1 leading-none">CEO, TechWave</span>
-                  </div>
-                </div>
-              </div>
- 
-              {/* Review 2 */}
-              <div className="p-5.5 rounded-2xl glass-card-premium flex flex-col justify-between h-[230px] hover:border-[#0306AC] transition-all">
-                <div>
-                  <div className="flex gap-1 mb-3 text-amber-500">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-current" />)}
-                  </div>
-                  <p className="text-[11.5px] font-semibold text-brand-zinc-500 leading-relaxed italic">
-                    "The team delivered more than we expected. Our online presence has never been better. Highly recommended!"
-                  </p>
-                </div>
-                <div className="flex items-center gap-3 pt-3 border-t border-brand-zinc-100 dark:border-white/5">
-                  <div className="h-7 w-7 rounded-full bg-brand-blue text-white dark:text-[#080710] font-heading font-black text-xs flex items-center justify-center border border-white/10 shadow-sm">
-                    S
-                  </div>
-                  <div>
-                    <span className="block text-[10px] font-black text-brand-dark uppercase tracking-wider leading-none">Sarah Mitchell</span>
-                    <span className="block text-[7px] font-bold text-brand-zinc-400 mt-1 leading-none">Marketing Director, BrightView</span>
-                  </div>
-                </div>
-              </div>
- 
-              {/* Review 3 */}
-              <div className="p-5.5 rounded-2xl glass-card-premium flex flex-col justify-between h-[230px] hover:border-[#0306AC] transition-all">
-                <div>
-                  <div className="flex gap-1 mb-3 text-amber-500">
-                    {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-current" />)}
-                  </div>
-                  <p className="text-[11.5px] font-semibold text-brand-zinc-500 leading-relaxed italic">
-                    "Professional, reliable, and result-driven. 360 Designs Agency is our go-to partner for digital growth."
-                  </p>
-                </div>
-                <div className="flex items-center gap-3 pt-3 border-t border-brand-zinc-100 dark:border-white/5">
-                  <div className="h-7 w-7 rounded-full bg-brand-blue text-white dark:text-[#080710] font-heading font-black text-xs flex items-center justify-center border border-white/10 shadow-sm">
-                    D
-                  </div>
-                  <div>
-                    <span className="block text-[10px] font-black text-brand-dark uppercase tracking-wider leading-none">David Thompson</span>
-                    <span className="block text-[7px] font-bold text-brand-zinc-400 mt-1 leading-none">Founder, Nexus Solutions</span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </section>
+        {/* Cursive Font Injector for 'Together' */}
+        <style dangerouslySetInnerHTML={{ __html: `
+          @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
+          .font-cursive {
+            font-family: 'Dancing Script', cursive;
+          }
+        `}} />
 
         {/* ── 11. BOTTOM CTA BANNER SECTION ──────────────────────────── */}
-        <section className="relative overflow-hidden py-16 md:py-20 bg-white dark:bg-[#080710]">
+        <section className="relative overflow-hidden py-14 md:py-20 bg-white dark:bg-[#080710]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
-            <div className="w-full bg-[#0306AC] rounded-[24px] p-8 md:p-12 text-center text-white relative overflow-hidden shadow-2xl">
+            <div className="w-full bg-[#0306AC] rounded-[32px] overflow-hidden relative shadow-2xl min-h-[350px] flex items-stretch">
 
-              {/* Overlay graphic grid lines */}
-              <div className="absolute inset-0 bg-linear-grid-white-3 [background-size:32px_32px] opacity-10 pointer-events-none" />
+              {/* BG grid dots */}
+              <div className="absolute inset-0 bg-[radial-gradient(#ffffff18_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
+              
+              {/* Decorative outline circles behind portrait */}
+              <div className="absolute right-[5%] top-1/2 -translate-y-1/2 w-[340px] h-[340px] pointer-events-none hidden lg:block select-none opacity-40">
+                <svg viewBox="0 0 100 100" className="w-full h-full text-white/20">
+                  <circle cx="50" cy="50" r="30" fill="none" stroke="currentColor" strokeWidth="0.5" />
+                  <circle cx="50" cy="50" r="40" fill="none" stroke="currentColor" strokeWidth="0.5" />
+                  <circle cx="50" cy="50" r="48" fill="none" stroke="currentColor" strokeWidth="0.5" />
+                </svg>
+              </div>
 
-              <div className="relative z-10 max-w-2xl mx-auto space-y-5">
-                <span className="text-[8px] font-sans font-black tracking-widest text-[#FFF35C] uppercase block">
-                  READY TO GROW YOUR BUSINESS?
-                </span>
-                <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold leading-none tracking-tight">
-                  Let's Build Something <br />
-                  Amazing Together
+              {/* Halftone dot grid on right side */}
+              <div className="absolute right-4 top-1/2 -translate-y-1/2 grid grid-cols-5 gap-2 opacity-25 hidden lg:grid">
+                {Array.from({ length: 25 }).map((_, i) => (
+                  <div key={i} className="h-1.5 w-1.5 rounded-full bg-white" />
+                ))}
+              </div>
+
+              {/* Left: copy */}
+              <div className="relative z-10 flex flex-col justify-center gap-5 p-8 md:p-12 lg:max-w-[55%]">
+                <div className="space-y-0.5">
+                  <span className="text-[9px] font-sans font-black tracking-[0.22em] text-[#FFF35C] uppercase block">
+                    READY TO GROW YOUR BUSINESS?
+                  </span>
+                  <div className="h-0.5 w-6 bg-[#FFF35C] mt-1" />
+                </div>
+
+                <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black leading-[1.08] tracking-tight text-white">
+                  Let's Build Something<br />
+                  Amazing{" "}
+                  <div className="relative inline-block">
+                    <span className="font-cursive text-[#FFF35C] text-4xl sm:text-5xl font-normal pl-1">Together</span>
+                    <svg className="absolute left-0 bottom-[-4px] w-full h-2 text-[#FFF35C]" viewBox="0 0 100 10" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+                      <path d="M 5 5 C 30 8, 70 8, 95 3" />
+                    </svg>
+                  </div>
                 </h2>
 
-                <div className="pt-4 flex justify-center">
+                <p className="text-[11.5px] sm:text-sm text-white/75 font-sans leading-relaxed max-w-[420px]">
+                  Have a project in mind? Let's discuss your ideas and turn them into powerful digital solutions that drive real results for your business.
+                </p>
+
+                <div className="flex items-center gap-4 flex-wrap pt-2">
                   <a
                     href="/#contact"
-                    className="group relative inline-flex items-center gap-3 overflow-hidden rounded-full bg-[#FFF35C] px-7 py-3.5 text-xs font-black uppercase tracking-[0.15em] text-[#080710] shadow-[0_4px_20px_rgba(255,243,92,0.3)] active:scale-[0.97] transition-all duration-300 hover:bg-[#ffe65c]"
+                    className="group inline-flex items-center gap-3 rounded-full bg-[#FFF35C] px-6 py-3.5 text-[10.5px] font-black uppercase tracking-[0.16em] text-[#080710] hover:bg-[#ffe44a] active:scale-95 transition-all duration-300 shadow-lg"
                   >
-                    Get Started Today
+                    GET STARTED TODAY
                     <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-[#080710] text-[#FFF35C] transition-transform duration-300 group-hover:translate-x-1">
-                      <Play className="h-2 w-2 fill-current" />
+                      <ArrowRight className="h-3 w-3" />
                     </span>
                   </a>
+
+                  <button className="inline-flex items-center gap-2.5 text-white text-[11px] font-bold uppercase tracking-widest hover:text-[#FFF35C] transition-colors duration-200">
+                    <span className="flex h-8 w-8 items-center justify-center rounded-full border border-white/30 text-white hover:border-[#FFF35C] hover:text-[#FFF35C] transition-all duration-200">
+                      <Play className="h-2.5 w-2.5 fill-current ml-0.5" />
+                    </span>
+                    WATCH OUR STORY
+                  </button>
                 </div>
               </div>
+
+              {/* Right: portrait graybox + floating card */}
+              <div className="hidden lg:flex flex-1 items-end justify-center relative pr-8">
+                {/* Portrait placeholder */}
+                <div className="relative z-10 w-[240px] h-[320px] bg-zinc-300/20 rounded-t-[24px] flex items-center justify-center text-[10px] font-mono text-white/30 uppercase tracking-wider font-bold self-end border border-white/10 shadow-inner">
+                  [ Portrait ]
+                </div>
+
+                {/* Let's Connect floating card */}
+                <div className="absolute bottom-8 right-0 bg-white/95 dark:bg-[#12121e]/95 backdrop-blur-sm rounded-2xl px-4 py-3.5 shadow-xl border border-white/10 flex items-start gap-3 max-w-[190px] z-20">
+                  <div className="h-9 w-9 rounded-xl bg-[#0306AC]/10 flex items-center justify-center shrink-0 text-[#0306AC]">
+                    <Headphones className="h-4.5 w-4.5" />
+                  </div>
+                  <div>
+                    <p className="text-[11px] font-black text-brand-dark dark:text-white leading-none">Let's Connect</p>
+                    <p className="text-[9px] text-brand-zinc-400 mt-1 leading-snug">We're just a message away to help you grow.</p>
+                  </div>
+                </div>
+
+                {/* Yellow dot accent */}
+                <div className="absolute top-12 right-24 h-3 w-3 rounded-full bg-[#FFF35C] z-20" />
+              </div>
+
             </div>
           </div>
         </section>
@@ -1286,3 +1348,209 @@ export default function AboutPage() {
     </>
   );
 }
+
+/* ── Inline Reviews Carousel Component ─────────────────────────────────── */
+const REVIEWS = [
+  {
+    quote: "360 Designs Agency transformed our ideas into a stunning website. Their creativity, professionalism, and support throughout the project were excellent.",
+    name: "John Carter",
+    role: "CEO, TechNova",
+    initial: "J",
+    accent: "#0306AC",
+  },
+  {
+    quote: "The team delivered more than we expected. Our online presence has never been better. Highly recommended!",
+    name: "Sarah Mitchell",
+    role: "Marketing Director, BrightWave",
+    initial: "S",
+    accent: "#FFF35C",
+  },
+  {
+    quote: "Professional, reliable, and result-driven. 360 Designs Agency is our go-to partner for digital growth.",
+    name: "David Thompson",
+    role: "Founder, Nexus Solutions",
+    initial: "D",
+    accent: "#0306AC",
+  },
+  {
+    quote: "Absolutely fantastic service. They understood our vision instantly and delivered beyond our expectations every single step of the way.",
+    name: "Emily Rodriguez",
+    role: "COO, BrightPath Inc.",
+    initial: "E",
+    accent: "#FFF35C",
+  },
+  {
+    quote: "From branding to web design — they handled everything flawlessly. Our conversion rate jumped 40% in the first month after launch.",
+    name: "Marcus Liu",
+    role: "Founder, Apex Digital",
+    initial: "M",
+    accent: "#0306AC",
+  },
+];
+
+function ReviewsCarousel() {
+  const [active, setActive] = useState(0);
+  const [itemsPerView, setItemsPerView] = useState(3);
+
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 640) {
+        setItemsPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setItemsPerView(2);
+      } else {
+        setItemsPerView(3);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  const maxActive = Math.max(0, REVIEWS.length - itemsPerView);
+  const safeActive = Math.min(active, maxActive);
+
+  // If itemsPerView changes, clamp the active slide to safe bounds
+  useEffect(() => {
+    if (active > maxActive) {
+      setActive(maxActive);
+    }
+  }, [itemsPerView, maxActive, active]);
+
+  const handlePrev = () => {
+    setActive((prev) => (prev > 0 ? prev - 1 : maxActive));
+  };
+
+  const handleNext = () => {
+    setActive((prev) => (prev < maxActive ? prev + 1 : 0));
+  };
+
+  return (
+    <section className="relative overflow-hidden py-16 md:py-24 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710]">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
+
+        {/* Header */}
+        <div className="text-center mb-14 flex flex-col items-center">
+          <span className="text-[9px] font-sans font-black tracking-widest text-[#0306AC] dark:text-[#FFF35C] uppercase mb-2">
+            CLIENT REVIEWS
+          </span>
+          <div className="h-0.5 w-6 bg-[#FFF35C] mb-4" />
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-black text-brand-dark dark:text-white tracking-tight">
+            What Our <span className="text-[#0306AC] dark:text-[#FFF35C]">Clients</span> Say
+          </h2>
+          <p className="text-xs sm:text-sm text-brand-zinc-500 dark:text-zinc-400 font-sans max-w-lg mt-4 leading-relaxed">
+            We take pride in the trust our clients place in us. Here's what they have to say about working with 360 Designs Agency.
+          </p>
+        </div>
+
+        {/* Carousel Container with Arrows */}
+        <div className="relative max-w-6xl mx-auto px-4 sm:px-10">
+          
+          {/* Navigation Arrows */}
+          <button
+            onClick={handlePrev}
+            className="absolute left-[-10px] sm:left-0 top-1/2 -translate-y-1/2 z-20 h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-md flex items-center justify-center text-brand-dark dark:text-white hover:scale-105 active:scale-95 transition-all hover:border-[#0306AC]"
+            aria-label="Previous reviews"
+          >
+            <ChevronLeft className="h-5 w-5" />
+          </button>
+
+          <button
+            onClick={handleNext}
+            className="absolute right-[-10px] sm:right-0 top-1/2 -translate-y-1/2 z-20 h-10 w-10 sm:h-11 sm:w-11 rounded-full bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-md flex items-center justify-center text-brand-dark dark:text-white hover:scale-105 active:scale-95 transition-all hover:border-[#0306AC]"
+            aria-label="Next reviews"
+          >
+            <ChevronRight className="h-5 w-5" />
+          </button>
+
+          {/* Viewport */}
+          <div className="overflow-hidden w-full">
+            <motion.div
+              className="flex"
+              animate={{ x: `-${safeActive * (100 / itemsPerView)}%` }}
+              transition={{ type: "spring", stiffness: 220, damping: 26 }}
+            >
+              {REVIEWS.map((r, i) => (
+                <div
+                  key={i}
+                  className="shrink-0 px-3 transition-all duration-300"
+                  style={{ width: `${100 / itemsPerView}%` }}
+                >
+                  <div className="relative p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col justify-between hover:border-[#0306AC]/30 hover:shadow-md h-full min-h-[240px] overflow-hidden">
+                    
+                    {/* Decorative large quote mark */}
+                    <span className="absolute top-4 right-5 text-6xl font-serif leading-none text-brand-zinc-100 dark:text-white/5 select-none pointer-events-none">
+                      ❝
+                    </span>
+
+                    <div className="space-y-4">
+                      {/* Stars */}
+                      <div className="flex gap-1 text-amber-400">
+                        {[...Array(5)].map((_, si) => (
+                          <Star key={si} className="h-3.5 w-3.5 fill-current" />
+                        ))}
+                      </div>
+                      {/* Quote */}
+                      <p className="text-[12px] sm:text-[13px] font-medium text-brand-zinc-500 dark:text-zinc-400 leading-relaxed italic relative z-10">
+                        "{r.quote}"
+                      </p>
+                    </div>
+
+                    {/* Bottom: avatar + name */}
+                    <div className="mt-6">
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="h-9 w-9 rounded-full flex items-center justify-center font-heading font-black text-sm shadow-sm shrink-0"
+                          style={{
+                            backgroundColor: r.accent === "#FFF35C" ? "#FFF35C" : "#0306AC",
+                            color: r.accent === "#FFF35C" ? "#080710" : "#ffffff",
+                          }}
+                        >
+                          {r.initial}
+                        </div>
+                        <div>
+                          <span className="block text-[10px] font-black text-brand-dark dark:text-white uppercase tracking-wider leading-none">
+                            {r.name}
+                          </span>
+                          <span className="block text-[8.5px] font-semibold text-brand-zinc-400 mt-1 leading-none">
+                            {r.role}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Absolute bottom accent line */}
+                    <div
+                      className="absolute bottom-0 left-0 right-0 h-1"
+                      style={{ backgroundColor: r.accent === "#FFF35C" ? "#FFF35C" : "#0306AC" }}
+                    />
+
+                  </div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+        </div>
+
+        {/* Dot indicators */}
+        <div className="flex justify-center gap-2 mt-10">
+          {Array.from({ length: maxActive + 1 }).map((_, di) => (
+            <button
+              key={di}
+              onClick={() => setActive(di)}
+              aria-label={`Go to page ${di + 1}`}
+              className={`rounded-full transition-all duration-300 ${
+                di === safeActive
+                  ? "w-6 h-2.5 bg-[#0306AC] dark:bg-[#FFF35C]"
+                  : "w-2.5 h-2.5 bg-brand-zinc-200 dark:bg-white/20 hover:bg-[#0306AC]/40"
+              }`}
+            />
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
+

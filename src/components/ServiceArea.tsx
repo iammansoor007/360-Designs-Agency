@@ -8,18 +8,8 @@ import content from "@/data/content.json";
 
 export default function ServiceArea() {
   const [activeHub, setActiveHub] = useState<string | null>(null);
-  const [isDark, setIsDark] = useState(false);
   const { serviceArea } = content;
   const hubs = serviceArea.hubs;
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains("dark"));
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains("dark"));
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
 
   // Let's add coords mappings locally since they represent UI pixel coordinates
   const coordsMap: Record<string, { x: string; y: string }> = {
@@ -210,39 +200,27 @@ export default function ServiceArea() {
                       className="absolute -translate-x-1/2 -translate-y-1/2 h-8 w-8 rounded-full bg-brand-yellow/30 pointer-events-none"
                     />
 
-                    {/* Idle subtle pulse */}
+                     {/* Idle subtle pulse */}
                     <div
-                      className="absolute -translate-x-1/2 -translate-y-1/2 h-5 w-5 rounded-full pointer-events-none"
-                      style={{
-                        background: isDark ? "rgba(255, 243, 92, 0.15)" : "rgba(3,130,246,0.15)",
-                        animation: "ping 2s cubic-bezier(0,0,0.2,1) infinite",
-                      }}
+                      className="absolute -translate-x-1/2 -translate-y-1/2 h-5 w-5 rounded-full pointer-events-none bg-[#0306AC]/15 dark:bg-[#FFF35C]/15 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"
                     />
 
                     {/* Pin dot */}
-                    <motion.div
-                      animate={{
-                        scale: isActive ? 1.6 : 1,
-                        backgroundColor: isActive
-                          ? (isDark ? "#0306AC" : "#FFF35C")
-                          : (isDark ? "#FFF35C" : "#0306AC"),
-                        borderColor: isActive
-                          ? (isDark ? "#FFF35C" : "#0306AC")
-                          : (isDark ? "#080710" : "#ffffff"),
-                      }}
-                      transition={{ duration: 0.2, type: "spring", stiffness: 300 }}
-                      className="absolute -translate-x-1/2 -translate-y-1/2 flex h-3 w-3 sm:h-3.5 sm:w-3.5 items-center justify-center rounded-full border-2 shadow-md"
+                    <div
+                      className={`absolute -translate-x-1/2 -translate-y-1/2 flex h-3 w-3 sm:h-3.5 sm:w-3.5 items-center justify-center rounded-full border-2 shadow-md transition-all duration-200 ${
+                        isActive
+                          ? "scale-150 bg-[#FFF35C] dark:bg-[#0306AC] border-[#0306AC] dark:border-[#FFF35C]"
+                          : "scale-100 bg-[#0306AC] dark:bg-[#FFF35C] border-white dark:border-[#080710]"
+                      }`}
                     >
-                      <motion.div
-                        animate={{
-                          backgroundColor: isActive
-                            ? (isDark ? "#FFF35C" : "#0306AC")
-                            : (isDark ? "#080710" : "#ffffff")
-                        }}
-                        transition={{ duration: 0.2 }}
-                        className="h-1 w-1 rounded-full"
+                      <div
+                        className={`h-1 w-1 rounded-full transition-colors duration-200 ${
+                          isActive
+                            ? "bg-[#0306AC] dark:bg-[#FFF35C]"
+                            : "bg-white dark:bg-[#080710]"
+                        }`}
                       />
-                    </motion.div>
+                    </div>
                   </div>
                 );
               })}

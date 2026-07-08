@@ -3,6 +3,7 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowUp, Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import { FormEvent, useState } from "react";
+import Link from "next/link";
 import content from "@/data/content.json";
  
 export default function Footer() {
@@ -117,9 +118,9 @@ export default function Footer() {
             <ul className="space-y-2.5 text-xs md:text-sm font-semibold text-brand-zinc-300">
               {footer.quickLinks.map((link, idx) => (
                 <li key={idx}>
-                  <a href={link.href} className="inline-block hover:text-brand-yellow dark:hover:text-brand-blue hover:translate-x-1 transition-all duration-200">
+                  <Link href={link.href} className="inline-block hover:text-brand-yellow dark:hover:text-brand-blue hover:translate-x-1 transition-all duration-200">
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -250,9 +251,9 @@ export default function Footer() {
         
         <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full md:w-auto justify-between md:justify-end">
           <div className="flex gap-4 sm:gap-6 text-[10px] font-bold text-brand-zinc-500 dark:text-brand-zinc-400 uppercase tracking-wider">
-            <a href={footer.privacyHref} className="hover:text-brand-yellow dark:hover:text-brand-blue transition-colors">{footer.privacyText}</a>
+            <Link href={footer.privacyHref} className="hover:text-brand-yellow dark:hover:text-brand-blue transition-colors">{footer.privacyText}</Link>
             <span>{footer.linkSeparator}</span>
-            <a href={footer.termsHref} className="hover:text-brand-yellow dark:hover:text-brand-blue transition-colors">{footer.termsText}</a>
+            <Link href={footer.termsHref} className="hover:text-brand-yellow dark:hover:text-brand-blue transition-colors">{footer.termsText}</Link>
           </div>
  
           <button

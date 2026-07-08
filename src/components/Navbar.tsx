@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { ArrowUpRight, Menu, X, Star, Sun, Moon } from "lucide-react";
 import { useState, useEffect } from "react";
+import Link from "next/link";
 
 import content from "@/data/content.json";
 
@@ -57,14 +58,14 @@ export default function Navbar() {
         {/* Desktop Nav - Centered */}
         <nav className="hidden md:flex items-center gap-8 font-sans font-bold text-xs uppercase tracking-wider text-brand-dark">
           {navbar.links.map((item) => (
-            <a
+            <Link
               key={item.label}
               href={item.href}
               className="relative py-1 hover:text-brand-blue transition-colors group flex items-center gap-1"
             >
               {item.label}
               <span className="absolute bottom-0 left-0 w-0 h-[2px] bg-brand-blue transition-all duration-300 group-hover:w-full" />
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -126,14 +127,14 @@ export default function Navbar() {
         >
           <nav className="flex flex-col gap-4 text-sm font-bold uppercase tracking-wider">
             {navbar.links.map((item) => (
-              <a
+              <Link
                 key={item.label}
                 href={item.href}
                 onClick={() => setIsOpen(false)}
                 className="block py-2 text-brand-dark hover:text-brand-blue transition-colors"
               >
                 {item.label}
-              </a>
+              </Link>
             ))}
             <hr className="border-brand-zinc-100" />
             <a

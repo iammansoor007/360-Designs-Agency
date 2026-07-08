@@ -24,16 +24,6 @@ function AnimatedStat({
   const isInView = useInView(ref, { once: false, margin: "-80px" });
   const [displayed, setDisplayed] = useState(value.replace(/[0-9.]/g, "0"));
   const [dotProgress, setDotProgress] = useState(0);
-  const [isDark, setIsDark] = useState(false);
-
-  useEffect(() => {
-    setIsDark(document.documentElement.classList.contains("dark"));
-    const observer = new MutationObserver(() => {
-      setIsDark(document.documentElement.classList.contains("dark"));
-    });
-    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
-    return () => observer.disconnect();
-  }, []);
 
   useEffect(() => {
     if (isInView) {
@@ -87,15 +77,15 @@ function AnimatedStat({
         <svg viewBox="0 0 82 82" className="relative w-full h-full -rotate-90">
           <defs>
             <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor={isDark ? "#FFF35C" : "#0306AC"} />
-              <stop offset="100%" stopColor={isDark ? "#FFA800" : "#2563EB"} />
+              <stop offset="0%" stopColor="var(--svg-gradient-stop-1)" />
+              <stop offset="100%" stopColor="var(--svg-gradient-stop-2)" />
             </linearGradient>
           </defs>
           {/* Track */}
           <circle
             cx="41" cy="41" r={RADIUS}
             fill="none"
-            stroke={isDark ? "rgba(255, 255, 255, 0.08)" : "rgba(3, 6, 172, 0.08)"}
+            stroke="var(--svg-track-stroke)"
             strokeWidth="5"
           />
           {/* Animated fill */}
@@ -114,7 +104,7 @@ function AnimatedStat({
             fill="#FFF35C"
             stroke="white"
             strokeWidth="1.5"
-            style={{ filter: isDark ? "drop-shadow(0px 1.5px 3px rgba(255, 243, 92, 0.45))" : "drop-shadow(0px 1.5px 3px rgba(3, 6, 172, 0.45))" }}
+            style={{ filter: "var(--svg-dot-shadow)" }}
           />
         </svg>
         {/* Number */}
