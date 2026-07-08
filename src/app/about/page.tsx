@@ -47,8 +47,6 @@ import {
   ChevronLeft,
   ChevronRight
 } from "lucide-react";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import content from "@/data/content.json";
 
 // ── Drawing Animation for Hand-Drawn SVG Underlines ────────────────
@@ -64,13 +62,59 @@ const drawVariants = {
   })
 };
 
+const TickerDigit = ({ digit }: { digit: number }) => {
+  const numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  return (
+    <span 
+      className="relative inline-block h-[1em] overflow-hidden select-none" 
+      style={{ 
+        width: "0.58em",
+        WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
+        maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)'
+      }}
+    >
+      <motion.span
+        className="absolute left-0 top-0 flex flex-col w-full"
+        initial={{ y: 0 }}
+        whileInView={{ y: `-${digit * 10}%` }}
+        viewport={{ once: true }}
+        transition={{
+          type: "spring",
+          stiffness: 45,
+          damping: 12,
+          mass: 0.8,
+          delay: 0.1
+        }}
+      >
+        {numbers.map((num) => (
+          <span key={num} className="h-[1em] flex items-center justify-center leading-none">
+            {num}
+          </span>
+        ))}
+      </motion.span>
+    </span>
+  );
+};
+
+const DigitTicker = ({ value }: { value: number }) => {
+  const digits = String(value).split("");
+  return (
+    <span className="inline-flex items-baseline">
+      {digits.map((digit, idx) => {
+        if (isNaN(Number(digit))) {
+          return <span key={idx} className="leading-none">{digit}</span>;
+        }
+        return <TickerDigit key={idx} digit={Number(digit)} />;
+      })}
+    </span>
+  );
+};
+
 export default function AboutPage() {
   const { aboutOwner } = content;
 
   return (
     <>
-      <Navbar />
-
       <main className="flex-1 w-full bg-white dark:bg-[#080710] text-brand-dark dark:text-white transition-colors duration-300 relative overflow-hidden">
 
         {/* Awwwards-Level Floating Blurred Mesh Blobs */}
@@ -83,7 +127,7 @@ export default function AboutPage() {
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808007_1px,transparent_1px),linear-gradient(to_bottom,#80808007_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10" />
 
         {/* ── 1. HERO SECTION (Badge, Title, CTAs, and Visual Image) ── */}
-        <section className="relative overflow-hidden pt-4 pb-4 md:pt-8 md:pb-8 border-b border-brand-zinc-200 dark:border-white/10">
+        <section className="relative overflow-hidden pt-4 pb-4 md:pt-6 md:pb-6 border-b border-brand-zinc-200 dark:border-white/10">
           <div className="absolute inset-0 -z-10 bg-linear-grid-blue-4 [background-size:40px_40px] opacity-[0.05] dark:opacity-[0.08]" />
 
           {/* Ambient Glows */}
@@ -100,10 +144,12 @@ export default function AboutPage() {
                 className="lg:col-span-6 space-y-6 text-left"
               >
                 {/* Yellow Badge */}
-                <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FFF35C] px-3.5 py-1 text-[9px] font-black uppercase text-brand-dark tracking-widest shadow-sm">
-                  <span className="h-1.5 w-1.5 rounded-full bg-brand-dark block" />
-                  ABOUT 360 DESIGNS AGENCY
-                </span>
+                <div className="inline-flex">
+                  <span className="inline-flex items-center gap-2 rounded-full bg-[#FFF35C] px-4 py-1.5 text-[10px] font-black uppercase tracking-wider text-brand-dark shadow-sm">
+                    <Star className="h-3.5 w-3.5 fill-brand-dark text-brand-dark shrink-0" />
+                    ABOUT 360 DESIGNS AGENCY
+                  </span>
+                </div>
 
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08] text-brand-dark dark:text-white">
                   We Build Digital <br />
@@ -132,22 +178,28 @@ export default function AboutPage() {
                   {/* Let's Work Together */}
                   <a
                     href="/#contact"
-                    className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#FFF35C] border border-[#0306AC] dark:border-[#FFF35C] active:scale-[0.97] transition-all duration-300"
+                    className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#FFF35C] shadow-[0_4px_28px_rgba(3,6,172,0.15)] dark:shadow-[0_4px_28px_rgba(255,243,92,0.15)] active:scale-[0.97] transition-all duration-350 border border-[#0306AC] dark:border-[#FFF35C] pointer-events-auto"
                   >
-                    <span className="relative z-10 pl-6 pr-4 py-[11px] text-[11px] font-black uppercase tracking-wider text-white dark:text-[#080710] group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300">
+                    <span className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
+                    <span className="relative z-10 pl-6 pr-4 py-[11px] text-[11px] font-black uppercase tracking-wider text-white dark:text-[#080710] group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
                       LET'S WORK TOGETHER
                     </span>
-                    <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] transition-colors duration-350">
+                    <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#FFF35C] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                       <ArrowRight className="h-3.5 w-3.5" />
                     </span>
                   </a>
 
                   {/* Watch Our Story */}
-                  <button className="flex items-center gap-2.5 text-[11px] font-black uppercase tracking-wider text-brand-dark dark:text-white hover:text-[#0306AC] dark:hover:text-[#FFF35C] transition-colors duration-300 group">
-                    <span className="flex h-8 w-8 items-center justify-center rounded-full bg-brand-blue/5 dark:bg-white/5 border border-brand-zinc-200 dark:border-white/10 group-hover:border-[#0306AC] dark:group-hover:border-[#FFF35C] transition-all duration-300">
-                      <Play className="h-3 w-3 fill-current text-brand-dark dark:text-white group-hover:text-[#0306AC] dark:group-hover:text-[#FFF35C]" />
+                  <button
+                    className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-white dark:bg-[#1a1a2e] shadow-sm active:scale-[0.97] transition-all duration-350 border border-[#080710]/10 dark:border-white/15"
+                  >
+                    <span className="absolute inset-0 bg-[#FFF35C] dark:bg-[#0306AC] translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
+                    <span className="relative z-10 pl-6 pr-4 py-[11px] text-[11px] font-black uppercase tracking-wider text-[#080710] dark:text-white group-hover:text-[#080710] dark:group-hover:text-white transition-colors duration-300 delay-75 whitespace-nowrap">
+                      WATCH OUR STORY
                     </span>
-                    WATCH OUR STORY
+                    <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#080710] dark:group-hover:bg-[#0306AC] group-hover:text-[#FFF35C] dark:group-hover:text-white transition-all duration-300">
+                      <Play className="h-3.5 w-3.5 fill-current" />
+                    </span>
                   </button>
                 </div>
               </motion.div>
@@ -176,72 +228,148 @@ export default function AboutPage() {
           </div>
         </section>
 
-        {/* ── 2. STATS BAR SECTION (100% Mockup Replica & Animated) ────────── */}
-        <section className="relative overflow-hidden py-8 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/50 dark:bg-white/[0.01]">
+        {/* ── 2. STATS BAR SECTION (Asymmetric Typographic Spread) ────────── */}
+        <section className="relative overflow-hidden py-4 md:py-8 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/10 dark:bg-white/[0.005]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.35 }}
-              className="p-7 rounded-[32px] glass-card-premium flex flex-col md:flex-row gap-6 md:gap-4 divide-y md:divide-y-0 md:divide-x divide-brand-zinc-200 dark:divide-white/10"
-            >
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-0 items-stretch">
 
-              {/* Stat 1 */}
-              <div className="flex items-center gap-3.5 justify-center md:justify-start md:px-6 py-2.5 md:py-0 flex-1">
-                <div className="h-9 w-9 rounded-full bg-[#0306AC]/5 dark:bg-[#FFF35C]/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
-                  <Users className="h-4.5 w-4.5" />
+              {/* Column 1: Symmetrical Stat-Style Intro */}
+              <div className="lg:pr-12 lg:border-r border-brand-zinc-200/60 dark:border-white/5 flex flex-col justify-between self-stretch text-left">
+                <div className="w-full">
+                  <div className="relative flex items-center justify-between w-full pb-2.5 mb-3">
+                    <span className="text-[8px] font-mono tracking-widest text-[#0306AC] dark:text-[#FFF35C] font-black uppercase">// SUMMARY</span>
+                    <span className="text-[8px] font-mono tracking-widest text-brand-zinc-400 dark:text-zinc-500 select-none">[ INFO ]</span>
+                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-brand-zinc-100 dark:bg-white/5" />
+                  </div>
+
+                  <h2 className="font-heading text-3xl sm:text-4xl font-black tracking-tight leading-[1.1] text-brand-dark dark:text-white mt-1">
+                    We shape the future of digital <span className="text-[#0306AC] dark:text-[#FFF35C] italic font-serif font-light">brands.</span>
+                  </h2>
+
+                  <p className="text-[9.5px] text-brand-zinc-400 dark:text-zinc-500 mt-3 font-semibold leading-normal max-w-xs">
+                    Every strategic choice, line of code, and creative pixel is engineered to establish market leadership and drive commercial value.
+                  </p>
                 </div>
-                <div>
-                  <span className="block font-heading font-black text-lg sm:text-xl leading-none text-[#0306AC] dark:text-[#FFF35C]">300+</span>
-                  <span className="block text-[8.5px] font-bold text-brand-zinc-500 uppercase tracking-wide mt-1">Happy Clients Worldwide</span>
+
+                {/* Symmetrical Recognition Badge at the Bottom */}
+                <div className="pt-6 mt-8 border-t border-brand-zinc-100 dark:border-white/5 w-full flex items-center justify-between group/badge select-none">
+                  <div className="flex flex-col">
+                    <span className="text-[7.5px] font-mono tracking-widest text-[#0306AC] dark:text-[#FFF35C] uppercase font-black">
+                      RECOGNITION
+                    </span>
+                    <span className="text-[10px] font-black text-brand-dark dark:text-white uppercase mt-1">
+                      Awwwards Nominee '26
+                    </span>
+                  </div>
+                  <div className="h-8 w-8 rounded-full border border-brand-zinc-200 dark:border-white/10 flex items-center justify-center text-brand-dark dark:text-white text-[8px] font-mono group-hover/badge:border-[#0306AC] dark:group-hover/badge:border-[#FFF35C] group-hover/badge:text-[#0306AC] dark:group-hover/badge:text-[#FFF35C] transition-all duration-300">
+                    W.
+                  </div>
                 </div>
               </div>
 
-              {/* Stat 2 */}
-              <div className="flex items-center gap-3.5 justify-center md:justify-start md:px-6 py-2.5 md:py-0 flex-1">
-                <div className="h-9 w-9 rounded-full bg-[#0306AC]/5 dark:bg-[#FFF35C]/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
-                  <FolderClosed className="h-4.5 w-4.5" />
+              {/* Column 2: Stats 1 & 3 */}
+              <div className="lg:px-12 lg:border-r border-brand-zinc-200/60 dark:border-white/5 flex flex-col gap-y-12 self-stretch w-full">
+
+                {/* Stat 1 */}
+                <div className="flex flex-col items-start relative w-full group hover:-translate-y-1 transition-transform duration-350 ease-out">
+                  <div className="relative flex items-center justify-between w-full pb-2.5 mb-3">
+                    <Globe className="h-4.5 w-4.5 text-[#0306AC] dark:text-[#FFF35C] transition-transform duration-300 group-hover:rotate-[15deg]" />
+                    <span className="text-[8px] font-mono tracking-widest text-brand-zinc-400 dark:text-zinc-500 select-none">[ 01 ]</span>
+                    {/* Hover animated border line */}
+                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-brand-zinc-100 dark:bg-white/5" />
+                    <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#0306AC] dark:text-[#FFF35C] group-hover:w-full transition-all duration-500 ease-out" />
+                  </div>
+                  <div className="flex items-baseline gap-0.5 text-brand-dark dark:text-white">
+                    <span className="font-heading font-black text-5xl sm:text-6xl md:text-7xl tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-r from-[#0306AC] to-[#4b4fff] dark:from-[#FFF35C] dark:to-[#FFA800]">
+                      <Counter value={300} />
+                    </span>
+                    <span className="font-heading font-bold text-2xl sm:text-3xl leading-none text-[#0306AC] dark:text-[#FFF35C]">+</span>
+                  </div>
+                  <p className="text-[10px] sm:text-[11px] font-black text-brand-dark dark:text-white uppercase tracking-widest mt-3.5 leading-none transition-colors duration-300 group-hover:text-[#0306AC] dark:group-hover:text-[#FFF35C]">
+                    Global Clients
+                  </p>
+                  <p className="text-[9.5px] text-brand-zinc-400 dark:text-zinc-500 mt-2 font-semibold leading-normal max-w-[200px]">
+                    Active partnerships across borders and industries
+                  </p>
                 </div>
-                <div>
-                  <span className="block font-heading font-black text-lg sm:text-xl leading-none text-[#0306AC] dark:text-[#FFF35C]">250+</span>
-                  <span className="block text-[8.5px] font-bold text-brand-zinc-500 uppercase tracking-wide mt-1">Projects Completed</span>
+
+                {/* Stat 3 */}
+                <div className="flex flex-col items-start relative w-full group hover:-translate-y-1 transition-transform duration-350 ease-out">
+                  <div className="relative flex items-center justify-between w-full pb-2.5 mb-3">
+                    <Heart className="h-4.5 w-4.5 text-[#0306AC] dark:text-[#FFF35C] transition-transform duration-300 group-hover:scale-110" />
+                    <span className="text-[8px] font-mono tracking-widest text-brand-zinc-400 dark:text-zinc-500 select-none">[ 03 ]</span>
+                    {/* Hover animated border line */}
+                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-brand-zinc-100 dark:bg-white/5" />
+                    <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#0306AC] dark:bg-[#FFF35C] group-hover:w-full transition-all duration-500 ease-out" />
+                  </div>
+                  <div className="flex items-baseline gap-0.5 text-brand-dark dark:text-white">
+                    <span className="font-heading font-black text-5xl sm:text-6xl md:text-7xl tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-r from-[#0306AC] to-[#4b4fff] dark:from-[#FFF35C] dark:to-[#FFA800]">
+                      <Counter value={98} />
+                    </span>
+                    <span className="font-heading font-bold text-2xl sm:text-3xl leading-none text-[#0306AC] dark:text-[#FFF35C]">%</span>
+                  </div>
+                  <p className="text-[10px] sm:text-[11px] font-black text-brand-dark dark:text-white uppercase tracking-widest mt-3.5 leading-none transition-colors duration-300 group-hover:text-[#0306AC] dark:group-hover:text-[#FFF35C]">
+                    Satisfaction Rate
+                  </p>
+                  <p className="text-[9.5px] text-brand-zinc-400 dark:text-zinc-500 mt-2 font-semibold leading-normal max-w-[200px]">
+                    Ranked by our clients' success and reviews
+                  </p>
                 </div>
+
               </div>
 
-              {/* Stat 3 */}
-              <div className="flex items-center gap-3.5 justify-center md:justify-start md:px-6 py-2.5 md:py-0 flex-1">
-                <div className="h-9 w-9 rounded-full bg-[#0306AC]/5 dark:bg-[#FFF35C]/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10 font-heading font-black text-xs">
-                  7+
+              {/* Column 3: Stats 2 & 4 */}
+              <div className="lg:pl-12 flex flex-col gap-y-12 self-stretch w-full">
+
+                {/* Stat 2 */}
+                <div className="flex flex-col items-start relative w-full group hover:-translate-y-1 transition-transform duration-350 ease-out">
+                  <div className="relative flex items-center justify-between w-full pb-2.5 mb-3">
+                    <Rocket className="h-4.5 w-4.5 text-[#0306AC] dark:text-[#FFF35C] transition-transform duration-300 group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
+                    <span className="text-[8px] font-mono tracking-widest text-brand-zinc-400 dark:text-zinc-500 select-none">[ 02 ]</span>
+                    {/* Hover animated border line */}
+                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-brand-zinc-100 dark:bg-white/5" />
+                    <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#0306AC] dark:bg-[#FFF35C] group-hover:w-full transition-all duration-500 ease-out" />
+                  </div>
+                  <div className="flex items-baseline gap-0.5 text-brand-dark dark:text-white">
+                    <span className="font-heading font-black text-5xl sm:text-6xl md:text-7xl tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-r from-[#0306AC] to-[#4b4fff] dark:from-[#FFF35C] dark:to-[#FFA800]">
+                      <Counter value={250} />
+                    </span>
+                    <span className="font-heading font-bold text-2xl sm:text-3xl leading-none text-[#0306AC] dark:text-[#FFF35C]">+</span>
+                  </div>
+                  <p className="text-[10px] sm:text-[11px] font-black text-brand-dark dark:text-white uppercase tracking-widest mt-3.5 leading-none transition-colors duration-300 group-hover:text-[#0306AC] dark:group-hover:text-[#FFF35C]">
+                    Projects Built
+                  </p>
+                  <p className="text-[9.5px] text-brand-zinc-400 dark:text-zinc-500 mt-2 font-semibold leading-normal max-w-[200px]">
+                    Delivered with absolute pixel perfection
+                  </p>
                 </div>
-                <div>
-                  <span className="block font-heading font-black text-lg sm:text-xl leading-none text-[#0306AC] dark:text-[#FFF35C]">7+</span>
-                  <span className="block text-[8.5px] font-bold text-brand-zinc-500 uppercase tracking-wide mt-1">Years of Experience</span>
+
+                {/* Stat 4 */}
+                <div className="flex flex-col items-start relative w-full group hover:-translate-y-1 transition-transform duration-350 ease-out">
+                  <div className="relative flex items-center justify-between w-full pb-2.5 mb-3">
+                    <Trophy className="h-4.5 w-4.5 text-[#0306AC] dark:text-[#FFF35C] transition-transform duration-300 group-hover:rotate-[-10deg]" />
+                    <span className="text-[8px] font-mono tracking-widest text-brand-zinc-400 dark:text-zinc-500 select-none">[ 04 ]</span>
+                    {/* Hover animated border line */}
+                    <div className="absolute bottom-0 left-0 w-full h-[1px] bg-brand-zinc-100 dark:bg-white/5" />
+                    <div className="absolute bottom-0 left-0 w-0 h-[1.5px] bg-[#0306AC] dark:bg-[#FFF35C] group-hover:w-full transition-all duration-500 ease-out" />
+                  </div>
+                  <div className="flex items-baseline gap-0.5 text-[#0306AC] dark:text-[#FFF35C]">
+                    <span className="font-heading font-black text-5xl sm:text-6xl md:text-7xl tracking-tighter leading-none bg-clip-text text-transparent bg-gradient-to-r from-[#0306AC] to-[#4b4fff] dark:from-[#FFF35C] dark:to-[#FFA800]">
+                      <Counter value={7} />
+                    </span>
+                    <span className="font-heading font-bold text-2xl sm:text-3xl leading-none text-[#0306AC] dark:text-[#FFF35C]">+</span>
+                  </div>
+                  <p className="text-[10px] sm:text-[11px] font-black text-brand-dark dark:text-white uppercase tracking-widest mt-3.5 leading-none transition-colors duration-300 group-hover:text-[#0306AC] dark:group-hover:text-[#FFF35C]">
+                    Years Active
+                  </p>
+                  <p className="text-[9.5px] text-brand-zinc-400 dark:text-zinc-500 mt-2 font-semibold leading-normal max-w-[200px]">
+                    Pioneering industry-leading digital design
+                  </p>
                 </div>
+
               </div>
 
-              {/* Stat 4 */}
-              <div className="flex items-center gap-3.5 justify-center md:justify-start md:px-6 py-2.5 md:py-0 flex-1">
-                <div className="h-9 w-9 rounded-full bg-[#0306AC]/5 dark:bg-[#FFF35C]/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
-                  <ShieldCheck className="h-4.5 w-4.5" />
-                </div>
-                <div>
-                  <span className="block font-heading font-black text-lg sm:text-xl leading-none text-[#0306AC] dark:text-[#FFF35C]">98%</span>
-                  <span className="block text-[8.5px] font-bold text-brand-zinc-500 uppercase tracking-wide mt-1">Client Satisfaction</span>
-                </div>
-              </div>
-
-              {/* Stat 5 */}
-              <div className="flex items-center gap-3.5 justify-center md:justify-start md:px-6 py-2.5 md:py-0 flex-1">
-                <div className="h-9 w-9 rounded-full bg-[#0306AC]/5 dark:bg-[#FFF35C]/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
-                  <Users className="h-4.5 w-4.5" />
-                </div>
-                <div>
-                  <span className="block font-heading font-black text-lg sm:text-xl leading-none text-[#0306AC] dark:text-[#FFF35C]">20+</span>
-                  <span className="block text-[8.5px] font-bold text-brand-zinc-500 uppercase tracking-wide mt-1">Team Members</span>
-                </div>
-              </div>
-
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -1137,8 +1265,6 @@ export default function AboutPage() {
         </section>
 
       </main>
-
-      <Footer />
     </>
   );
 }

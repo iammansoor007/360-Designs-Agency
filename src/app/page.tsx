@@ -1,4 +1,3 @@
-import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Testimonials from "@/components/Testimonials";
 import AboutOwner from "@/components/AboutOwner";
@@ -10,49 +9,43 @@ import ServiceArea from "@/components/ServiceArea";
 import Blog from "@/components/Blog";
 import FAQ from "@/components/FAQ";
 import ContactForm from "@/components/ContactForm";
-import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <>
-      <Navbar />
-      <main className="flex-1 w-full">
-        {/* 1. Hero Section */}
-        <Hero />
+    <main className="flex-1 w-full">
+      {/* 1. Hero Section */}
+      <Hero />
 
 
-        {/* 3. About The Owner */}
-        <AboutOwner />
+      {/* 3. About The Owner */}
+      <AboutOwner />
 
-        {/* 4. Services Section */}
-        <Services />
+      {/* 4. Services Section */}
+      <Services />
 
-        {/* 5. Selected Portfolio Projects */}
-        <Portfolio />
+      {/* 5. Selected Portfolio Projects */}
+      <Portfolio />
 
 
 
-        {/* 7. Why Choose Me */}
-        <WhyChooseMe />
+      {/* 7. Why Choose Me */}
+      <WhyChooseMe />
 
-        {/* 8. Service Area */}
-        <ServiceArea />
+      {/* 8. Service Area */}
+      <ServiceArea />
 
-        {/* 2. Reviews / Testimonials */}
-        <Testimonials />
+      {/* 2. Reviews / Testimonials */}
+      <Testimonials />
 
 
-        {/* 9. Blog Section */}
-        <Blog />
+      {/* 9. Blog Section */}
+      <Blog />
 
-        {/* 10. FAQ Section */}
-        <FAQ />
+      {/* 10. FAQ Section */}
+      <FAQ />
 
-        {/* 11. CTA Contact Form */}
-        <ContactForm />
-      </main>
-      {/* 12. Footer */}
-      <Footer />
-    </>
+      {/* 11. CTA Contact Form */}
+      <ContactForm />
+    </main>
   );
 }
