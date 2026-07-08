@@ -72,7 +72,7 @@ export default function AboutPage() {
       <Navbar />
 
       <main className="flex-1 w-full bg-white dark:bg-[#080710] text-brand-dark dark:text-white transition-colors duration-300 relative overflow-hidden">
-        
+
         {/* Awwwards-Level Floating Blurred Mesh Blobs */}
         <div className="absolute top-[3%] left-[-15%] w-[50vw] h-[50vw] rounded-full bg-[#0306AC]/[0.03] dark:bg-[#0306AC]/[0.06] blur-[120px] pointer-events-none select-none -z-10 animate-float-blob" />
         <div className="absolute top-[28%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-[#FFF35C]/[0.02] dark:bg-[#FFF35C]/[0.05] blur-[150px] pointer-events-none select-none -z-10 animate-float-blob-delayed" />
@@ -82,9 +82,12 @@ export default function AboutPage() {
         {/* Awwwards-Level Background Grid Pattern */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808007_1px,transparent_1px),linear-gradient(to_bottom,#80808007_1px,transparent_1px)] bg-[size:40px_40px] pointer-events-none -z-10" />
 
-        {/* ── 1. HERO SECTION (Badge, Title, CTAs, and Visual Cards Group) ── */}
-        <section className="relative overflow-hidden pt-4 pb-4 md:pt-6 md:pb-6 border-b border-brand-zinc-200 dark:border-white/10">
+        {/* ── 1. HERO SECTION (Badge, Title, CTAs, and Visual Image) ── */}
+        <section className="relative overflow-hidden pt-4 pb-4 md:pt-8 md:pb-8 border-b border-brand-zinc-200 dark:border-white/10">
           <div className="absolute inset-0 -z-10 bg-linear-grid-blue-4 [background-size:40px_40px] opacity-[0.05] dark:opacity-[0.08]" />
+
+          {/* Ambient Glows */}
+          <div className="absolute top-[10%] left-[-5%] w-[350px] h-[350px] rounded-full bg-[#0306AC]/[0.02] dark:bg-[#0306AC]/[0.05] blur-[120px] pointer-events-none -z-10" />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -94,7 +97,7 @@ export default function AboutPage() {
                 initial={{ opacity: 0, y: 25 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                className="lg:col-span-5 space-y-6 text-left"
+                className="lg:col-span-6 space-y-6 text-left"
               >
                 {/* Yellow Badge */}
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FFF35C] px-3.5 py-1 text-[9px] font-black uppercase text-brand-dark tracking-widest shadow-sm">
@@ -105,12 +108,12 @@ export default function AboutPage() {
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08] text-brand-dark dark:text-white">
                   We Build Digital <br />
                   Experiences That <br />
-                  <span className="relative inline-block text-[#0306AC] dark:text-[#FFF35C]">
+                  <span className="relative inline-block text-[#0306AC] dark:text-[#FFF35C] pb-2 whitespace-nowrap">
                     Drive Real Growth.
-                    <svg className="absolute -bottom-2 left-0 w-full h-3 pointer-events-none text-brand-yellow" viewBox="0 0 100 10" preserveAspectRatio="none">
+                    <svg className="absolute -bottom-1.5 left-0 w-full h-3.5 pointer-events-none text-[#FFF35C] opacity-90" viewBox="0 0 100 10" preserveAspectRatio="none">
                       <motion.path
-                        d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
-                        fill="#FFF35C"
+                        d="M 2 5 Q 50 1.5, 98 3.5 C 99 3.5, 99 4.5, 98 5 Q 50 7, 2 5.5 Z"
+                        fill="currentColor"
                         custom={{ delay: 0.45, duration: 0.65 }}
                         variants={drawVariants}
                         initial="hidden"
@@ -149,234 +152,24 @@ export default function AboutPage() {
                 </div>
               </motion.div>
 
-              {/* Right Column: Premium Visual Cards Group (100% Mockup Replica) */}
-              <div className="lg:col-span-7 relative h-[420px] sm:h-[480px] w-full flex items-center justify-center">
+              {/* Right Column: Hero Image */}
+              <div className="lg:col-span-6 relative w-full h-[320px] sm:h-[420px] md:h-[480px] lg:h-[520px] flex items-center justify-center pt-8 lg:pt-0">
+                {/* Background Blobs for depth */}
+                <div className="absolute top-[10%] right-[10%] w-[320px] h-[320px] rounded-full bg-[#FFF35C]/[0.05] dark:bg-[#FFF35C]/[0.1] blur-[80px] pointer-events-none -z-10" />
+                <div className="absolute bottom-[10%] left-[10%] w-[300px] h-[300px] rounded-full bg-[#0306AC]/[0.03] dark:bg-[#0306AC]/[0.08] blur-[80px] pointer-events-none -z-10" />
 
-                {/* ── BACKGROUND DECORATIONS ── */}
-                {/* Yellow sun sphere */}
                 <motion.div
-                  initial={{ opacity: 0, scale: 0.8 }}
-                  animate={{ opacity: 0.9, scale: 1 }}
-                  transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
-                  className="absolute right-[12%] top-[8%] h-14 w-14 rounded-full bg-[#FFF35C] opacity-90 blur-[0.5px] z-0 select-none pointer-events-none"
-                />
-                {/* Concentric circles line art */}
-                <motion.svg
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 1, delay: 0.2 }}
-                  className="absolute right-[5%] top-[2%] w-[180px] h-[180px] text-brand-blue/10 dark:text-white/5 z-0 pointer-events-none"
-                  viewBox="0 0 100 100"
-                  fill="none"
+                  initial={{ opacity: 0, scale: 0.98, y: 15 }}
+                  animate={{ opacity: 1, scale: 1, y: 0 }}
+                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.25 }}
+                  className="relative w-full h-full flex items-center justify-center"
                 >
-                  <circle cx="50" cy="50" r="48" stroke="currentColor" strokeWidth="0.5" strokeDasharray="2 2" />
-                  <circle cx="50" cy="50" r="38" stroke="currentColor" strokeWidth="0.5" />
-                  <circle cx="50" cy="50" r="28" stroke="currentColor" strokeWidth="0.5" strokeDasharray="3 3" />
-                  <circle cx="50" cy="50" r="18" stroke="currentColor" strokeWidth="0.5" />
-                </motion.svg>
-                {/* Faint blue dot grid decoration */}
-                <div className="absolute right-[3%] top-[5%] w-[120px] h-[100px] z-0 pointer-events-none opacity-30 bg-grid-blue-8 [background-size:12px_12px]" />
-
-                {/* ── MOCKUP STACK ── */}
-
-                {/* 1. Large Panel: Performance Overview (Right Side) */}
-                <motion.div
-                  initial={{ opacity: 0, x: 50, scale: 0.96 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-                  whileHover={{ y: -5, transition: { duration: 0.2 } }}
-                  className="absolute right-[2%] top-[12%] w-[68%] min-w-[280px] rounded-2xl glass-card-premium p-4.5 z-10"
-                >
-                  {/* Panel Top bar */}
-                  <div className="flex items-center justify-between pb-3.5 border-b border-brand-zinc-150 dark:border-white/5 mb-3.5">
-                    <div className="flex items-center gap-1.5">
-                      <span className="block h-2 w-2 rounded-full bg-red-400" />
-                      <span className="block h-2 w-2 rounded-full bg-yellow-400" />
-                      <span className="block h-2 w-2 rounded-full bg-green-400" />
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <span className="text-[7.5px] font-bold text-brand-zinc-450 bg-zinc-50 dark:bg-white/5 px-2 py-0.5 rounded border border-brand-zinc-200">This Month</span>
-                      <Calendar className="h-3 w-3 text-brand-zinc-400" />
-                      <MoreVertical className="h-3 w-3 text-brand-zinc-400" />
-                    </div>
-                  </div>
-
-                  {/* Left Sidebar + Graph Container */}
-                  <div className="grid grid-cols-12 gap-4">
-
-                    {/* Sidebar menu */}
-                    <div className="col-span-3 space-y-1.5 border-r border-brand-zinc-150 dark:border-white/5 pr-2">
-                      <div className="flex items-center gap-1 px-1.5 py-1 rounded bg-[#0306AC]/5 dark:bg-white/5 text-[#0306AC] dark:text-[#FFF35C]">
-                        <Compass className="h-2.5 w-2.5" />
-                        <span className="text-[6.5px] font-bold uppercase tracking-wide">Overview</span>
-                      </div>
-                      {["Projects", "Analytics", "Reports", "Clients", "Settings"].map((lbl, idx) => (
-                        <div key={idx} className="flex items-center gap-1 px-1.5 py-1 text-brand-zinc-455 hover:bg-zinc-50 dark:hover:bg-white/5 rounded transition-colors">
-                          <span className="h-1 w-1 rounded-full bg-brand-zinc-300" />
-                          <span className="text-[6.5px] font-bold uppercase tracking-wide">{lbl}</span>
-                        </div>
-                      ))}
-                    </div>
-
-                    {/* Graph area */}
-                    <div className="col-span-9 space-y-3 relative">
-                      <div className="flex items-center justify-between">
-                        <span className="text-[9px] font-black text-brand-dark dark:text-white uppercase tracking-tight">Performance Overview</span>
-                        <div className="flex items-center gap-2">
-                          <div className="flex items-center gap-1">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#0306AC]" />
-                            <span className="text-[6px] font-bold text-brand-zinc-450">Traffic</span>
-                          </div>
-                          <div className="flex items-center gap-1">
-                            <span className="h-1.5 w-1.5 rounded-full bg-[#FFF35C]" />
-                            <span className="text-[6px] font-bold text-[#6B7280]">Conversions</span>
-                          </div>
-                        </div>
-                      </div>
-
-                      {/* Bar chart with month labels */}
-                      <div className="h-[95px] w-full flex items-end justify-between gap-1 pb-1 pt-2 relative">
-                        {/* Y-axis helper lines */}
-                        <div className="absolute inset-x-0 top-0 h-px border-t border-dashed border-brand-zinc-200/50 dark:border-white/5" />
-                        <div className="absolute inset-x-0 top-1/3 h-px border-t border-dashed border-brand-zinc-200/50 dark:border-white/5" />
-                        <div className="absolute inset-x-0 top-2/3 h-px border-t border-dashed border-brand-zinc-200/50 dark:border-white/5" />
-
-                        {[
-                          { m: "Jan", t: 30, c: 20 },
-                          { m: "Feb", t: 55, c: 35 },
-                          { m: "Mar", t: 45, c: 25 },
-                          { m: "Apr", t: 70, c: 45 },
-                          { m: "May", t: 60, c: 30 },
-                          { m: "Jun", t: 85, c: 55 },
-                          { m: "Jul", t: 65, c: 40 },
-                          { m: "Aug", t: 100, c: 75, highlight: true },
-                          { m: "Sep", t: 50, c: 35 },
-                          { m: "Oct", t: 68, c: 42 }
-                        ].map((d, i) => (
-                          <div key={i} className="flex-1 flex flex-col items-center gap-1 relative h-full justify-end">
-                            <div className="flex items-end gap-[2px] w-full justify-center">
-                              {/* Traffic (blue) */}
-                              <div
-                                style={{ height: `${d.t * 0.7}px` }}
-                                className={`w-1 sm:w-1.5 rounded-t-xs ${d.highlight ? "bg-[#0306AC] dark:bg-white" : "bg-brand-blue/15 dark:bg-white/10"}`}
-                              />
-                              {/* Conversions (yellow) */}
-                              <div
-                                style={{ height: `${d.c * 0.7}px` }}
-                                className={`w-1 sm:w-1.5 rounded-t-xs ${d.highlight ? "bg-[#FFF35C]" : "bg-brand-yellow/30 dark:bg-brand-yellow/10"}`}
-                              />
-                            </div>
-                            <span className="text-[5.5px] font-bold text-brand-zinc-400 leading-none">{d.m}</span>
-
-                            {/* Aug 2024 Hover Active Tooltip */}
-                            {d.highlight && (
-                              <div className="absolute bottom-[85px] left-1/2 -translate-x-1/2 bg-[#080710] dark:bg-white text-white dark:text-[#080710] p-1.5 rounded-md shadow-lg border border-white/10 z-20 w-[65px] text-left select-none">
-                                <span className="block text-[5.5px] font-black tracking-wide leading-none mb-1">Aug 2024</span>
-                                <div className="flex items-center gap-1 text-[5px] font-bold">
-                                  <span className="h-1 w-1 rounded-full bg-[#0306AC] dark:bg-[#0306AC]" />
-                                  <span>Traffic: 8,420</span>
-                                </div>
-                                <div className="flex items-center gap-1 text-[5px] font-bold mt-0.5">
-                                  <span className="h-1 w-1 rounded-full bg-[#FFF35C]" />
-                                  <span>Conv: 6,210</span>
-                                </div>
-                              </div>
-                            )}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Bottom metrics grid */}
-                  <div className="grid grid-cols-4 gap-2 pt-3 border-t border-brand-zinc-150 dark:border-white/5 mt-3.5 items-center">
-                    <div>
-                      <span className="block text-[5.5px] font-mono text-brand-zinc-400 uppercase tracking-widest leading-none">Total Users</span>
-                      <span className="font-heading font-black text-[10px] text-brand-dark mt-0.5 block">24.6K <span className="text-green-500 text-[6px] font-bold ml-0.5">+18.6%</span></span>
-                    </div>
-                    <div>
-                      <span className="block text-[5.5px] font-mono text-brand-zinc-400 uppercase tracking-widest leading-none">New Leads</span>
-                      <span className="font-heading font-black text-[10px] text-brand-dark mt-0.5 block">3,214 <span className="text-green-500 text-[6px] font-bold ml-0.5">+24.8%</span></span>
-                    </div>
-                    <div>
-                      <span className="block text-[5.5px] font-mono text-brand-zinc-400 uppercase tracking-widest leading-none">Conversion Rate</span>
-                      <span className="font-heading font-black text-[10px] text-brand-dark mt-0.5 block">6.7% <span className="text-green-500 text-[6px] font-bold ml-0.5">+12.4%</span></span>
-                    </div>
-                    <div className="flex justify-end">
-                      <div className="h-6 w-6 rounded-lg bg-[#0306AC] dark:bg-[#FFF35C] text-white dark:text-brand-dark flex items-center justify-center shadow-md">
-                        <BarChart2 className="h-3 w-3" />
-                      </div>
-                    </div>
-                  </div>
+                  <img
+                    src="/mohsinaboutowner.png"
+                    alt="About 360 Designs Agency Overview"
+                    className="w-full h-full object-contain filter drop-shadow-2xl"
+                  />
                 </motion.div>
-
-                {/* 2. Top Left Card: Total Growth Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: -30, y: -20, scale: 0.9 }}
-                  animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
-                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.45 }}
-                  whileHover={{ scale: 1.04, y: -3 }}
-                  className="absolute left-[3%] top-[5%] w-[125px] sm:w-[135px] rounded-xl glass-card-premium p-3 z-20"
-                >
-                  <span className="text-[6px] font-mono font-bold text-brand-zinc-455 uppercase tracking-widest block">Total Growth</span>
-                  <span className="font-heading font-black text-sm text-brand-dark mt-0.5 block">+320%</span>
-                  <span className="text-[5px] font-bold text-brand-zinc-400 leading-none">vs last year</span>
-                  {/* Graph Sparkline */}
-                  <div className="h-6 w-full mt-1.5 flex items-end relative">
-                    <svg viewBox="0 0 50 15" className="w-full h-full text-[#0306AC]" preserveAspectRatio="none">
-                      <path d="M0 12 Q 10 5, 20 10 T 40 2 T 50 1" stroke="currentColor" strokeWidth="1.2" fill="none" />
-                      <circle cx="50" cy="1" r="1.5" fill="currentColor" />
-                    </svg>
-                    {/* Pulsing endpoint dot */}
-                    <span className="absolute right-0 top-[-1px] flex h-1.5 w-1.5">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#0306AC] opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#0306AC]"></span>
-                    </span>
-                  </div>
-                </motion.div>
-
-                {/* 3. Middle Left Card: Projects Delivered Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: -40, scale: 0.9 }}
-                  animate={{ opacity: 1, x: 0, scale: 1 }}
-                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.55 }}
-                  whileHover={{ scale: 1.04, y: -3 }}
-                  className="absolute left-[8%] top-[33%] w-[135px] sm:w-[145px] rounded-xl glass-card-premium p-3 z-20"
-                >
-                  <span className="text-[6px] font-mono font-bold text-brand-zinc-450 uppercase tracking-widest block">Projects Delivered</span>
-                  <span className="font-heading font-black text-sm text-brand-dark mt-0.5 block">250+</span>
-                  <span className="text-[5.5px] font-bold text-brand-zinc-400 block mt-0.5">Across 20+ Industries</span>
-                  <div className="flex items-center justify-between gap-1 mt-3">
-                    <div className="flex -space-x-1">
-                      <div className="h-4.5 w-4.5 rounded-full bg-brand-blue border border-white text-white text-[5px] font-bold flex items-center justify-center">M</div>
-                      <div className="h-4.5 w-4.5 rounded-full bg-[#FFF35C] border border-white text-brand-dark text-[5px] font-bold flex items-center justify-center">A</div>
-                      <div className="h-4.5 w-4.5 rounded-full bg-zinc-300 border border-white text-brand-dark text-[5px] font-bold flex items-center justify-center">H</div>
-                      <div className="h-4.5 w-4.5 rounded-full bg-zinc-200 border border-white text-brand-dark text-[5px] font-bold flex items-center justify-center">D</div>
-                    </div>
-                    <span className="text-[6px] font-bold text-green-500 bg-green-500/10 px-1.5 py-0.5 rounded-full shrink-0">↑ 16% this month</span>
-                  </div>
-                </motion.div>
-
-                {/* 4. Bottom Left Card: Client Satisfaction Card */}
-                <motion.div
-                  initial={{ opacity: 0, x: -30, y: 20, scale: 0.9 }}
-                  animate={{ opacity: 1, x: 0, y: 0, scale: 1 }}
-                  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.65 }}
-                  whileHover={{ scale: 1.04, y: -3 }}
-                  className="absolute left-[9%] bottom-[5%] w-[130px] sm:w-[140px] rounded-xl glass-card-premium p-3 z-20"
-                >
-                  <span className="text-[6px] font-mono font-bold text-brand-zinc-455 uppercase tracking-widest block">Client Satisfaction</span>
-                  <span className="font-heading font-black text-sm text-brand-dark mt-0.5 block">98%</span>
-                  <span className="text-[5.5px] font-bold text-brand-zinc-400 block mt-0.5">Happy Clients</span>
-                  {/* Satisfaction Progress Semi-Circle */}
-                  <div className="absolute right-3 bottom-3 w-8 h-8">
-                    <svg viewBox="0 0 36 36" className="w-full h-full text-[#0306AC]">
-                      <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeWidth="2.5" opacity="0.1" strokeDasharray="50 100" strokeLinecap="round" transform="rotate(-90 18 18)" />
-                      <path d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" fill="none" stroke="currentColor" strokeWidth="2.5" strokeDasharray="49 100" strokeDashoffset="0" strokeLinecap="round" transform="rotate(-90 18 18)" />
-                    </svg>
-                  </div>
-                </motion.div>
-
               </div>
 
             </div>
@@ -456,7 +249,7 @@ export default function AboutPage() {
         <section className="relative overflow-hidden py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
- 
+
               {/* Left Column: Story paragraphs */}
               <div className="lg:col-span-6 space-y-5 text-left">
                 <div className="flex flex-col items-start">
@@ -465,16 +258,16 @@ export default function AboutPage() {
                   </span>
                   <div className="h-0.5 w-6 bg-[#FFF35C] mt-1.5" />
                 </div>
- 
+
                 <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-brand-dark dark:text-white tracking-tight leading-[1.1] pt-1">
                   A Team of <span className="text-[#0306AC] dark:text-[#FFF35C]">Thinkers</span>,<br />
                   Creators & Problem Solvers
                 </h2>
- 
+
                 <p className="text-xs sm:text-sm text-brand-zinc-550 font-normal font-sans leading-relaxed max-w-xl">
                   At 360 Designs Agency, we combine creativity, strategy, and technology to build digital solutions that help businesses stand out, grow faster, and achieve long-term success.
                 </p>
- 
+
                 {/* Checklist Bullet Points */}
                 <div className="space-y-3.5 pt-2">
                   <div className="flex items-center gap-3">
@@ -497,16 +290,16 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Right Column: High Fidelity Office Placeholder */}
               <div className="lg:col-span-6 relative flex justify-end">
                 {/* Background blue dot grid decorator */}
                 <div className="absolute left-[-10px] top-[-10px] w-[80px] h-[80px] z-0 pointer-events-none opacity-20 bg-grid-blue-8 [background-size:12px_12px]" />
-                
+
                 {/* Bent yellow bracket decorator */}
                 <div className="absolute right-[-12px] top-[10%] bottom-[15%] w-4 border-r border-t border-b border-[#FFF35C] rounded-r-xl pointer-events-none z-0" />
                 <div className="absolute right-[-16px] bottom-[15%] h-2 w-2 rounded-full bg-[#FFF35C] pointer-events-none z-0" />
- 
+
                 <div className="relative w-full max-w-[480px] aspect-[1.58] rounded-[24px] overflow-hidden border border-brand-zinc-200 dark:border-white/10 shadow-lg bg-zinc-50 dark:bg-zinc-900/60 flex items-center justify-center z-10">
                   <div className="absolute inset-0 bg-linear-grid-blue-4 opacity-[0.06] [background-size:24px_24px]" />
                   <div className="flex flex-col items-center gap-2 text-center relative z-10">
@@ -515,27 +308,27 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
- 
+
             </div>
           </div>
         </section>
- 
+
         {/* ── 4. MISSION & VISION SECTION (Horizontal metrics layouts) ──────── */}
         <section className="relative overflow-hidden py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/50 dark:bg-white/[0.005]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
-            
+
             {/* Main wrapper container */}
             <div className="w-full bg-[#F8FAFC]/80 dark:bg-[#12121e]/40 rounded-[32px] border border-brand-zinc-200 dark:border-white/10 p-6 md:p-8 relative flex flex-col lg:flex-row gap-8 lg:gap-12 items-stretch justify-between shadow-sm">
-              
+
               {/* Corner Grid decorations */}
               <div className="absolute left-0 bottom-0 w-[60px] h-[60px] pointer-events-none opacity-25 bg-grid-blue-8 [background-size:10px_10px] z-0" />
               <div className="absolute right-0 top-0 w-[60px] h-[60px] pointer-events-none opacity-25 bg-grid-yellow-8 [background-size:10px_10px] z-0" />
- 
+
               {/* Floating arrow connector */}
               <div className="hidden lg:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-9 w-9 rounded-full bg-[#0306AC] text-white items-center justify-center z-20 shadow-md border border-white/10">
                 <ArrowRight className="h-4.5 w-4.5" />
               </div>
- 
+
               {/* Card Left: Our Mission */}
               <div className="flex-1 w-full bg-white dark:bg-[#12121e] rounded-2xl border-l-4 border-l-[#0306AC] border border-brand-zinc-200 dark:border-white/5 p-6 shadow-sm flex flex-col justify-between min-h-[220px] z-10 hover:border-brand-blue/30 transition-colors">
                 <div className="flex gap-4 items-start">
@@ -549,10 +342,10 @@ export default function AboutPage() {
                     </p>
                   </div>
                 </div>
-                
+
                 {/* Horizontal divider */}
                 <div className="w-full h-px bg-brand-zinc-150 dark:bg-white/5 my-4.5" />
- 
+
                 {/* 3 Stats */}
                 <div className="flex items-center justify-between gap-2 px-1">
                   <div className="flex items-center gap-2">
@@ -586,7 +379,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
- 
+
               {/* Card Right: Our Vision */}
               <div className="flex-1 w-full bg-white dark:bg-[#12121e] rounded-2xl border-r-4 border-r-[#FFF35C] border border-brand-zinc-200 dark:border-white/5 p-6 shadow-sm flex flex-col justify-between min-h-[220px] z-10 hover:border-brand-blue/30 transition-colors">
                 <div className="flex gap-4 items-start">
@@ -600,10 +393,10 @@ export default function AboutPage() {
                     <Eye className="h-6 w-6" />
                   </div>
                 </div>
- 
+
                 {/* Horizontal divider */}
                 <div className="w-full h-px bg-brand-zinc-150 dark:bg-white/5 my-4.5" />
- 
+
                 {/* 3 Stats */}
                 <div className="flex items-center justify-between gap-2 px-1">
                   <div className="flex items-center gap-2">
@@ -637,15 +430,15 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
- 
+
             </div>
           </div>
         </section>
- 
+
         {/* ── 5. OUR SERVICES SECTION ─────────────────────────────────── */}
         <section className="relative overflow-hidden py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
- 
+
             <div className="text-center mb-12 flex flex-col items-center">
               <span className="text-[10px] font-sans font-black tracking-widest text-[#0306AC] uppercase block mb-1">
                 OUR SERVICES
@@ -658,9 +451,9 @@ export default function AboutPage() {
                 We offer end-to-end digital solutions designed to help your brand stand out, attract the right audience, and achieve measurable success.
               </p>
             </div>
- 
+
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-5">
- 
+
               {/* Service Card 1 */}
               <div className="p-5 rounded-2xl glass-card-premium relative overflow-hidden group hover:border-[#0306AC] dark:hover:border-[#FFF35C] flex flex-col h-[230px]">
                 <div className="h-10 w-10 rounded-xl bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
@@ -677,7 +470,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
- 
+
               {/* Service Card 2 */}
               <div className="p-5 rounded-2xl glass-card-premium relative overflow-hidden group hover:border-[#0306AC] dark:hover:border-[#FFF35C] flex flex-col h-[230px]">
                 <div className="h-10 w-10 rounded-xl bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
@@ -694,7 +487,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
- 
+
               {/* Service Card 3 */}
               <div className="p-5 rounded-2xl glass-card-premium relative overflow-hidden group hover:border-[#0306AC] dark:hover:border-[#FFF35C] flex flex-col h-[230px]">
                 <div className="h-10 w-10 rounded-xl bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
@@ -711,7 +504,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
- 
+
               {/* Service Card 4 */}
               <div className="p-5 rounded-2xl glass-card-premium relative overflow-hidden group hover:border-[#0306AC] dark:hover:border-[#FFF35C] flex flex-col h-[230px]">
                 <div className="h-10 w-10 rounded-xl bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
@@ -728,7 +521,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
- 
+
               {/* Service Card 5 */}
               <div className="p-5 rounded-2xl glass-card-premium relative overflow-hidden group hover:border-[#0306AC] dark:hover:border-[#FFF35C] flex flex-col h-[230px]">
                 <div className="h-10 w-10 rounded-xl bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
@@ -745,7 +538,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
- 
+
               {/* Service Card 6 */}
               <div className="p-5 rounded-2xl glass-card-premium relative overflow-hidden group hover:border-[#0306AC] dark:hover:border-[#FFF35C] flex flex-col h-[230px]">
                 <div className="h-10 w-10 rounded-xl bg-[#0306AC]/5 dark:bg-white/5 flex items-center justify-center text-[#0306AC] dark:text-[#FFF35C] shrink-0 border border-[#0306AC]/10">
@@ -762,15 +555,15 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
- 
+
             </div>
           </div>
         </section>
- 
+
         {/* ── 6. OUR PROCESS SECTION ─────────────────────────────────── */}
         <section className="relative overflow-hidden py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/50 dark:bg-white/[0.01]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
- 
+
             <div className="text-center mb-12 flex flex-col items-center">
               <span className="text-[10px] font-sans font-black tracking-widest text-[#0306AC] uppercase mb-1">
                 // OUR PROCESS
@@ -780,9 +573,9 @@ export default function AboutPage() {
                 A Simple 5-Step Process That <span className="text-[#0306AC] dark:text-[#FFF35C]">Delivers Results</span>
               </h2>
             </div>
- 
+
             <div className="grid grid-cols-1 md:grid-cols-5 gap-6 md:gap-4 max-w-5xl mx-auto items-start">
- 
+
               {/* Step 1 */}
               <div className="flex flex-col items-center text-center space-y-3 relative group">
                 {/* Horizontal flowing connector path */}
@@ -801,7 +594,7 @@ export default function AboutPage() {
                   </svg>
                   <span className="absolute top-[-3px] left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-[#0306AC] dark:bg-[#FFF35C] shadow-sm animate-pulse" />
                 </div>
-                
+
                 <div className="h-12 w-12 rounded-full border border-brand-zinc-200 dark:border-white/10 text-[#0306AC] dark:text-[#FFF35C] flex items-center justify-center bg-white dark:bg-[#12121e] shadow-md group-hover:border-[#0306AC] transition-colors duration-300 relative z-10">
                   <Search className="h-5 w-5" />
                 </div>
@@ -811,7 +604,7 @@ export default function AboutPage() {
                   <p className="font-sans text-[10px] font-normal text-brand-zinc-550 leading-relaxed max-w-[170px] mx-auto">We learn about your business, goals, and target audience.</p>
                 </div>
               </div>
- 
+
               {/* Step 2 */}
               <div className="flex flex-col items-center text-center space-y-3 relative group">
                 {/* Horizontal flowing connector path */}
@@ -830,7 +623,7 @@ export default function AboutPage() {
                   </svg>
                   <span className="absolute top-[-3px] left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-[#0306AC] dark:bg-[#FFF35C] shadow-sm animate-pulse" />
                 </div>
-                
+
                 <div className="h-12 w-12 rounded-full border border-brand-zinc-200 dark:border-white/10 text-[#0306AC] dark:text-[#FFF35C] flex items-center justify-center bg-white dark:bg-[#12121e] shadow-md group-hover:border-[#0306AC] transition-colors duration-300 relative z-10">
                   <Pencil className="h-4.5 w-4.5" />
                 </div>
@@ -840,7 +633,7 @@ export default function AboutPage() {
                   <p className="font-sans text-[10px] font-normal text-brand-zinc-550 leading-relaxed max-w-[170px] mx-auto">We create a customized strategy tailored to your specific needs.</p>
                 </div>
               </div>
- 
+
               {/* Step 3 */}
               <div className="flex flex-col items-center text-center space-y-3 relative group">
                 {/* Horizontal flowing connector path */}
@@ -859,7 +652,7 @@ export default function AboutPage() {
                   </svg>
                   <span className="absolute top-[-3px] left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-[#0306AC] dark:bg-[#FFF35C] shadow-sm animate-pulse" />
                 </div>
-                
+
                 <div className="h-12 w-12 rounded-full border border-brand-zinc-200 dark:border-white/10 text-[#0306AC] dark:text-[#FFF35C] flex items-center justify-center bg-white dark:bg-[#12121e] shadow-md group-hover:border-[#0306AC] transition-colors duration-300 relative z-10">
                   <Palette className="h-5 w-5" />
                 </div>
@@ -869,7 +662,7 @@ export default function AboutPage() {
                   <p className="font-sans text-[10px] font-normal text-brand-zinc-550 leading-relaxed max-w-[170px] mx-auto">Our creative team designs stunning visuals and user experiences.</p>
                 </div>
               </div>
- 
+
               {/* Step 4 */}
               <div className="flex flex-col items-center text-center space-y-3 relative group">
                 {/* Horizontal flowing connector path */}
@@ -888,7 +681,7 @@ export default function AboutPage() {
                   </svg>
                   <span className="absolute top-[-3px] left-1/2 -translate-x-1/2 h-2.5 w-2.5 rounded-full bg-[#0306AC] dark:bg-[#FFF35C] shadow-sm animate-pulse" />
                 </div>
-                
+
                 <div className="h-12 w-12 rounded-full border border-brand-zinc-200 dark:border-white/10 text-[#0306AC] dark:text-[#FFF35C] flex items-center justify-center bg-white dark:bg-[#12121e] shadow-md group-hover:border-[#0306AC] transition-colors duration-300 relative z-10">
                   <Code className="h-5 w-5" />
                 </div>
@@ -898,7 +691,7 @@ export default function AboutPage() {
                   <p className="font-sans text-[10px] font-normal text-brand-zinc-550 leading-relaxed max-w-[170px] mx-auto">We build fast, responsive, and high-performing digital solutions.</p>
                 </div>
               </div>
- 
+
               {/* Step 5 */}
               <div className="flex flex-col items-center text-center space-y-3 relative group">
                 <div className="h-12 w-12 rounded-full border border-brand-zinc-200 dark:border-white/10 text-[#0306AC] dark:text-[#FFF35C] flex items-center justify-center bg-white dark:bg-[#12121e] shadow-md group-hover:border-[#0306AC] transition-colors duration-300 relative z-10">
@@ -910,15 +703,15 @@ export default function AboutPage() {
                   <p className="font-sans text-[10px] font-normal text-brand-zinc-550 leading-relaxed max-w-[170px] mx-auto">We test, launch, and optimize for long-term success.</p>
                 </div>
               </div>
- 
+
             </div>
           </div>
         </section>
- 
+
         {/* ── 7. INDUSTRIES WE SERVE SECTION ───────────────────────────── */}
         <section className="relative overflow-hidden py-16 md:py-20 border-b border-brand-zinc-200 dark:border-white/10 bg-white dark:bg-[#080710]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
- 
+
             <div className="text-center mb-12 flex flex-col items-center">
               <span className="text-[10px] font-sans font-black tracking-widest text-[#0306AC] uppercase block mb-1">
                 // INDUSTRIES WE SERVE
@@ -928,57 +721,57 @@ export default function AboutPage() {
                 Empowering Businesses Across <span className="text-[#0306AC] dark:text-[#FFF35C]">Every Industry</span>
               </h2>
             </div>
- 
+
             <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-8 gap-4 max-w-6xl mx-auto">
- 
+
               {/* Card 1: E-Commerce */}
               <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
                 <ShoppingCart className="h-5 w-5 text-[#0306AC] dark:text-[#FFF35C]" />
                 <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">E-Commerce</span>
               </div>
- 
+
               {/* Card 2: Real Estate */}
               <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
                 <Building2 className="h-5 w-5 text-[#0306AC] dark:text-[#FFF35C]" />
                 <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">Real Estate</span>
               </div>
- 
+
               {/* Card 3: Healthcare */}
               <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
                 <Heart className="h-5 w-5 text-[#0306AC] dark:text-[#FFF35C]" />
                 <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">Healthcare</span>
               </div>
- 
+
               {/* Card 4: Education */}
               <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
                 <GraduationCap className="h-5 w-5 text-[#0306AC] dark:text-[#FFF35C]" />
                 <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">Education</span>
               </div>
- 
+
               {/* Card 5: Finance */}
               <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
                 <Coins className="h-5 w-5 text-[#0306AC] dark:text-[#FFF35C]" />
                 <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">Finance</span>
               </div>
- 
+
               {/* Card 6: SaaS & Tech */}
               <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
                 <Database className="h-5 w-5 text-[#0306AC] dark:text-[#FFF35C]" />
                 <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">SaaS & Tech</span>
               </div>
- 
+
               {/* Card 7: Hospitality */}
               <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
                 <Utensils className="h-5 w-5 text-[#0306AC] dark:text-[#FFF35C]" />
                 <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">Hospitality</span>
               </div>
- 
+
               {/* Card 8: Legal */}
               <div className="p-4 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200 dark:border-white/10 shadow-sm flex flex-col items-center justify-center gap-2 group hover:border-[#0306AC] transition-all cursor-pointer h-[95px]">
                 <Scale className="h-5 w-5 text-[#0306AC] dark:text-[#FFF35C]" />
                 <span className="text-[10px] font-bold text-brand-dark dark:text-white text-center mt-1">Legal</span>
               </div>
- 
+
             </div>
           </div>
         </section>
@@ -986,7 +779,7 @@ export default function AboutPage() {
         {/* ── 8. WHY BUSINESSES CHOOSE US SECTION ─────────────────────── */}
         <section className="relative overflow-hidden py-16 md:py-24 border-b border-brand-zinc-200 dark:border-white/10 bg-zinc-50/50 dark:bg-white/[0.01]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
-  
+
             <div className="text-center mb-16 flex flex-col items-center">
               <span className="text-[9px] font-sans font-black tracking-widest text-[#0306AC] dark:text-[#FFF35C] uppercase mb-2">
                 WHY BUSINESSES CHOOSE US
@@ -998,16 +791,16 @@ export default function AboutPage() {
                 We go beyond just delivering services — we build long-term partnerships that drive real growth and lasting impact for your business.
               </p>
             </div>
-  
+
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-  
+
               {/* Left Column: Team Picture Card */}
               <div className="lg:col-span-4 relative flex justify-center">
                 <div className="relative w-full aspect-[4/3] lg:aspect-auto lg:h-full min-h-[300px] rounded-[32px] overflow-hidden bg-[#0306AC] border border-brand-zinc-200 dark:border-white/10 shadow-lg p-6 flex flex-col justify-between">
                   {/* Decorative yellow arc line at top-right */}
                   <div className="absolute -top-3 -right-3 w-16 h-16 border-t-2 border-r-2 border-brand-yellow rounded-tr-[32px] pointer-events-none" />
                   <div className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-brand-yellow" />
-                  
+
                   <div className="max-w-[200px] z-10">
                     <p className="text-white text-xs sm:text-sm font-semibold leading-relaxed">
                       We focus on what matters most —
@@ -1016,17 +809,17 @@ export default function AboutPage() {
                       your growth.
                     </p>
                   </div>
-                  
+
                   {/* Team picture placeholder gray box */}
                   <div className="absolute right-0 bottom-0 w-[60%] h-[75%] bg-zinc-200 dark:bg-zinc-800 rounded-tl-3xl shadow-inner flex items-center justify-center text-[10px] font-mono text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider">
                     [ Image ]
                   </div>
                 </div>
               </div>
-  
+
               {/* Right Column: 6 features in a 3-column grid */}
               <div className="lg:col-span-8 grid grid-cols-1 sm:grid-cols-3 gap-6">
-  
+
                 {/* Feature 1: Proven Results */}
                 <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
                   <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
@@ -1036,7 +829,7 @@ export default function AboutPage() {
                   <div className="h-[2px] w-6 bg-[#FFF35C] mt-2 mb-2" />
                   <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">We deliver measurable outcomes that drive real growth for your business.</p>
                 </div>
-  
+
                 {/* Feature 2: Creative Excellence */}
                 <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
                   <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
@@ -1046,7 +839,7 @@ export default function AboutPage() {
                   <div className="h-[2px] w-6 bg-brand-blue mt-2 mb-2" />
                   <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">Unique designs & strategies that make your brand stand out in the market.</p>
                 </div>
-  
+
                 {/* Feature 3: Transparent Process */}
                 <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
                   <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
@@ -1056,7 +849,7 @@ export default function AboutPage() {
                   <div className="h-[2px] w-6 bg-[#FFF35C] mt-2 mb-2" />
                   <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">Clear communication and full visibility at every stage of the project.</p>
                 </div>
-  
+
                 {/* Feature 4: On-Time Delivery */}
                 <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
                   <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
@@ -1066,7 +859,7 @@ export default function AboutPage() {
                   <div className="h-[2px] w-6 bg-brand-blue mt-2 mb-2" />
                   <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">We respect deadlines and deliver on time, every time.</p>
                 </div>
-  
+
                 {/* Feature 5: Dedicated Support */}
                 <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
                   <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
@@ -1076,7 +869,7 @@ export default function AboutPage() {
                   <div className="h-[2px] w-6 bg-[#FFF35C] mt-2 mb-2" />
                   <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">Our team is always here to support you, whenever you need us.</p>
                 </div>
-  
+
                 {/* Feature 6: Long-Term Partnership */}
                 <div className="p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col items-start hover:border-brand-blue/30 transition-all duration-300">
                   <div className="h-10 w-10 rounded-full bg-brand-blue/5 dark:bg-white/5 flex items-center justify-center text-brand-blue dark:text-brand-blue mb-4">
@@ -1086,18 +879,18 @@ export default function AboutPage() {
                   <div className="h-[2px] w-6 bg-brand-blue mt-2 mb-2" />
                   <p className="text-[10px] font-normal text-brand-zinc-500 dark:text-zinc-400 mt-1 leading-relaxed">We believe in building relationships not just projects for sustainable success.</p>
                 </div>
-  
+
               </div>
-  
+
             </div>
           </div>
         </section>
-  
+
         {/* ── 9. ABOUT FOUNDER SECTION ─────────────────────────────────── */}
         <section className="relative overflow-hidden py-16 md:py-24 border-b border-[#E5E7EB] dark:border-white/10 bg-white dark:bg-[#080710]">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-  
+
               {/* Left Column: Portrait image placeholder (graybox) */}
               <div className="lg:col-span-3 flex justify-center">
                 <div className="relative aspect-[3/4] w-full max-w-[280px] rounded-[32px] overflow-hidden bg-zinc-200 dark:bg-zinc-800 border border-brand-zinc-200 dark:border-white/10 shadow-lg">
@@ -1105,7 +898,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 flex items-center justify-center text-[11px] font-mono text-zinc-400 dark:text-zinc-500 font-bold uppercase tracking-wider">
                     [ Portrait ]
                   </div>
-                  
+
                   {/* Bottom-left overlay card: 300+ Clients Worldwide */}
                   <div className="absolute left-4 bottom-4 bg-white/95 dark:bg-[#12121e]/95 backdrop-blur-sm rounded-xl p-3 shadow-md border border-brand-zinc-100 dark:border-white/5 flex flex-col gap-1.5 max-w-[130px] z-10">
                     <div className="flex items-center gap-1">
@@ -1113,7 +906,7 @@ export default function AboutPage() {
                       <span className="font-heading font-black text-xs text-brand-dark dark:text-white leading-none">300+</span>
                     </div>
                     <span className="text-[7.5px] font-bold text-brand-zinc-400 uppercase tracking-wider leading-none">Clients Worldwide</span>
-                    
+
                     {/* Tiny avatar group */}
                     <div className="flex -space-x-1 overflow-hidden mt-0.5">
                       <div className="inline-block h-3.5 w-3.5 rounded-full ring-1 ring-white bg-zinc-300 dark:bg-zinc-700" />
@@ -1123,14 +916,14 @@ export default function AboutPage() {
                       <div className="inline-block h-3.5 w-3.5 rounded-full ring-1 ring-white bg-zinc-700 dark:bg-zinc-300" />
                     </div>
                   </div>
-  
+
                   {/* Bottom-right overlay cursive signature: Mohsin / Ahsan */}
                   <div className="absolute right-4 bottom-5 text-[#0306AC] dark:text-[#FFF35C] font-heading font-black italic text-sm tracking-wide z-10 opacity-80 select-none">
                     Ahsan
                   </div>
                 </div>
               </div>
-  
+
               {/* Middle Column: Bio & Signature */}
               <div className="lg:col-span-5 space-y-5 text-left">
                 <div className="space-y-1">
@@ -1143,12 +936,12 @@ export default function AboutPage() {
                 <p className="text-xs sm:text-sm font-bold text-[#0306AC] dark:text-[#FFF35C] tracking-wide uppercase leading-none mt-0.5">
                   Founder & Digital Strategist
                 </p>
-  
+
                 <div className="space-y-3.5 text-xs sm:text-sm font-normal font-sans leading-relaxed text-brand-zinc-500 dark:text-zinc-400">
                   <p>I'm a digital strategist and entrepreneur with a passion for helping brands grow through innovative design, smart marketing, and powerful strategies.</p>
                   <p>With over 7+ years of experience, I've had the privilege of working with 300+ clients worldwide, delivering results that make a real difference.</p>
                 </div>
-  
+
                 {/* Handwritten signature and down arrow CTA */}
                 <div className="pt-4 flex items-center gap-6 select-none">
                   <svg className="w-32 h-12 text-[#0306AC] dark:text-[#FFF35C]" viewBox="0 0 150 50" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
@@ -1160,7 +953,7 @@ export default function AboutPage() {
                       transition={{ duration: 1.6, ease: [0.16, 1, 0.3, 1] }}
                     />
                   </svg>
-                  
+
                   <a
                     href="#contact"
                     className="flex h-9 w-9 items-center justify-center rounded-full bg-brand-yellow text-brand-dark hover:scale-105 active:scale-95 transition-all duration-300 shadow-md"
@@ -1171,10 +964,10 @@ export default function AboutPage() {
                   <span className="text-[10px] font-sans font-black tracking-widest uppercase text-brand-dark dark:text-white">Know More About Me</span>
                 </div>
               </div>
-  
+
               {/* Right Column: 4 grid stat cards (2x2) */}
               <div className="lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-4">
-  
+
                 {/* Card 1 */}
                 <div className="p-5 rounded-2xl bg-zinc-50/50 dark:bg-white/[0.02] border border-brand-zinc-200/80 dark:border-white/10 flex flex-col justify-between h-[120px] hover:border-brand-blue/30 transition-all duration-300">
                   <div className="flex justify-between items-start">
@@ -1188,7 +981,7 @@ export default function AboutPage() {
                     <p className="text-[8px] text-brand-zinc-400 mt-1 leading-normal font-sans">Years of expertise in delivering innovative digital solutions that drive results.</p>
                   </div>
                 </div>
-  
+
                 {/* Card 2 */}
                 <div className="p-5 rounded-2xl bg-zinc-50/50 dark:bg-white/[0.02] border border-brand-zinc-200/80 dark:border-white/10 flex flex-col justify-between h-[120px] hover:border-brand-blue/30 transition-all duration-300">
                   <div className="flex justify-between items-start">
@@ -1202,7 +995,7 @@ export default function AboutPage() {
                     <p className="text-[8px] text-brand-zinc-400 mt-1 leading-normal font-sans">Successfully completed projects across 20+ industries worldwide.</p>
                   </div>
                 </div>
-  
+
                 {/* Card 3 */}
                 <div className="p-5 rounded-2xl bg-zinc-50/50 dark:bg-white/[0.02] border border-brand-zinc-200/80 dark:border-white/10 flex flex-col justify-between h-[120px] hover:border-brand-blue/30 transition-all duration-300">
                   <div className="flex justify-between items-start">
@@ -1216,7 +1009,7 @@ export default function AboutPage() {
                     <p className="text-[8px] text-brand-zinc-400 mt-1 leading-normal font-sans">Proud to work with clients from USA, UK, Canada, Australia, and more.</p>
                   </div>
                 </div>
-  
+
                 {/* Card 4 */}
                 <div className="p-5 rounded-2xl bg-zinc-50/50 dark:bg-white/[0.02] border border-brand-zinc-200/80 dark:border-white/10 flex flex-col justify-between h-[120px] hover:border-brand-blue/30 transition-all duration-300">
                   <div className="flex justify-between items-start">
@@ -1230,9 +1023,9 @@ export default function AboutPage() {
                     <p className="text-[8px] text-brand-zinc-400 mt-1 leading-normal font-sans">We follow a clear strategy-first approach to create impactful and scalable solutions.</p>
                   </div>
                 </div>
-  
+
               </div>
-  
+
             </div>
           </div>
         </section>
@@ -1241,7 +1034,8 @@ export default function AboutPage() {
         <ReviewsCarousel />
 
         {/* Cursive Font Injector for 'Together' */}
-        <style dangerouslySetInnerHTML={{ __html: `
+        <style dangerouslySetInnerHTML={{
+          __html: `
           @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap');
           .font-cursive {
             font-family: 'Dancing Script', cursive;
@@ -1255,7 +1049,7 @@ export default function AboutPage() {
 
               {/* BG grid dots */}
               <div className="absolute inset-0 bg-[radial-gradient(#ffffff18_1px,transparent_1px)] bg-[size:28px_28px] pointer-events-none" />
-              
+
               {/* Decorative outline circles behind portrait */}
               <div className="absolute right-[5%] top-1/2 -translate-y-1/2 w-[340px] h-[340px] pointer-events-none hidden lg:block select-none opacity-40">
                 <svg viewBox="0 0 100 100" className="w-full h-full text-white/20">
@@ -1445,7 +1239,7 @@ function ReviewsCarousel() {
 
         {/* Carousel Container with Arrows */}
         <div className="relative max-w-6xl mx-auto px-4 sm:px-10">
-          
+
           {/* Navigation Arrows */}
           <button
             onClick={handlePrev}
@@ -1477,7 +1271,7 @@ function ReviewsCarousel() {
                   style={{ width: `${100 / itemsPerView}%` }}
                 >
                   <div className="relative p-6 rounded-2xl bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 shadow-sm flex flex-col justify-between hover:border-[#0306AC]/30 hover:shadow-md h-full min-h-[240px] overflow-hidden">
-                    
+
                     {/* Decorative large quote mark */}
                     <span className="absolute top-4 right-5 text-6xl font-serif leading-none text-brand-zinc-100 dark:text-white/5 select-none pointer-events-none">
                       ❝
@@ -1540,11 +1334,10 @@ function ReviewsCarousel() {
               key={di}
               onClick={() => setActive(di)}
               aria-label={`Go to page ${di + 1}`}
-              className={`rounded-full transition-all duration-300 ${
-                di === safeActive
-                  ? "w-6 h-2.5 bg-[#0306AC] dark:bg-[#FFF35C]"
-                  : "w-2.5 h-2.5 bg-brand-zinc-200 dark:bg-white/20 hover:bg-[#0306AC]/40"
-              }`}
+              className={`rounded-full transition-all duration-300 ${di === safeActive
+                ? "w-6 h-2.5 bg-[#0306AC] dark:bg-[#FFF35C]"
+                : "w-2.5 h-2.5 bg-brand-zinc-200 dark:bg-white/20 hover:bg-[#0306AC]/40"
+                }`}
             />
           ))}
         </div>
