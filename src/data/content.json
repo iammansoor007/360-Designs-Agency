@@ -90,16 +90,16 @@
     "list": [
       {
         "num": "01",
-        "title": "Search Engine Optimization (SEO)",
+        "title": "SEO",
         "category": "SEO",
         "desc": "Scale organic search traffic, outrank competitors, and secure high-intent leads that drive compounding growth.",
         "svgRank": "RANK #1"
       },
       {
         "num": "02",
-        "title": "Content Marketing",
+        "title": "Content Writing",
         "category": "CONTENT",
-        "desc": "Publish authoritative, conversion-optimized articles and resources that build brand trust and compound search traffic."
+        "desc": "Publish authoritative, search-optimized articles, blogs, and resources that build brand trust and compound traffic."
       },
       {
         "num": "03",
@@ -112,31 +112,32 @@
       },
       {
         "num": "04",
-        "title": "Social Media Management (SMM)",
+        "title": "Social Media Management",
         "category": "SMM",
         "desc": "Tell compelling stories, publish platform-specific content, and grow organic followings across key networks.",
         "svgFollowers": "FOLLOWERS"
       },
       {
         "num": "05",
-        "title": "GMB Optimization",
-        "category": "GMB",
-        "desc": "Claim, optimize, and actively manage your Google Business Profile to capture high-intent local phone calls and map visits.",
-        "svgCall": "CALL",
-        "svgMaps": "MAPS",
-        "svgReviews": "4.9 (142 reviews)"
+        "title": "Meta Ads",
+        "category": "ADS",
+        "desc": "Engage target audiences across Facebook & Instagram with scroll-stopping ad creatives and high-conversion funnels.",
+        "svgShopNow": "SHOP NOW",
+        "svgRoasGoal": "ROAS GOAL",
+        "svgRoas": "4.8x ROAS",
+        "svgFbLetter": "f"
       },
       {
         "num": "06",
-        "title": "Graphic Designing",
+        "title": "Branding and Graphic Design",
         "category": "DESIGN",
-        "desc": "Develop high-end marketing collaterals, social graphics, and custom illustration assets that capture immediate customer attention."
+        "desc": "Develop high-end logo identities, brand guidelines, and custom illustration assets that capture immediate attention."
       },
       {
         "num": "07",
         "title": "Website Development",
         "category": "DEVELOPMENT",
-        "desc": "Build lightning-fast, custom websites with stunning UX design, Next.js architecture, and clean code.",
+        "desc": "Build lightning-fast, custom websites with stunning UX design, modern architectures, and clean code.",
         "svg100": "100",
         "svgPerformance": "PERFORMANCE"
       },
@@ -149,13 +150,22 @@
       },
       {
         "num": "09",
-        "title": "Meta Ads",
-        "category": "ADS",
-        "desc": "Engage target audiences across Facebook & Instagram with scroll-stopping ad creatives and high-conversion funnels.",
-        "svgShopNow": "SHOP NOW",
-        "svgRoasGoal": "ROAS GOAL",
-        "svgRoas": "4.8x ROAS",
-        "svgFbLetter": "f"
+        "title": "Web Design",
+        "category": "DESIGN",
+        "desc": "Create visually stunning, bespoke web interfaces that captivate visitors and establish immediate brand credibility."
+      },
+      {
+        "num": "10",
+        "title": "App Design & Development",
+        "category": "APP",
+        "desc": "Design and build intuitive, high-performance mobile applications with seamless user experiences."
+      },
+      {
+        "num": "11",
+        "title": "Copywriting",
+        "category": "COPY",
+        "desc": "Craft high-converting, persuasive copy for landing pages, emails, and ads that turns visitors into paying customers.",
+        "svgAa": "Aa"
       }
     ]
   },
