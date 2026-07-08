@@ -220,7 +220,7 @@ export default function Footer() {
       {/* Full-Width Backdrop Wordmark */}
       <div className="select-none text-center pointer-events-none mt-12 md:mt-20 mb-6 overflow-hidden w-full px-4 relative z-0">
         <motion.span 
-          className="font-sans font-black text-[10vw] leading-none tracking-tighter uppercase flex flex-wrap justify-center w-full"
+          className="font-sans font-black text-[7.8vw] leading-none tracking-tighter uppercase flex flex-nowrap justify-center w-full whitespace-nowrap"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
