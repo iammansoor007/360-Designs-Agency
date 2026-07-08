@@ -1,11 +1,11 @@
 {
   "metadata": {
-    "title": "Mohsin Designs | Best Digital Marketing Agency for Growing Businesses",
-    "description": "Mohsin Designs is the best digital marketing agency for growing businesses, helping you win real customers through SEO, branding, web design, and digital marketing services that actually move the needle."
+    "title": "360 Designs Agency | Best Digital Marketing Agency for Growing Businesses",
+    "description": "360 Designs Agency is the best digital marketing agency for growing businesses, helping you win real customers through SEO, branding, web design, and digital marketing services that actually move the needle."
   },
   "navbar": {
-    "logoLetter": "M",
-    "logoText": "Mohsin Designs",
+    "logoLetter": "3",
+    "logoText": "360 Designs Agency",
     "logoSub": "Digital Marketing Agency",
     "ctaText": "Let's Talk",
     "ctaHref": "#contact",
@@ -42,10 +42,10 @@
     "ctaPrimaryHref": "#contact",
     "ctaSecondaryText": "Our Services",
     "ctaSecondaryHref": "#services",
-    "circleText": "• MOHSIN DESIGNS • CREATIVE POWER •",
-    "circleLetter": "M",
+    "circleText": "• 360 DESIGNS AGENCY • CREATIVE POWER •",
+    "circleLetter": "3",
     "imageSrc": "/hero-image-1.webp",
-    "imageAlt": "Mohsin Designs Creative Graphic Showcase",
+    "imageAlt": "360 Designs Agency Creative Graphic Showcase",
     "marqueeItems": [
       "Creative Design",
       "UI/UX",
@@ -60,8 +60,8 @@
     "sectionTag": "THE FOUNDER",
     "titleIntro": "Get to Know the Person Behind ",
     "titleHighlight": "Your Growth.",
-    "bioParagraph1": "Hi, I'm Muhammad Mohsin. Since 2019, I've spent the last half-decade-plus helping entrepreneurs and small businesses build brands that are memorable, with a hands-on approach to logo design, website building, and search engine optimization (SEO).",
-    "bioParagraph2": "Today, Mohsin Designs is a close-knit team of designers, developers, and SEO specialists who all share one goal: real, measurable growth. We get to know the people we work with instead of treating them like a task on a list. Every strategy is shaped by years of doing this and by actually understanding your industry.",
+    "bioParagraph1": "Hi, I'm Muhammad Ahsan. Since 2019, I've spent the last half-decade-plus helping entrepreneurs and small businesses build brands that are memorable, with a hands-on approach to logo design, website building, and search engine optimization (SEO).",
+    "bioParagraph2": "Today, 360 Designs Agency is a close-knit team of designers, developers, and SEO specialists who all share one goal: real, measurable growth. We get to know the people we work with instead of treating them like a task on a list. Every strategy is shaped by years of doing this and by actually understanding your industry.",
     "yearsExpValue": 5,
     "yearsExpSuffix": "+",
     "yearsExpLabel": "Years Exp",
@@ -73,10 +73,10 @@
     "successRateLabel": "Retention Rate",
     "ctaText": "Let's Work Together",
     "ctaHref": "#contact",
-    "portraitAlt": "Muhammad Mohsin - Founder",
+    "portraitAlt": "Muhammad Ahsan - Founder",
     "portraitSrc": "/mohsinowner.png",
     "circleText": "• ESTABLISHED 2019 • PERSONAL APPROACH •",
-    "circleLetter": "M"
+    "circleLetter": "A"
   },
   "services": {
     "sectionNumber": "03",
@@ -262,9 +262,9 @@
   "whyChooseMe": {
     "sectionNumber": "05",
     "sectionTag": "Methodology",
-    "titleIntro": "Why Smart Brands Choose Mohsin Designs ",
+    "titleIntro": "Why Smart Brands Choose 360 Designs Agency ",
     "titleHighlight": "for Growth",
-    "subtext": "The partner you pick can quietly decide where your business ends up. Here’s why so many clients stick with Mohsin Designs as their best digital marketing agency for growth.",
+    "subtext": "The partner you pick can quietly decide where your business ends up. Here’s why so many clients stick with 360 Designs Agency as their best digital marketing agency for growth.",
     "stats": [
       {
         "value": "95%",
@@ -331,7 +331,7 @@
     "ctaText": "Let's Work Together",
     "ctaHref": "#contact",
     "mapSrc": "/world-map.svg",
-    "mapAlt": "World map showing Mohsin Designs service coverage areas",
+    "mapAlt": "World map showing 360 Designs Agency service coverage areas",
     "hubs": [
       {
         "id": "us",
@@ -716,9 +716,9 @@
     "titleIntro": "Let’s Build Something You’re ",
     "titleHighlight": "Proud Of!",
     "description": "No corporate jargon. No cookie-cutter templates. Just quality design and marketing, done with care, for people who care about their business. Reach out and our team will reply promptly.",
-    "email": "info@mohsindesigns.com",
-    "location": "312 W 2nd St Office #A9985, Casper, WY 82601, United States",
-    "phone": "+1 (307) 449-2070",
+    "email": "info@360designsagency.com",
+    "location": "5601 Bridge St Ste 318, Fort Worth, TX 76112, United States",
+    "phone": "+17139496767",
     "labelName": "Name",
     "placeholderName": "Enter Your Full Name",
     "errorName": "Full name is required",
@@ -739,12 +739,12 @@
     "successParagraph3": " as soon as possible."
   },
   "footer": {
-    "logoLetter": "M",
-    "logoText": "Mohsin Designs",
+    "logoLetter": "3",
+    "logoText": "360 Designs Agency",
     "logoSub": "Digital Marketing Agency",
     "description": "Let’s Build Something You’re Proud Of. Real marketing, done with care.",
     "studioStatus": "STUDIO STATUS: OPEN FOR PROJECTS",
-    "coordinates": "WY 82601 // EST. 2019",
+    "coordinates": "TX 76112 // EST. 2019",
     "labelQuickLinks": "// Quick Links",
     "quickLinks": [
       {
@@ -786,18 +786,18 @@
     ],
     "labelContactInfo": "// Contact Info",
     "labelEmail": "// Email",
-    "valueEmail": "info@mohsindesigns.com",
+    "valueEmail": "info@360designsagency.com",
     "labelPhone": "// Phone",
-    "valuePhone": "+1 (307) 449-2070",
+    "valuePhone": "+17139496767",
     "labelAddress": "// Address",
-    "valueAddress": "312 W 2nd St Office #A9985, Casper, WY 82601",
+    "valueAddress": "5601 Bridge St Ste 318, Fort Worth, TX 76112",
     "labelNewsletter": "// Newsletter",
     "newsletterDesc": "Subscribe to get tips, insights, and agency updates.",
     "newsletterPlaceholder": "Email address",
     "newsletterSuccess": "Thanks for subscribing! ✓",
-    "wordmarkText": "MOHSIN DESIGNS",
-    "copyrightPrefix": "\u00a9 ",
-    "copyrightSuffix": " 2019–2025 Mohsin Designs. All rights reserved.",
+    "wordmarkText": "360 DESIGNS AGENCY",
+    "copyrightPrefix": "© ",
+    "copyrightSuffix": " 2019–2025 360 Designs Agency. All rights reserved.",
     "privacyText": "Privacy Policy",
     "privacyHref": "#",
     "linkSeparator": "|",
@@ -813,7 +813,7 @@
       },
       {
         "name": "Whatsapp",
-        "href": "https://wa.me/13074492070",
+        "href": "https://wa.me/17139496767",
         "ariaLabel": "Chat on WhatsApp"
       }
     ]

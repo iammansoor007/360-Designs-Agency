@@ -102,7 +102,7 @@ export default function AboutPage() {
                 {/* Yellow Badge */}
                 <span className="inline-flex items-center gap-1.5 rounded-full bg-[#FFF35C] px-3.5 py-1 text-[9px] font-black uppercase text-brand-dark tracking-widest shadow-sm">
                   <span className="h-1.5 w-1.5 rounded-full bg-brand-dark block" />
-                  ABOUT MOHSIN DESIGNS
+                  ABOUT 360 DESIGNS AGENCY
                 </span>
 
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08] text-brand-dark dark:text-white">
@@ -475,7 +475,7 @@ export default function AboutPage() {
                 </h2>
  
                 <p className="text-xs sm:text-sm text-brand-zinc-550 font-normal font-sans leading-relaxed max-w-xl">
-                  At Mohsin Designs, we combine creativity, strategy, and technology to build digital solutions that help businesses stand out, grow faster, and achieve long-term success.
+                  At 360 Designs Agency, we combine creativity, strategy, and technology to build digital solutions that help businesses stand out, grow faster, and achieve long-term success.
                 </p>
  
                 {/* Checklist Bullet Points */}
@@ -1098,7 +1098,7 @@ export default function AboutPage() {
               <div className="lg:col-span-7 space-y-5 text-left">
                 <span className="text-[10px] font-sans font-black tracking-widest text-[#0306AC] dark:text-[#FFF35C] uppercase block">// ABOUT THE FOUNDER</span>
                 <h2 className="font-heading text-3xl sm:text-4xl font-extrabold text-brand-dark tracking-tight leading-tight">
-                  Hi, I'm <span className="text-[#0306AC] dark:text-[#FFF35C]">Mohsin</span>
+                  Hi, I'm <span className="text-[#0306AC] dark:text-[#FFF35C]">Ahsan</span>
                 </h2>
  
                 <div className="space-y-3.5 text-xs sm:text-sm font-normal font-sans leading-relaxed text-brand-zinc-500">
@@ -1187,7 +1187,7 @@ export default function AboutPage() {
                     {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-current" />)}
                   </div>
                   <p className="text-[11.5px] font-semibold text-brand-zinc-500 leading-relaxed italic">
-                    "Mohsin Designs transformed our ideas into a stunning website. Their creativity and support throughout the project were excellent."
+                    "360 Designs Agency transformed our ideas into a stunning website. Their creativity and support throughout the project were excellent."
                   </p>
                 </div>
                 <div className="flex items-center gap-3 pt-3 border-t border-brand-zinc-100 dark:border-white/5">
@@ -1200,7 +1200,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-
+ 
               {/* Review 2 */}
               <div className="p-5.5 rounded-2xl glass-card-premium flex flex-col justify-between h-[230px] hover:border-[#0306AC] transition-all">
                 <div>
@@ -1221,7 +1221,7 @@ export default function AboutPage() {
                   </div>
                 </div>
               </div>
-
+ 
               {/* Review 3 */}
               <div className="p-5.5 rounded-2xl glass-card-premium flex flex-col justify-between h-[230px] hover:border-[#0306AC] transition-all">
                 <div>
@@ -1229,7 +1229,7 @@ export default function AboutPage() {
                     {[...Array(5)].map((_, i) => <Star key={i} className="h-3 w-3 fill-current" />)}
                   </div>
                   <p className="text-[11.5px] font-semibold text-brand-zinc-500 leading-relaxed italic">
-                    "Professional, reliable, and result-driven. Mohsin Designs is our go-to partner for digital growth."
+                    "Professional, reliable, and result-driven. 360 Designs Agency is our go-to partner for digital growth."
                   </p>
                 </div>
                 <div className="flex items-center gap-3 pt-3 border-t border-brand-zinc-100 dark:border-white/5">
