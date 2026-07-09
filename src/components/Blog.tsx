@@ -72,10 +72,10 @@ export default function Blog() {
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.1] select-none">
             {blog.titleIntro} <span className="text-brand-blue relative inline-block">
               {blog.titleHighlight}
-              <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
+              <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path
                   d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
-                  fill="#FFF35C"
+                  fill="#E9BD36"
                 />
               </svg>
             </span>
@@ -99,7 +99,7 @@ export default function Blog() {
             {posts[0] && (
               <a
                 href={posts[0].link}
-                className="group flex flex-col rounded-[2.5rem] border border-brand-zinc-200/80 dark:border-white/10 bg-white dark:bg-[#12121e] p-6 md:p-8 shadow-[0_2px_12px_rgba(3,6,172,0.015)] hover:shadow-[0_20px_40px_rgba(3,6,172,0.08)] hover:border-brand-blue/30 dark:hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none block"
+                className="group flex flex-col rounded-[2.5rem] border border-brand-zinc-200/80 dark:border-white/10 bg-white dark:bg-[#12121e] p-6 md:p-8 shadow-[0_2px_12px_rgba(38, 92, 131,0.015)] hover:shadow-[0_20px_40px_rgba(38, 92, 131,0.08)] hover:border-brand-blue/30 dark:hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none block"
               >
                 {/* Image Wrapper */}
                 <div className="relative aspect-[16/10] overflow-hidden bg-brand-light border border-brand-zinc-200/40 rounded-3xl mb-6">
@@ -160,7 +160,7 @@ export default function Blog() {
               <a
                 key={idx}
                 href={post.link}
-                className="group block rounded-[2rem] border border-brand-zinc-200/80 dark:border-white/10 bg-white dark:bg-[#12121e] p-4 sm:p-5 shadow-[0_2px_12px_rgba(3,6,172,0.01)] hover:shadow-[0_16px_36px_rgba(3,6,172,0.06)] hover:border-brand-blue/30 dark:hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none"
+                className="group block rounded-[2rem] border border-brand-zinc-200/80 dark:border-white/10 bg-white dark:bg-[#12121e] p-4 sm:p-5 shadow-[0_2px_12px_rgba(38, 92, 131,0.01)] hover:shadow-[0_16px_36px_rgba(38, 92, 131,0.06)] hover:border-brand-blue/30 dark:hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none"
               >
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full">
                   {/* Small Thumbnail */}

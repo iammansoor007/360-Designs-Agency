@@ -72,8 +72,8 @@ export default function ContactForm() {
           className="absolute -inset-[50%] w-[200%] h-[200%] rotate-[8deg]"
           style={{
             backgroundImage: `
-              linear-gradient(to right, rgba(3, 6, 172, 0.035) 1px, transparent 1px),
-              linear-gradient(to bottom, rgba(3, 6, 172, 0.035) 1px, transparent 1px)
+              linear-gradient(to right, rgba(38, 92, 131, 0.035) 1px, transparent 1px),
+              linear-gradient(to bottom, rgba(38, 92, 131, 0.035) 1px, transparent 1px)
             `,
             backgroundSize: "80px 80px"
           }}
@@ -122,10 +122,10 @@ export default function ContactForm() {
               <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.1] select-none">
                 {contact.titleIntro} <span className="text-brand-blue relative inline-block">
                   {contact.titleHighlight}
-                  <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 14" preserveAspectRatio="none">
+                  <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 14" preserveAspectRatio="none">
                     <path
                       d="M 2 7 Q 50 2, 98 5 C 99 5, 99 6, 98 6.5 Q 50 9, 2 8 C 1 8, 1 7, 2 7 Z"
-                      fill="#FFF35C"
+                      fill="#E9BD36"
                     />
                   </svg>
                 </span>
@@ -171,7 +171,7 @@ export default function ContactForm() {
           </div>
 
           {/* Right Column: Premium Support Card (Restored to Light Glassmorphism) */}
-          <div className="lg:col-span-7 w-full bg-white/45 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10 p-4 sm:p-8 md:p-10 rounded-[2.5rem] shadow-[0_24px_80px_rgba(3,6,172,0.02)]">
+          <div className="lg:col-span-7 w-full bg-white/45 dark:bg-white/5 backdrop-blur-xl border border-white/60 dark:border-white/10 p-4 sm:p-8 md:p-10 rounded-[2.5rem] shadow-[0_24px_80px_rgba(38, 92, 131,0.02)]">
             <AnimatePresence mode="wait">
               {!isSuccess ? (
                 <motion.form
@@ -252,7 +252,7 @@ export default function ContactForm() {
                     <button
                       type="submit"
                       disabled={isSubmitting}
-                      className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#FFF35C] shadow-[0_4px_28px_rgba(3,6,172,0.15)] dark:shadow-[0_4px_28px_rgba(255,243,92,0.15)] active:scale-[0.97] transition-all duration-300 border border-[#0306AC] dark:border-[#FFF35C] cursor-pointer w-full sm:w-auto"
+                      className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#265C83] dark:bg-[#E9BD36] shadow-[0_4px_28px_rgba(38, 92, 131,0.15)] dark:shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] active:scale-[0.97] transition-all duration-300 border border-[#265C83] dark:border-[#E9BD36] cursor-pointer w-full sm:w-auto"
                     >
                       {/* Curtain slides in from left on hover */}
                       <span
@@ -264,7 +264,7 @@ export default function ContactForm() {
                         {isSubmitting ? "Sending..." : contact.btnSubmit}
                       </span>
                       {/* Arrow circle — inverts on hover */}
-                      <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#FFF35C] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                      <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#265C83] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                         {isSubmitting ? (
                           <div className="h-4 w-4 animate-spin rounded-full border-2 border-current border-t-transparent" />
                         ) : (

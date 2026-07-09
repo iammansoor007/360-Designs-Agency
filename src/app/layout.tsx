@@ -33,9 +33,11 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${lora.variable} ${poppins.variable} h-full antialiased scroll-smooth`}
+      className={`${lora.variable} ${poppins.variable} h-full antialiased scroll-smooth dark`}
     >
       <head>
+        {/* Commented out client-side theme initialization script temporarily */}
+        {/*
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -52,6 +54,7 @@ export default function RootLayout({
             `,
           }}
         />
+        */}
       </head>
       <body className="min-h-full flex flex-col bg-white dark:bg-[#080710] text-black dark:text-white font-sans overflow-x-hidden relative transition-colors duration-300">
         <InteractiveBackground />

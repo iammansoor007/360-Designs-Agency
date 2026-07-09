@@ -74,10 +74,10 @@ export default function Industries() {
             {industries.titleIntro}{" "}
             <span className="relative inline-block text-brand-blue">
               {industries.titleHighlight}
-              <svg className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
+              <svg className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <motion.path
                   d="M 2 5 Q 50 3.5, 98 5"
-                  stroke="#FFF35C"
+                  stroke="#E9BD36"
                   strokeWidth="3.5"
                   strokeLinecap="round"
                   variants={drawVariants}

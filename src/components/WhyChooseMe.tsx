@@ -101,7 +101,7 @@ function AnimatedStat({
           {/* Yellow dot — always visible, moves with arc every frame */}
           <circle
             cx={dotX} cy={dotY} r="4.5"
-            fill="#FFF35C"
+            fill="#E9BD36"
             stroke="white"
             strokeWidth="1.5"
             style={{ filter: "var(--svg-dot-shadow)" }}
@@ -257,7 +257,7 @@ export default function WhyChooseMe() {
       <div
         className="absolute inset-0 opacity-[0.022] pointer-events-none"
         style={{
-          backgroundImage: "radial-gradient(#0306AC 1px, transparent 1px)",
+          backgroundImage: "radial-gradient(#265C83 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       />
@@ -292,7 +292,7 @@ export default function WhyChooseMe() {
                   >
                     <motion.path
                       d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
-                      fill="#FFF35C"
+                      fill="#E9BD36"
                       variants={drawVariants}
                       initial="hidden"
                       whileInView="visible"
@@ -359,7 +359,7 @@ export default function WhyChooseMe() {
                       <div className="shrink-0 flex h-11 w-11 items-center justify-center rounded-xl
                         bg-brand-blue/8 border border-brand-blue/15 text-brand-blue
                         group-hover:bg-brand-blue group-hover:text-white dark:group-hover:text-[#080710] group-hover:border-brand-blue
-                        group-hover:shadow-[0_6px_20px_rgba(3,6,172,0.22)] dark:group-hover:shadow-[0_6px_20px_rgba(255,243,92,0.12)]
+                        group-hover:shadow-[0_6px_20px_rgba(38, 92, 131,0.22)] dark:group-hover:shadow-[0_6px_20px_rgba(233, 189, 54,0.12)]
                         transition-all duration-300 mt-0.5">
                         <Icon className="h-[18px] w-[18px]" />
                       </div>

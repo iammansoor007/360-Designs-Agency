@@ -22,19 +22,19 @@ const getServiceIllustration = (num: string, s: any) => {
             <rect x="40" y="4" width="70" height="7" rx="3" fill="currentColor" opacity="0.15" />
             <path d="M15 65 L45 55 L75 62 L105 38 L135 45" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
             <path d="M15 65 L45 55 L75 62 L105 38 L135 45 V75 H15 Z" fill="currentColor" opacity="0.05" />
-            <circle cx="105" cy="38" r="4.5" fill="#FFF35C" stroke="currentColor" strokeWidth="1.5" />
-            <circle cx="75" cy="62" r="3" fill="#FFF35C" stroke="currentColor" strokeWidth="1" />
+            <circle cx="105" cy="38" r="4.5" fill="#E9BD36" stroke="currentColor" strokeWidth="1.5" />
+            <circle cx="75" cy="62" r="3" fill="#E9BD36" stroke="currentColor" strokeWidth="1" />
             <rect x="15" y="24" width="55" height="4" rx="2" fill="currentColor" opacity="0.3" />
             <rect x="15" y="32" width="35" height="3" rx="1.5" fill="currentColor" opacity="0.15" />
           </g>
           <g className="animate-float" transform="translate(130, 60)">
             <circle cx="15" cy="15" r="12" stroke="currentColor" strokeWidth="2.5" fill="white" className="group-hover:fill-brand-blue transition-colors duration-500" />
-            <circle cx="15" cy="15" r="8" fill="#FFF35C" opacity="0.3" />
+            <circle cx="15" cy="15" r="8" fill="#E9BD36" opacity="0.3" />
             <line x1="24" y1="24" x2="33" y2="33" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
           </g>
           <g className="animate-float-delayed" transform="translate(135, 12)">
             <rect width="45" height="15" rx="7.5" fill="currentColor" />
-            <text x="22.5" y="10" textAnchor="middle" fill="#FFF35C" className="group-hover:fill-brand-blue font-mono font-black" fontSize="7">{s.svgRank}</text>
+            <text x="22.5" y="10" textAnchor="middle" fill="#E9BD36" className="group-hover:fill-brand-blue font-mono font-black" fontSize="7">{s.svgRank}</text>
           </g>
         </svg>
       );
@@ -47,20 +47,20 @@ const getServiceIllustration = (num: string, s: any) => {
             <path d="M 20 0 Q 30 45, 10 90 M 120 0 Q 135 45, 125 90" stroke="currentColor" strokeWidth="1" strokeDasharray="3 3" opacity="0.2" />
             <g transform="translate(75, 35)">
               <circle cx="0" cy="10" r="16" stroke="currentColor" strokeWidth="1" strokeDasharray="2 3" opacity="0.4" className="animate-pulse" />
-              <circle cx="0" cy="10" r="8" fill="#FFF35C" opacity="0.2" className="animate-ping" />
+              <circle cx="0" cy="10" r="8" fill="#E9BD36" opacity="0.2" className="animate-ping" />
               <path d="M 0 -12 C -6 -12, -10 -8, -10 -2 C -10 6, 0 16, 0 16 C 0 16, 10 6, 10 -2 C 10 -8, 6 -12, 0 -12 Z" fill="currentColor" stroke="none" />
-              <circle cx="0" cy="-2" r="3" fill="#FFF35C" className="group-hover:fill-brand-blue" />
+              <circle cx="0" cy="-2" r="3" fill="#E9BD36" className="group-hover:fill-brand-blue" />
             </g>
             <g transform="translate(30, 55)">
-              <circle cx="0" cy="0" r="3" fill="#FFF35C" stroke="currentColor" strokeWidth="1" />
+              <circle cx="0" cy="0" r="3" fill="#E9BD36" stroke="currentColor" strokeWidth="1" />
             </g>
             <g transform="translate(125, 20)">
-              <circle cx="0" cy="0" r="3" fill="#FFF35C" stroke="currentColor" strokeWidth="1" />
+              <circle cx="0" cy="0" r="3" fill="#E9BD36" stroke="currentColor" strokeWidth="1" />
             </g>
             <g className="animate-float" transform="translate(90, 48)">
               <rect width="55" height="35" rx="4" fill="white" stroke="currentColor" strokeWidth="1.5" className="group-hover:fill-brand-blue transition-colors duration-500 shadow-md" />
               <rect x="6" y="6" width="30" height="4" rx="2" fill="currentColor" opacity="0.7" />
-              <g transform="translate(6, 14)" fill="#FFF35C">
+              <g transform="translate(6, 14)" fill="#E9BD36">
                 <path d="M0 2.5 L1.5 3.5 L1 1.8 L2.3 0.7 L0.6 0.7 L0 -1 L-0.6 0.7 L-2.3 0.7 L-1 1.8 L-1.5 3.5 Z" />
                 <path d="M0 2.5 L1.5 3.5 L1 1.8 L2.3 0.7 L0.6 0.7 L0 -1 L-0.6 0.7 L-2.3 0.7 L-1 1.8 L-1.5 3.5 Z" transform="translate(4.5, 0)" />
                 <path d="M0 2.5 L1.5 3.5 L1 1.8 L2.3 0.7 L0.6 0.7 L0 -1 L-0.6 0.7 L-2.3 0.7 L-1 1.8 L-1.5 3.5 Z" transform="translate(9, 0)" />
@@ -82,7 +82,7 @@ const getServiceIllustration = (num: string, s: any) => {
             <rect width="60" height="15" fill="currentColor" opacity="0.15" rx="6" />
             <circle cx="10" cy="7.5" r="2.5" fill="currentColor" />
             <circle cx="20" cy="7.5" r="2.5" fill="currentColor" />
-            <rect x="10" y="23" width="12" height="10" rx="2" fill="#FFF35C" stroke="currentColor" strokeWidth="1" />
+            <rect x="10" y="23" width="12" height="10" rx="2" fill="#E9BD36" stroke="currentColor" strokeWidth="1" />
             <rect x="26" y="23" width="10" height="10" rx="2" fill="currentColor" opacity="0.2" />
             <rect x="40" y="23" width="10" height="10" rx="2" fill="currentColor" opacity="0.2" />
             <rect x="10" y="38" width="40" height="4" rx="2" fill="currentColor" opacity="0.3" />
@@ -95,15 +95,15 @@ const getServiceIllustration = (num: string, s: any) => {
             <rect x="12" y="32" width="76" height="5" rx="2.5" fill="currentColor" opacity="0.2" />
             <rect x="12" y="44" width="76" height="5" rx="2.5" fill="currentColor" opacity="0.2" />
             <rect x="12" y="56" width="60" height="5" rx="2.5" fill="currentColor" opacity="0.2" />
-            <rect x="12" y="68" width="45" height="5" rx="2.5" fill="#FFF35C" stroke="currentColor" strokeWidth="1" />
+            <rect x="12" y="68" width="45" height="5" rx="2.5" fill="#E9BD36" stroke="currentColor" strokeWidth="1" />
             <rect x="12" y="80" width="30" height="6" rx="2" fill="currentColor" opacity="0.1" />
             <rect x="46" y="80" width="42" height="6" rx="2" fill="currentColor" opacity="0.1" />
           </g>
           <g className="animate-float-reverse" transform="translate(155, 35)">
-            <path d="M 0 35 L 20 15 L 25 20 L 5 40 Z" fill="#FFF35C" stroke="currentColor" strokeWidth="1.5" />
+            <path d="M 0 35 L 20 15 L 25 20 L 5 40 Z" fill="#E9BD36" stroke="currentColor" strokeWidth="1.5" />
             <path d="M 0 35 L -3 38 L -3 42 L 1 42 L 5 40 Z" fill="currentColor" />
             <circle cx="22.5" cy="17.5" r="2.5" fill="currentColor" />
-            <path d="M -10 42 Q -25 45, -40 38" stroke="#FFF35C" strokeWidth="2.5" strokeLinecap="round" opacity="0.8" />
+            <path d="M -10 42 Q -25 45, -40 38" stroke="#E9BD36" strokeWidth="2.5" strokeLinecap="round" opacity="0.8" />
           </g>
         </svg>
       );
@@ -119,14 +119,14 @@ const getServiceIllustration = (num: string, s: any) => {
             <circle cx="15" cy="7.5" r="2" fill="currentColor" opacity="0.4" />
             <rect x="35" y="4" width="80" height="7" rx="3.5" fill="currentColor" opacity="0.12" />
             <g transform="translate(15, 24)">
-              <rect width="15" height="9" rx="2.5" fill="#FFF35C" stroke="currentColor" strokeWidth="1" />
+              <rect width="15" height="9" rx="2.5" fill="#E9BD36" stroke="currentColor" strokeWidth="1" />
               <text x="7.5" y="7" textAnchor="middle" fill="currentColor" fontSize="5" fontWeight="bold">{s.svgAd}</text>
               <rect x="20" y="1" width="60" height="6" rx="3" fill="currentColor" opacity="0.4" />
               <rect x="0" y="12" width="120" height="4" rx="2" fill="currentColor" opacity="0.15" />
               <rect x="0" y="20" width="90" height="4" rx="2" fill="currentColor" opacity="0.15" />
             </g>
             <g transform="translate(15, 54)">
-              <rect width="15" height="9" rx="2.5" fill="#FFF35C" stroke="currentColor" strokeWidth="1" />
+              <rect width="15" height="9" rx="2.5" fill="#E9BD36" stroke="currentColor" strokeWidth="1" />
               <text x="7.5" y="7" textAnchor="middle" fill="currentColor" fontSize="5" fontWeight="bold">{s.svgAd}</text>
               <rect x="20" y="1" width="50" height="6" rx="3" fill="currentColor" opacity="0.4" />
               <rect x="0" y="12" width="100" height="4" rx="2" fill="currentColor" opacity="0.15" />
@@ -139,7 +139,7 @@ const getServiceIllustration = (num: string, s: any) => {
           </g>
           <g className="animate-float-delayed" transform="translate(42, 68)">
             <circle cx="0" cy="0" r="18" fill="white" stroke="currentColor" strokeWidth="2.5" className="group-hover:fill-brand-blue transition-colors duration-500" />
-            <circle cx="0" cy="0" r="11" fill="#FFF35C" stroke="currentColor" strokeWidth="1.5" />
+            <circle cx="0" cy="0" r="11" fill="#E9BD36" stroke="currentColor" strokeWidth="1.5" />
             <circle cx="0" cy="0" r="4" fill="currentColor" />
           </g>
         </svg>
@@ -155,21 +155,21 @@ const getServiceIllustration = (num: string, s: any) => {
             <rect x="22" y="12" width="25" height="4" rx="2" fill="currentColor" opacity="0.3" />
             <rect x="22" y="19" width="15" height="2" rx="1" fill="currentColor" opacity="0.15" />
             <rect x="6" y="27" width="53" height="40" rx="4" fill="currentColor" opacity="0.08" stroke="currentColor" strokeWidth="1" />
-            <path d="M12 60 L24 48 L35 56 L50 40 L58 48" stroke="#FFF35C" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-            <circle cx="12" cy="74" r="3" fill="#FFF35C" />
+            <path d="M12 60 L24 48 L35 56 L50 40 L58 48" stroke="#E9BD36" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+            <circle cx="12" cy="74" r="3" fill="#E9BD36" />
             <rect x="18" y="72.5" width="12" height="3" rx="1.5" fill="currentColor" opacity="0.3" />
             <rect x="6" y="81" width="53" height="11" rx="4.5" fill="currentColor" />
-            <text x="32.5" y="88.5" textAnchor="middle" fill="#FFF35C" className="group-hover:fill-brand-blue" fontSize="5.5" fontWeight="bold">{s.svgShopNow}</text>
+            <text x="32.5" y="88.5" textAnchor="middle" fill="#E9BD36" className="group-hover:fill-brand-blue" fontSize="5.5" fontWeight="bold">{s.svgShopNow}</text>
           </g>
           <g className="animate-float-delayed" transform="translate(110, 20)">
             <rect width="65" height="35" rx="6" fill="white" stroke="currentColor" strokeWidth="2.5" className="group-hover:fill-brand-blue transition-colors duration-500 shadow-lg" />
             <text x="32.5" y="14" textAnchor="middle" fill="currentColor" fontSize="6.5" fontWeight="bold" opacity="0.6">{s.svgRoasGoal}</text>
-            <text x="32.5" y="28" textAnchor="middle" fill="#FFF35C" fontSize="11" fontWeight="black">{s.svgRoas}</text>
+            <text x="32.5" y="28" textAnchor="middle" fill="#E9BD36" fontSize="11" fontWeight="black">{s.svgRoas}</text>
           </g>
           <g className="animate-float-reverse" transform="translate(125, 68)">
             <circle cx="-12" cy="12" r="11" fill="currentColor" opacity="0.1" stroke="currentColor" strokeWidth="1.5" />
             <text x="-12" y="17" textAnchor="middle" fill="currentColor" fontSize="12" fontWeight="black">{s.svgFbLetter}</text>
-            <rect x="8" y="1" width="22" height="22" rx="6" fill="#FFF35C" stroke="currentColor" strokeWidth="1.5" />
+            <rect x="8" y="1" width="22" height="22" rx="6" fill="#E9BD36" stroke="currentColor" strokeWidth="1.5" />
             <rect x="12" y="5" width="14" height="14" rx="3.5" stroke="currentColor" strokeWidth="1.5" fill="none" />
             <circle cx="19" cy="12" r="3.5" stroke="currentColor" strokeWidth="1.25" fill="none" />
             <circle cx="22.5" cy="8.5" r="0.75" fill="currentColor" />
@@ -179,18 +179,18 @@ const getServiceIllustration = (num: string, s: any) => {
     case "06":
       return (
         <svg className="w-full h-full text-brand-blue group-hover:text-white transition-colors duration-500" viewBox="0 0 200 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <circle cx="40" cy="30" r="1.5" fill="#FFF35C" />
-          <circle cx="160" cy="90" r="1.5" fill="#FFF35C" />
+          <circle cx="40" cy="30" r="1.5" fill="#E9BD36" />
+          <circle cx="160" cy="90" r="1.5" fill="#E9BD36" />
           <g transform="translate(25, 15)">
             <rect width="90" height="90" rx="8" fill="white" stroke="currentColor" strokeWidth="2.5" className="group-hover:fill-brand-blue/10 transition-colors duration-500 shadow-md" />
             <rect width="90" height="16" fill="currentColor" opacity="0.08" rx="8" />
-            <circle cx="10" cy="8" r="3.5" fill="#FFF35C" stroke="currentColor" strokeWidth="1" />
+            <circle cx="10" cy="8" r="3.5" fill="#E9BD36" stroke="currentColor" strokeWidth="1" />
             <rect x="18" y="6" width="30" height="4" rx="2" fill="currentColor" opacity="0.4" />
             <rect x="8" y="24" width="34" height="26" rx="3" fill="currentColor" opacity="0.08" />
             <rect x="48" y="24" width="34" height="26" rx="3" fill="currentColor" opacity="0.08" />
             <rect x="8" y="56" width="34" height="26" rx="3" fill="currentColor" opacity="0.08" />
             <rect x="48" y="56" width="34" height="26" rx="3" fill="currentColor" opacity="0.08" />
-            <path d="M 21 34 C 20.5 32.5, 18.5 32.5, 18 34 C 17.5 32.5, 15.5 32.5, 15 34 C 14.5 35.5, 18 39, 18 39 C 18 39, 21.5 35.5, 21 34 Z" fill="#FFF35C" transform="scale(0.8) translate(8, 12)" />
+            <path d="M 21 34 C 20.5 32.5, 18.5 32.5, 18 34 C 17.5 32.5, 15.5 32.5, 15 34 C 14.5 35.5, 18 39, 18 39 C 18 39, 21.5 35.5, 21 34 Z" fill="#E9BD36" transform="scale(0.8) translate(8, 12)" />
           </g>
           <g className="animate-float" transform="translate(100, 35)">
             <rect width="75" height="55" rx="6" fill="white" stroke="currentColor" strokeWidth="2" className="group-hover:fill-brand-blue transition-colors duration-500 shadow-lg" />
@@ -198,7 +198,7 @@ const getServiceIllustration = (num: string, s: any) => {
             <rect x="10" y="24" width="6" height="20" rx="2" fill="currentColor" opacity="0.15" />
             <rect x="22" y="20" width="6" height="24" rx="2" fill="currentColor" opacity="0.15" />
             <rect x="34" y="16" width="6" height="28" rx="2" fill="currentColor" opacity="0.15" />
-            <rect x="46" y="10" width="6" height="34" rx="2" fill="#FFF35C" stroke="currentColor" strokeWidth="1" />
+            <rect x="46" y="10" width="6" height="34" rx="2" fill="#E9BD36" stroke="currentColor" strokeWidth="1" />
             <rect x="58" y="8" width="6" height="36" rx="2" fill="#22c55e" />
           </g>
           <g className="animate-float-delayed" transform="translate(155, 10)">
@@ -215,10 +215,10 @@ const getServiceIllustration = (num: string, s: any) => {
             <rect width="150" height="80" rx="8" fill="white" stroke="currentColor" strokeWidth="2.5" className="group-hover:fill-brand-blue transition-colors duration-500 shadow-md" />
             <rect width="150" height="22" fill="currentColor" opacity="0.08" rx="8" />
             <rect x="10" y="6" width="80" height="10" rx="5" fill="currentColor" opacity="0.2" />
-            <circle cx="138" cy="11" r="5" fill="#FFF35C" stroke="currentColor" strokeWidth="1.25" />
+            <circle cx="138" cy="11" r="5" fill="#E9BD36" stroke="currentColor" strokeWidth="1.25" />
             <g transform="translate(10, 30)">
               <rect width="70" height="6" rx="3" fill="currentColor" opacity="0.4" />
-              <g transform="translate(0, 10)" fill="#FFF35C">
+              <g transform="translate(0, 10)" fill="#E9BD36">
                 <path d="M0 2 L1.2 2.8 L0.8 1.4 L1.8 0.5 L0.5 0.5 L0 -1 L-0.5 0.5 L-1.8 0.5 L-0.8 1.4 L-1.2 2.8 Z" />
                 <path d="M0 2 L1.2 2.8 L0.8 1.4 L1.8 0.5 L0.5 0.5 L0 -1 L-0.5 0.5 L-1.8 0.5 L-0.8 1.4 L-1.2 2.8 Z" transform="translate(4.5, 0)" />
                 <path d="M0 2 L1.2 2.8 L0.8 1.4 L1.8 0.5 L0.5 0.5 L0 -1 L-0.5 0.5 L-1.8 0.5 L-0.8 1.4 L-1.2 2.8 Z" transform="translate(9, 0)" />
@@ -241,7 +241,7 @@ const getServiceIllustration = (num: string, s: any) => {
             </g>
           </g>
           <g className="animate-float" transform="translate(145, 10)">
-            <path d="M 0 -12 C -6 -12, -10 -8, -10 -2 C -10 6, 0 16, 0 16 C 0 16, 10 6, 10 -2 C 10 -8, 6 -12, 0 -12 Z" fill="#FFF35C" stroke="currentColor" strokeWidth="1.5" />
+            <path d="M 0 -12 C -6 -12, -10 -8, -10 -2 C -10 6, 0 16, 0 16 C 0 16, 10 6, 10 -2 C 10 -8, 6 -12, 0 -12 Z" fill="#E9BD36" stroke="currentColor" strokeWidth="1.5" />
             <circle cx="0" cy="-2" r="3.5" fill="currentColor" className="group-hover:fill-brand-blue" />
           </g>
         </svg>
@@ -257,12 +257,12 @@ const getServiceIllustration = (num: string, s: any) => {
             <circle cx="16" cy="7.5" r="2.5" fill="currentColor" opacity="0.4" />
             <circle cx="24" cy="7.5" r="2.5" fill="currentColor" opacity="0.4" />
             <g transform="translate(8, 22)">
-              <path d="M4 8 L0 11 L4 14 M14 8 L18 11 L14 14" stroke="#FFF35C" strokeWidth="1.5" />
+              <path d="M4 8 L0 11 L4 14 M14 8 L18 11 L14 14" stroke="#E9BD36" strokeWidth="1.5" />
               <rect x="22" y="9" width="30" height="4" rx="2" fill="currentColor" opacity="0.4" />
               <rect x="12" y="20" width="45" height="3.5" rx="1.75" fill="currentColor" opacity="0.2" />
-              <rect x="12" y="28" width="60" height="3.5" rx="1.75" fill="#FFF35C" />
+              <rect x="12" y="28" width="60" height="3.5" rx="1.75" fill="#E9BD36" />
               <rect x="12" y="36" width="35" height="3.5" rx="1.75" fill="currentColor" opacity="0.2" />
-              <path d="M4 48 L0 51 L4 54 M14 48 L18 51 L14 54" stroke="#FFF35C" strokeWidth="1.5" />
+              <path d="M4 48 L0 51 L4 54 M14 48 L18 51 L14 54" stroke="#E9BD36" strokeWidth="1.5" />
               <rect x="22" y="49" width="20" height="4" rx="2" fill="currentColor" opacity="0.4" />
             </g>
           </g>
@@ -295,7 +295,7 @@ const getServiceIllustration = (num: string, s: any) => {
             <rect x="6" y="36" width="12" height="3" rx="1.5" fill="currentColor" opacity="0.2" />
             <g transform="translate(44, 15)">
               <rect width="94" height="12" rx="4" fill="currentColor" opacity="0.06" />
-              <circle cx="10" cy="6" r="3" fill="#FFF35C" />
+              <circle cx="10" cy="6" r="3" fill="#E9BD36" />
               <rect x="22" y="4.5" width="30" height="3" rx="1.5" fill="currentColor" opacity="0.25" />
               <g transform="translate(0, 22)">
                 <rect width="52" height="40" rx="4" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="1 1" />
@@ -315,7 +315,7 @@ const getServiceIllustration = (num: string, s: any) => {
             </g>
           </g>
           <g className="animate-float-delayed" transform="translate(130, 70)">
-            <path d="M 0 0 L 15 15 L 8 16 L 4 22 Z" fill="#FFF35C" stroke="currentColor" strokeWidth="1.5" />
+            <path d="M 0 0 L 15 15 L 8 16 L 4 22 Z" fill="#E9BD36" stroke="currentColor" strokeWidth="1.5" />
             <circle cx="0" cy="0" r="4" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
           </g>
         </svg>
@@ -332,20 +332,20 @@ const getServiceIllustration = (num: string, s: any) => {
               <line x1="36" y1="23" x2="30" y2="40" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
               <circle cx="64" cy="23" r="3" fill="white" stroke="currentColor" strokeWidth="1.5" />
               <line x1="64" y1="23" x2="70" y2="40" stroke="currentColor" strokeWidth="1" strokeDasharray="2 2" />
-              <rect x="8" y="48" width="4" height="4" fill="#FFF35C" stroke="currentColor" strokeWidth="1.5" />
-              <rect x="88" y="48" width="4" height="4" fill="#FFF35C" stroke="currentColor" strokeWidth="1.5" />
+              <rect x="8" y="48" width="4" height="4" fill="#E9BD36" stroke="currentColor" strokeWidth="1.5" />
+              <rect x="88" y="48" width="4" height="4" fill="#E9BD36" stroke="currentColor" strokeWidth="1.5" />
             </g>
             <g className="animate-float" transform="translate(102, 35)">
               <rect width="40" height="48" rx="4" fill="white" stroke="currentColor" strokeWidth="1.5" className="group-hover:fill-brand-blue transition-colors duration-500 shadow-lg" />
               <rect x="5" y="5" width="12" height="12" rx="2" fill="currentColor" />
-              <rect x="23" y="5" width="12" height="12" rx="2" fill="#FFF35C" />
+              <rect x="23" y="5" width="12" height="12" rx="2" fill="#E9BD36" />
               <rect x="5" y="23" width="12" height="12" rx="2" fill="#22c55e" />
               <rect x="23" y="23" width="12" height="12" rx="2" fill="none" stroke="currentColor" strokeWidth="1.5" />
               <rect x="5" y="40" width="30" height="3" rx="1.5" fill="currentColor" opacity="0.3" />
             </g>
             <g transform="translate(6, 12)">
               <rect width="14" height="66" rx="3" fill="currentColor" opacity="0.06" stroke="currentColor" strokeWidth="1" />
-              <circle cx="7" cy="10" r="3" fill="#FFF35C" />
+              <circle cx="7" cy="10" r="3" fill="#E9BD36" />
               <circle cx="7" cy="22" r="3" fill="currentColor" opacity="0.3" />
               <circle cx="7" cy="34" r="3" fill="currentColor" opacity="0.3" />
               <path d="M5 52 L9 48 L7 46 Z" fill="currentColor" />
@@ -364,21 +364,21 @@ const getServiceIllustration = (num: string, s: any) => {
             <g className="animate-float" transform="translate(42, 45)">
               <circle cx="-12" cy="0" r="22" stroke="currentColor" strokeWidth="1.5" strokeDasharray="2 2" fill="none" opacity="0.4" />
               <circle cx="12" cy="0" r="22" stroke="currentColor" strokeWidth="1.5" strokeDasharray="2 2" fill="none" opacity="0.4" />
-              <path d="M 0 -18 A 22 22 0 0 1 12 0 A 22 22 0 0 1 0 18 A 22 22 0 0 1 -12 0 A 22 22 0 0 1 0 -18 Z" fill="#FFF35C" fillOpacity="0.3" stroke="currentColor" strokeWidth="2" />
-              <circle cx="0" cy="0" r="4.5" fill="#FFF35C" stroke="currentColor" strokeWidth="1.5" />
+              <path d="M 0 -18 A 22 22 0 0 1 12 0 A 22 22 0 0 1 0 18 A 22 22 0 0 1 -12 0 A 22 22 0 0 1 0 -18 Z" fill="#E9BD36" fillOpacity="0.3" stroke="currentColor" strokeWidth="2" />
+              <circle cx="0" cy="0" r="4.5" fill="#E9BD36" stroke="currentColor" strokeWidth="1.5" />
             </g>
             <g transform="translate(90, 15)">
               <text x="0" y="15" fill="currentColor" fontSize="12" fontWeight="black" fontFamily="serif">{s.svgAa}</text>
               <rect x="0" y="24" width="50" height="4" rx="2" fill="currentColor" opacity="0.4" />
               <rect x="0" y="32" width="35" height="3.5" rx="1.75" fill="currentColor" opacity="0.2" />
               <circle cx="6" cy="52" r="5" fill="currentColor" />
-              <circle cx="20" cy="52" r="5" fill="#FFF35C" stroke="currentColor" strokeWidth="1" />
+              <circle cx="20" cy="52" r="5" fill="#E9BD36" stroke="currentColor" strokeWidth="1" />
               <circle cx="34" cy="52" r="5" fill="#22c55e" />
             </g>
           </g>
           <g className="animate-float-delayed" transform="translate(105, 62)">
             <rect width="68" height="38" rx="4" fill="white" stroke="currentColor" strokeWidth="2" className="group-hover:fill-brand-blue transition-colors duration-500 shadow-lg" />
-            <circle cx="15" cy="19" r="6" fill="#FFF35C" stroke="currentColor" strokeWidth="1.25" />
+            <circle cx="15" cy="19" r="6" fill="#E9BD36" stroke="currentColor" strokeWidth="1.25" />
             <rect x="26" y="14" width="28" height="4" rx="2" fill="currentColor" opacity="0.6" />
             <rect x="26" y="21" width="18" height="3" rx="1.5" fill="currentColor" opacity="0.3" />
           </g>
@@ -395,7 +395,7 @@ const getServiceIllustration = (num: string, s: any) => {
             <g className="animate-float" transform="translate(20, 24)">
               <rect width="55" height="38" rx="4" fill="white" stroke="currentColor" strokeWidth="2" className="group-hover:fill-brand-blue transition-colors duration-500" />
               <path d="M 0 4 L 27.5 22 L 55 4" stroke="currentColor" strokeWidth="2" fill="none" />
-              <rect x="10" y="24" width="35" height="4" rx="2" fill="#FFF35C" stroke="currentColor" strokeWidth="0.5" />
+              <rect x="10" y="24" width="35" height="4" rx="2" fill="#E9BD36" stroke="currentColor" strokeWidth="0.5" />
             </g>
             <g className="animate-float-delayed" transform="translate(85, 30)">
               <rect width="52" height="40" rx="5" fill="white" stroke="currentColor" strokeWidth="1.5" className="group-hover:fill-brand-blue transition-colors duration-500 shadow-lg" />
@@ -405,7 +405,7 @@ const getServiceIllustration = (num: string, s: any) => {
             </g>
           </g>
           <g className="animate-float-reverse" transform="translate(145, 12)">
-            <circle cx="10" cy="10" r="12" fill="#FFF35C" stroke="currentColor" strokeWidth="1.5" />
+            <circle cx="10" cy="10" r="12" fill="#E9BD36" stroke="currentColor" strokeWidth="1.5" />
             <path d="M 5 10 L 15 6 L 12 14 L 10 11 Z" fill="currentColor" />
           </g>
         </svg>
@@ -426,7 +426,7 @@ const getServiceIllustration = (num: string, s: any) => {
             <rect x="6" y="16" width="52" height="74" rx="8" fill="currentColor" opacity="0.03" />
             <g transform="translate(11, 22)">
               <rect width="42" height="24" rx="4" fill="white" stroke="currentColor" strokeWidth="1.5" className="group-hover:fill-brand-blue transition-colors duration-500" />
-              <rect x="6" y="6" width="30" height="4" rx="2" fill="#FFF35C" />
+              <rect x="6" y="6" width="30" height="4" rx="2" fill="#E9BD36" />
               <rect x="6" y="14" width="20" height="3" rx="1.5" fill="currentColor" opacity="0.3" />
             </g>
             <g transform="translate(11, 52)">
@@ -435,11 +435,11 @@ const getServiceIllustration = (num: string, s: any) => {
             </g>
             <g transform="translate(11, 72)">
               <rect width="42" height="12" rx="6" fill="currentColor" />
-              <text x="21" y="8" fill="#FFF35C" fontSize="5" fontWeight="bold" textAnchor="middle">{s.svgDownload}</text>
+              <text x="21" y="8" fill="#E9BD36" fontSize="5" fontWeight="bold" textAnchor="middle">{s.svgDownload}</text>
             </g>
           </g>
           <g className="animate-float-reverse" transform="translate(145, 42)">
-            <circle cx="10" cy="10" r="12" fill="#FFF35C" stroke="currentColor" strokeWidth="1.5" />
+            <circle cx="10" cy="10" r="12" fill="#E9BD36" stroke="currentColor" strokeWidth="1.5" />
             <path d="M 6 6 L 14 14 M 14 6 L 6 14" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
           </g>
         </svg>
@@ -619,10 +619,10 @@ export default function Services() {
               {services.titleIntro}
               <span className="text-brand-blue relative inline-block">
                 {services.titleHighlight}
-                <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path
                     d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
-                    fill="#FFF35C"
+                    fill="#E9BD36"
                   />
                 </svg>
               </span>
@@ -671,10 +671,10 @@ export default function Services() {
                 className="w-[86%] sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] shrink-0 snap-start"
               >
                 <div
-                  className="group relative flex flex-col justify-between rounded-[2rem] border border-brand-blue/20 dark:border-white/10 hover:border-transparent dark:hover:border-brand-blue service-card-bg p-6 xs:p-7 md:p-8 transition-all duration-500 hover:-translate-y-3 h-full min-h-[490px] sm:min-h-[520px] md:min-h-[540px] overflow-hidden shadow-[0_2px_20px_rgba(3,6,172,0.04)] hover:shadow-[0_32px_64px_rgba(3,6,172,0.28)] dark:hover:shadow-[0_32px_64px_rgba(255,243,92,0.08)] cursor-pointer card-sweep"
+                  className="group relative flex flex-col justify-between rounded-[2rem] border border-brand-blue/20 dark:border-white/10 hover:border-transparent dark:hover:border-brand-blue service-card-bg p-6 xs:p-7 md:p-8 transition-all duration-500 hover:-translate-y-3 h-full min-h-[490px] sm:min-h-[520px] md:min-h-[540px] overflow-hidden shadow-[0_2px_20px_rgba(38, 92, 131,0.04)] hover:shadow-[0_32px_64px_rgba(38, 92, 131,0.28)] dark:hover:shadow-[0_32px_64px_rgba(233, 189, 54,0.08)] cursor-pointer card-sweep"
                 >
                   {/* Hover overlay — brand blue full fill (light theme only, remains hidden/inactive in dark theme) */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#0306AC] via-[#0306AC] to-[#020485] opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-500 z-0 rounded-[2rem]" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#265C83] via-[#265C83] to-[#1a4361] opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-500 z-0 rounded-[2rem]" />
 
                   {/* Top accent bar */}
                   <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-[2rem] bg-gradient-to-r from-brand-blue/40 via-brand-blue to-brand-blue/40 transition-all duration-500 group-hover:from-brand-yellow/60 group-hover:via-brand-yellow group-hover:to-brand-yellow/60" />

@@ -46,10 +46,10 @@ export default function FAQ() {
               <h2 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-extrabold text-brand-dark tracking-tight leading-[0.98] select-none">
                 {faq.titleIntro} <span className="text-brand-blue relative inline-block">
                   {faq.titleHighlight}
-                  <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                  <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
                     <path
                       d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
-                      fill="#FFF35C"
+                      fill="#E9BD36"
                     />
                   </svg>
                 </span>
@@ -62,12 +62,12 @@ export default function FAQ() {
             </div>
 
             {/* Premium Sticky Strategy Session Box */}
-            <div className="relative overflow-hidden rounded-[2.2rem] bg-gradient-to-br from-[#0306AC] via-[#020485] to-[#03053D] dark:from-[#12121e] dark:via-[#0f0f1a] dark:to-[#080710] border border-transparent dark:border-white/10 p-8 text-white shadow-[0_20px_50px_rgba(3,6,172,0.15)] group transition-transform duration-500 hover:scale-[1.01]">
+            <div className="relative overflow-hidden rounded-[2.2rem] bg-gradient-to-br from-[#265C83] via-[#1a4361] to-[#122436] dark:from-[#12121e] dark:via-[#0f0f1a] dark:to-[#080710] border border-transparent dark:border-white/10 p-8 text-white shadow-[0_20px_50px_rgba(38, 92, 131,0.15)] group transition-transform duration-500 hover:scale-[1.01]">
               <div className="absolute inset-0 bg-linear-grid-white-3 opacity-30 pointer-events-none z-10" />
               <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-brand-yellow/15 blur-2xl pointer-events-none" />
               
               <div className="relative z-20 space-y-6">
-                <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1.5 text-[9px] font-black tracking-wider uppercase text-[#FFF35C]">
+                <span className="inline-flex items-center gap-1 rounded-full bg-white/10 px-3 py-1.5 text-[9px] font-black tracking-wider uppercase text-[#E9BD36]">
                   // {faq.strategyAudit.badge}
                 </span>
                 <div className="space-y-2">
@@ -80,7 +80,7 @@ export default function FAQ() {
                 </div>
                 <a
                   href={faq.strategyAudit.href}
-                  className="group relative inline-flex w-full items-center gap-0 overflow-hidden rounded-full bg-[#FFF35C] dark:bg-[#0306AC] shadow-md active:scale-[0.97] transition-all duration-300 border border-[#FFF35C] dark:border-[#0306AC]"
+                  className="group relative inline-flex w-full items-center gap-0 overflow-hidden rounded-full bg-[#E9BD36] dark:bg-[#265C83] shadow-md active:scale-[0.97] transition-all duration-300 border border-[#E9BD36] dark:border-[#265C83]"
                 >
                   {/* Curtain slides in from left on hover */}
                   <span
@@ -92,7 +92,7 @@ export default function FAQ() {
                     {faq.strategyAudit.button}
                   </span>
                   {/* Arrow circle — inverts on hover */}
-                  <span className="relative z-10 mr-2 ml-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#FFF35C] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                  <span className="relative z-10 mr-2 ml-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#265C83] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </a>
@@ -113,8 +113,8 @@ export default function FAQ() {
                   key={f.question}
                   className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer select-none p-6 sm:p-7 ${
                     isOpen
-                      ? "bg-white dark:bg-[#12121e] border-brand-blue/25 dark:border-brand-blue/25 shadow-[0_20px_40px_rgba(3,6,172,0.03)]"
-                      : "bg-transparent border-brand-zinc-200/70 dark:border-white/10 hover:bg-white dark:hover:bg-[#12121e] hover:border-brand-blue/20 dark:hover:border-brand-blue/20 hover:shadow-[0_12px_30px_rgba(3,6,172,0.025)]"
+                      ? "bg-white dark:bg-[#12121e] border-brand-blue/25 dark:border-brand-blue/25 shadow-[0_20px_40px_rgba(38, 92, 131,0.03)]"
+                      : "bg-transparent border-brand-zinc-200/70 dark:border-white/10 hover:bg-white dark:hover:bg-[#12121e] hover:border-brand-blue/20 dark:hover:border-brand-blue/20 hover:shadow-[0_12px_30px_rgba(38, 92, 131,0.025)]"
                   }`}
                   onClick={() => toggleFAQ(index)}
                 >
@@ -151,7 +151,7 @@ export default function FAQ() {
                         transition={{ type: "spring", stiffness: 220, damping: 18 }}
                         className={`flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300 ${
                           isOpen
-                            ? "bg-brand-blue border-brand-blue text-white dark:text-[#080710] shadow-[0_4px_12px_rgba(3,6,172,0.15)] dark:shadow-[0_4px_12px_rgba(255,243,92,0.15)]"
+                            ? "bg-brand-blue border-brand-blue text-white dark:text-[#080710] shadow-[0_4px_12px_rgba(38, 92, 131,0.15)] dark:shadow-[0_4px_12px_rgba(233, 189, 54,0.15)]"
                             : "bg-brand-zinc-50 dark:bg-white/5 border-brand-zinc-200/80 dark:border-white/10 text-brand-dark dark:text-white group-hover:border-brand-blue group-hover:text-brand-blue"
                         }`}
                       >

@@ -93,7 +93,7 @@ export default function AboutOwner() {
 
             {/* Hand-drawn marker/brush drawing frame */}
             <svg
-              className="absolute -inset-5 sm:-inset-6 w-[110%] sm:w-[112%] h-[110%] sm:h-[112%] pointer-events-none stroke-[#FFF35C] fill-none z-0 opacity-90"
+              className="absolute -inset-5 sm:-inset-6 w-[110%] sm:w-[112%] h-[110%] sm:h-[112%] pointer-events-none stroke-[#E9BD36] fill-none z-0 opacity-90"
               viewBox="0 0 100 100"
               preserveAspectRatio="none"
             >
@@ -160,7 +160,7 @@ export default function AboutOwner() {
                 </text>
               </svg>
               <div className="absolute inset-0 flex items-center justify-center">
-                <div className="h-5 w-5 rounded-full bg-[#FFF35C] flex items-center justify-center shadow-md">
+                <div className="h-5 w-5 rounded-full bg-[#E9BD36] flex items-center justify-center shadow-md">
                   <span className="text-[10px] font-black text-[#080710]">{aboutOwner.circleLetter}</span>
                 </div>
               </div>
@@ -202,11 +202,11 @@ export default function AboutOwner() {
                 {aboutOwner.titleIntro}
                 <span className="relative inline-block text-brand-blue">
                   {aboutOwner.titleHighlight}
-                  <svg className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                  <svg className="absolute -bottom-2.5 left-0 w-full h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
                     {/* Primary marker highlight stroke */}
                     <motion.path
                       d="M 2 5 Q 50 3.5, 98 5"
-                      stroke="#FFF35C"
+                      stroke="#E9BD36"
                       strokeWidth="3.5"
                       strokeLinecap="round"
                       variants={drawVariants}
@@ -218,7 +218,7 @@ export default function AboutOwner() {
                     {/* Secondary overlapping stroke to make it look organic and hand-drawn */}
                     <motion.path
                       d="M 8 7 Q 50 5.5, 92 6.5"
-                      stroke="#FFF35C"
+                      stroke="#E9BD36"
                       strokeWidth="2"
                       strokeLinecap="round"
                       opacity="0.8"
@@ -277,7 +277,7 @@ export default function AboutOwner() {
             <div className="pt-4">
               <a
                 href={aboutOwner.ctaHref}
-                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#FFF35C] shadow-[0_4px_28px_rgba(3,6,172,0.15)] dark:shadow-[0_4px_28px_rgba(255,243,92,0.15)] active:scale-[0.97] transition-all duration-300 border border-[#0306AC] dark:border-[#FFF35C]"
+                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#265C83] dark:bg-[#E9BD36] shadow-[0_4px_28px_rgba(38, 92, 131,0.15)] dark:shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] active:scale-[0.97] transition-all duration-300 border border-[#265C83] dark:border-[#E9BD36]"
               >
                 {/* Curtain slides in from left on hover */}
                 <span
@@ -289,7 +289,7 @@ export default function AboutOwner() {
                   {aboutOwner.ctaText}
                 </span>
                 {/* Arrow circle — inverts on hover */}
-                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#FFF35C] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#265C83] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </span>
               </a>

@@ -127,10 +127,10 @@ export default function Testimonials() {
             <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.1] select-none">
               {testimonialsData.titleIntro} <span className="text-brand-blue relative inline-block">
                 {testimonialsData.titleHighlight}
-                <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
+                <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
                   <path
                     d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
-                    fill="#FFF35C"
+                    fill="#E9BD36"
                   />
                 </svg>
               </span>
@@ -141,7 +141,7 @@ export default function Testimonials() {
           </div>
 
           {/* Premium Scorecard Widget */}
-          <div className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 rounded-2xl p-4 sm:p-5 shadow-[0_8px_24px_rgba(3,6,172,0.02)] relative overflow-hidden group/scorecard shrink-0 min-w-[260px] md:max-w-sm">
+          <div className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 rounded-2xl p-4 sm:p-5 shadow-[0_8px_24px_rgba(38, 92, 131,0.02)] relative overflow-hidden group/scorecard shrink-0 min-w-[260px] md:max-w-sm">
             <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-brand-blue to-brand-blue/40" />
             <div className="flex items-center gap-4 relative z-10">
               <div className="flex flex-col items-center justify-center h-14 w-14 rounded-xl bg-brand-blue text-white dark:text-[#080710] shadow-sm border border-brand-blue/10">
@@ -149,9 +149,9 @@ export default function Testimonials() {
                 <span className="font-mono text-[6px] font-bold uppercase tracking-widest text-white dark:text-[#080710] opacity-80 mt-1">{testimonialsData.scorecardRatingLabel}</span>
               </div>
               <div className="space-y-1">
-                <div className="flex gap-0.5 text-[#FFF35C]">
+                <div className="flex gap-0.5 text-[#E9BD36]">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="h-3.5 w-3.5 fill-[#FFF35C] text-[#FFF35C]" />
+                    <Star key={i} className="h-3.5 w-3.5 fill-[#E9BD36] text-[#E9BD36]" />
                   ))}
                 </div>
                 <span className="block text-[10px] font-black text-brand-dark uppercase tracking-wider leading-none">
@@ -184,9 +184,9 @@ export default function Testimonials() {
                   className="group w-[320px] sm:w-[350px] shrink-0 bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-brand-blue/20 dark:hover:border-brand-blue/30 transition-all duration-300 flex flex-col justify-between h-[180px] sm:h-[190px] card-sweep-glare"
                 >
                   <div className="space-y-3">
-                    <div className="flex gap-0.5 text-[#FFF35C]">
+                    <div className="flex gap-0.5 text-[#E9BD36]">
                       {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="h-3 w-3 fill-[#FFF35C] text-[#FFF35C]" />
+                        <Star key={i} className="h-3 w-3 fill-[#E9BD36] text-[#E9BD36]" />
                       ))}
                     </div>
                     <p className="text-xs font-semibold text-brand-dark leading-relaxed line-clamp-3">
@@ -222,9 +222,9 @@ export default function Testimonials() {
                   className="group w-[320px] sm:w-[350px] shrink-0 bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-brand-blue/20 dark:hover:border-brand-blue/30 transition-all duration-300 flex flex-col justify-between h-[180px] sm:h-[190px] card-sweep-glare"
                 >
                   <div className="space-y-3">
-                    <div className="flex gap-0.5 text-[#FFF35C]">
+                    <div className="flex gap-0.5 text-[#E9BD36]">
                       {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="h-3 w-3 fill-[#FFF35C] text-[#FFF35C]" />
+                        <Star key={i} className="h-3 w-3 fill-[#E9BD36] text-[#E9BD36]" />
                       ))}
                     </div>
                     <p className="text-xs font-semibold text-brand-dark leading-relaxed line-clamp-3">
@@ -260,9 +260,9 @@ export default function Testimonials() {
                   className="group w-[320px] sm:w-[350px] shrink-0 bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 rounded-2xl p-6 shadow-sm hover:shadow-lg hover:border-brand-blue/20 dark:hover:border-brand-blue/30 transition-all duration-300 flex flex-col justify-between h-[180px] sm:h-[190px] card-sweep-glare"
                 >
                   <div className="space-y-3">
-                    <div className="flex gap-0.5 text-[#FFF35C]">
+                    <div className="flex gap-0.5 text-[#E9BD36]">
                       {[...Array(item.rating)].map((_, i) => (
-                        <Star key={i} className="h-3 w-3 fill-[#FFF35C] text-[#FFF35C]" />
+                        <Star key={i} className="h-3 w-3 fill-[#E9BD36] text-[#E9BD36]" />
                       ))}
                     </div>
                     <p className="text-xs font-semibold text-brand-dark leading-relaxed line-clamp-3">

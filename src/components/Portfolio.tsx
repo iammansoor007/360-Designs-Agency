@@ -132,7 +132,7 @@ const getPortfolioScreenshot = (num: string, study: any) => {
                 <svg className="w-full h-full text-brand-blue" viewBox="0 0 100 30" preserveAspectRatio="none">
                   <path d="M 0 25 Q 25 22, 45 12 T 90 2 L 100 2" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" />
                   <path d="M 0 25 Q 25 22, 45 12 T 90 2 L 100 2 L 100 30 L 0 30 Z" fill="currentColor" fillOpacity="0.05" />
-                  <circle cx="90" cy="2" r="2.5" fill="#FFF35C" stroke="currentColor" strokeWidth="1" />
+                  <circle cx="90" cy="2" r="2.5" fill="#E9BD36" stroke="currentColor" strokeWidth="1" />
                 </svg>
               </div>
             </div>
@@ -269,10 +269,10 @@ export default function Portfolio() {
           <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl font-extrabold text-brand-dark tracking-tight leading-[1.1] select-none">
             {portfolio.titleIntro} <span className="text-brand-blue relative inline-block">
               {portfolio.titleHighlight}
-              <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(255,243,92,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
+              <svg className="absolute -bottom-1.5 md:-bottom-2 left-0 w-full h-2.5 md:h-3 pointer-events-none drop-shadow-[0_1.5px_2px_rgba(233, 189, 54,0.45)]" viewBox="0 0 100 10" preserveAspectRatio="none">
                 <path
                   d="M 2 5 Q 50 2, 98 4 C 99 4, 99 5, 98 5.5 Q 50 7.5, 2 6 Z"
-                  fill="#FFF35C"
+                  fill="#E9BD36"
                 />
               </svg>
             </span>
@@ -339,7 +339,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="w-full rounded-[2.5rem] border border-brand-zinc-200/60 dark:border-white/10 bg-white dark:bg-[#12121e] shadow-[0_4px_30px_rgba(3,6,172,0.01)] hover:shadow-[0_25px_60px_rgba(3,6,172,0.06)] transition-all duration-500 p-6 xs:p-8 md:p-12 relative overflow-hidden group cursor-grab active:cursor-grabbing select-none"
+            className="w-full rounded-[2.5rem] border border-brand-zinc-200/60 dark:border-white/10 bg-white dark:bg-[#12121e] shadow-[0_4px_30px_rgba(38, 92, 131,0.01)] hover:shadow-[0_25px_60px_rgba(38, 92, 131,0.06)] transition-all duration-500 p-6 xs:p-8 md:p-12 relative overflow-hidden group cursor-grab active:cursor-grabbing select-none"
           >
             {/* Subtle grid pattern inside card for premium texture */}
             <div className="absolute inset-0 bg-[radial-gradient(var(--color-border)_1.2px,transparent_1.2px)] [background-size:24px_24px] opacity-40 dark:opacity-[0.08] pointer-events-none z-0" />
