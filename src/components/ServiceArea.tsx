@@ -89,15 +89,15 @@ export default function ServiceArea() {
                     whileTap={{ scale: 0.96 }}
                     className={`inline-flex items-center gap-1.5 rounded-full border px-3 py-1.5 text-[11px] font-bold tracking-wide transition-all duration-200 cursor-pointer select-none focus:outline-none ${
                       isActive
-                        ? "border-[#265C83] dark:border-[#E9BD36] bg-[#EFF6FF] dark:bg-[#E9BD36]/10 text-[#265C83] dark:text-[#E9BD36]"
-                        : "border-zinc-200 dark:border-white/10 text-zinc-650 dark:text-zinc-400 hover:border-[#265C83] dark:hover:border-[#E9BD36] hover:text-[#265C83] dark:hover:text-[#E9BD36]"
+                        ? "border-[#0306AC] dark:border-[#E9BD36] bg-[#EFF6FF] dark:bg-[#E9BD36]/10 text-[#0306AC] dark:text-[#E9BD36]"
+                        : "border-zinc-200 dark:border-white/10 text-zinc-650 dark:text-zinc-400 hover:border-[#0306AC] dark:hover:border-[#E9BD36] hover:text-[#0306AC] dark:hover:text-[#E9BD36]"
                     }`}
                     aria-pressed={isActive}
                   >
                     <MapPin
                       className={`shrink-0 transition-colors duration-250 h-2.5 w-2.5 ${
                         isActive
-                          ? "text-[#265C83] dark:text-[#E9BD36]"
+                          ? "text-[#0306AC] dark:text-[#E9BD36]"
                           : "text-zinc-400 dark:text-zinc-550"
                       }`}
                       strokeWidth={3}
@@ -123,14 +123,14 @@ export default function ServiceArea() {
                       transition={{ duration: 0.2, ease: "easeOut" }}
                       className="absolute inset-0 flex items-center gap-3 rounded-xl border border-brand-zinc-200 dark:border-brand-blue/30 bg-[#080710]/95 dark:bg-[#161622]/95 px-4 shadow-md"
                     >
-                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#E9BD36] dark:bg-[#265C83] transition-colors duration-300">
+                      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#E9BD36] dark:bg-[#0306AC] transition-colors duration-300">
                         <MapPin className="h-3.5 w-3.5 text-[#080710] dark:text-white transition-colors duration-300" strokeWidth={3} />
                       </div>
                       <div className="min-w-0">
                         <p className="truncate text-xs font-black text-white leading-tight">{hub.name}</p>
                         <p className="truncate text-[10px] font-semibold text-brand-zinc-400 leading-normal">{hub.focus}</p>
                       </div>
-                      <span className="ml-auto shrink-0 text-[9px] font-mono font-bold tracking-widest text-[#265C83] dark:text-[#E9BD36] uppercase whitespace-nowrap">
+                      <span className="ml-auto shrink-0 text-[9px] font-mono font-bold tracking-widest text-[#0306AC] dark:text-[#E9BD36] uppercase whitespace-nowrap">
                         {hub.timezone}
                       </span>
                     </motion.div>
@@ -141,7 +141,7 @@ export default function ServiceArea() {
 
             <a
               href={serviceArea.ctaHref}
-              className="group self-center lg:self-start relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#E9BD36] dark:bg-[#265C83] shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] dark:shadow-[0_4px_28px_rgba(38, 92, 131,0.15)] active:scale-[0.97] transition-transform duration-150 border border-[#E9BD36] dark:border-[#265C83]"
+              className="group self-center lg:self-start relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#E9BD36] dark:bg-[#0306AC] shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] dark:shadow-[0_4px_28px_rgba(3, 6, 172,0.15)] active:scale-[0.97] transition-transform duration-150 border border-[#E9BD36] dark:border-[#0306AC]"
             >
               {/* Curtain slides in from left on hover */}
               <span
@@ -155,7 +155,7 @@ export default function ServiceArea() {
               </span>
 
               {/* Arrow circle — inverts on hover */}
-              <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#265C83] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+              <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                 <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
               </span>
             </a>
@@ -202,21 +202,21 @@ export default function ServiceArea() {
 
                      {/* Idle subtle pulse */}
                     <div
-                      className="absolute -translate-x-1/2 -translate-y-1/2 h-5 w-5 rounded-full pointer-events-none bg-[#265C83]/15 dark:bg-[#E9BD36]/15 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"
+                      className="absolute -translate-x-1/2 -translate-y-1/2 h-5 w-5 rounded-full pointer-events-none bg-[#0306AC]/15 dark:bg-[#E9BD36]/15 animate-[ping_2s_cubic-bezier(0,0,0.2,1)_infinite]"
                     />
 
                     {/* Pin dot */}
                     <div
                       className={`absolute -translate-x-1/2 -translate-y-1/2 flex h-3 w-3 sm:h-3.5 sm:w-3.5 items-center justify-center rounded-full border-2 shadow-md transition-all duration-200 ${
                         isActive
-                          ? "scale-150 bg-[#E9BD36] dark:bg-[#265C83] border-[#265C83] dark:border-[#E9BD36]"
-                          : "scale-100 bg-[#265C83] dark:bg-[#E9BD36] border-white dark:border-[#080710]"
+                          ? "scale-150 bg-[#E9BD36] dark:bg-[#0306AC] border-[#0306AC] dark:border-[#E9BD36]"
+                          : "scale-100 bg-[#0306AC] dark:bg-[#E9BD36] border-white dark:border-[#080710]"
                       }`}
                     >
                       <div
                         className={`h-1 w-1 rounded-full transition-colors duration-200 ${
                           isActive
-                            ? "bg-[#265C83] dark:bg-[#E9BD36]"
+                            ? "bg-[#0306AC] dark:bg-[#E9BD36]"
                             : "bg-white dark:bg-[#080710]"
                         }`}
                       />

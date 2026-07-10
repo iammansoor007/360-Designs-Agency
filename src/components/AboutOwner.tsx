@@ -277,7 +277,7 @@ export default function AboutOwner() {
             <div className="pt-4">
               <a
                 href={aboutOwner.ctaHref}
-                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#265C83] dark:bg-[#E9BD36] shadow-[0_4px_28px_rgba(38, 92, 131,0.15)] dark:shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] active:scale-[0.97] transition-all duration-300 border border-[#265C83] dark:border-[#E9BD36]"
+                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-[0_4px_28px_rgba(3, 6, 172,0.15)] dark:shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] active:scale-[0.97] transition-all duration-300 border border-[#0306AC] dark:border-[#E9BD36]"
               >
                 {/* Curtain slides in from left on hover */}
                 <span
@@ -289,7 +289,7 @@ export default function AboutOwner() {
                   {aboutOwner.ctaText}
                 </span>
                 {/* Arrow circle — inverts on hover */}
-                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#265C83] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                   <ArrowUpRight className="h-3.5 w-3.5" />
                 </span>
               </a>

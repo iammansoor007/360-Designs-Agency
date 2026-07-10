@@ -21,7 +21,7 @@ const drawVariants = {
 
 const brandLogos: Record<string, (text: string) => React.ReactNode> = {
   "Aether Tech": (text) => (
-    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#265C83] group-hover:drop-shadow-[0_0_6px_rgba(38, 92, 131,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
+    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#0306AC] group-hover:drop-shadow-[0_0_6px_rgba(3, 6, 172,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
       <g transform="translate(10, 2)" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
         <path d="M 10 5 C 4 5, 0 10, 0 15 C 0 20, 4 22, 10 22 C 16 22, 18 15, 25 15 C 32 15, 34 22, 40 22 C 46 22, 50 20, 50 15 C 50 10, 46 5, 40 5 C 34 5, 32 15, 25 15 C 18 15, 16 5, 10 5 Z" />
         <circle cx="10" cy="15" r="2.5" fill="#E9BD36" stroke="none" />
@@ -31,7 +31,7 @@ const brandLogos: Record<string, (text: string) => React.ReactNode> = {
     </svg>
   ),
   "Apex Solutions": (text) => (
-    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#265C83] group-hover:drop-shadow-[0_0_6px_rgba(38, 92, 131,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
+    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#0306AC] group-hover:drop-shadow-[0_0_6px_rgba(3, 6, 172,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
       <g transform="translate(12, 1)">
         <polygon points="15,2 28,24 2,24" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" />
         <polygon points="15,9 22,21 8,21" fill="#E9BD36" />
@@ -41,7 +41,7 @@ const brandLogos: Record<string, (text: string) => React.ReactNode> = {
     </svg>
   ),
   "NovaCloud": (text) => (
-    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#265C83] group-hover:drop-shadow-[0_0_6px_rgba(38, 92, 131,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
+    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#0306AC] group-hover:drop-shadow-[0_0_6px_rgba(3, 6, 172,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
       <g transform="translate(12, 1)">
         <path d="M 12 2 L 22 8 L 12 14 L 2 8 Z" stroke="currentColor" strokeWidth="2" strokeLinejoin="round" />
         <path d="M 2 8 L 2 20 L 12 26 L 12 14 Z" fill="currentColor" opacity="0.2" />
@@ -52,7 +52,7 @@ const brandLogos: Record<string, (text: string) => React.ReactNode> = {
     </svg>
   ),
   "Verdant E-Com": (text) => (
-    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#265C83] group-hover:drop-shadow-[0_0_6px_rgba(38, 92, 131,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
+    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#0306AC] group-hover:drop-shadow-[0_0_6px_rgba(3, 6, 172,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
       <g transform="translate(15, 1)">
         <path d="M 12 2 Q 22 12, 12 24 Q 2 12, 12 2 Z" stroke="currentColor" strokeWidth="2.2" strokeLinejoin="round" />
         <path d="M 12 8 C 14 12, 14 16, 12 22" stroke="#22c55e" strokeWidth="1.8" strokeLinecap="round" />
@@ -62,7 +62,7 @@ const brandLogos: Record<string, (text: string) => React.ReactNode> = {
     </svg>
   ),
   "Solaria AI": (text) => (
-    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#265C83] group-hover:drop-shadow-[0_0_6px_rgba(38, 92, 131,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
+    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#0306AC] group-hover:drop-shadow-[0_0_6px_rgba(3, 6, 172,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
       <g transform="translate(15, 1)">
         <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" strokeDasharray="4 3" />
         <circle cx="12" cy="12" r="5" fill="#E9BD36" />
@@ -72,7 +72,7 @@ const brandLogos: Record<string, (text: string) => React.ReactNode> = {
     </svg>
   ),
   "Omnis Automations": (text) => (
-    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#265C83] group-hover:drop-shadow-[0_0_6px_rgba(38, 92, 131,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
+    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#0306AC] group-hover:drop-shadow-[0_0_6px_rgba(3, 6, 172,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
       <g transform="translate(15, 1)">
         <polygon points="12,2 22,8 22,20 12,26 2,20 2,8" stroke="currentColor" strokeWidth="2" />
         <line x1="12" y1="2" x2="12" y2="26" stroke="currentColor" strokeWidth="0.8" opacity="0.3" />
@@ -82,7 +82,7 @@ const brandLogos: Record<string, (text: string) => React.ReactNode> = {
     </svg>
   ),
   "Luminary Creative": (text) => (
-    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#265C83] group-hover:drop-shadow-[0_0_6px_rgba(38, 92, 131,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
+    <svg className="h-8 text-brand-zinc-400 group-hover:text-[#0306AC] group-hover:drop-shadow-[0_0_6px_rgba(3, 6, 172,0.25)] transition-all duration-300 fill-none" viewBox="0 0 140 30" xmlns="http://www.w3.org/2000/svg">
       <g transform="translate(15, 1)">
         <path d="M3 20 C 10 18, 7 8, 14 4 C 21 8, 18 18, 25 20" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" />
         <circle cx="14" cy="9" r="2.5" fill="#E9BD36" />
@@ -106,7 +106,7 @@ export default function Brands() {
         style={{ backgroundImage: 'radial-gradient(var(--color-blue) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
 
       {/* Decorative gradient glow behind the marquees */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#265C83]/6 blur-[130px] pointer-events-none z-0" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full bg-[#0306AC]/6 blur-[130px] pointer-events-none z-0" />
 
       {/* Local keyframes for infinite marquees */}
       <style dangerouslySetInnerHTML={{
@@ -165,7 +165,7 @@ export default function Brands() {
       <div className="flex flex-col gap-6 relative z-10">
 
         {/* Row 1: Leftwards Marquee */}
-        <div className="mx-auto w-[92%] max-w-5xl overflow-hidden rounded-3xl border border-brand-blue/10 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md shadow-[0_12px_32px_rgba(38, 92, 131,0.03)] py-5 sm:py-6 px-4 sm:px-6 relative flex">
+        <div className="mx-auto w-[92%] max-w-5xl overflow-hidden rounded-3xl border border-brand-blue/10 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md shadow-[0_12px_32px_rgba(3, 6, 172,0.03)] py-5 sm:py-6 px-4 sm:px-6 relative flex">
           {/* Edge fades for premium depth */}
           <div className="absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-white dark:from-[#12121e] to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-white dark:from-[#12121e] to-transparent z-10 pointer-events-none" />
@@ -188,7 +188,7 @@ export default function Brands() {
         </div>
 
         {/* Row 2: Rightwards Marquee */}
-        <div className="mx-auto w-[92%] max-w-5xl overflow-hidden rounded-3xl border border-brand-blue/10 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md shadow-[0_12px_32px_rgba(38, 92, 131,0.03)] py-5 sm:py-6 px-4 sm:px-6 relative flex">
+        <div className="mx-auto w-[92%] max-w-5xl overflow-hidden rounded-3xl border border-brand-blue/10 dark:border-white/10 bg-white/70 dark:bg-white/5 backdrop-blur-md shadow-[0_12px_32px_rgba(3, 6, 172,0.03)] py-5 sm:py-6 px-4 sm:px-6 relative flex">
           {/* Edge fades for premium depth */}
           <div className="absolute inset-y-0 left-0 w-16 md:w-24 bg-gradient-to-r from-white dark:from-[#12121e] to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-16 md:w-24 bg-gradient-to-l from-white dark:from-[#12121e] to-transparent z-10 pointer-events-none" />

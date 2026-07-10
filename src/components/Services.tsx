@@ -671,10 +671,10 @@ export default function Services() {
                 className="w-[86%] sm:w-[calc(50%-12px)] lg:w-[calc(33.33%-16px)] shrink-0 snap-start"
               >
                 <div
-                  className="group relative flex flex-col justify-between rounded-[2rem] border border-brand-blue/20 dark:border-white/10 hover:border-transparent dark:hover:border-brand-blue service-card-bg p-6 xs:p-7 md:p-8 transition-all duration-500 hover:-translate-y-3 h-full min-h-[490px] sm:min-h-[520px] md:min-h-[540px] overflow-hidden shadow-[0_2px_20px_rgba(38, 92, 131,0.04)] hover:shadow-[0_32px_64px_rgba(38, 92, 131,0.28)] dark:hover:shadow-[0_32px_64px_rgba(233, 189, 54,0.08)] cursor-pointer card-sweep"
+                  className="group relative flex flex-col justify-between rounded-[2rem] border border-brand-blue/20 dark:border-white/10 hover:border-transparent dark:hover:border-brand-blue service-card-bg p-6 xs:p-7 md:p-8 transition-all duration-500 hover:-translate-y-3 h-full min-h-[490px] sm:min-h-[520px] md:min-h-[540px] overflow-hidden shadow-[0_2px_20px_rgba(3, 6, 172,0.04)] hover:shadow-[0_32px_64px_rgba(3, 6, 172,0.28)] dark:hover:shadow-[0_32px_64px_rgba(233, 189, 54,0.08)] cursor-pointer card-sweep"
                 >
                   {/* Hover overlay — brand blue full fill (light theme only, remains hidden/inactive in dark theme) */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-[#265C83] via-[#265C83] to-[#1a4361] opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-500 z-0 rounded-[2rem]" />
+                  <div className="absolute inset-0 bg-gradient-to-br from-[#0306AC] via-[#0306AC] to-[#020485] opacity-0 group-hover:opacity-100 dark:group-hover:opacity-0 transition-opacity duration-500 z-0 rounded-[2rem]" />
 
                   {/* Top accent bar */}
                   <div className="absolute top-0 left-0 right-0 h-[3px] rounded-t-[2rem] bg-gradient-to-r from-brand-blue/40 via-brand-blue to-brand-blue/40 transition-all duration-500 group-hover:from-brand-yellow/60 group-hover:via-brand-yellow group-hover:to-brand-yellow/60" />

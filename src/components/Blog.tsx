@@ -99,7 +99,7 @@ export default function Blog() {
             {posts[0] && (
               <a
                 href={posts[0].link}
-                className="group flex flex-col rounded-[2.5rem] border border-brand-zinc-200/80 dark:border-white/10 bg-white dark:bg-[#12121e] p-6 md:p-8 shadow-[0_2px_12px_rgba(38, 92, 131,0.015)] hover:shadow-[0_20px_40px_rgba(38, 92, 131,0.08)] hover:border-brand-blue/30 dark:hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none block"
+                className="group flex flex-col rounded-[2.5rem] border border-brand-zinc-200/80 dark:border-white/10 bg-white dark:bg-[#12121e] p-6 md:p-8 shadow-[0_2px_12px_rgba(3, 6, 172,0.015)] hover:shadow-[0_20px_40px_rgba(3, 6, 172,0.08)] hover:border-brand-blue/30 dark:hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none block"
               >
                 {/* Image Wrapper */}
                 <div className="relative aspect-[16/10] overflow-hidden bg-brand-light border border-brand-zinc-200/40 rounded-3xl mb-6">
@@ -160,7 +160,7 @@ export default function Blog() {
               <a
                 key={idx}
                 href={post.link}
-                className="group block rounded-[2rem] border border-brand-zinc-200/80 dark:border-white/10 bg-white dark:bg-[#12121e] p-4 sm:p-5 shadow-[0_2px_12px_rgba(38, 92, 131,0.01)] hover:shadow-[0_16px_36px_rgba(38, 92, 131,0.06)] hover:border-brand-blue/30 dark:hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none"
+                className="group block rounded-[2rem] border border-brand-zinc-200/80 dark:border-white/10 bg-white dark:bg-[#12121e] p-4 sm:p-5 shadow-[0_2px_12px_rgba(3, 6, 172,0.01)] hover:shadow-[0_16px_36px_rgba(3, 6, 172,0.06)] hover:border-brand-blue/30 dark:hover:border-brand-blue/30 transition-all duration-300 overflow-hidden card-sweep-glare select-none"
               >
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 w-full">
                   {/* Small Thumbnail */}

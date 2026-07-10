@@ -71,8 +71,7 @@ export default function Navbar() {
 
         {/* Theme Toggle + CTA Button */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Theme Toggle commented out temporarily */}
-          {/*
+          {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
@@ -80,10 +79,9 @@ export default function Navbar() {
           >
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
-          */}
           <a
             href={navbar.ctaHref}
-            className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#265C83] dark:bg-[#E9BD36] shadow-sm active:scale-[0.97] transition-all duration-300 border border-[#265C83] dark:border-[#E9BD36]"
+            className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-sm active:scale-[0.97] transition-all duration-300 border border-[#0306AC] dark:border-[#E9BD36]"
           >
             {/* Curtain slides in from left on hover */}
             <span
@@ -95,7 +93,7 @@ export default function Navbar() {
               {navbar.ctaText}
             </span>
             {/* Arrow circle — inverts on hover */}
-            <span className="relative z-10 mr-1.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#265C83] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+            <span className="relative z-10 mr-1.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
               <ArrowUpRight className="h-3 w-3" />
             </span>
           </a>
@@ -103,8 +101,6 @@ export default function Navbar() {
 
         {/* Mobile: Theme toggle + hamburger */}
         <div className="flex items-center gap-2 md:hidden">
-          {/* Theme Toggle commented out temporarily */}
-          {/*
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
@@ -112,7 +108,6 @@ export default function Navbar() {
           >
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
-          */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="rounded-full p-2 text-brand-dark hover:bg-brand-zinc-100 transition-colors"
@@ -145,7 +140,7 @@ export default function Navbar() {
             <a
               href={navbar.ctaHref}
               onClick={() => setIsOpen(false)}
-              className="group relative flex items-center justify-between overflow-hidden rounded-full bg-[#E9BD36] dark:bg-[#265C83] border border-[#E9BD36] dark:border-[#265C83] transition-all duration-300"
+              className="group relative flex items-center justify-between overflow-hidden rounded-full bg-[#E9BD36] dark:bg-[#0306AC] border border-[#E9BD36] dark:border-[#0306AC] transition-all duration-300"
             >
               <span
                 aria-hidden="true"
@@ -154,7 +149,7 @@ export default function Navbar() {
               <span className="relative z-10 pl-6 py-3 text-xs font-black uppercase tracking-widest text-[#080710] dark:text-white group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75">
                 {navbar.ctaText}
               </span>
-              <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#265C83] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+              <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                 <ArrowUpRight className="h-4 w-4" />
               </span>
             </a>
