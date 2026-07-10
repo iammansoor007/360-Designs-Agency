@@ -17,7 +17,7 @@
       },
       {
         "label": "About Us",
-        "href": "/about"
+        "href": "/"
       },
       {
         "label": "Services",
@@ -78,7 +78,7 @@
     "ctaText": "Let's Work Together",
     "ctaHref": "#contact",
     "portraitAlt": "Muhammad Ahsan - Founder",
-    "portraitSrc": "/owner.jpeg",
+    "portraitSrc": "/ahsan.jpeg",
     "circleText": "• ESTABLISHED 2019 • PERSONAL APPROACH •",
     "circleLetter": "A"
   },
