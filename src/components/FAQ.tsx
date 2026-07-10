@@ -62,7 +62,7 @@ export default function FAQ() {
             </div>
 
             {/* Premium Sticky Strategy Session Box */}
-            <div className="relative overflow-hidden rounded-[2.2rem] bg-gradient-to-br from-[#0306AC] via-[#020485] to-[#03053D] dark:from-[#12121e] dark:via-[#0f0f1a] dark:to-[#080710] border border-transparent dark:border-white/10 p-8 text-white shadow-[0_20px_50px_rgba(3, 6, 172,0.15)] group transition-transform duration-500 hover:scale-[1.01]">
+            <div className="relative overflow-hidden rounded-[2.2rem] bg-gradient-to-br from-brand-blue via-brand-blue-dark to-brand-dark-blue dark:from-[#12121e] dark:via-[#0f0f1a] dark:to-[#080710] border border-transparent dark:border-white/10 p-8 text-white shadow-faq-card group transition-transform duration-500 hover:scale-[1.01]">
               <div className="absolute inset-0 bg-linear-grid-white-3 opacity-30 pointer-events-none z-10" />
               <div className="absolute -right-16 -top-16 h-36 w-36 rounded-full bg-brand-yellow/15 blur-2xl pointer-events-none" />
               
@@ -80,7 +80,7 @@ export default function FAQ() {
                 </div>
                 <a
                   href={faq.strategyAudit.href}
-                  className="group relative inline-flex w-full items-center gap-0 overflow-hidden rounded-full bg-[#E9BD36] dark:bg-[#0306AC] shadow-md active:scale-[0.97] transition-all duration-300 border border-[#E9BD36] dark:border-[#0306AC]"
+                  className="group relative inline-flex w-full items-center gap-0 overflow-hidden rounded-full bg-brand-yellow dark:bg-brand-blue shadow-md active:scale-[0.97] transition-all duration-300 border border-brand-yellow dark:border-brand-blue"
                 >
                   {/* Curtain slides in from left on hover */}
                   <span
@@ -92,7 +92,7 @@ export default function FAQ() {
                     {faq.strategyAudit.button}
                   </span>
                   {/* Arrow circle — inverts on hover */}
-                  <span className="relative z-10 mr-2 ml-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                  <span className="relative z-10 mr-2 ml-auto flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-brand-yellow dark:group-hover:bg-brand-blue group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                     <ArrowRight className="h-4 w-4" />
                   </span>
                 </a>
@@ -113,8 +113,8 @@ export default function FAQ() {
                   key={f.question}
                   className={`group relative overflow-hidden rounded-2xl border transition-all duration-300 cursor-pointer select-none p-6 sm:p-7 ${
                     isOpen
-                      ? "bg-white dark:bg-[#12121e] border-brand-blue/25 dark:border-brand-blue/25 shadow-[0_20px_40px_rgba(3, 6, 172,0.03)]"
-                      : "bg-transparent border-brand-zinc-200/70 dark:border-white/10 hover:bg-white dark:hover:bg-[#12121e] hover:border-brand-blue/20 dark:hover:border-brand-blue/20 hover:shadow-[0_12px_30px_rgba(3, 6, 172,0.025)]"
+                      ? "bg-white dark:bg-[#12121e] border-brand-blue/25 dark:border-brand-blue/25 shadow-faq-item"
+                      : "bg-transparent border-brand-zinc-200/70 dark:border-white/10 hover:bg-white dark:hover:bg-[#12121e] hover:border-brand-blue/20 dark:hover:border-brand-blue/20 shadow-faq-item-hover"
                   }`}
                   onClick={() => toggleFAQ(index)}
                 >
@@ -151,7 +151,7 @@ export default function FAQ() {
                         transition={{ type: "spring", stiffness: 220, damping: 18 }}
                         className={`flex h-9 w-9 items-center justify-center rounded-full border transition-all duration-300 ${
                           isOpen
-                            ? "bg-brand-blue border-brand-blue text-white dark:text-[#080710] shadow-[0_4px_12px_rgba(3, 6, 172,0.15)] dark:shadow-[0_4px_12px_rgba(233, 189, 54,0.15)]"
+                            ? "bg-brand-blue border-brand-blue text-white dark:text-[#080710] shadow-btn-blue"
                             : "bg-brand-zinc-50 dark:bg-white/5 border-brand-zinc-200/80 dark:border-white/10 text-brand-dark dark:text-white group-hover:border-brand-blue group-hover:text-brand-blue"
                         }`}
                       >

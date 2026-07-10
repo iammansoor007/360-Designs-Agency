@@ -141,7 +141,7 @@ export default function Testimonials() {
           </div>
 
           {/* Premium Scorecard Widget */}
-          <div className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 rounded-2xl p-4 sm:p-5 shadow-[0_8px_24px_rgba(3, 6, 172,0.02)] relative overflow-hidden group/scorecard shrink-0 min-w-[260px] md:max-w-sm">
+          <div className="bg-white dark:bg-[#12121e] border border-brand-zinc-200/80 dark:border-white/10 rounded-2xl p-4 sm:p-5 shadow-testimonials-scorecard relative overflow-hidden group/scorecard shrink-0 min-w-[260px] md:max-w-sm">
             <div className="absolute top-0 left-0 w-full h-[3px] bg-gradient-to-r from-brand-blue to-brand-blue/40" />
             <div className="flex items-center gap-4 relative z-10">
               <div className="flex flex-col items-center justify-center h-14 w-14 rounded-xl bg-brand-blue text-white dark:text-[#080710] shadow-sm border border-brand-blue/10">

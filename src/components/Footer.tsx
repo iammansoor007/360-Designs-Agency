@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, ArrowUp, Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import { FormEvent, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import content from "@/data/content.json";
  
 export default function Footer() {
@@ -63,21 +64,15 @@ export default function Footer() {
           
           {/* Logo & Description Column */}
           <div className="lg:col-span-3 space-y-6 lg:pr-6">
-            <div className="flex items-center gap-2.5">
-              <div className="relative flex h-10 w-10 items-center justify-center rounded-xl bg-white/10 overflow-hidden border border-white/10">
-                <div className="absolute top-1 left-1 w-6 h-6 rounded-full bg-brand-yellow/80 mix-blend-screen" />
-                <div className="absolute bottom-1 right-1 w-6 h-6 rounded-full bg-brand-blue/80 mix-blend-screen" />
-                <span className="relative font-heading font-extrabold text-white text-base z-10">{footer.logoLetter}</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-sans font-black text-lg leading-none tracking-tight text-white uppercase">
-                  {footer.logoText}
-                </span>
-                <span className="font-sans font-bold text-[9px] tracking-widest text-brand-yellow uppercase leading-none mt-1">
-                  {footer.logoSub}
-                </span>
-              </div>
-            </div>
+            <Link href="/" className="flex items-center gap-2.5">
+              <Image
+                src="/logo.png"
+                alt="360 Designs Agency Logo"
+                width={150}
+                height={40}
+                className="h-10 w-auto object-contain"
+              />
+            </Link>
             <p className="text-xs md:text-sm text-brand-zinc-300 leading-relaxed max-w-xs font-semibold">
               {footer.description}
             </p>

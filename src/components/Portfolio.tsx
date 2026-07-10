@@ -339,7 +339,7 @@ export default function Portfolio() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.1 }}
             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.15 }}
-            className="w-full rounded-[2.5rem] border border-brand-zinc-200/60 dark:border-white/10 bg-white dark:bg-[#12121e] shadow-[0_4px_30px_rgba(3, 6, 172,0.01)] hover:shadow-[0_25px_60px_rgba(3, 6, 172,0.06)] transition-all duration-500 p-6 xs:p-8 md:p-12 relative overflow-hidden group cursor-grab active:cursor-grabbing select-none"
+            className="w-full rounded-[2.5rem] border border-brand-zinc-200/60 dark:border-white/10 bg-white dark:bg-[#12121e] shadow-portfolio-card hover:shadow-portfolio-card-hover transition-all duration-500 p-6 xs:p-8 md:p-12 relative overflow-hidden group cursor-grab active:cursor-grabbing select-none"
           >
             {/* Subtle grid pattern inside card for premium texture */}
             <div className="absolute inset-0 bg-[radial-gradient(var(--color-border)_1.2px,transparent_1.2px)] [background-size:24px_24px] opacity-40 dark:opacity-[0.08] pointer-events-none z-0" />

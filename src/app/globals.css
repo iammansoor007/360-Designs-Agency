@@ -4,35 +4,40 @@
 
 :root {
   --color-yellow: #E9BD36;
-  --color-blue: #0306AC;
-  --color-blue-dark: #020485;
-  --color-dark-blue: #03053D;
+  --color-blue: #265C83;
+  --color-blue-dark: #1F4968;
+  --color-dark-blue: #143044;
   --color-dark: #080710;
   --color-light: #F9FAFB;
   --color-border: #E5E7EB;
   --color-gray: #6B7280;
-  --color-blue-opaque-4: rgba(3, 6, 172, 0.04);
-  --color-blue-opaque-5: rgba(3, 6, 172, 0.05);
-  --color-blue-opaque-8: rgba(3, 6, 172, 0.08);
-  --color-blue-opaque-10: rgba(3, 6, 172, 0.1);
+  --color-blue-opaque-4: rgba(38, 92, 131, 0.04);
+  --color-blue-opaque-5: rgba(38, 92, 131, 0.05);
+  --color-blue-opaque-8: rgba(38, 92, 131, 0.08);
+  --color-blue-opaque-10: rgba(38, 92, 131, 0.1);
+  --color-blue-opaque-15: rgba(38, 92, 131, 0.15);
+  --color-blue-opaque-25: rgba(38, 92, 131, 0.25);
+  --color-yellow-opaque-15: rgba(233, 189, 54, 0.15);
+  --color-yellow-opaque-20: rgba(233, 189, 54, 0.2);
+  --color-yellow-opaque-30: rgba(233, 189, 54, 0.3);
   --color-dark-opaque-4: rgba(8, 7, 16, 0.04);
   --color-footer-bg: #090A29;
   --underline-glow: drop-shadow(0px 1.5px 2px rgba(233, 189, 54, 0.45));
   --color-gradient-stop-1: #E9BD36;
   --color-gradient-stop-2: #FFA800;
-  --background-mouse-glow: rgba(3, 6, 172, 0.015);
+  --background-mouse-glow: rgba(38, 92, 131, 0.015);
   --background-grid-dot-color: #e5e7eb;
-  --background-spotlight-color: rgba(3, 6, 172, 0.22);
-  --background-grid-line-color: rgba(3, 6, 172, 0.04);
-  --background-grid-hover-line-color: rgba(3, 6, 172, 0.09);
-  --svg-gradient-stop-1: #0306AC;
+  --background-spotlight-color: rgba(38, 92, 131, 0.22);
+  --background-grid-line-color: rgba(38, 92, 131, 0.04);
+  --background-grid-hover-line-color: rgba(38, 92, 131, 0.09);
+  --svg-gradient-stop-1: #265C83;
   --svg-gradient-stop-2: #2563EB;
-  --svg-track-stroke: rgba(3, 6, 172, 0.08);
-  --svg-dot-shadow: drop-shadow(0px 1.5px 3px rgba(3, 6, 172, 0.45));
+  --svg-track-stroke: rgba(38, 92, 131, 0.08);
+  --svg-dot-shadow: drop-shadow(0px 1.5px 3px rgba(38, 92, 131, 0.45));
 }
 
 .dark {
-  --color-yellow: #0306AC;
+  --color-yellow: #265C83;
   --color-blue: #E9BD36;
   --color-blue-dark: #e5da50;
   --color-dark-blue: #16161f;
@@ -44,11 +49,16 @@
   --color-blue-opaque-5: rgba(233, 189, 54, 0.1);
   --color-blue-opaque-8: rgba(233, 189, 54, 0.14);
   --color-blue-opaque-10: rgba(233, 189, 54, 0.18);
+  --color-blue-opaque-15: rgba(233, 189, 54, 0.15);
+  --color-blue-opaque-25: rgba(233, 189, 54, 0.25);
+  --color-yellow-opaque-15: rgba(38, 92, 131, 0.15);
+  --color-yellow-opaque-20: rgba(38, 92, 131, 0.2);
+  --color-yellow-opaque-30: rgba(38, 92, 131, 0.3);
   --color-dark-opaque-4: rgba(255, 255, 255, 0.04);
   --color-footer-bg: #080710;
-  --underline-glow: drop-shadow(0px 1.5px 2px rgba(3, 6, 172, 0.45));
-  --color-gradient-stop-1: #0306AC;
-  --color-gradient-stop-2: #020485;
+  --underline-glow: drop-shadow(0px 1.5px 2px rgba(38, 92, 131, 0.45));
+  --color-gradient-stop-1: #265C83;
+  --color-gradient-stop-2: #1F4968;
   --background-mouse-glow: rgba(233, 189, 54, 0.04);
   --background-grid-dot-color: #2a2a3a;
   --background-spotlight-color: rgba(233, 189, 54, 0.18);
@@ -106,6 +116,55 @@ body {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   border: 1px solid var(--color-blue-opaque-10);
+}
+
+/* Color-variable-driven utility shadows */
+.shadow-btn-blue {
+  box-shadow: 0 4px 28px var(--color-blue-opaque-15) !important;
+}
+
+.shadow-btn-yellow {
+  box-shadow: 0 4px 28px var(--color-yellow-opaque-15) !important;
+}
+
+.shadow-faq-card {
+  box-shadow: 0 20px 50px var(--color-blue-opaque-15) !important;
+}
+
+.shadow-faq-item {
+  box-shadow: 0 20px 40px var(--color-blue-opaque-4) !important;
+}
+
+.shadow-faq-item-hover {
+  box-shadow: 0 12px 30px var(--color-blue-opaque-5) !important;
+}
+
+.shadow-blog-card {
+  box-shadow: 0 2px 12px var(--color-blue-opaque-4) !important;
+}
+
+.shadow-blog-card-hover {
+  box-shadow: 0 20px 40px var(--color-blue-opaque-10) !important;
+}
+
+.shadow-portfolio-card {
+  box-shadow: 0 4px 30px var(--color-blue-opaque-4) !important;
+}
+
+.shadow-portfolio-card-hover {
+  box-shadow: 0 25px 60px var(--color-blue-opaque-8) !important;
+}
+
+.shadow-testimonials-scorecard {
+  box-shadow: 0 8px 24px var(--color-blue-opaque-4) !important;
+}
+
+.shadow-brands-card {
+  box-shadow: 0 12px 32px var(--color-blue-opaque-4) !important;
+}
+
+.shadow-contact-card {
+  box-shadow: 0 24px 80px var(--color-blue-opaque-4) !important;
 }
 
 .marquee-container {
@@ -295,10 +354,15 @@ body {
   background: linear-gradient(145deg, #12121e 0%, #0d0d18 100%) !important;
 }
 
-/* Brands logo hover drop-shadow & color override in dark mode */
+/* Brands logo hover drop-shadow & color override */
+#brands .group:hover svg {
+  color: var(--color-blue) !important;
+  filter: drop-shadow(0 0 6px var(--color-blue-opaque-25)) !important;
+}
+
 .dark #brands .group:hover svg {
   color: var(--color-blue) !important;
-  filter: drop-shadow(0 0 6px rgba(233, 189, 54, 0.35)) !important;
+  filter: drop-shadow(0 0 6px var(--color-blue-opaque-25)) !important;
 }
 
 /* Services SVG illustrations dark mode background fixes */
@@ -371,29 +435,29 @@ section,
 
 .glass-card-premium:hover {
   transform: translateY(-6px) scale(1.01);
-  box-shadow: 0 40px 80px -15px rgba(3, 6, 172, 0.06);
+  box-shadow: 0 40px 80px -15px rgba(38, 92, 131, 0.06);
   background: rgba(255, 255, 255, 0.04);
 }
 
 .glass-card-premium:hover::before {
-  background: linear-gradient(135deg, rgba(3, 6, 172, 0.3) 0%, rgba(233, 189, 54, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(38, 92, 131, 0.3) 0%, rgba(233, 189, 54, 0.2) 100%);
 }
 
 .light .glass-card-premium {
   background: rgba(255, 255, 255, 0.65);
-  border: 1px solid rgba(3, 6, 172, 0.04);
-  box-shadow: 0 30px 60px -15px rgba(3, 6, 172, 0.02);
+  border: 1px solid rgba(38, 92, 131, 0.04);
+  box-shadow: 0 30px 60px -15px rgba(38, 92, 131, 0.02);
 }
 
 .light .glass-card-premium::before {
-  background: linear-gradient(135deg, rgba(3, 6, 172, 0.08) 0%, rgba(3, 6, 172, 0.01) 100%);
+  background: linear-gradient(135deg, rgba(38, 92, 131, 0.08) 0%, rgba(38, 92, 131, 0.01) 100%);
 }
 
 .light .glass-card-premium:hover {
-  box-shadow: 0 40px 80px -15px rgba(3, 6, 172, 0.08);
+  box-shadow: 0 40px 80px -15px rgba(38, 92, 131, 0.08);
   background: rgba(255, 255, 255, 0.85);
 }
 
 .light .glass-card-premium:hover::before {
-  background: linear-gradient(135deg, rgba(3, 6, 172, 0.3) 0%, rgba(233, 189, 54, 0.2) 100%);
+  background: linear-gradient(135deg, rgba(38, 92, 131, 0.3) 0%, rgba(233, 189, 54, 0.2) 100%);
 }

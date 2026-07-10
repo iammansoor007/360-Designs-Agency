@@ -218,7 +218,7 @@ export default function Hero() {
               {/* Primary Cobalt Blue Button */}
               <a
                 href={hero.ctaPrimaryHref}
-                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-[0_4px_28px_rgba(3, 6, 172,0.15)] dark:shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] active:scale-[0.97] transition-all duration-350 border border-[#0306AC] dark:border-[#E9BD36] pointer-events-auto"
+                className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-brand-blue dark:bg-brand-yellow shadow-btn-blue active:scale-[0.97] transition-all duration-350 border border-brand-blue dark:border-brand-yellow pointer-events-auto"
               >
                 {/* Curtain slides in from left on hover */}
                 <span
@@ -230,7 +230,7 @@ export default function Hero() {
                   {hero.ctaPrimaryText}
                 </span>
                 {/* Arrow circle — inverts on hover */}
-                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-brand-yellow dark:group-hover:bg-brand-blue group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                   <ArrowRight className="h-4 w-4" />
                 </span>
               </a>
@@ -243,14 +243,14 @@ export default function Hero() {
                 {/* Curtain slides in from left on hover */}
                 <span
                   aria-hidden="true"
-                  className="absolute inset-0 bg-[#E9BD36] dark:bg-[#0306AC] translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
+                  className="absolute inset-0 bg-[#E9BD36] dark:bg-brand-blue translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]"
                 />
                 {/* Label */}
                 <span className="relative z-10 pl-7 pr-5 py-[14px] text-xs font-black uppercase tracking-[0.15em] text-[#080710] dark:text-white group-hover:text-[#080710] dark:group-hover:text-white transition-colors duration-300 delay-75 whitespace-nowrap">
                   {hero.ctaSecondaryText}
                 </span>
                 {/* Arrow circle — inverts on hover */}
-                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#080710] dark:group-hover:bg-[#0306AC] group-hover:text-[#E9BD36] dark:group-hover:text-white transition-all duration-300">
+                <span className="relative z-10 mr-2 flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#080710] dark:group-hover:bg-brand-blue group-hover:text-[#E9BD36] dark:group-hover:text-white transition-all duration-300">
                   <ArrowUpRight className="h-4 w-4" />
                 </span>
               </a>

@@ -88,7 +88,7 @@ const TickerDigit = ({ digit }: { digit: number }) => {
         {numbers.map((num) => (
           <span 
             key={num} 
-            className="flex items-center justify-center leading-none bg-clip-text text-transparent bg-gradient-to-r from-[#0306AC] to-[#4b4fff] dark:from-[#E9BD36] dark:to-[#FFA800]" 
+            className="flex items-center justify-center leading-none bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-blue/60 dark:from-brand-yellow dark:to-brand-yellow/60" 
             style={{ 
               height: "1em",
               WebkitBackgroundClip: "text"
@@ -111,7 +111,7 @@ const DigitTicker = ({ value }: { value: number }) => {
           return (
             <span 
               key={idx} 
-              className="leading-none bg-clip-text text-transparent bg-gradient-to-r from-[#0306AC] to-[#4b4fff] dark:from-[#E9BD36] dark:to-[#FFA800]"
+              className="leading-none bg-clip-text text-transparent bg-gradient-to-r from-brand-blue to-brand-blue/60 dark:from-brand-yellow dark:to-brand-yellow/60"
               style={{ WebkitBackgroundClip: "text" }}
             >
               {digit}
@@ -132,9 +132,9 @@ export default function AboutPage() {
       <main className="flex-1 w-full bg-white dark:bg-[#080710] text-brand-dark dark:text-white transition-colors duration-300 relative overflow-hidden">
 
         {/* Awwwards-Level Floating Blurred Mesh Blobs */}
-        <div className="absolute top-[3%] left-[-15%] w-[50vw] h-[50vw] rounded-full bg-[#0306AC]/[0.03] dark:bg-[#0306AC]/[0.06] blur-[120px] pointer-events-none select-none -z-10 animate-float-blob" />
-        <div className="absolute top-[28%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-[#E9BD36]/[0.02] dark:bg-[#E9BD36]/[0.05] blur-[150px] pointer-events-none select-none -z-10 animate-float-blob-delayed" />
-        <div className="absolute bottom-[30%] left-[-12%] w-[48vw] h-[48vw] rounded-full bg-[#0306AC]/[0.02] dark:bg-[#0306AC]/[0.04] blur-[140px] pointer-events-none select-none -z-10 animate-float-blob" />
+        <div className="absolute top-[3%] left-[-15%] w-[50vw] h-[50vw] rounded-full bg-brand-blue/[0.03] dark:bg-brand-blue/[0.06] blur-[120px] pointer-events-none select-none -z-10 animate-float-blob" />
+        <div className="absolute top-[28%] right-[-10%] w-[45vw] h-[45vw] rounded-full bg-brand-yellow/[0.02] dark:bg-brand-yellow/[0.05] blur-[150px] pointer-events-none select-none -z-10 animate-float-blob-delayed" />
+        <div className="absolute bottom-[30%] left-[-12%] w-[48vw] h-[48vw] rounded-full bg-brand-blue/[0.02] dark:bg-brand-blue/[0.04] blur-[140px] pointer-events-none select-none -z-10 animate-float-blob" />
         <div className="absolute bottom-[5%] right-[-12%] w-[42vw] h-[42vw] rounded-full bg-[#E9BD36]/[0.015] dark:bg-[#E9BD36]/[0.035] blur-[160px] pointer-events-none select-none -z-10 animate-float-blob-delayed" />
 
         {/* Awwwards-Level Background Grid Pattern */}
@@ -145,7 +145,7 @@ export default function AboutPage() {
           <div className="absolute inset-0 -z-10 bg-linear-grid-blue-4 [background-size:40px_40px] opacity-[0.05] dark:opacity-[0.08]" />
 
           {/* Ambient Glows */}
-          <div className="absolute top-[10%] left-[-5%] w-[350px] h-[350px] rounded-full bg-[#0306AC]/[0.02] dark:bg-[#0306AC]/[0.05] blur-[120px] pointer-events-none -z-10" />
+          <div className="absolute top-[10%] left-[-5%] w-[350px] h-[350px] rounded-full bg-brand-blue/[0.02] dark:bg-brand-blue/[0.05] blur-[120px] pointer-events-none -z-10" />
 
           <div className="mx-auto max-w-7xl px-4 sm:px-6 md:px-12 relative z-10">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
@@ -168,7 +168,7 @@ export default function AboutPage() {
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl font-black tracking-tight leading-[1.08] text-brand-dark dark:text-white">
                   We Build Digital <br />
                   Experiences That <br />
-                  <span className="relative inline-block text-[#0306AC] dark:text-[#E9BD36] pb-2 whitespace-nowrap">
+                  <span className="relative inline-block text-brand-blue dark:text-brand-yellow pb-2 whitespace-nowrap">
                     Drive Real Growth.
                     <svg className="absolute -bottom-1.5 left-0 w-full h-3.5 pointer-events-none text-[#E9BD36] opacity-90" viewBox="0 0 100 10" preserveAspectRatio="none">
                       <motion.path
@@ -192,13 +192,13 @@ export default function AboutPage() {
                   {/* Let's Work Together */}
                   <a
                     href="/#contact"
-                    className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-[0_4px_28px_rgba(3, 6, 172,0.15)] dark:shadow-[0_4px_28px_rgba(233, 189, 54,0.15)] active:scale-[0.97] transition-all duration-350 border border-[#0306AC] dark:border-[#E9BD36] pointer-events-auto"
+                    className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-brand-blue dark:bg-brand-yellow shadow-btn-blue active:scale-[0.97] transition-all duration-350 border border-brand-blue dark:border-brand-yellow pointer-events-auto"
                   >
                     <span className="absolute inset-0 bg-[#080710] dark:bg-white translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
                     <span className="relative z-10 pl-6 pr-4 py-[11px] text-[11px] font-black uppercase tracking-wider text-white dark:text-[#080710] group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75 whitespace-nowrap">
                       LET'S WORK TOGETHER
                     </span>
-                    <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+                    <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-brand-yellow dark:group-hover:bg-brand-blue group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                       <ArrowRight className="h-3.5 w-3.5" />
                     </span>
                   </a>
@@ -207,11 +207,11 @@ export default function AboutPage() {
                   <button
                     className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-white dark:bg-[#1a1a2e] shadow-sm active:scale-[0.97] transition-all duration-350 border border-[#080710]/10 dark:border-white/15"
                   >
-                    <span className="absolute inset-0 bg-[#E9BD36] dark:bg-[#0306AC] translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
+                    <span className="absolute inset-0 bg-brand-yellow dark:bg-brand-blue translate-x-[-102%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.76,0,0.24,1)]" />
                     <span className="relative z-10 pl-6 pr-4 py-[11px] text-[11px] font-black uppercase tracking-wider text-[#080710] dark:text-white group-hover:text-[#080710] dark:group-hover:text-white transition-colors duration-300 delay-75 whitespace-nowrap">
                       WATCH OUR STORY
                     </span>
-                    <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#080710] dark:group-hover:bg-[#0306AC] group-hover:text-[#E9BD36] dark:group-hover:text-white transition-all duration-300">
+                    <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#080710] dark:group-hover:bg-brand-blue group-hover:text-[#E9BD36] dark:group-hover:text-white transition-all duration-300">
                       <Play className="h-3.5 w-3.5 fill-current" />
                     </span>
                   </button>

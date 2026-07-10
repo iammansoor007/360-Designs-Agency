@@ -1,17 +1,19 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ArrowUpRight, Menu, X, Star, Sun, Moon } from "lucide-react";
-import { useState, useEffect } from "react";
+import { ArrowUpRight, Menu, X, Star/*, Sun, Moon*/ } from "lucide-react";
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 import content from "@/data/content.json";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isDark, setIsDark] = useState(false);
+  // const [isDark, setIsDark] = useState(false);
   const { navbar } = content;
 
+  /* THEME TOGGLE DISABLED — site locked to dark mode
   useEffect(() => {
     setIsDark(document.documentElement.classList.contains('dark'));
   }, []);
@@ -28,6 +30,7 @@ export default function Navbar() {
       setIsDark(true);
     }
   };
+  */
 
   return (
     <header className="sticky top-0 z-50 w-full px-4 py-3 sm:px-6 sm:py-4 md:px-12 pointer-events-none">
@@ -38,22 +41,16 @@ export default function Navbar() {
         className="mx-auto max-w-7xl rounded-full border border-brand-zinc-200/80 bg-white/80 px-3 sm:px-6 py-2.5 sm:py-3 shadow-[0_8px_30px_rgb(0,0,0,0.04)] backdrop-blur-md flex items-center justify-between pointer-events-auto"
       >
         {/* Brand Logo - Aligned with Hero badge and theme */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          <div className="relative flex h-9 w-9 sm:h-10 sm:w-10 shrink-0 items-center justify-center rounded-full bg-brand-blue shadow-md border border-brand-blue/10">
-            <span className="font-sans font-black text-white text-sm sm:text-base leading-none">{navbar.logoLetter}</span>
-            <div className="absolute -top-0.5 -right-0.5 h-3 w-3 sm:h-3.5 sm:w-3.5 rounded-full bg-brand-yellow flex items-center justify-center border border-white">
-              <Star className="h-1.5 w-1.5 sm:h-2 sm:w-2 fill-brand-dark text-brand-dark" />
-            </div>
-          </div>
-          <div className="flex flex-col">
-            <span className="font-sans font-black text-xs sm:text-base tracking-tight text-brand-dark leading-none">
-              {navbar.logoText}
-            </span>
-            <span className="font-sans font-bold text-[7.5px] sm:text-[8.5px] tracking-[0.2em] text-brand-blue uppercase leading-none mt-1">
-              {navbar.logoSub}
-            </span>
-          </div>
-        </div>
+        <Link href="/" className="flex items-center gap-2 sm:gap-3 pointer-events-auto">
+          <Image
+            src="/logo.png"
+            alt="360 Designs Agency Logo"
+            width={150}
+            height={40}
+            className="h-9 sm:h-10 w-auto object-contain"
+            priority
+          />
+        </Link>
 
         {/* Desktop Nav - Centered */}
         <nav className="hidden md:flex items-center gap-8 font-sans font-bold text-xs uppercase tracking-wider text-brand-dark">
@@ -71,7 +68,7 @@ export default function Navbar() {
 
         {/* Theme Toggle + CTA Button */}
         <div className="hidden md:flex items-center gap-3">
-          {/* Theme Toggle */}
+          {/* THEME TOGGLE DISABLED — site locked to dark mode
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
@@ -79,9 +76,10 @@ export default function Navbar() {
           >
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
+          */}
           <a
             href={navbar.ctaHref}
-            className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-[#0306AC] dark:bg-[#E9BD36] shadow-sm active:scale-[0.97] transition-all duration-300 border border-[#0306AC] dark:border-[#E9BD36]"
+            className="group relative inline-flex items-center gap-0 overflow-hidden rounded-full bg-brand-blue dark:bg-brand-yellow shadow-sm active:scale-[0.97] transition-all duration-300 border border-brand-blue dark:border-brand-yellow"
           >
             {/* Curtain slides in from left on hover */}
             <span
@@ -93,7 +91,7 @@ export default function Navbar() {
               {navbar.ctaText}
             </span>
             {/* Arrow circle — inverts on hover */}
-            <span className="relative z-10 mr-1.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+            <span className="relative z-10 mr-1.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-brand-yellow dark:group-hover:bg-brand-blue group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
               <ArrowUpRight className="h-3 w-3" />
             </span>
           </a>
@@ -101,6 +99,7 @@ export default function Navbar() {
 
         {/* Mobile: Theme toggle + hamburger */}
         <div className="flex items-center gap-2 md:hidden">
+          {/* THEME TOGGLE DISABLED — site locked to dark mode
           <button
             onClick={toggleTheme}
             aria-label="Toggle theme"
@@ -108,6 +107,7 @@ export default function Navbar() {
           >
             {isDark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
+          */}
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="rounded-full p-2 text-brand-dark hover:bg-brand-zinc-100 transition-colors"
@@ -140,7 +140,7 @@ export default function Navbar() {
             <a
               href={navbar.ctaHref}
               onClick={() => setIsOpen(false)}
-              className="group relative flex items-center justify-between overflow-hidden rounded-full bg-[#E9BD36] dark:bg-[#0306AC] border border-[#E9BD36] dark:border-[#0306AC] transition-all duration-300"
+              className="group relative flex items-center justify-between overflow-hidden rounded-full bg-brand-yellow dark:bg-brand-blue border border-brand-yellow dark:border-brand-blue transition-all duration-300"
             >
               <span
                 aria-hidden="true"
@@ -149,7 +149,7 @@ export default function Navbar() {
               <span className="relative z-10 pl-6 py-3 text-xs font-black uppercase tracking-widest text-[#080710] dark:text-white group-hover:text-white dark:group-hover:text-[#080710] transition-colors duration-300 delay-75">
                 {navbar.ctaText}
               </span>
-              <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-[#E9BD36] dark:group-hover:bg-[#0306AC] group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
+              <span className="relative z-10 mr-2 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#080710] dark:bg-white text-white dark:text-[#080710] group-hover:bg-brand-yellow dark:group-hover:bg-brand-blue group-hover:text-[#080710] dark:group-hover:text-white transition-all duration-300">
                 <ArrowUpRight className="h-4 w-4" />
               </span>
             </a>
