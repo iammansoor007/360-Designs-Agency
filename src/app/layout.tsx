@@ -22,6 +22,10 @@ import content from "@/data/content.json";
 export const metadata: Metadata = {
   title: content.metadata.title,
   description: content.metadata.description,
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+  },
 };
 
 export default function RootLayout({
